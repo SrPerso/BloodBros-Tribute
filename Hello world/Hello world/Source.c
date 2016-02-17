@@ -8,6 +8,8 @@ int main(){
 	printf("Hello my friends by Carlos \n");
 	printf("Hello Terrassa by Adri\n");
 	printf("Hi CITM by Esteban!!!\n");
+	printf("Hello from RESA by Marc Samper ;)");
+
 
 
 	getchar();
