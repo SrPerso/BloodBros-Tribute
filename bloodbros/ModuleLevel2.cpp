@@ -14,7 +14,7 @@ ModuleLevel2::ModuleLevel2()
 {
 	// Background
 	background.x = 0;
-	background.y = 0;
+	background.y = 35;
 	background.w = 512;
 	background.h = 511;
 }

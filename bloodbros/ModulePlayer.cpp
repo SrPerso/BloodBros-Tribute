@@ -12,7 +12,7 @@ ModulePlayer::ModulePlayer()
 	cowboy.x = 0;
 	cowboy.y = 0;
 	cowboy.w = 22;
-	cowboy.y = 60;
+	cowboy.h = 60;
 }
 
 ModulePlayer::~ModulePlayer()
@@ -31,7 +31,7 @@ bool ModulePlayer::Start()
 update_status ModulePlayer::Update()
 {
 
-	App->render->Blit(graphics, 230, 300, &cowboy, 0);
+	App->render->Blit(graphics,230, 350, &cowboy, 0);
 	return UPDATE_CONTINUE;
 
 }

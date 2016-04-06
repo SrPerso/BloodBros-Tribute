@@ -32,7 +32,7 @@ bool ModuleAudio::Init()
 
 Mix_Music* ModuleAudio::Load(){
 	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024);
-	music = Mix_LoadMUS("honda.ogg");
+	music = Mix_LoadMUS("level.wav");
 	Mix_PlayMusic(music, -1);
 	return music;
 }
