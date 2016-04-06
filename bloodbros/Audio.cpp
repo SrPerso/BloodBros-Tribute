@@ -16,23 +16,23 @@ bool ModuleAudio::Init()
 	bool ret = true;
 
 	// load support for the PNG image format
-	int audioflags = MIX_INIT_OGG | MIX_INIT_MOD;
+	int audioflags = MIX_INIT_OGG;
 	
 	int initted = Mix_Init(audioflags);
 
-	if ((initted & audioflags) != audioflags)
+	if ((initted) != audioflags)
 	{
 		LOG("Could not initialize Audio lib. MIX_Init: %s", Mix_GetError());
 		ret = false;
 	}
-
+	Load();
 
 	return ret;
 }
 
 Mix_Music* ModuleAudio::Load(){
 	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024);
-	music = Mix_LoadMUS("pene.ogg");
+	music = Mix_LoadMUS("honda.ogg");
 	Mix_PlayMusic(music, -1);
 	return music;
 }

@@ -10,9 +10,6 @@ class ModuleAudio :public Module
 public:
 	ModuleAudio();
 	~ModuleAudio();
-	// load support for the OGG and MOD sample/music formats
-	int audioflag = MIX_INIT_OGG | MIX_INIT_MOD;
-	// Initialize the audio library 
 
 	bool Init();
 	bool CleanUp();
