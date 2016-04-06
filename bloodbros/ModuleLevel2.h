@@ -1,5 +1,5 @@
-#ifndef __MODULELEVEL1_H__
-#define __MODULELEVEL_H__
+#ifndef __MODULELEVEL2_H__
+#define __MODULELEVEL2_H__
 
 #include "Module.h"
 #include "Animation.h"
@@ -23,4 +23,4 @@ public:
 	SDL_Rect background;
 };
 
-#endif // __MODULESCENEHONDA_H__
+#endif // __MODULELEVEL2_H__

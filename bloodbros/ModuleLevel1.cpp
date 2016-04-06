@@ -7,16 +7,17 @@
 #include "ModulePlayer.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
+#include "Audio.h"
 
 // Reference at https://youtu.be/6OlenbCC4WI?t=382
 
 ModuleLevel1::ModuleLevel1()
 {
 	// Background
-	background.x = 2;
-	background.y = 35;
-	background.w = 513;
-	background.h = 514;
+	background.x = 0;
+	background.y = 0;
+	background.w = 256;
+	background.h = 224;
 
 }
 
@@ -28,11 +29,11 @@ bool ModuleLevel1::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	graphics = App->textures->Load("lvl1.png");
+	graphics = App->textures->Load("level1.png");
 
 	// TODO 1: Enable (and properly disable) the player module
 	App->player->Enable();
-
+	App->audio->Enable();
 	return ret;
 }
 
@@ -41,6 +42,7 @@ bool ModuleLevel1::CleanUp()
 {
 	LOG("Unloading level 1");
 	App->player->Disable();
+	App->audio->Disable();
 	return true;
 }
 

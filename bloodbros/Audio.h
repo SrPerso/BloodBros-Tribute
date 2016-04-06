@@ -11,7 +11,7 @@ public:
 	ModuleAudio();
 	~ModuleAudio();
 
-	bool Init();
+	bool Start();
 	bool CleanUp();
 	Mix_Music *music;
 	Mix_Music *Load();

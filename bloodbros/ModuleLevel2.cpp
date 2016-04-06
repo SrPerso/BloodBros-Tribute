@@ -7,6 +7,8 @@
 #include "ModulePlayer.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
+#include "Audio.h"
+#include "ModuleTitleScreen.h"
 
 // Reference at https://youtu.be/6OlenbCC4WI?t=382
 
@@ -14,9 +16,9 @@ ModuleLevel2::ModuleLevel2()
 {
 	// Background
 	background.x = 0;
-	background.y = 35;
-	background.w = 512;
-	background.h = 511;
+	background.y = 0;
+	background.w = 256;
+	background.h = 224;
 }
 
 ModuleLevel2::~ModuleLevel2()
@@ -31,7 +33,7 @@ bool ModuleLevel2::Start()
 
 	// TODO 1: Enable (and properly disable) the player module
 	App->player->Enable();
-
+	App->audio->Enable();
 	return ret;
 }
 
@@ -40,6 +42,7 @@ bool ModuleLevel2::CleanUp()
 {
 	LOG("Unloading level 2");
 	App->player->Disable();
+	App->audio->Disable();
 	return true;
 }
 
@@ -53,7 +56,7 @@ update_status ModuleLevel2::Update()
 	// TODO 3: make so pressing SPACE the KEN stage is loaded
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
 	{
-		App->fade->FadeToBlack(App->level2, App->level1, 2);
+		App->fade->FadeToBlack(App->level2, App->titlescreen, 2);
 	}
 	return UPDATE_CONTINUE;
 }

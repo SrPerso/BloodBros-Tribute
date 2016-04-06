@@ -10,7 +10,7 @@
 ModuleAudio::ModuleAudio(){ };
 ModuleAudio::~ModuleAudio(){ };
 
-bool ModuleAudio::Init()
+bool ModuleAudio::Start()
 {
 	LOG("Init Audio library");
 	bool ret = true;
