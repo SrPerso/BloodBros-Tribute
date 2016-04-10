@@ -9,6 +9,7 @@
 #include "ModuleLevel1.h"
 #include"ModuleLevel2.h"
 #include "ModuleTitleScreen.h"
+#include "ModuleVictory.h"
 
 Application::Application()
 {
@@ -17,11 +18,12 @@ Application::Application()
 	modules[2] = input = new ModuleInput();
 	modules[3] = textures = new ModuleTextures();
 	modules[4] = audio = new ModuleAudio();
-	modules[5] = titlescreen = new ModuleTitleScreen();
-	modules[6] = level1 = new ModuleLevel1();
-	modules[7] = level2 = new ModuleLevel2();
-	modules[8] = player = new ModulePlayer();
-	modules[9] = fade = new ModuleFadeToBlack();
+	modules[5] = level1 = new ModuleLevel1();
+	modules[6] = level2 = new ModuleLevel2();
+	modules[7] = victoryscreen = new ModuleVictory();
+	modules[8] = titlescreen = new ModuleTitleScreen();
+	modules[9] = player = new ModulePlayer();
+	modules[10] = fade = new ModuleFadeToBlack();
 	
 }	
 
@@ -37,6 +39,7 @@ bool Application::Init()
 	player->Disable();
 	level1->Disable();
 	level2->Disable();
+	victoryscreen->Disable();
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Init();

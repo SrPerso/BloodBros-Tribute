@@ -34,6 +34,7 @@ bool ModuleLevel1::Start()
 	// TODO 1: Enable (and properly disable) the player module
 	App->player->Enable();
 	App->audio->Enable();
+	App->audio->Load("level.wav");
 	return ret;
 }
 

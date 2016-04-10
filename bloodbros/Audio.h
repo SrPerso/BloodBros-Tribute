@@ -14,7 +14,7 @@ public:
 	bool Start();
 	bool CleanUp();
 	Mix_Music *music;
-	Mix_Music *Load();
+	void Load(const char* path);
 
 };
 

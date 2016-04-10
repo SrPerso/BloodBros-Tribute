@@ -25,22 +25,20 @@ bool ModuleAudio::Start()
 		LOG("Could not initialize Audio lib. MIX_Init: %s", Mix_GetError());
 		ret = false;
 	}
-	Load();
-
 	return ret;
 }
 
-Mix_Music* ModuleAudio::Load(){
+void ModuleAudio::Load(const char* path){
 	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024);
-	music = Mix_LoadMUS("level.wav");
+	LOG("Initing %s", path);
+	music = Mix_LoadMUS(path);
 	Mix_PlayMusic(music, -1);
-	return music;
 }
 
 
 
 bool ModuleAudio::CleanUp(){
-	LOG("Freeing textures and Audio library");
+	LOG("Freeing Audio library");
 	Mix_CloseAudio();
 	Mix_FreeMusic(music);
 	music = NULL;
