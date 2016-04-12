@@ -11,6 +11,7 @@
 #include "ModuleTitleScreen.h"
 #include "ModuleVictory.h"
 #include "ModuleParticles.h"
+#include "Extras.h"
 
 Application::Application()
 {
@@ -26,6 +27,8 @@ Application::Application()
 	modules[9] = player = new ModulePlayer();
 	modules[10] = fade = new ModuleFadeToBlack();
 	modules[11] = particles = new ModuleParticles();
+	modules[12] = extra = new ModuleExtra();
+
 	
 }	
 

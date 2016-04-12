@@ -38,6 +38,8 @@ ModulePlayer::ModulePlayer()
 	left.loop = true;
 	left.speed = 0.1f;
 
+
+
 }
 
 ModulePlayer::~ModulePlayer()

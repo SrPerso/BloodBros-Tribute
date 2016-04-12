@@ -26,6 +26,7 @@ public:
 	Animation idle;
 	Animation left;
 	Animation right;
+	Animation pig;
 
 
 };

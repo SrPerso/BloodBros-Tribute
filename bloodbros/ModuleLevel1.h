@@ -4,6 +4,7 @@
 #include "Module.h"
 #include "Animation.h"
 #include "Globals.h"
+#include "ModuleParticles.h"
 
 struct SDL_Texture;
 
@@ -20,6 +21,7 @@ public:
 public:
 	SDL_Rect background;
 	SDL_Rect house1, house2;
+	
 
 	SDL_Texture* graphics = nullptr;
 	

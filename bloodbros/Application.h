@@ -3,7 +3,7 @@
 
 #include "Globals.h"
 
-#define NUM_MODULES 12
+#define NUM_MODULES 13
 
 
 class ModuleWindow;
@@ -19,6 +19,8 @@ class ModuleTitleScreen;
 class ModuleVictory;
 class Module;
 class ModuleParticles;
+class ModuleExtra;
+
 class Application
 {
 public:
@@ -36,6 +38,8 @@ public:
 	ModuleAudio* audio;
 	ModuleFadeToBlack* fade;
 	ModuleParticles* particles;
+	ModuleExtra* extra;
+	
 
 
 public:

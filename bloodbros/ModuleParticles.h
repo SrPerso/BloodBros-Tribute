@@ -13,6 +13,7 @@ struct SDL_Texture;
 struct Particle
 {
 	Animation anim;
+	
 	uint fx = 0;
 	iPoint position;
 	iPoint speed;

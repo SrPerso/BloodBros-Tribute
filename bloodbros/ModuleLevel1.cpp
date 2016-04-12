@@ -8,6 +8,8 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "Audio.h"
+#include "Animation.h"
+#include "Extras.h"
 
 // Reference at https://youtu.be/6OlenbCC4WI?t=382
 
@@ -30,6 +32,9 @@ ModuleLevel1::ModuleLevel1()
 	house2.y = 0;
 	house2.w = 112;
 	house2.h = 144;
+
+	
+	
 
 }
 
@@ -67,8 +72,13 @@ update_status ModuleLevel1::Update()
 	App->render->Blit(graphics, 0, 0, &background, 0); // level 1
 	App->render->Blit(graphics, 0, 0, &house1, 0);
 	App->render->Blit(graphics, 144, 0, &house2, 0);
+	
 	App->player->position.x += 0;
 	App->player->position.y += 0;
+	if (App->input->keyboard[SDL_SCANCODE_P] == 1){
+		App->audio->Loadfx("pig.wav");
+		App->extra->AddExtra(App->extra->pig, 224, 140);
+	}
 
 	// TODO 3: make so pressing SPACE the KEN stage is loaded
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)

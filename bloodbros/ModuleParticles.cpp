@@ -23,6 +23,8 @@ bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
 	graphics = App->textures->Load("particles.png");
+	
+
 
 	
 
