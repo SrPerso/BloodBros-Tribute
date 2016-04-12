@@ -16,7 +16,7 @@ ModuleLevel1::ModuleLevel1()
 	// Background
 	background.x = 0;
 	background.y = 0;
-	background.w = 256;
+	background.w = 254;
 	background.h = 224;
 	
 	//house1

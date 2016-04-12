@@ -7,6 +7,7 @@
 
 
 
+
 ModuleAudio::ModuleAudio(){ };
 ModuleAudio::~ModuleAudio(){ };
 
@@ -17,7 +18,7 @@ bool ModuleAudio::Start()
 
 	// load support for the PNG image format
 	int audioflags = MIX_INIT_OGG;
-	
+
 	int initted = Mix_Init(audioflags);
 
 	if ((initted) != audioflags)
@@ -34,6 +35,12 @@ void ModuleAudio::Load(const char* path){
 	music = Mix_LoadMUS(path);
 	Mix_PlayMusic(music, -1);
 }
+void ModuleAudio::Loadfx(const char* path){
+
+	LOG("Initing %s", path);
+	fx = Mix_LoadWAV(path);
+	Mix_PlayChannel(-1, fx, 0);
+}
 
 
 
@@ -42,9 +49,7 @@ bool ModuleAudio::CleanUp(){
 	Mix_CloseAudio();
 	Mix_FreeMusic(music);
 	music = NULL;
-	
+
 
 	return true;
 }
-
-
