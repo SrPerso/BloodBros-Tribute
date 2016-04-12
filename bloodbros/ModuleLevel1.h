@@ -18,9 +18,11 @@ public:
 	bool CleanUp();
 
 public:
+	SDL_Rect background;
+	SDL_Rect house1, house2;
 
 	SDL_Texture* graphics = nullptr;
-	SDL_Rect background;
+	
 };
 
 #endif // __MODULELEVEL1_H__

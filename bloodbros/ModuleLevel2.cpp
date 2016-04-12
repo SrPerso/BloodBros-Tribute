@@ -19,6 +19,7 @@ ModuleLevel2::ModuleLevel2()
 	background.y = 0;
 	background.w = 256;
 	background.h = 224;
+	
 }
 
 ModuleLevel2::~ModuleLevel2()

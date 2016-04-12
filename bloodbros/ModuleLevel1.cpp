@@ -18,6 +18,18 @@ ModuleLevel1::ModuleLevel1()
 	background.y = 0;
 	background.w = 256;
 	background.h = 224;
+	
+	//house1
+	house1.x = 257;
+	house1.y = 0;
+	house1.w = 89;
+	house1.h = 136;
+
+	//house2
+	house2.x = 360;
+	house2.y = 0;
+	house2.w = 112;
+	house2.h = 144;
 
 }
 
@@ -29,7 +41,7 @@ bool ModuleLevel1::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	graphics = App->textures->Load("level1.png");
+	graphics = App->textures->Load("level12.png");
 
 	// TODO 1: Enable (and properly disable) the player module
 	App->player->Enable();
@@ -53,6 +65,10 @@ update_status ModuleLevel1::Update()
 	// Draw everything --------------------------------------	
 
 	App->render->Blit(graphics, 0, 0, &background, 0); // level 1
+	App->render->Blit(graphics, 0, 0, &house1, 0);
+	App->render->Blit(graphics, 144, 0, &house2, 0);
+	App->player->position.x += 0;
+	App->player->position.y += 0;
 
 	// TODO 3: make so pressing SPACE the KEN stage is loaded
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)

@@ -10,6 +10,7 @@
 #include"ModuleLevel2.h"
 #include "ModuleTitleScreen.h"
 #include "ModuleVictory.h"
+#include "ModuleParticles.h"
 
 Application::Application()
 {
@@ -24,6 +25,7 @@ Application::Application()
 	modules[8] = titlescreen = new ModuleTitleScreen();
 	modules[9] = player = new ModulePlayer();
 	modules[10] = fade = new ModuleFadeToBlack();
+	modules[11] = particles = new ModuleParticles();
 	
 }	
 

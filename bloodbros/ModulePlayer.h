@@ -16,11 +16,17 @@ public:
 
 	bool Start();
 	update_status Update();
+	bool CleanUp();
 
 public:
 
 	SDL_Texture* graphics = nullptr;
-	SDL_Rect cowboy;
+	iPoint position;
+	Animation* current_animation = nullptr;
+	Animation idle;
+	Animation left;
+	Animation right;
+
 
 };
 
