@@ -24,10 +24,11 @@ Application::Application()
 	modules[6] = level2 = new ModuleLevel2();
 	modules[7] = victoryscreen = new ModuleVictory();
 	modules[8] = titlescreen = new ModuleTitleScreen();
-	modules[9] = player = new ModulePlayer();
-	modules[10] = fade = new ModuleFadeToBlack();
-	modules[11] = particles = new ModuleParticles();
-	modules[12] = extra = new ModuleExtra();
+	modules[9] = extra = new ModuleExtra();
+	modules[10] = player = new ModulePlayer();
+	modules[11] = fade = new ModuleFadeToBlack();
+	modules[12] = particles = new ModuleParticles();
+	modules[13] = collision = new ModuleCollision();
 
 	
 }	
@@ -49,8 +50,8 @@ bool Application::Init()
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Init();
 
-	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
-		ret = modules[i]->Start();
+	for (int i = 0; i < NUM_MODULES && ret == true; ++i)
+		ret = modules[i]->IsEnabled() ? modules[i]->Start() : true;
 
 	return ret;
 }

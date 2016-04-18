@@ -5,6 +5,7 @@
 #include "Animation.h"
 #include "Globals.h"
 #include "p2Point.h"
+#include "ModuleCollision.h"
 
 struct SDL_Texture;
 
@@ -17,6 +18,7 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp();
+	
 
 public:
 
@@ -27,6 +29,8 @@ public:
 	Animation left;
 	Animation right;
 	Animation pig;
+	Collider* player;
+
 
 
 };

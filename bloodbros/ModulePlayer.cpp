@@ -6,6 +6,7 @@
 #include "ModulePlayer.h"
 #include "ModuleParticles.h"
 #include "Audio.h"
+#include "ModuleCollision.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -51,6 +52,11 @@ bool ModulePlayer::Start()
 	LOG("Loading player textures");
 	bool ret = true;
 	graphics = App->textures->Load("cowboy.png"); // arcade version
+
+	position.x = 105;
+	position.y = 155;
+
+	player = App->collision->AddCollider({ position.x+10, position.y+20, 12, 8}, COLLIDER_PLAYER);
 	return ret;
 }
 bool ModulePlayer::CleanUp()
@@ -99,7 +105,13 @@ update_status ModulePlayer::Update()
 		&& App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_IDLE)
 		current_animation = &idle;
 
+	player->rect.x = position.x+10;
+	player->rect.y = position.y+20;
+	player->rect.h = 8;
+	player->rect.w = 12;
+
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
+	
 	
 	return UPDATE_CONTINUE;
 }
