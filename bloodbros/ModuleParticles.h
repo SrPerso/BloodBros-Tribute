@@ -48,7 +48,7 @@ public:
 
 
 	Particle laser;
-	
+	Particle Scope;
 };
 
 #endif // __MODULEPARTICLES_H__

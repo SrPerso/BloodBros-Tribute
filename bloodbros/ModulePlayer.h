@@ -23,15 +23,15 @@ public:
 public:
 
 	SDL_Texture* graphics = nullptr;
-	iPoint position;
+	fPoint position;
 	Animation* current_animation = nullptr;
 	Animation idle;
 	Animation left;
 	Animation right;
 	Animation pig;
 	Collider* player;
-
-
+	Animation jump_left;
+	Animation jump_right;
 
 };
 

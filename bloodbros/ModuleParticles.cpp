@@ -24,6 +24,12 @@ bool ModuleParticles::Start()
 	LOG("Loading particles");
 	graphics = App->textures->Load("particles.png");
 	
+	Scope.anim.PushBack({ 209, 278, 11, 7 });
+	Scope.anim.PushBack({ 226, 278, 11, 9 });
+	Scope.anim.loop = true;
+	Scope.anim.speed = 0.3f;
+	Scope.speed.y = -3;
+	Scope.life = 2000;
 
 
 	
