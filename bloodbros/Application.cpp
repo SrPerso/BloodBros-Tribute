@@ -11,6 +11,7 @@
 #include "ModuleTitleScreen.h"
 #include "ModuleVictory.h"
 #include "ModuleParticles.h"
+#include "ModuleScope.h"
 #include "Extras.h"
 
 Application::Application()
@@ -29,6 +30,7 @@ Application::Application()
 	modules[11] = fade = new ModuleFadeToBlack();
 	modules[12] = particles = new ModuleParticles();
 	modules[13] = collision = new ModuleCollision();
+	modules[14] = scope = new ModuleScope();
 
 	
 }	
@@ -46,6 +48,7 @@ bool Application::Init()
 	level1->Disable();
 	level2->Disable();
 	victoryscreen->Disable();
+	scope->Disable();
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Init();

@@ -65,6 +65,11 @@ ModulePlayer::ModulePlayer()
 	jump_right.loop = true;
 	jump_right.speed = 0.1f;
 
+	scope.PushBack({ 3, 2, 24, 22 });
+	scope.PushBack({ 35, 2, 24, 22 });
+	scope.loop = true;
+	scope.speed = 0.1f;
+
 }
 
 ModulePlayer::~ModulePlayer()
@@ -96,10 +101,10 @@ bool ModulePlayer::CleanUp()
 update_status ModulePlayer::Update()
 {
 	float speed = 1.4f;
-	if (App->input->keyboard[SDL_SCANCODE_Z] == 1){
-		App->audio->Loadfx("shot.wav");
-		App->particles->AddParticle(App->particles->laser, position.x+13, position.y -4);
-	}
+	
+		
+	
+	
 	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
 	{	
 		if (position.x >= 220){
@@ -177,7 +182,7 @@ update_status ModulePlayer::Update()
 	player->rect.w = 12;
 
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
-	
+
 	
 	return UPDATE_CONTINUE;
 }

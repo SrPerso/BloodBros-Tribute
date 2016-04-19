@@ -1,15 +1,14 @@
-﻿Compilación iniciada a las 19/04/2016 17:56:08.
-     1>Proyecto "D:\Users\carlosps12\Desktop\VictoriousSecret\bloodbros\SDL Game.vcxproj" en el nodo 2 (Build destinos).
+﻿Compilación iniciada a las 19/04/2016 18:57:35.
+     1>Proyecto "D:\Users\carlosps12\Downloads\VictoriousSecret\bloodbros\SDL Game.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
-         C:\soft\Microsoft Visual Studio 13.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ModulePlayer.cpp
-         ModulePlayer.cpp
-     1>d:\users\carlosps12\desktop\victorioussecret\bloodbros\moduleplayer.cpp(83): warning C4244: 'inicializando' : conversión de 'float' a 'int'; posible pérdida de datos
-     1>d:\users\carlosps12\desktop\victorioussecret\bloodbros\moduleplayer.cpp(101): warning C4244: 'argumento' : conversión de 'float' a 'int'; posible pérdida de datos
-     1>d:\users\carlosps12\desktop\victorioussecret\bloodbros\moduleplayer.cpp(174): warning C4244: '=' : conversión de 'float' a 'int'; posible pérdida de datos
-     1>d:\users\carlosps12\desktop\victorioussecret\bloodbros\moduleplayer.cpp(175): warning C4244: '=' : conversión de 'float' a 'int'; posible pérdida de datos
-     1>d:\users\carlosps12\desktop\victorioussecret\bloodbros\moduleplayer.cpp(179): warning C4244: 'argumento' : conversión de 'float' a 'int'; posible pérdida de datos
+         C:\soft\Microsoft Visual Studio 13.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ModuleScope.cpp
+         ModuleScope.cpp
+     1>d:\users\carlosps12\downloads\victorioussecret\bloodbros\modulescope.cpp(43): warning C4244: 'inicializando' : conversión de 'float' a 'int'; posible pérdida de datos
+     1>d:\users\carlosps12\downloads\victorioussecret\bloodbros\modulescope.cpp(87): warning C4244: '=' : conversión de 'float' a 'int'; posible pérdida de datos
+     1>d:\users\carlosps12\downloads\victorioussecret\bloodbros\modulescope.cpp(88): warning C4244: '=' : conversión de 'float' a 'int'; posible pérdida de datos
+     1>d:\users\carlosps12\downloads\victorioussecret\bloodbros\modulescope.cpp(90): warning C4244: 'argumento' : conversión de 'float' a 'int'; posible pérdida de datos
        Link:
-         C:\soft\Microsoft Visual Studio 13.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Users\carlosps12\Desktop\VictoriousSecret\bloodbros\Debug\SDL4 Handout.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Users\carlosps12\Desktop\VictoriousSecret\bloodbros\Debug\SDL4 Handout.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Users\carlosps12\Desktop\VictoriousSecret\bloodbros\Debug\SDL4 Handout.lib" /MACHINE:X86 Debug\Application.obj
+         C:\soft\Microsoft Visual Studio 13.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Users\carlosps12\Downloads\VictoriousSecret\bloodbros\Debug\SDL4 Handout.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Users\carlosps12\Downloads\VictoriousSecret\bloodbros\Debug\SDL4 Handout.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Users\carlosps12\Downloads\VictoriousSecret\bloodbros\Debug\SDL4 Handout.lib" /MACHINE:X86 Debug\Application.obj
          Debug\Audio.obj
          Debug\Extras.obj
          Debug\Globals.obj
@@ -22,13 +21,14 @@
          Debug\ModuleParticles.obj
          Debug\ModulePlayer.obj
          Debug\ModuleRender.obj
+         Debug\ModuleScope.obj
          Debug\ModuleTextures.obj
          Debug\ModuleTitleScreen.obj
          Debug\ModuleVictory.obj
          Debug\ModuleWindow.obj
-         SDL Game.vcxproj -> D:\Users\carlosps12\Desktop\VictoriousSecret\bloodbros\Debug\SDL4 Handout.exe
-     1>Compilación del proyecto terminada "D:\Users\carlosps12\Desktop\VictoriousSecret\bloodbros\SDL Game.vcxproj" (Build destinos).
+         SDL Game.vcxproj -> D:\Users\carlosps12\Downloads\VictoriousSecret\bloodbros\Debug\SDL4 Handout.exe
+     1>Compilación del proyecto terminada "D:\Users\carlosps12\Downloads\VictoriousSecret\bloodbros\SDL Game.vcxproj" (Build destinos).
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:00.38
+Tiempo transcurrido 00:00:00.41

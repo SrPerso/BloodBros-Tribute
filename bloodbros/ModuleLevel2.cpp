@@ -9,6 +9,7 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "Audio.h"
+#include "ModuleScope.h"
 
 // Reference at https://youtu.be/6OlenbCC4WI?t=382
 
@@ -36,6 +37,7 @@ bool ModuleLevel2::Start()
 	App->player->Enable();
 	App->audio->Enable();
 	App->audio->Load("level.wav");
+	App->scope->Enable();
 	return ret;
 }
 
@@ -45,6 +47,7 @@ bool ModuleLevel2::CleanUp()
 	LOG("Unloading level 2");
 	App->player->Disable();
 	App->audio->Disable();
+	App->scope->Disable();
 	return true;
 }
 

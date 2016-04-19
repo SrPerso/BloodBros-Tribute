@@ -10,6 +10,7 @@
 #include "Audio.h"
 #include "Animation.h"
 #include "Extras.h"
+#include "ModuleScope.h"
 
 // Reference at https://youtu.be/6OlenbCC4WI?t=382
 
@@ -52,6 +53,7 @@ bool ModuleLevel1::Start()
 	App->player->Enable();
 	App->audio->Enable();
 	App->audio->Load("level.wav");
+	App->scope->Enable();
 	return ret;
 }
 
@@ -61,6 +63,7 @@ bool ModuleLevel1::CleanUp()
 	LOG("Unloading level 1");
 	App->player->Disable();
 	App->audio->Disable();
+	App->scope->Disable();
 	return true;
 }
 

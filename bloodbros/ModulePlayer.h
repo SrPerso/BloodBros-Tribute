@@ -32,6 +32,7 @@ public:
 	Collider* player;
 	Animation jump_left;
 	Animation jump_right;
+	Animation scope;
 
 };
 
