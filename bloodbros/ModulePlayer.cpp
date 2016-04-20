@@ -50,7 +50,7 @@ ModulePlayer::ModulePlayer()
 	jump_left.PushBack({ 363, 264, 33, 63 });
 
 	jump_left.loop = true;
-	jump_left.speed = 0.1f;
+	jump_left.speed = 0.2f;
 
 	//cowboy animation
 
@@ -63,7 +63,7 @@ ModulePlayer::ModulePlayer()
 	jump_right.PushBack({ 665, 197, 47, 63 });
 	jump_right.PushBack({ 713, 197, 33, 63 });
 	jump_right.loop = true;
-	jump_right.speed = 0.1f;
+	jump_right.speed = 0.2f;
 
 	scope.PushBack({ 3, 2, 24, 22 });
 	scope.PushBack({ 35, 2, 24, 22 });
@@ -112,12 +112,12 @@ update_status ModulePlayer::Update()
 		}
 		
 		position.x += speed;
-		if (current_animation != &right && App->input->keyboard[SDL_SCANCODE_K] != KEY_STATE::KEY_REPEAT)
+		if (current_animation != &right && App->input->keyboard[SDL_SCANCODE_LALT] != KEY_STATE::KEY_REPEAT)
 		{
 			right.Reset();
 			current_animation = &right;
 		}
-		else if (App->input->keyboard[SDL_SCANCODE_K] == KEY_STATE::KEY_REPEAT)
+		else if (App->input->keyboard[SDL_SCANCODE_LALT] == KEY_STATE::KEY_REPEAT)
 		{
 			if (position.x <= 0){
 				speed = 0;
@@ -127,6 +127,7 @@ update_status ModulePlayer::Update()
 			{
 				jump_right.Reset();
 				current_animation = &jump_right;
+				position.x += speed+1;
 
 			}
 		}
@@ -137,12 +138,12 @@ update_status ModulePlayer::Update()
 			speed = 0;
 		}
 		position.x -= speed;
-		if (current_animation != &left && App->input->keyboard[SDL_SCANCODE_K] != KEY_STATE::KEY_REPEAT)
+		if (current_animation != &left && App->input->keyboard[SDL_SCANCODE_LALT] != KEY_STATE::KEY_REPEAT)
 		{
 			left.Reset();
 			current_animation = &left;
 		}
-		else if (App->input->keyboard[SDL_SCANCODE_K] == KEY_STATE::KEY_REPEAT)
+		else if (App->input->keyboard[SDL_SCANCODE_LALT] == KEY_STATE::KEY_REPEAT)
 		{
 			if (position.x <= 0){
 				speed = 0;
@@ -152,6 +153,7 @@ update_status ModulePlayer::Update()
 			{
 				jump_left.Reset();
 				current_animation = &jump_left;
+				position.x -= speed+1;
 
 			}
 		}

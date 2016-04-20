@@ -37,6 +37,8 @@ bool ModuleExtra::Start()
 
 	
 
+	
+
 
 
 	return true;
@@ -47,11 +49,12 @@ bool ModuleExtra::CleanUp()
 {
 	LOG("Unloading particles");
 	App->textures->Unload(graphics);
-
+	
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
 		if (active[i] != nullptr)
 		{
+		
 			delete active[i];
 			active[i] = nullptr;
 		}
@@ -73,8 +76,10 @@ update_status ModuleExtra::Update()
 
 		if (p->Update() == false)
 		{
+			p->collider->to_delete = true;
 			delete p;
 			active[i] = nullptr;
+		
 		}
 		else if (SDL_GetTicks() >= p->born)
 		{
@@ -96,7 +101,7 @@ void ModuleExtra::AddExtra(const Extra& particle, int x, int y, Uint32 delay)
 	p->born = SDL_GetTicks() + delay;
 	p->position.x = x;
 	p->position.y = y;
-
+	p->collider =App->collision->AddCollider({ p->position.x, p->position.y+1, 30, 19 }, COLLIDER_EXTRA);
 	active[last_particle++] = p;
 }
 
@@ -125,10 +130,14 @@ bool Extra::Update()
 	}
 	else
 	if (anim.Finished())
+		
 		ret = false;
+
 
 	position.x += speed.x;
 	position.y += speed.y;
-
+	collider->rect.x += speed.x;
+	collider->rect.y += speed.y;
+	
 	return ret;
 }
