@@ -6,6 +6,7 @@
 #include "Globals.h"
 #include "p2Point.h"
 #include "ModuleCollision.h"
+#include "Extras.h"
 
 struct SDL_Texture;
 
@@ -27,6 +28,8 @@ public:
 	Animation* current_animation = nullptr;
 	Collider* shot;
 	Animation scope;
+	Animation shoots;
+	ModuleExtra* extra;
 
 };
 

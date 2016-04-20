@@ -20,6 +20,7 @@ struct Extra
 	Uint32 life = 0;
 	bool fx_played = false;
 	Collider* collider=nullptr;
+
 	Extra();
 	Extra(const Extra& p);
 	bool Update();
@@ -34,7 +35,7 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp();
-
+	void OnCollision(Collider* c1, Collider* c2);
 	void AddExtra(const Extra& particle, int x, int y, Uint32 delay = 0);
 
 private:

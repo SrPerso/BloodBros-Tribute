@@ -88,5 +88,7 @@ update_status ModuleLevel1::Update()
 	{
 		App->fade->FadeToBlack(App->level1, App->level2, 2);
 	}
+	
+	
 	return UPDATE_CONTINUE;
 }

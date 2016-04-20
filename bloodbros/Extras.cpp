@@ -141,3 +141,9 @@ bool Extra::Update()
 	
 	return ret;
 }
+void ModuleExtra::OnCollision(Collider* c1, Collider* c2)
+{
+	if (c1->CheckCollision(c2->rect) == true){
+		c1 = nullptr;
+	}
+}

@@ -8,6 +8,7 @@
 #include "Audio.h"
 #include "ModuleCollision.h"
 #include "ModuleScope.h"
+#include "Extras.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -25,6 +26,9 @@ ModuleScope::ModuleScope()
 	scope.loop = true;
 	scope.speed = 0.1f;
 
+	shoots.PushBack({ 67, 2, 22, 22 });
+	shoots.PushBack({ 95, 2, 22, 22 });
+	shoots.PushBack({ 120, 2, 22, 22 });
 }
 
 ModuleScope::~ModuleScope()
@@ -56,7 +60,14 @@ bool ModuleScope::CleanUp()
 update_status ModuleScope::Update()
 {
 	float speed = 3.5;
+	if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT){
+		
+		App->render->Blit(graphics, position.x, position.y, &(shoots.GetCurrentFrame()));
+		App->extra->OnCollision(App->extra->pig.collider, App->scope->shot);
 
+			//extra->OnCollision(extra,  shot);
+
+	}
 	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT){
 		if (position.y <= 0){
 			speed = 0;

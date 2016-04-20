@@ -65,10 +65,9 @@ ModulePlayer::ModulePlayer()
 	jump_right.loop = true;
 	jump_right.speed = 0.2f;
 
-	scope.PushBack({ 3, 2, 24, 22 });
-	scope.PushBack({ 35, 2, 24, 22 });
-	scope.loop = true;
-	scope.speed = 0.1f;
+	
+	
+
 
 }
 
