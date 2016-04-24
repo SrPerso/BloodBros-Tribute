@@ -6,7 +6,7 @@
 #include "Globals.h"
 #include "p2Point.h"
 
-#define MAX_ACTIVE_PARTICLES 100
+#define MAX_EXTRAS 20
 
 struct SDL_Texture;
 
@@ -23,8 +23,11 @@ struct Extra
 
 	Extra();
 	Extra(const Extra& p);
+	~Extra();
 	bool Update();
+	const Collider* get_collider()const;
 };
+	
 
 class ModuleExtra : public Module
 {
@@ -37,11 +40,12 @@ public:
 	bool CleanUp();
 	void OnCollision(Collider* c1, Collider* c2);
 	void AddExtra(const Extra& particle, int x, int y, Uint32 delay = 0);
+	
 
 private:
 
 	SDL_Texture* graphics = nullptr;
-	Extra* active[MAX_ACTIVE_PARTICLES];
+	Extra* active[MAX_EXTRAS];
 	uint last_particle = 0;
 
 public:

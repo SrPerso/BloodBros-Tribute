@@ -84,7 +84,7 @@ bool ModulePlayer::Start()
 	position.x = 105;
 	position.y = 155;
 
-	player = App->collision->AddCollider({ position.x+10, position.y+20, 12, 8}, COLLIDER_PLAYER);
+	player = App->collision->AddCollider({ position.x+10, position.y+20, 12, 8}, COLLIDER_PLAYER, this);
 	return ret;
 }
 bool ModulePlayer::CleanUp()

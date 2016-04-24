@@ -8,17 +8,24 @@
 #include "ModulePlayer.h"
 #include"Animation.h"
 #include "Extras.h"
+#include "ModuleFadeToBlack.h"
+#include "ModuleLevel1.h"
+#include "ModuleLevel2.h"
 
 #include "SDL/include/SDL_timer.h"
 
 ModuleExtra::ModuleExtra()
 {
-	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	for (uint i = 0; i < MAX_EXTRAS; ++i)
 		active[i] = nullptr;
 }
 
 ModuleExtra::~ModuleExtra()
-{}
+{
+	if (pig.collider != nullptr){
+		App->collision->EraseCollider(pig.collider);
+	}
+}
 
 // Load assets
 bool ModuleExtra::Start()
@@ -50,7 +57,7 @@ bool ModuleExtra::CleanUp()
 	LOG("Unloading particles");
 	App->textures->Unload(graphics);
 	
-	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	for (uint i = 0; i < MAX_EXTRAS; ++i)
 	{
 		if (active[i] != nullptr)
 		{
@@ -67,7 +74,7 @@ bool ModuleExtra::CleanUp()
 update_status ModuleExtra::Update()
 {
 
-	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	for (uint i = 0; i < MAX_EXTRAS; ++i)
 	{
 		Extra* p = active[i];
 
@@ -101,8 +108,13 @@ void ModuleExtra::AddExtra(const Extra& particle, int x, int y, Uint32 delay)
 	p->born = SDL_GetTicks() + delay;
 	p->position.x = x;
 	p->position.y = y;
-	p->collider =App->collision->AddCollider({ p->position.x, p->position.y+1, 30, 19 }, COLLIDER_EXTRA);
+	p->collider =App->collision->AddCollider({ p->position.x, p->position.y+1, 30, 19 }, COLLIDER_EXTRA, this);
 	active[last_particle++] = p;
+}
+
+const Collider* Extra::get_collider() const
+{
+	return collider;
 }
 
 // -------------------------------------------------------------
@@ -118,6 +130,12 @@ Extra::Extra(const Extra& p) :
 anim(p.anim), position(p.position), speed(p.speed),
 fx(p.fx), born(p.born), life(p.life)
 {}
+
+Extra::~Extra(){
+	if (collider != nullptr){
+		App->collision->EraseCollider(collider);
+	}
+}
 
 bool Extra::Update()
 {
@@ -136,14 +154,20 @@ bool Extra::Update()
 
 	position.x += speed.x;
 	position.y += speed.y;
-	collider->rect.x += speed.x;
-	collider->rect.y += speed.y;
+	if (collider != nullptr){
+		collider->rect.x += speed.x;
+		collider->rect.y += speed.y;
+	}
 	
 	return ret;
 }
 void ModuleExtra::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c1->CheckCollision(c2->rect) == true){
-		c1 = nullptr;
+	for (uint i = 0; i < MAX_EXTRAS; ++i){
+		if (active[i] != nullptr && active[i]->get_collider() == c1){
+				delete active[i];
+				active[i] = nullptr;
+				break;
+		}
 	}
 }

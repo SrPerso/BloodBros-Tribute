@@ -103,3 +103,10 @@ update_status ModuleScope::Update()
 
 	return UPDATE_CONTINUE;
 }
+
+/*void ModuleScope::OnCollision(Collider* c1, Collider* c2)
+{
+	if (c1->CheckCollision(c2->rect) == true){
+		c2 = nullptr;
+	}
+}*/

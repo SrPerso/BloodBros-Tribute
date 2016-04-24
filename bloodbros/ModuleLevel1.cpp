@@ -89,6 +89,7 @@ update_status ModuleLevel1::Update()
 		App->fade->FadeToBlack(App->level1, App->level2, 2);
 	}
 	
+	App->extra->OnCollision(App->extra->pig.collider, App->scope->shot);
 	
 	return UPDATE_CONTINUE;
 }
