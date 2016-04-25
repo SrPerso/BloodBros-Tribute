@@ -11,6 +11,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleLevel1.h"
 #include "ModuleLevel2.h"
+#include "Audio.h"
 
 #include "SDL/include/SDL_timer.h"
 
@@ -165,8 +166,8 @@ void ModuleExtra::OnCollision(Collider* c1, Collider* c2)
 {
 	for (uint i = 0; i < MAX_EXTRAS; ++i){
 		if (active[i] != nullptr && active[i]->get_collider() == c1){
-				delete active[i];
-				active[i] = nullptr;
+				App->audio->Loadfx("pig.wav");
+				active[i]->speed.x--;
 				break;
 		}
 	}

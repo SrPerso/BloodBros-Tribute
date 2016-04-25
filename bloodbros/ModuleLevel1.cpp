@@ -82,7 +82,6 @@ update_status ModuleLevel1::Update()
 	App->player->position.x += 0;
 	App->player->position.y += 0;
 	if (SDL_GetTicks()>= 10000 && extra==true){
-		App->audio->Loadfx("pig.wav");
 		App->extra->AddExtra(App->extra->pig, 224, 140);
 		extra = false;
 	}

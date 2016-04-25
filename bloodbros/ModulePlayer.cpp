@@ -107,6 +107,7 @@ update_status ModulePlayer::Update()
 	
 	switch (status){
 	case NORMAL:
+		player->type = COLLIDER_PLAYER;
 		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
 		{
 			if (position.x >= 220){
@@ -173,6 +174,7 @@ update_status ModulePlayer::Update()
 		break;
 
 	case ROLL:
+		player->type = COLLIDER_NONE;
 		if (current_animation == &jump_right){
 			if (position.x >= 220){
 				speed = 0;
