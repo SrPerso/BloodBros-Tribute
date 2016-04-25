@@ -89,6 +89,15 @@
     <ClInclude Include="ModuleEnemies.h">
       <Filter>Modules</Filter>
     </ClInclude>
+    <ClInclude Include="PurplePlane.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Charriot.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GreenCowBoy.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -149,6 +158,15 @@
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="ModuleEnemies.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="PurplePlane.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Charriot.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GreenCowboy.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
   </ItemGroup>

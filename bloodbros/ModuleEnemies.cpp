@@ -5,6 +5,9 @@
 #include "ModuleParticles.h"
 #include "ModuleTextures.h"
 #include "Enemy.h"
+#include "Charriot.h"
+#include "GreenCowBoy.h"
+#include "PurplePlane.h"
 /*#include "Enemy_RedBird.h"
 #include "Enemy_Cookie.h"
 #include "Enemy_Mech.h"*/
@@ -24,7 +27,9 @@ ModuleEnemies::~ModuleEnemies()
 
 bool ModuleEnemies::Start()
 {
-	sprites = App->textures->Load("rtype/enemies.png");
+	sprites = App->textures->Load("extra-enemie.png");
+
+	
 
 	return true;
 }
@@ -119,7 +124,7 @@ bool ModuleEnemies::AddEnemy(ENEMY_TYPES type, int x, int y)
 
 void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 {
-	/* find room for the new enemy
+
 	uint i = 0;
 	for (; enemies[i] != nullptr && i < MAX_ENEMIES; ++i);
 
@@ -127,17 +132,17 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 	{
 		switch (info.type)
 		{
-		case ENEMY_TYPES::REDBIRD:
-			enemies[i] = new Enemy_RedBird(info.x, info.y);
+		case ENEMY_TYPES::CHARRIOT:
+			enemies[i] = new Enemy_Charriot(info.x, info.y);
 			break;
-		case ENEMY_TYPES::COOKIE:
-			enemies[i] = new Enemy_Cookie(info.x, info.y);
+		case ENEMY_TYPES::GREENCOWBOY:
+			enemies[i] = new GreenCowboy(info.x, info.y);
 			break;
-		case ENEMY_TYPES::MECH:
-			enemies[i] = new Enemy_Mech(info.x, info.y);
+		case ENEMY_TYPES::PURPLEPLANE:
+			enemies[i] = new PurplePlane(info.x, info.y);
 			break;
 		}
-	}*/
+	}
 }
 
 void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)

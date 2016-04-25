@@ -11,6 +11,7 @@
 #include "Animation.h"
 #include "Extras.h"
 #include "ModuleScope.h"
+#include "ModuleEnemies.h"
 
 #include "SDL/include/SDL_timer.h"
 
@@ -56,7 +57,13 @@ bool ModuleLevel1::Start()
 	App->audio->Enable();
 	App->audio->Load("level.wav");
 	App->scope->Enable();
+	App->enemies->Enable();
 	uint start = SDL_GetTicks();
+	//plane:
+	
+	/*App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 625, 80);
+	App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 640, 80);
+	App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 665, 80);*/
 	return ret;
 }
 
@@ -81,9 +88,13 @@ update_status ModuleLevel1::Update()
 	
 	App->player->position.x += 0;
 	App->player->position.y += 0;
+	
 	if (SDL_GetTicks()>= 10000 && extra==true){
 		App->extra->AddExtra(App->extra->pig, 224, 140);
 		extra = false;
+	}
+	if (SDL_GetTicks() >= 15000){
+		App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 87, 0);
 	}
 
 	// TODO 3: make so pressing SPACE the KEN stage is loaded

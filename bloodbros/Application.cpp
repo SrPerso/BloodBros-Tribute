@@ -13,6 +13,7 @@
 #include "ModuleParticles.h"
 #include "ModuleScope.h"
 #include "Extras.h"
+#include "ModuleEnemies.h"
 
 Application::Application()
 {
@@ -26,11 +27,12 @@ Application::Application()
 	modules[7] = victoryscreen = new ModuleVictory();
 	modules[8] = titlescreen = new ModuleTitleScreen();
 	modules[9] = extra = new ModuleExtra();
-	modules[10] = player = new ModulePlayer();
-	modules[11] = fade = new ModuleFadeToBlack();
-	modules[12] = particles = new ModuleParticles();
-	modules[13] = collision = new ModuleCollision();
-	modules[14] = scope = new ModuleScope();
+	modules[10] = enemies = new ModuleEnemies();
+	modules[11] = player = new ModulePlayer();
+	modules[12] = fade = new ModuleFadeToBlack();
+	modules[13] = particles = new ModuleParticles();
+	modules[14] = collision = new ModuleCollision();
+	modules[15] = scope = new ModuleScope();
 
 	
 }	
