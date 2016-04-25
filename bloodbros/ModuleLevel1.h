@@ -21,7 +21,7 @@ public:
 public:
 	SDL_Rect background;
 	SDL_Rect house1, house2;
-	
+	bool extra = true;
 
 	SDL_Texture* graphics = nullptr;
 	

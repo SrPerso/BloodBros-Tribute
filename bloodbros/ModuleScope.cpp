@@ -44,7 +44,7 @@ bool ModuleScope::Start()
 	position.x = 105;
 	position.y = 45;
 
-	shot = App->collision->AddCollider({ position.x+3, position.y+3, 22, 20 }, COLLIDER_PLAYER_SHOT);
+	shot = App->collision->AddCollider({ position.x+3, position.y+3, 22, 20 }, COLLIDER_NONE);
 	return ret;
 }	
 bool ModuleScope::CleanUp()
@@ -60,12 +60,11 @@ bool ModuleScope::CleanUp()
 update_status ModuleScope::Update()
 {
 	float speed = 3.5;
-	if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT){
-		
+	if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_DOWN){
+		shot->type = COLLIDER_PLAYER_SHOT;
 		App->render->Blit(graphics, position.x, position.y, &(shoots.GetCurrentFrame()));
 		App->extra->OnCollision(App->extra->pig.collider, App->scope->shot);
-
-			//extra->OnCollision(extra,  shot);
+		return UPDATE_CONTINUE;
 
 	}
 	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT){
@@ -99,7 +98,7 @@ update_status ModuleScope::Update()
 	shot->rect.y = position.y+1;
 	current_animation = &scope;
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
-
+	shot->type = COLLIDER_NONE;
 
 	return UPDATE_CONTINUE;
 }

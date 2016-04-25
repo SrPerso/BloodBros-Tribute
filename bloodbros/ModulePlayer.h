@@ -9,6 +9,11 @@
 
 struct SDL_Texture;
 
+enum type{
+	NORMAL,
+	ROLL
+};
+
 class ModulePlayer : public Module
 {
 public:
@@ -25,6 +30,7 @@ public:
 	SDL_Texture* graphics = nullptr;
 	fPoint position;
 	Animation* current_animation = nullptr;
+	type status;
 	Animation idle;
 	Animation left;
 	Animation right;

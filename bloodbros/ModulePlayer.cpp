@@ -8,6 +8,8 @@
 #include "Audio.h"
 #include "ModuleCollision.h"
 
+#include "SDL/include/SDL_timer.h"
+
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
 ModulePlayer::ModulePlayer()
@@ -83,7 +85,7 @@ bool ModulePlayer::Start()
 
 	position.x = 105;
 	position.y = 155;
-
+	status = NORMAL;
 	player = App->collision->AddCollider({ position.x+10, position.y+20, 12, 8}, COLLIDER_PLAYER, this);
 	return ret;
 }
@@ -103,79 +105,101 @@ update_status ModulePlayer::Update()
 	
 		
 	
-	
-	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
-	{	
-		if (position.x >= 220){
-			speed = 0;
-		}
-		
-		position.x += speed;
-		if (current_animation != &right && App->input->keyboard[SDL_SCANCODE_LALT] != KEY_STATE::KEY_REPEAT)
+	switch (status){
+	case NORMAL:
+		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
 		{
-			right.Reset();
-			current_animation = &right;
-		}
-		else if (App->input->keyboard[SDL_SCANCODE_LALT] == KEY_STATE::KEY_REPEAT)
-		{
-			if (position.x <= 0){
+			if (position.x >= 220){
 				speed = 0;
 			}
-			//position.x -= speed;
-			if (current_animation != &jump_right)
+
+			position.x += speed;
+			if (current_animation != &right && App->input->keyboard[SDL_SCANCODE_LALT] != KEY_STATE::KEY_REPEAT)
 			{
+				right.Reset();
+				current_animation = &right;
+			}
+			else if (App->input->keyboard[SDL_SCANCODE_LALT] == KEY_STATE::KEY_DOWN)
+			{
+				jump_right.loops = 0;
 				jump_right.Reset();
 				current_animation = &jump_right;
-				position.x += speed+1;
+				status = ROLL;
+
+
 
 			}
 		}
-	}
-	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
-	{
-		if (position.x <= 0){
-			speed = 0;
-		}
-		position.x -= speed;
-		if (current_animation != &left && App->input->keyboard[SDL_SCANCODE_LALT] != KEY_STATE::KEY_REPEAT)
-		{
-			left.Reset();
-			current_animation = &left;
-		}
-		else if (App->input->keyboard[SDL_SCANCODE_LALT] == KEY_STATE::KEY_REPEAT)
+		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
 		{
 			if (position.x <= 0){
 				speed = 0;
 			}
-			//position.x -= speed;
+			position.x -= speed;
+			if (current_animation != &left && App->input->keyboard[SDL_SCANCODE_LALT] != KEY_STATE::KEY_DOWN)
+			{
+				left.Reset();
+				current_animation = &left;
+			}
+			else if (App->input->keyboard[SDL_SCANCODE_LALT] == KEY_STATE::KEY_DOWN){
+				jump_left.loops = 0;
+				jump_left.Reset();
+				current_animation = &jump_left;
+				status = ROLL;
+			}
+		}
+
+
+		else if (App->input->keyboard[SDL_SCANCODE_K] == KEY_STATE::KEY_DOWN)
+		{
+			if (position.x <= 0){
+				speed = 0;
+			}
+			position.x -= speed;
 			if (current_animation != &jump_left)
 			{
 				jump_left.Reset();
 				current_animation = &jump_left;
-				position.x -= speed+1;
 
 			}
 		}
-	}
+		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_IDLE
+			&& App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_IDLE
+			&& App->input->keyboard[SDL_SCANCODE_K] == KEY_STATE::KEY_IDLE){
 
-
-	else if (App->input->keyboard[SDL_SCANCODE_K] == KEY_STATE::KEY_DOWN)
-	{
-		if (position.x <= 0){
-			speed = 0;
+			current_animation = &idle;
 		}
-		position.x -= speed;
-		if (current_animation != &jump_left)
-		{
-			jump_left.Reset();
-			current_animation = &jump_left;
-			
+
+		break;
+
+	case ROLL:
+		if (current_animation == &jump_right){
+			if (position.x >= 220){
+				speed = 0;
+			}
+			else
+			{
+				position.x += speed + 1;
+			}
+			if (current_animation->Finished() == true){
+				status = NORMAL;
+				break;
+			}
+		}
+		if (current_animation == &jump_left){
+			if (position.x <= 0){
+				speed = 0;
+			}
+			else
+			{
+				position.x -= speed + 1;
+			}
+			if (current_animation->Finished() == true){
+				status = NORMAL;
+				break;
+			}
 		}
 	}
-	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_IDLE
-		&& App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_IDLE
-		&& App->input->keyboard[SDL_SCANCODE_K] == KEY_STATE::KEY_IDLE)
-		current_animation = &idle;
 
 	player->rect.x = position.x+10;
 	player->rect.y = position.y+20;

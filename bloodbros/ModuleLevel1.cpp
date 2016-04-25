@@ -12,6 +12,8 @@
 #include "Extras.h"
 #include "ModuleScope.h"
 
+#include "SDL/include/SDL_timer.h"
+
 // Reference at https://youtu.be/6OlenbCC4WI?t=382
 
 ModuleLevel1::ModuleLevel1()
@@ -54,6 +56,7 @@ bool ModuleLevel1::Start()
 	App->audio->Enable();
 	App->audio->Load("level.wav");
 	App->scope->Enable();
+	uint start = SDL_GetTicks();
 	return ret;
 }
 
@@ -78,9 +81,10 @@ update_status ModuleLevel1::Update()
 	
 	App->player->position.x += 0;
 	App->player->position.y += 0;
-	if (App->input->keyboard[SDL_SCANCODE_P] == 1){
+	if (SDL_GetTicks()>= 10000 && extra==true){
 		App->audio->Loadfx("pig.wav");
 		App->extra->AddExtra(App->extra->pig, 224, 140);
+		extra = false;
 	}
 
 	// TODO 3: make so pressing SPACE the KEN stage is loaded
