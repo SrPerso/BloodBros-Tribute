@@ -18,6 +18,7 @@ public:
 	bool CleanUp();
 	bool extra = true;
 	bool plane = true;
+	bool greencowboy = true;
 
 public:
 

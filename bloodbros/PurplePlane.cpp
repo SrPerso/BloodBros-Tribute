@@ -2,7 +2,7 @@
 #include "PurplePlane.h"
 #include "ModuleCollision.h"
 #include "Path.h"
-
+#include "Enemy.h"
 PurplePlane::PurplePlane(int x, int y) : Enemy(x, y)
 {
 	fly.PushBack({ 118, 361, 113, 47 });
@@ -37,5 +37,9 @@ void PurplePlane::Move()
 	
 	
 	position = original_pos + path.GetCurrentSpeed(&animation);
+	
+}
+void PurplePlane::OnCollision(Collider* c1, Collider* c2)
+{
 	
 }

@@ -1,43 +1,55 @@
 #include "Application.h"
 #include "GreenCowBoy.h"
 #include "ModuleCollision.h"
+#include "Enemy.h"
+
 
 GreenCowboy::GreenCowboy(int x, int y) : Enemy(x, y)
 {
-	fly.PushBack({ 5, 6, 24, 24 });
-	fly.PushBack({ 38, 6, 24, 24 });
-	fly.PushBack({ 71, 6, 24, 24 });
-	fly.PushBack({ 104, 6, 24, 24 });
-	fly.PushBack({ 137, 6, 24, 24 });
-	fly.PushBack({ 170, 6, 24, 24 });
-	fly.PushBack({ 203, 6, 24, 24 });
-	fly.PushBack({ 236, 6, 24, 24 });
-	fly.speed = 0.2f;
+	fly.PushBack({ 237, 26, 10, 21 });
+	fly.PushBack({ 251, 26, 13, 21 });
+	fly.PushBack({ 266, 26, 16, 21 });
+	fly.PushBack({ 285, 26, 10, 21 });
+	fly.PushBack({ 301, 26, 11, 21 });
+	fly.PushBack({ 315, 26, 15, 21 });
+	fly.PushBack({ 331, 26, 13, 21 });//moviendose a la derecha
+	fly.speed = 0.09f;
 
-	animation = &fly;
+	idle.PushBack({ 347, 3, 13, 21 });
+	fly2.PushBack({ 331, 3, 13, 21 });
+	fly2.PushBack({ 315, 3, 15, 21 });
+	fly2.PushBack({ 301, 3, 11, 21 });
+	fly2.PushBack({ 285, 3, 10, 21 });
+	fly2.PushBack({ 266, 3, 16, 21 });
+	fly2.PushBack({ 251, 3, 13, 21 });
+	fly2.PushBack({ 237, 3, 10, 21 });//moviendose izquierda
+	fly2.speed = 0.09f;
 
-	collider = App->collision->AddCollider({ 0, 0, 24, 24 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	dead.PushBack({ 362, 3, 15, 21 });
+	dead.PushBack({ 380, 3, 11, 21 });
+	dead.PushBack({ 393, 3, 17, 21 });
+	dead.PushBack({ 410, 3, 17, 21 });
+	dead.speed = 0.09f;
 
-	original_y = y;
+	
+
+	collider = App->collision->AddCollider({ 0, 0, 16, 21 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+
+	original_pos.x = x;
+	original_pos.y = y;
+	path.PushBack({ 0.3f, 0.0f }, 150, &fly);
+	path.PushBack({ 0.0f, 0.0f }, 75, &idle);
+	path.PushBack({ -0.3f, 0.0f }, 150, &fly2);
+	
 }
 
 void GreenCowboy::Move()
 {
-	if (going_up)
-	{
-		if (wave > 1.0f)
-			going_up = false;
-		else
-			wave += 0.05f;
-	}
-	else
-	{
-		if (wave < -1.0f)
-			going_up = true;
-		else
-			wave -= 0.05f;
-	}
 
-	position.y = original_y + (25.0f * sinf(wave));
-	position.x -= 1;
+	position = original_pos + path.GetCurrentSpeed(&animation);
+}
+void GreenCowboy::OnCollision(Collider* c1, Collider* c2)
+{
+	animation = &dead;
+	path.PushBack({ -0.3f, 0.0f }, 150, &dead);
 }

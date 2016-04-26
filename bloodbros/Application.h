@@ -24,6 +24,7 @@ class ModuleCollision;
 class ModuleScope;
 class ModuleEnemies;
 
+
 class Application
 {
 public:
@@ -45,6 +46,7 @@ public:
 	ModuleParticles* particles;
 	ModuleCollision* collision;
 	ModuleScope* scope;
+
 
 
 public:

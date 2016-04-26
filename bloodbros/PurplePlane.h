@@ -16,8 +16,9 @@ private:
 public:
 
 	PurplePlane(int x, int y);
-
+	
 	void Move();
+	void OnCollision(Collider* c1, Collider* c2);
 };
 
 #endif // __PURPLEPLANE_H__

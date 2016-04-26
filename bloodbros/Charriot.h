@@ -16,6 +16,7 @@ public:
 	Enemy_Charriot(int x, int y);
 
 	void Move();
+	void OnCollision(Collider* c1, Collider* c2);
 };
 
 #endif // __ENEMY_CHARRIOT_H__

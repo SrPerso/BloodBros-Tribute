@@ -7,6 +7,7 @@
 #include "p2Point.h"
 #include "ModuleCollision.h"
 #include "Extras.h"
+#include "GreenCowBoy.h"
 
 struct SDL_Texture;
 
@@ -30,6 +31,7 @@ public:
 	Animation scope;
 	Animation shoots;
 	ModuleExtra* extra;
+	ModuleEnemies* boy;
 
 };
 

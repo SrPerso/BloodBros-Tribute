@@ -42,3 +42,7 @@ void Enemy_Charriot::Move()
 	position.y = original_y + (25.0f * sinf(wave));
 	position.x -= 1;
 }
+void Enemy_Charriot::OnCollision(Collider* c1, Collider* c2)
+{
+
+}

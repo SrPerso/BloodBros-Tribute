@@ -9,6 +9,7 @@
 #include "ModuleCollision.h"
 #include "ModuleScope.h"
 #include "Extras.h"
+#include "ModuleEnemies.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -63,7 +64,8 @@ update_status ModuleScope::Update()
 	if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_DOWN){
 		shot->type = COLLIDER_PLAYER_SHOT;
 		App->render->Blit(graphics, position.x, position.y, &(shoots.GetCurrentFrame()));
-		App->extra->OnCollision(App->extra->pig.collider, App->scope->shot);
+		
+		
 		return UPDATE_CONTINUE;
 
 	}

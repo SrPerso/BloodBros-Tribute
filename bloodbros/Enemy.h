@@ -5,6 +5,8 @@
 #include "Animation.h"
 #include "Path.h"
 
+#define MAX_ENEMIES 20
+
 struct SDL_Texture;
 struct Collider;
 
@@ -14,17 +16,19 @@ protected:
 	Animation* animation;
 	Collider* collider;
 
+
 public:
 	iPoint position;
 	Path path;
 public:
 	Enemy(int x, int y);
 	virtual ~Enemy();
-
+	
 	const Collider* GetCollider() const;
 
 	virtual void Move() {};
 	virtual void Draw(SDL_Texture* sprites);
+	virtual void OnCollision(Collider* c1, Collider* c2);
 };
 
 #endif // __ENEMY_H__

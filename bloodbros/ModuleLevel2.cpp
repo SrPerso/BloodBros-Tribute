@@ -71,6 +71,10 @@ update_status ModuleLevel2::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 87,-20);
 		plane = false;
 	}
+	if (SDL_GetTicks() >= 5000 && greencowboy == true){
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 0, 100);
+		greencowboy = false;
+	}
 	
 
 	// TODO 3: make so pressing SPACE the KEN stage is loaded
