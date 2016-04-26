@@ -13,6 +13,7 @@
 #include "ModuleEnemies.h"
 #include "SDL/include/SDL_timer.h"
 #include "Extras.h"
+#include "ModuleBuildings.h"
 
 // Reference at https://youtu.be/6OlenbCC4WI?t=382
 
@@ -35,6 +36,7 @@ bool ModuleLevel2::Start()
 	LOG("Loading background assets");
 	bool ret = true;
 	graphics = App->textures->Load("level2.png");
+	
 
 	// TODO 1: Enable (and properly disable) the player module
 	App->player->Enable();
@@ -42,6 +44,7 @@ bool ModuleLevel2::Start()
 	App->audio->Load("level.wav");
 	App->scope->Enable();
 	App->enemies->Enable();
+	App->building->Enable();
 	return ret;
 }
 
@@ -53,6 +56,7 @@ bool ModuleLevel2::CleanUp()
 	App->audio->Disable();
 	App->scope->Disable();
 	App->enemies->Disable();
+	App->building->Disable();
 
 	return true;
 }
@@ -63,6 +67,7 @@ update_status ModuleLevel2::Update()
 	// Draw everything --------------------------------------	
 
 	App->render->Blit(graphics, 0, 0, &background, 0); // level 2
+	App->building->AddBuilding(App->building->yellow, 128, 30);
 	if (SDL_GetTicks() >= 10000 && extra == true){
 		App->extra->AddExtra(App->extra->pig, 224, 140);
 		extra = false;

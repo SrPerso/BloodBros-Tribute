@@ -14,6 +14,7 @@
 #include "ModuleScope.h"
 #include "Extras.h"
 #include "ModuleEnemies.h"
+#include "ModuleBuildings.h"
 
 Application::Application()
 {
@@ -28,11 +29,12 @@ Application::Application()
 	modules[8] = titlescreen = new ModuleTitleScreen();
 	modules[9] = extra = new ModuleExtra();
 	modules[10] = enemies = new ModuleEnemies();
-	modules[11] = player = new ModulePlayer();
-	modules[12] = fade = new ModuleFadeToBlack();
-	modules[13] = particles = new ModuleParticles();
-	modules[14] = collision = new ModuleCollision();
-	modules[15] = scope = new ModuleScope();
+	modules[11] = building = new ModuleBuilding();
+	modules[12] = player = new ModulePlayer();
+	modules[13] = fade = new ModuleFadeToBlack();
+	modules[14] = particles = new ModuleParticles();
+	modules[15] = collision = new ModuleCollision();
+	modules[16] = scope = new ModuleScope();
 
 
 	

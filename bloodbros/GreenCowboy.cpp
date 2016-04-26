@@ -46,7 +46,7 @@ GreenCowboy::GreenCowboy(int x, int y) : Enemy(x, y)
 void GreenCowboy::Move()
 {
 	position = original_pos + path.GetCurrentSpeed(&animation);
-	if (isdead == true && dead.Finished()==true){
+	if (isdead == true && dead.Finished()==true) {
 		to_delete = true;
 	}
 

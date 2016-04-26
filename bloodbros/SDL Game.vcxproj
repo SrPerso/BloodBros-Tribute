@@ -79,6 +79,7 @@
     <ClInclude Include="GreenCowBoy.h" />
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="Module.h" />
+    <ClInclude Include="ModuleBuildings.h" />
     <ClInclude Include="ModuleCollision.h" />
     <ClInclude Include="ModuleEnemies.h" />
     <ClInclude Include="ModuleFadeToBlack.h" />
@@ -106,6 +107,7 @@
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="GreenCowboy.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="ModuleBuildings.cpp" />
     <ClCompile Include="ModuleCollision.cpp" />
     <ClCompile Include="ModuleEnemies.cpp" />
     <ClCompile Include="ModuleFadeToBlack.cpp" />

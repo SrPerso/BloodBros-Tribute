@@ -63,6 +63,7 @@ update_status ModuleScope::Update()
 	float speed = 3.5;
 	if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_DOWN){
 		shot->type = COLLIDER_PLAYER_SHOT;
+		App->audio->Loadfx("shot.wav");
 		App->render->Blit(graphics, position.x, position.y, &(shoots.GetCurrentFrame()));
 		
 		
