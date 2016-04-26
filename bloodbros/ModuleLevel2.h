@@ -19,6 +19,7 @@ public:
 	bool extra = true;
 	bool plane = true;
 	bool greencowboy = true;
+	bool buildings = true;
 
 public:
 

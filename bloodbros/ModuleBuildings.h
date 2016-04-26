@@ -6,21 +6,23 @@
 #include "Globals.h"
 #include "p2Point.h"
 
-#define MAX_EXTRAS 20
+
+#define MAX_BUILDINGS 10
+
+enum buildingtype{ YELLOW, PURPLE};
 
 struct SDL_Texture;
 
 struct Building
 {
-	Animation anim;
+	SDL_Rect build;
+	Animation destroy;
 	uint fx = 0;
-	iPoint position;
-	iPoint speed;
-	Uint32 born = 0;
-	Uint32 life = 0;
+	fPoint position;
 	bool fx_played = false;
 	Collider* collider = nullptr;
-
+	buildingtype mytype;
+	uint hits = 0;
 	Building();
 	Building(const Building& p);
 	~Building();
@@ -39,20 +41,22 @@ public:
 	update_status Update();
 	bool CleanUp();
 	void OnCollision(Collider* c1, Collider* c2);
-	void AddBuilding(const Building& particle, int x, int y, Uint32 delay = 0);
+	void AddBuilding(const Building& particle, int x, int y);
 
 
 private:
 
 	SDL_Texture* graphics = nullptr;
-	Building* active[MAX_EXTRAS];
-	uint last_particle = 0;
+	Building* active[MAX_BUILDINGS];
+	uint last_building = 0;
 
 public:
 
 
 	Building yellow;
 	Building purple;
+	Building yellow2;
+	Building purple2;
 
 };
 

@@ -18,7 +18,7 @@
 
 ModuleBuilding::ModuleBuilding()
 {
-	for (uint i = 0; i < MAX_EXTRAS; ++i)
+	for (uint i = 0; i < MAX_BUILDINGS; ++i)
 		active[i] = nullptr;
 }
 
@@ -36,20 +36,27 @@ bool ModuleBuilding::Start()
 	graphics = App->textures->Load("buildings.png");
 
 
+	yellow.build.x = 1;
+	yellow.build.y = 2;
+	yellow.build.w = 94;
+	yellow.build.h = 95;
+	yellow.mytype = YELLOW;
 
-	yellow.anim.PushBack({ 0, 0, 96, 98 });
-	/*yellow.anim.PushBack({ 293, 149, 34, 22 });
+	yellow2.build.x = 104;
+	yellow2.build.y = 2;
+	yellow2.build.w = 94;
+	yellow2.build.h = 95;
 
-	pig.anim.loop = true;
-	pig.anim.speed = 0.2f;
-	pig.speed.x = -1;
-	pig.life = 4000;*/
-
-
-
-
-
-
+	yellow.destroy.PushBack({ 104, 2, 94, 95 });
+	yellow.destroy.PushBack({ 104, 2, 94, 82});
+	yellow.destroy.PushBack({ 104, 2, 94, 69 });
+	yellow.destroy.PushBack({ 104, 2, 94, 56 });
+	yellow.destroy.PushBack({ 104, 2, 94, 43 });
+	yellow.destroy.PushBack({ 104, 2, 94, 30 });
+	yellow.destroy.PushBack({ 104, 2, 94, 17 });
+	yellow.destroy.PushBack({ 104, 2, 94, 4 });
+	yellow.destroy.loop = false;
+	yellow.destroy.speed = 0.05f;
 
 	return true;
 }
@@ -60,11 +67,10 @@ bool ModuleBuilding::CleanUp()
 	LOG("Unloading particles");
 	App->textures->Unload(graphics);
 
-	for (uint i = 0; i < MAX_EXTRAS; ++i)
+	for (uint i = 0; i < MAX_BUILDINGS; ++i)
 	{
 		if (active[i] != nullptr)
 		{
-
 			delete active[i];
 			active[i] = nullptr;
 		}
@@ -77,7 +83,7 @@ bool ModuleBuilding::CleanUp()
 update_status ModuleBuilding::Update()
 {
 
-	for (uint i = 0; i < MAX_EXTRAS; ++i)
+	for (uint i = 0; i < MAX_BUILDINGS; ++i)
 	{
 		Building* p = active[i];
 
@@ -91,13 +97,23 @@ update_status ModuleBuilding::Update()
 			active[i] = nullptr;
 
 		}
-		else if (SDL_GetTicks() >= p->born)
+		else if (p->hits <= 1)
 		{
-			App->render->Blit(graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+			App->render->Blit(graphics, p->position.x, p->position.y, &p->build, 0);
 			if (p->fx_played == false)
 			{
 				p->fx_played = true;
 				// Play particle fx here
+			}
+		}
+		else if (p->hits > 1){
+		
+			App->render->Blit(graphics, p->position.x, p->position.y+=0.6f, &p->destroy.GetCurrentFrame());
+			
+			/*p->collider->to_delete = true;
+			delete p;*/
+			if (p->destroy.Finished()){
+				active[i] = nullptr;
 			}
 		}
 	}
@@ -105,14 +121,13 @@ update_status ModuleBuilding::Update()
 	return UPDATE_CONTINUE;
 }
 
-void ModuleBuilding::AddBuilding(const Building& particle, int x, int y, Uint32 delay)
+void ModuleBuilding::AddBuilding(const Building& particle, int x, int y)
 {
 	Building* p = new Building(particle);
-	p->born = SDL_GetTicks() + delay;
 	p->position.x = x;
 	p->position.y = y;
-	p->collider = App->collision->AddCollider({x,y, 96, 98 }, COLLIDER_EXTRA, this);
-	active[last_particle++] = p;
+	p->collider = App->collision->AddCollider({p->position.x,p->position.y, 96, 98 }, COLLIDER_EXTRA, this);
+	active[last_building++] = p;
 }
 
 const Collider* Building::get_collider() const
@@ -126,12 +141,11 @@ const Collider* Building::get_collider() const
 Building::Building()
 {
 	position.SetToZero();
-	speed.SetToZero();
 }
 
 Building::Building(const Building& p) :
-anim(p.anim), position(p.position), speed(p.speed),
-fx(p.fx), born(p.born), life(p.life)
+build(p.build), position(p.position),
+fx(p.fx), mytype(p.mytype), destroy(p.destroy)
 {}
 
 Building::~Building(){
@@ -144,33 +158,30 @@ bool Building::Update()
 {
 	bool ret = true;
 
-	if (life > 0)
-	{
-		if ((SDL_GetTicks() - born) > life)
-			ret = false;
-	}
-	else
-	if (anim.Finished())
-
-		ret = false;
-
-
-	position.x += speed.x;
-	position.y += speed.y;
-	if (collider != nullptr){
-		collider->rect.x += speed.x;
-		collider->rect.y += speed.y;
-	}
-
 	return ret;
 }
 void ModuleBuilding::OnCollision(Collider* c1, Collider* c2)
 {
-	for (uint i = 0; i < MAX_EXTRAS; ++i){
-		if (active[i] != nullptr && active[i]->get_collider() == c1){
-			active[i]->anim.PushBack({ 103, 0, 96, 98 });
-		
-			break;
+	for (uint i = 0; i < MAX_BUILDINGS; ++i){
+		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->mytype==YELLOW){
+			if (active[i]->hits == 0){
+				active[i]->build.x = yellow2.build.x;
+				active[i]->build.y = yellow2.build.y;
+				active[i]->build.w = yellow2.build.w;
+				active[i]->build.h = yellow2.build.h;
+				active[i]->hits++;
+				break;
+			}
+			else if (active[i]->hits == 1){
+				active[i]->build.x = 0;
+				active[i]->build.y = 0;
+				active[i]->build.w = 0;
+				active[i]->build.h = 0;
+				active[i]->hits++;
+				App->particles->AddParticle(App->particles->housesmoke, active[i]->position.x + 94, active[i]->position.y + 95);
+				delete[] active[i]->collider;
+				active[i]->collider = nullptr;//PROBLEM
+			}
 		}
 	}
 }

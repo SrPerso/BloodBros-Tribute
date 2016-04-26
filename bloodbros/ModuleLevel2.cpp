@@ -36,15 +36,16 @@ bool ModuleLevel2::Start()
 	LOG("Loading background assets");
 	bool ret = true;
 	graphics = App->textures->Load("level2.png");
-	
 
-	// TODO 1: Enable (and properly disable) the player module
 	App->player->Enable();
 	App->audio->Enable();
 	App->audio->Load("level.wav");
+	App->particles->Enable();
 	App->scope->Enable();
 	App->enemies->Enable();
+
 	App->building->Enable();
+
 	return ret;
 }
 
@@ -67,7 +68,10 @@ update_status ModuleLevel2::Update()
 	// Draw everything --------------------------------------	
 
 	App->render->Blit(graphics, 0, 0, &background, 0); // level 2
-	App->building->AddBuilding(App->building->yellow, 128, 30);
+	if(buildings==true){
+		App->building->AddBuilding(App->building->yellow, 160, 30);
+		buildings = false;
+	}
 	if (SDL_GetTicks() >= 10000 && extra == true){
 		App->extra->AddExtra(App->extra->pig, 224, 140);
 		extra = false;

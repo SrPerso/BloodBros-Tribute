@@ -49,6 +49,7 @@ public:
 
 	Particle laser;
 	Particle Scope;
+	Particle housesmoke;
 };
 
 #endif // __MODULEPARTICLES_H__

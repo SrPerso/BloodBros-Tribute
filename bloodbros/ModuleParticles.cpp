@@ -13,6 +13,21 @@ ModuleParticles::ModuleParticles()
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 		active[i] = nullptr;
+
+	Scope.anim.PushBack({ 209, 278, 11, 7 });
+	Scope.anim.PushBack({ 226, 278, 11, 9 });
+	Scope.anim.loop = true;
+	Scope.anim.speed = 0.3f;
+	Scope.speed.y = -3;
+	Scope.life = 2000;
+
+	housesmoke.anim.PushBack({ 5, 92, 100, 34 });
+	housesmoke.anim.PushBack({ 105, 92, 100, 34 });
+	housesmoke.anim.PushBack({ 205, 92, 100, 34 });
+	housesmoke.anim.PushBack({ 305, 92, 100, 34 });
+	housesmoke.anim.loop = false;
+	housesmoke.anim.speed = 0.05f;
+	housesmoke.life = 4000;
 }
 
 ModuleParticles::~ModuleParticles()
@@ -22,24 +37,9 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	graphics = App->textures->Load("particles.png");
+	graphics = App->textures->Load("Particles.png");
 	
-	Scope.anim.PushBack({ 209, 278, 11, 7 });
-	Scope.anim.PushBack({ 226, 278, 11, 9 });
-	Scope.anim.loop = true;
-	Scope.anim.speed = 0.3f;
-	Scope.speed.y = -3;
-	Scope.life = 2000;
-
-
 	
-
-	laser.anim.PushBack({ 209, 278, 11, 7 });
-	laser.anim.PushBack({ 226, 278, 11, 9 });
-	laser.anim.loop = true;
-	laser.anim.speed = 0.3f;
-	laser.speed.y = -3;
-	laser.life = 2000;
 
 	
 
