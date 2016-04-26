@@ -58,6 +58,31 @@ bool ModuleBuilding::Start()
 	yellow.destroy.loop = false;
 	yellow.destroy.speed = 0.05f;
 
+	purple.build.x = 1;
+	purple.build.y = 217;
+	purple.build.w = 80;
+	purple.build.h = 54;
+	purple.mytype = PURPLE;
+
+	purple2.build.x = 104;
+	purple2.build.y = 217;
+	purple2.build.w = 80;
+	purple2.build.h = 54;
+
+	purple.destroy.PushBack({ 104, 217, 80, 54 });
+	purple.destroy.PushBack({ 104, 217, 80, 49 });
+	purple.destroy.PushBack({ 104, 217, 80, 44 });
+	purple.destroy.PushBack({ 104, 217, 80, 39 });
+	purple.destroy.PushBack({ 104, 217, 80, 34 });
+	purple.destroy.PushBack({ 104, 217, 80, 29 });
+	purple.destroy.PushBack({ 104, 217, 80, 24 });
+	purple.destroy.PushBack({ 104, 217, 80, 19 });
+	purple.destroy.PushBack({ 104, 217, 80, 14 });
+	purple.destroy.PushBack({ 104, 217, 80, 9 });
+	purple.destroy.PushBack({ 104, 217, 80, 4 });
+	purple.destroy.loop = false;
+	purple.destroy.speed = 0.12f;
+
 	return true;
 }
 
@@ -113,6 +138,7 @@ update_status ModuleBuilding::Update()
 			/*p->collider->to_delete = true;
 			delete p;*/
 			if (p->destroy.Finished()){
+				delete active[i];
 				active[i] = nullptr;
 			}
 		}
@@ -126,7 +152,7 @@ void ModuleBuilding::AddBuilding(const Building& particle, int x, int y)
 	Building* p = new Building(particle);
 	p->position.x = x;
 	p->position.y = y;
-	p->collider = App->collision->AddCollider({p->position.x,p->position.y, 96, 98 }, COLLIDER_EXTRA, this);
+	p->collider = App->collision->AddCollider({p->position.x,p->position.y, particle.build.w, particle.build.h}, COLLIDER_EXTRA, this);
 	active[last_building++] = p;
 }
 
@@ -178,9 +204,27 @@ void ModuleBuilding::OnCollision(Collider* c1, Collider* c2)
 				active[i]->build.w = 0;
 				active[i]->build.h = 0;
 				active[i]->hits++;
-				App->particles->AddParticle(App->particles->housesmoke, active[i]->position.x + 94, active[i]->position.y + 95);
-				delete[] active[i]->collider;
-				active[i]->collider = nullptr;//PROBLEM
+				App->particles->AddParticle(App->particles->housesmoke, active[i]->position.x, active[i]->position.y + 85);
+				/*delete[] active[i]->collider;
+				active[i]->collider = nullptr;//PROBLEM*/
+			}
+		}
+		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->mytype == PURPLE){
+			if (active[i]->hits == 0){
+				active[i]->build.x = purple2.build.x;
+				active[i]->build.y = purple2.build.y;
+				active[i]->build.w = purple2.build.w;
+				active[i]->build.h = purple2.build.h;
+				active[i]->hits++;
+				break;
+			}
+			else if (active[i]->hits == 1){
+				active[i]->build.x = 0;
+				active[i]->build.y = 0;
+				active[i]->build.w = 0;
+				active[i]->build.h = 0;
+				active[i]->hits++;
+				App->particles->AddParticle(App->particles->housesmoke, active[i]->position.x-8, active[i]->position.y + 44);
 			}
 		}
 	}

@@ -9,11 +9,13 @@
 #define MAX_ACTIVE_PARTICLES 100
 
 struct SDL_Texture;
+enum COLLIDER_TYPE;
 
 struct Particle
 {
 	Animation anim;
-	
+	Collider* collider=nullptr;
+	bool collides = false;
 	uint fx = 0;
 	iPoint position;
 	iPoint speed;
@@ -22,6 +24,7 @@ struct Particle
 	bool fx_played = false;
 
 	Particle();
+	~Particle();
 	Particle(const Particle& p);
 	bool Update();
 };
@@ -37,6 +40,7 @@ public:
 	bool CleanUp();
 
 	void AddParticle(const Particle& particle, int x, int y, Uint32 delay = 0);
+	void AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay);
 
 private:
 
@@ -46,10 +50,9 @@ private:
 
 public:
 
-
-	Particle laser;
 	Particle Scope;
 	Particle housesmoke;
+	Particle Cowboyshot;
 };
 
 #endif // __MODULEPARTICLES_H__

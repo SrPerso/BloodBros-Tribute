@@ -30,6 +30,8 @@ ModuleScope::ModuleScope()
 	shoots.PushBack({ 67, 2, 22, 22 });
 	shoots.PushBack({ 95, 2, 22, 22 });
 	shoots.PushBack({ 120, 2, 22, 22 });
+	shoots.loop = true;
+	shoots.speed = 0.1f;
 }
 
 ModuleScope::~ModuleScope()
@@ -67,7 +69,8 @@ update_status ModuleScope::Update()
 		App->render->Blit(graphics, position.x, position.y, &(shoots.GetCurrentFrame()));
 		
 		
-		return UPDATE_CONTINUE;
+			return UPDATE_CONTINUE;
+
 
 	}
 	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT){

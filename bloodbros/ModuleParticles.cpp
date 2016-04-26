@@ -25,9 +25,18 @@ ModuleParticles::ModuleParticles()
 	housesmoke.anim.PushBack({ 105, 92, 100, 34 });
 	housesmoke.anim.PushBack({ 205, 92, 100, 34 });
 	housesmoke.anim.PushBack({ 305, 92, 100, 34 });
-	housesmoke.anim.loop = false;
-	housesmoke.anim.speed = 0.05f;
-	housesmoke.life = 4000;
+	housesmoke.anim.loop = true;
+	housesmoke.anim.speed = 0.1f;
+	housesmoke.life = 3000;
+
+	Cowboyshot.anim.PushBack({ 213, 9, 7, 7 });
+	Cowboyshot.anim.PushBack({ 230, 9, 7, 7 });
+	Cowboyshot.anim.loop = true;
+	Cowboyshot.anim.speed = 0.1f;
+	Cowboyshot.speed.x = 1;
+	Cowboyshot.speed.y = 1;
+	Cowboyshot.collides = true;
+	Cowboyshot.life = 1700;
 }
 
 ModuleParticles::~ModuleParticles()
@@ -102,7 +111,17 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, Uint32
 
 	active[last_particle++] = p;
 }
-
+void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay)
+{
+			Particle* p = new Particle(particle);
+			p->born = SDL_GetTicks() + delay;
+			p->position.x = x;
+			p->position.y = y;
+			if (collider_type != COLLIDER_NONE)
+				p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), collider_type, this);
+			active[last_particle++] = p;
+	
+}
 // -------------------------------------------------------------
 // -------------------------------------------------------------
 
@@ -116,6 +135,12 @@ Particle::Particle(const Particle& p) :
 anim(p.anim), position(p.position), speed(p.speed),
 fx(p.fx), born(p.born), life(p.life)
 {}
+
+Particle::~Particle()
+{
+	if (collider != nullptr)
+		App->collision->EraseCollider(collider);
+}
 
 bool Particle::Update()
 {
@@ -132,6 +157,9 @@ bool Particle::Update()
 
 	position.x += speed.x;
 	position.y += speed.y;
+
+	if (collider != nullptr)
+		collider->SetPos(position.x, position.y);
 
 	return ret;
 }

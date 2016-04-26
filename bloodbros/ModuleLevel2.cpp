@@ -43,7 +43,6 @@ bool ModuleLevel2::Start()
 	App->particles->Enable();
 	App->scope->Enable();
 	App->enemies->Enable();
-
 	App->building->Enable();
 
 	return ret;
@@ -70,6 +69,7 @@ update_status ModuleLevel2::Update()
 	App->render->Blit(graphics, 0, 0, &background, 0); // level 2
 	if(buildings==true){
 		App->building->AddBuilding(App->building->yellow, 160, 30);
+		App->building->AddBuilding(App->building->purple, 0, 55);
 		buildings = false;
 	}
 	if (SDL_GetTicks() >= 10000 && extra == true){
