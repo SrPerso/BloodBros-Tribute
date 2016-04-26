@@ -8,8 +8,10 @@ class PurplePlane : public Enemy
 private:
 	float wave = -1.0f;
 	bool going_up = true;
-	int original_y = 0;
+	iPoint original_pos;
 	Animation fly;
+	Animation fly2;
+
 
 public:
 

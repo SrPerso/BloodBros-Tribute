@@ -57,7 +57,7 @@ update_status ModuleTitleScreen::Update()
 	// TODO 3: make so pressing SPACE the KEN stage is loaded
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
 	{
-		App->fade->FadeToBlack(App->titlescreen, App->level1, 2);
+		App->fade->FadeToBlack(App->titlescreen, App->level2, 2);
 	}
 	return UPDATE_CONTINUE;
 }

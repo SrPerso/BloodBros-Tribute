@@ -90,13 +90,13 @@
       <Filter>Modules</Filter>
     </ClInclude>
     <ClInclude Include="PurplePlane.h">
-      <Filter>Modules</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Charriot.h">
-      <Filter>Modules</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="GreenCowBoy.h">
-      <Filter>Modules</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -122,9 +122,6 @@
       <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="ModulePlayer.cpp">
-      <Filter>Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="Audio.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
     <ClCompile Include="ModuleLevel1.cpp">
@@ -161,13 +158,16 @@
       <Filter>Modules</Filter>
     </ClCompile>
     <ClCompile Include="PurplePlane.cpp">
-      <Filter>Modules</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Charriot.cpp">
-      <Filter>Modules</Filter>
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="GreenCowboy.cpp">
-      <Filter>Modules</Filter>
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Audio.cpp">
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

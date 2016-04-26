@@ -16,6 +16,8 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp();
+	bool extra = true;
+	bool plane = true;
 
 public:
 

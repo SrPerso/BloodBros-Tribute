@@ -21,6 +21,7 @@ void Enemy::Draw(SDL_Texture* sprites)
 {
 	if (collider != nullptr)
 		collider->SetPos(position.x, position.y);
-
-	App->render->Blit(sprites, position.x, position.y, &(animation->GetCurrentFrame()));
+	if (this != nullptr){
+		App->render->Blit(sprites, position.x, position.y, &(animation->GetCurrentFrame()));
+	}
 }
