@@ -27,16 +27,19 @@ PurplePlane::PurplePlane(int x, int y) : Enemy(x, y)
 
 	path.PushBack({ 0.0f, 0.3f }, 50, &fly);	
 	path.PushBack({ 0.0f, -0.5f }, 50, &fly2);
-	
+	path.loop = false;
 	
 	
 }
 
 void PurplePlane::Move()
 {
-	
-	
+	if (path.GetFrame() == 130){
+		to_delete = true;
+	}
+
 	position = original_pos + path.GetCurrentSpeed(&animation);
+
 	
 }
 void PurplePlane::OnCollision(Collider* c1, Collider* c2)

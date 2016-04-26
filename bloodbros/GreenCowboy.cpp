@@ -30,7 +30,7 @@ GreenCowboy::GreenCowboy(int x, int y) : Enemy(x, y)
 	dead.PushBack({ 393, 3, 17, 21 });
 	dead.PushBack({ 410, 3, 17, 21 });
 	dead.speed = 0.09f;
-
+	dead.loop = false;
 	
 
 	collider = App->collision->AddCollider({ 0, 0, 16, 21 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
@@ -45,11 +45,17 @@ GreenCowboy::GreenCowboy(int x, int y) : Enemy(x, y)
 
 void GreenCowboy::Move()
 {
-
 	position = original_pos + path.GetCurrentSpeed(&animation);
+	if (isdead == true && dead.Finished()==true){
+		to_delete = true;
+	}
+
 }
 void GreenCowboy::OnCollision(Collider* c1, Collider* c2)
 {
-	animation = &dead;
-	path.PushBack({ -0.3f, 0.0f }, 150, &dead);
+	path.Erase();
+	path.PushBack({ 0.0f, 0.0f }, 25, &dead);
+	path.loop = false;
+	
+	isdead = true;
 }

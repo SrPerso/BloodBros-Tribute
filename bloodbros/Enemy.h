@@ -20,6 +20,7 @@ protected:
 public:
 	iPoint position;
 	Path path;
+	bool to_delete = false;
 public:
 	Enemy(int x, int y);
 	virtual ~Enemy();

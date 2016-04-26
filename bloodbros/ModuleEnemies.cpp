@@ -50,6 +50,15 @@ update_status ModuleEnemies::PreUpdate()
 		}
 	}
 
+	for (uint i = 0; i < MAX_ENEMIES; ++i)
+	{
+		if (enemies[i] != nullptr && enemies[i]->to_delete == true)
+		{
+			delete enemies[i];
+			enemies[i] = nullptr;
+		}
+	}
+
 	return UPDATE_CONTINUE;
 }
 

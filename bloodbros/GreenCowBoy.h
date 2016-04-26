@@ -14,7 +14,7 @@ private:
 	Animation fly2;
 	Animation dead;
 	Animation idle;
-	
+	bool isdead=false;
 
 
 public:
