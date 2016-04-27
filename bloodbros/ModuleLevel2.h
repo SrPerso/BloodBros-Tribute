@@ -20,11 +20,13 @@ public:
 	bool plane = true;
 	bool greencowboy = true;
 	bool buildings = true;
+	bool green2 = true;
+	bool plane2 = true;
 
 public:
 
 	SDL_Texture* graphics = nullptr;
-
+	uint timestart;
 	SDL_Rect background;
 };
 

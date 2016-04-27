@@ -13,6 +13,7 @@ enum type{
 	NORMAL,
 	ROLL, 
 	DEAD,
+	WIN,
 };
 
 class ModulePlayer : public Module
@@ -43,6 +44,17 @@ public:
 	Animation jump_right;
 	Animation scope;
 	Animation dead;
+	Animation shotidle;
+	Animation shotleft;
+	Animation shotleftop;
+	Animation shotopleft;
+	Animation shotop;
+	Animation shotright;
+	Animation shotrighttop;
+	Animation shotopright;
+	Animation dance;
+	uint hp;
+	
 
 };
 

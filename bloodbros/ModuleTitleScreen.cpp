@@ -30,10 +30,10 @@ bool ModuleTitleScreen::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	graphics = App->textures->Load("titlescreen.png");
+	graphics = App->textures->Load("Images/titlescreen.png");
 	
 	App->audio->Enable();
-	App->audio->Load("titletheme.wav");
+	App->audio->Load("Music/titletheme.ogg");
 	return ret;
 }
 

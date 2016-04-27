@@ -4,6 +4,8 @@
 #include "Path.h"
 #include "Enemy.h"
 #include "ModuleParticles.h"
+#include "ModuleEnemies.h"
+
 PurplePlane::PurplePlane(int x, int y) : Enemy(x, y)
 {
 	fly.PushBack({ 118, 361, 113, 47 });
@@ -48,6 +50,7 @@ void PurplePlane::Move()
 		//}
 	}
 	position = original_pos + path.GetCurrentSpeed(&animation);
+
 
 	
 }

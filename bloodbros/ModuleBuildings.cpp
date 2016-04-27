@@ -33,7 +33,7 @@ ModuleBuilding::~ModuleBuilding()
 bool ModuleBuilding::Start()
 {
 	LOG("Loading particles");
-	graphics = App->textures->Load("buildings.png");
+	graphics = App->textures->Load("Images/buildings.png");
 
 
 	yellow.build.x = 1;

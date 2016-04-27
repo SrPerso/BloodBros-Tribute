@@ -31,10 +31,10 @@ bool ModuleVictory::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	graphics = App->textures->Load("scorescreen.png");
+	graphics = App->textures->Load("Images/scorescreen.png");
 
 	App->audio->Enable();
-	App->audio->Load("titletheme.wav");
+	App->audio->Load("Music/titletheme.ogg");
 	return ret;
 }
 

@@ -10,6 +10,7 @@
 #include "ModuleScope.h"
 #include "Extras.h"
 #include "ModuleEnemies.h"
+#include "SDL/include/SDL_timer.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -42,7 +43,7 @@ bool ModuleScope::Start()
 {
 	LOG("Loading player textures");
 	bool ret = true;
-	graphics = App->textures->Load("Particles.png"); // arcade version
+	graphics = App->textures->Load("Images/particles.png"); 
 
 	position.x = 105;
 	position.y = 45;
@@ -63,15 +64,20 @@ bool ModuleScope::CleanUp()
 update_status ModuleScope::Update()
 {
 	float speed = 3.5;
-	if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_DOWN){
-		shot->type = COLLIDER_PLAYER_SHOT;
-		App->audio->Loadfx("shot.wav");
-		App->render->Blit(graphics, position.x, position.y, &(shoots.GetCurrentFrame()));
+	if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT){
+		if (SDL_GetTicks() > time){
+			time = SDL_GetTicks() + 600;
+			shot->type = COLLIDER_PLAYER_SHOT;
+			App->audio->Loadfx("Music/shot.ogg");
+		}
+		else{
+			shot->type = COLLIDER_NONE;
+		}
+	}
+	else if (App->input->keyboard[SDL_SCANCODE_LCTRL] != KEY_STATE::KEY_REPEAT){
 		
-		
-			return UPDATE_CONTINUE;
-
-
+		shot->type = COLLIDER_NONE;
+		didsound = false;
 	}
 	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT){
 		if (position.y <= 0){
@@ -104,7 +110,7 @@ update_status ModuleScope::Update()
 	shot->rect.y = position.y+1;
 	current_animation = &scope;
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
-	shot->type = COLLIDER_NONE;
+
 
 	return UPDATE_CONTINUE;
 }

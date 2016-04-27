@@ -35,15 +35,21 @@ bool ModuleLevel2::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	graphics = App->textures->Load("level2.png");
-
+	extra = true;
+	greencowboy = true;
+	buildings = true;
+	plane = true;
+	graphics = App->textures->Load("Images/level2.png");
+	timestart = SDL_GetTicks();
 	App->player->Enable();
 	App->audio->Enable();
-	App->audio->Load("level.wav");
+	App->audio->Load("Music/level.ogg");
 	App->particles->Enable();
 	App->scope->Enable();
 	App->enemies->Enable();
 	App->building->Enable();
+	App->collision->Enable();
+	App->extra->Enable();
 	App->collision->AddCollider({ 0, 200, 256, 46 }, COLLIDER_WALL, this);
 	return ret;
 }
@@ -57,7 +63,9 @@ bool ModuleLevel2::CleanUp()
 	App->scope->Disable();
 	App->enemies->Disable();
 	App->building->Disable();
-
+	App->collision->Disable();
+	App->particles->Disable();
+	App->extra->Disable();
 	return true;
 }
 
@@ -72,20 +80,42 @@ update_status ModuleLevel2::Update()
 		App->building->AddBuilding(App->building->purple, 0, 55);
 		buildings = false;
 	}
-	if (SDL_GetTicks() >= 10000 && extra == true){
+	if (SDL_GetTicks() >= timestart+10000 && extra == true){
 		App->extra->AddExtra(App->extra->pig, 224, 140);
 		extra = false;
 	}
-	if (SDL_GetTicks() >= 1000 && plane==true){
+	if (SDL_GetTicks() >= timestart + 5000 && plane == true){
 		App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 87,-20);
 		plane = false;
 	}
-	if (SDL_GetTicks() >= 5000 && greencowboy == true){
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 0, 100);
+	if (SDL_GetTicks() >=  timestart+6000 && greencowboy == true){
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 0, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 20, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 40, 80);
 		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 100);
 		greencowboy = false;
 	}
 
+	if (SDL_GetTicks() >= timestart + 15000 && plane2 == true){
+		App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 87, -20);
+		plane2 = false;
+	}
+	if (SDL_GetTicks() >= timestart + 20000 && green2 == true){
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 0, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 20, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 40, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 100);
+		green2 = false;
+	}
+
+	if (App->player->hp == 0){
+		App->fade->FadeToBlack(App->level2, App->victoryscreen, 2);
+	}
+	if (App->enemies->hits >= 10){
+		App->player->status = WIN;
+		App->audio->Load("Music/victory.ogg");
+		App->fade->FadeToBlack(App->level2, App->victoryscreen, 2);
+	}
 	
 
 	// TODO 3: make so pressing SPACE the KEN stage is loaded

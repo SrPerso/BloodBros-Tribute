@@ -69,6 +69,7 @@ void Enemy_Charriot::Move()
 	}
 	if (isdead == true) {
 		to_delete = true;
+
 	}
 }
 void Enemy_Charriot::OnCollision(Collider* c1, Collider* c2)

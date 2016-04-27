@@ -32,7 +32,7 @@ ModuleExtra::~ModuleExtra()
 bool ModuleExtra::Start()
 {
 	LOG("Loading particles");
-	graphics = App->textures->Load("level12.png");
+	graphics = App->textures->Load("Images/level12.png");
 
 
 
@@ -166,7 +166,7 @@ void ModuleExtra::OnCollision(Collider* c1, Collider* c2)
 {
 	for (uint i = 0; i < MAX_EXTRAS; ++i){
 		if (active[i] != nullptr && active[i]->get_collider() == c1){
-				App->audio->Loadfx("pig.wav");
+				App->audio->Loadfx("Music/pig.ogg");
 				active[i]->speed.x--;
 				break;
 		}

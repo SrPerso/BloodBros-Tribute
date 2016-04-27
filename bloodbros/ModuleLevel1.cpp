@@ -50,12 +50,12 @@ bool ModuleLevel1::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	graphics = App->textures->Load("level12.png");
+	graphics = App->textures->Load("Images/level12.png");
 
 	// TODO 1: Enable (and properly disable) the player module
 	App->player->Enable();
 	App->audio->Enable();
-	App->audio->Load("level.wav");
+	App->audio->Load("Music/level.ogg");
 	App->scope->Enable();
 	
 	uint start = SDL_GetTicks();

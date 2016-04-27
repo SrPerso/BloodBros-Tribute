@@ -32,6 +32,8 @@ public:
 	Animation shoots;
 	ModuleExtra* extra;
 	ModuleEnemies* boy;
+	bool didsound=false;
+	uint time;
 
 };
 
