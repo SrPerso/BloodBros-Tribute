@@ -44,7 +44,7 @@ bool ModuleLevel2::Start()
 	App->scope->Enable();
 	App->enemies->Enable();
 	App->building->Enable();
-
+	App->collision->AddCollider({ 0, 200, 256, 46 }, COLLIDER_WALL, this);
 	return ret;
 }
 
@@ -82,8 +82,10 @@ update_status ModuleLevel2::Update()
 	}
 	if (SDL_GetTicks() >= 5000 && greencowboy == true){
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 0, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 100);
 		greencowboy = false;
 	}
+
 	
 
 	// TODO 3: make so pressing SPACE the KEN stage is loaded

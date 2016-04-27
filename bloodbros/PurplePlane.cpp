@@ -3,6 +3,7 @@
 #include "ModuleCollision.h"
 #include "Path.h"
 #include "Enemy.h"
+#include "ModuleParticles.h"
 PurplePlane::PurplePlane(int x, int y) : Enemy(x, y)
 {
 	fly.PushBack({ 118, 361, 113, 47 });
@@ -37,12 +38,20 @@ void PurplePlane::Move()
 	if (path.GetFrame() == 130){
 		to_delete = true;
 	}
+	if (path.GetFrame() == 75 ){
+		App->particles->AddParticle(App->particles->gunflare, position.x, position.y);
+		//if (App->particles->gunflare.anim.Finished()){
+		App->particles->AddParticle(App->particles->Planebomb, position.x+56, position.y+46, 0.0f, +1.0f, COLLIDER_ENEMY, 0);
+		App->particles->AddParticle(App->particles->Planebomb, position.x+1, position.y+46, 0.0f, +1.0f, COLLIDER_ENEMY, 0);
+		App->particles->AddParticle(App->particles->Planebomb, position.x+112, position.y+46, 0.5f, +1.0f, COLLIDER_ENEMY, 0);
 
+		//}
+	}
 	position = original_pos + path.GetCurrentSpeed(&animation);
 
 	
 }
 void PurplePlane::OnCollision(Collider* c1, Collider* c2)
 {
-	
+	to_delete = true;
 }

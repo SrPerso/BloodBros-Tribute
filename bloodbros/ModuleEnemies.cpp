@@ -27,7 +27,7 @@ ModuleEnemies::~ModuleEnemies()
 
 bool ModuleEnemies::Start()
 {
-	sprites = App->textures->Load("extra-enemie.png");
+	sprites = App->textures->Load("Enemies.png");
 
 	
 

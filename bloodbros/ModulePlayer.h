@@ -11,7 +11,8 @@ struct SDL_Texture;
 
 enum type{
 	NORMAL,
-	ROLL
+	ROLL, 
+	DEAD,
 };
 
 class ModulePlayer : public Module
@@ -23,6 +24,7 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp();
+	void OnCollision(Collider* c1, Collider* c2);
 	
 
 public:
@@ -40,6 +42,7 @@ public:
 	Animation jump_left;
 	Animation jump_right;
 	Animation scope;
+	Animation dead;
 
 };
 

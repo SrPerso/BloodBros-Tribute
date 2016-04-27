@@ -29,6 +29,7 @@ ModuleParticles::ModuleParticles()
 	housesmoke.anim.speed = 0.1f;
 	housesmoke.life = 3000;
 
+
 	Cowboyshot.anim.PushBack({ 213, 9, 7, 7 });
 	Cowboyshot.anim.PushBack({ 230, 9, 7, 7 });
 	Cowboyshot.anim.loop = true;
@@ -36,7 +37,28 @@ ModuleParticles::ModuleParticles()
 	Cowboyshot.speed.x = 1;
 	Cowboyshot.speed.y = 1;
 	Cowboyshot.collides = true;
-	Cowboyshot.life = 1700;
+	Cowboyshot.life = 3000;
+
+	gunflare.anim.PushBack({ 150, 4, 16, 17 });
+	gunflare.anim.PushBack({ 171, 4, 16, 17 });
+	gunflare.anim.PushBack({ 190, 4, 16, 17 });
+	gunflare.anim.speed = 0.3f;
+
+	
+
+	Planebomb.anim.PushBack({286, 6, 16, 16});
+	Planebomb.anim.PushBack({ 303, 6, 16, 16 });
+	Planebomb.anim.PushBack({ 320, 6, 16, 16 });
+	Planebomb.anim.PushBack({ 337, 6, 16, 16 });
+	Planebomb.anim.PushBack({ 354, 6, 16, 16 });
+	Planebomb.life = 3000;
+	Planebomb.type = planebomb;
+
+	Hitbomb.anim.PushBack({ 374, 5, 34, 18 });
+	Hitbomb.anim.PushBack({ 407, 5, 34, 18 });
+	Hitbomb.life = 3000;
+	Hitbomb.type = bomb;
+
 }
 
 ModuleParticles::~ModuleParticles()
@@ -48,10 +70,6 @@ bool ModuleParticles::Start()
 	LOG("Loading particles");
 	graphics = App->textures->Load("Particles.png");
 	
-	
-
-	
-
 	return true;
 }
 
@@ -113,14 +131,51 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, Uint32
 }
 void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay)
 {
+	Particle* p = new Particle(particle);
+	p->born = SDL_GetTicks() + delay;
+	p->position.x = x;
+	p->position.y = y;
+
+	if (collider_type != COLLIDER_NONE)
+		p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), collider_type, this);
+	active[last_particle++] = p;
+
+}
+void ModuleParticles::AddParticle(const Particle& particle, int x, int y, float speedx, float speedy, COLLIDER_TYPE collider_type, Uint32 delay)
+{
 			Particle* p = new Particle(particle);
 			p->born = SDL_GetTicks() + delay;
 			p->position.x = x;
 			p->position.y = y;
+			p->speed.x = speedx;
+			p->speed.y = speedy;
 			if (collider_type != COLLIDER_NONE)
 				p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), collider_type, this);
 			active[last_particle++] = p;
 	
+}
+
+
+void ModuleParticles::OnCollision(Collider* c1, Collider* c2){
+	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	{
+
+		if (active[i] != nullptr && active[i]->type==planebomb){
+			App->particles->AddParticle(App->particles->Hitbomb, active[i]->position.x, active[i]->position.y, 0.0f, +0.0f, COLLIDER_ENEMY, 0);
+			delete active[i];
+			active[i] = nullptr;
+			break;
+		}
+		// Always destroy particles that collide
+		else if (active[i] != nullptr && active[i]->collider == c1 && active[i]->type!=planebomb)
+		{
+			//AddParticle(explosion, active[i]->position.x, active[i]->position.y);
+			delete active[i];
+			active[i] = nullptr;
+			break;
+		}
+		
+	}
 }
 // -------------------------------------------------------------
 // -------------------------------------------------------------
@@ -163,3 +218,4 @@ bool Particle::Update()
 
 	return ret;
 }
+

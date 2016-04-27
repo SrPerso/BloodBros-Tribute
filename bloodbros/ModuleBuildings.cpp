@@ -47,13 +47,13 @@ bool ModuleBuilding::Start()
 	yellow2.build.w = 94;
 	yellow2.build.h = 95;
 
-	yellow.destroy.PushBack({ 104, 2, 94, 95 });
+	yellow.destroy.PushBack({ 105, 2, 94, 96 });
 	yellow.destroy.PushBack({ 104, 2, 94, 82});
-	yellow.destroy.PushBack({ 104, 2, 94, 69 });
+	yellow.destroy.PushBack({ 105, 2, 94, 70 });
 	yellow.destroy.PushBack({ 104, 2, 94, 56 });
-	yellow.destroy.PushBack({ 104, 2, 94, 43 });
+	yellow.destroy.PushBack({ 105, 2, 94, 44 });
 	yellow.destroy.PushBack({ 104, 2, 94, 30 });
-	yellow.destroy.PushBack({ 104, 2, 94, 17 });
+	yellow.destroy.PushBack({ 105, 2, 94, 18 });
 	yellow.destroy.PushBack({ 104, 2, 94, 4 });
 	yellow.destroy.loop = false;
 	yellow.destroy.speed = 0.05f;

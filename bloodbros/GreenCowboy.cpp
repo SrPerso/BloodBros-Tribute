@@ -48,7 +48,10 @@ void GreenCowboy::Move()
 {
 	position = original_pos + path.GetCurrentSpeed(&animation);
 	if (path.GetFrame()==200 && isdead==false){
-		App->particles->AddParticle(App->particles->Cowboyshot, position.x, position.y, COLLIDER_ENEMY_SHOT, 0);
+		App->particles->AddParticle(App->particles->gunflare, position.x, position.y);
+		//if (App->particles->gunflare.anim.Finished()){
+			App->particles->AddParticle(App->particles->Cowboyshot, position.x, position.y, COLLIDER_ENEMY, 0);
+		//}
 	}
 	if (isdead == true && dead.Finished()==true) {
 		to_delete = true;

@@ -9,7 +9,12 @@ private:
 	float wave = -1.0f;
 	bool going_up = true;
 	int original_y = 0;
-	Animation fly;
+	iPoint original_pos;
+	Animation left;
+	Animation right;
+	Animation shot;
+	Path path;
+	bool isdead= false;
 
 public:
 
