@@ -7,15 +7,16 @@
 #include "p2Point.h"
 
 
-#define MAX_BUILDINGS 10
+#define MAX_BUILDINGS 50
 
-enum buildingtype{ YELLOW, PURPLE};
+enum buildingtype{ YELLOW, PURPLE, WINDMILL, WHEEL};
 
 struct SDL_Texture;
 
 struct Building
 {
 	SDL_Rect build;
+	Animation movement;
 	Animation destroy;
 	uint fx = 0;
 	fPoint position;
@@ -57,6 +58,8 @@ public:
 	Building purple;
 	Building yellow2;
 	Building purple2;
+	Building wheel;
+	Building mill;
 
 };
 

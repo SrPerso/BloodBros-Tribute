@@ -48,7 +48,7 @@ bool ModuleBuilding::Start()
 	yellow2.build.h = 95;
 
 	yellow.destroy.PushBack({ 105, 2, 94, 96 });
-	yellow.destroy.PushBack({ 104, 2, 94, 82});
+	yellow.destroy.PushBack({ 104, 2, 94, 82 });
 	yellow.destroy.PushBack({ 105, 2, 94, 70 });
 	yellow.destroy.PushBack({ 104, 2, 94, 56 });
 	yellow.destroy.PushBack({ 105, 2, 94, 44 });
@@ -82,6 +82,40 @@ bool ModuleBuilding::Start()
 	purple.destroy.PushBack({ 104, 217, 80, 4 });
 	purple.destroy.loop = false;
 	purple.destroy.speed = 0.12f;
+	
+	wheel.build.x = 0;
+	wheel.build.y = 107;
+	wheel.build.w = 46;
+	wheel.build.h = 49;
+
+
+	wheel.movement.PushBack({ 0, 106, 46, 49 });
+	wheel.movement.PushBack({ 51, 106, 46, 49 });
+	wheel.movement.PushBack({ 103, 106, 46, 49 });
+	wheel.movement.PushBack({ 155, 106, 46, 49 });
+	wheel.movement.speed = 0.12f;
+	wheel.movement.loop = true;
+	wheel.mytype = WHEEL;
+
+	mill.build.x = 0;
+	mill.build.y = 156;
+	mill.build.w = 46;
+	mill.build.h = 49;
+
+	mill.destroy.PushBack({ 155, 156, 46, 49 });
+	mill.destroy.PushBack({ 155, 156, 46, 44 });
+	mill.destroy.PushBack({ 155, 156, 46, 39 });
+	mill.destroy.PushBack({ 155, 156, 46, 34 });
+	mill.destroy.PushBack({ 155, 156, 46, 29 });
+	mill.destroy.PushBack({ 155, 156, 46, 24 });
+	mill.destroy.PushBack({ 155, 156, 46, 19 });
+	mill.destroy.PushBack({ 155, 156, 46, 14 });
+	mill.destroy.PushBack({ 155, 156, 46, 9 });
+	mill.destroy.PushBack({ 155, 156, 46, 4 });
+	mill.destroy.loop = false;
+	mill.destroy.speed = 0.12f;
+	mill.mytype = WINDMILL;
+
 
 	return true;
 }
@@ -107,7 +141,7 @@ bool ModuleBuilding::CleanUp()
 // Update: draw background
 update_status ModuleBuilding::Update()
 {
-
+	
 	for (uint i = 0; i < MAX_BUILDINGS; ++i)
 	{
 		Building* p = active[i];
@@ -122,7 +156,7 @@ update_status ModuleBuilding::Update()
 			active[i] = nullptr;
 
 		}
-		else if (p->hits <= 1)
+		else if ((p->hits <= 1 && p->mytype!=WINDMILL) || (p->mytype==WINDMILL && p->hits<=2))
 		{
 			App->render->Blit(graphics, p->position.x, p->position.y, &p->build, 0);
 			if (p->fx_played == false)
@@ -131,12 +165,22 @@ update_status ModuleBuilding::Update()
 				// Play particle fx here
 			}
 		}
-		else if (p->hits > 1){
+		/*else if (p->mytype == WHEEL && p->hits<=2){
+			App->render->Blit(graphics, p->position.x, p->position.y, &p->movement.GetCurrentFrame());
+		}*/
+		else if (p->hits > 1 && p->mytype != WINDMILL){
 		
 			App->render->Blit(graphics, p->position.x, p->position.y+=0.6f, &p->destroy.GetCurrentFrame());
 			
 			/*p->collider->to_delete = true;
 			delete p;*/
+			if (p->destroy.Finished()){
+				delete active[i];
+				active[i] = nullptr;
+			}
+		}
+		else if (p->hits > 2 && p->mytype == WINDMILL){
+			App->render->Blit(graphics, p->position.x, p->position.y += 0.6f, &p->destroy.GetCurrentFrame());
 			if (p->destroy.Finished()){
 				delete active[i];
 				active[i] = nullptr;
@@ -152,7 +196,12 @@ void ModuleBuilding::AddBuilding(const Building& particle, int x, int y)
 	Building* p = new Building(particle);
 	p->position.x = x;
 	p->position.y = y;
-	p->collider = App->collision->AddCollider({p->position.x,p->position.y, particle.build.w, particle.build.h}, COLLIDER_EXTRA, this);
+	if (p->mytype == WHEEL){
+		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, particle.build.w, particle.build.h }, COLLIDER_NONE, this);
+	}
+	else{
+		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, particle.build.w, particle.build.h }, COLLIDER_EXTRA, this);
+	}
 	active[last_building++] = p;
 }
 
@@ -225,6 +274,33 @@ void ModuleBuilding::OnCollision(Collider* c1, Collider* c2)
 				active[i]->build.h = 0;
 				active[i]->hits++;
 				App->particles->AddParticle(App->particles->housesmoke, active[i]->position.x-8, active[i]->position.y + 44);
+			}
+		}
+		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->mytype == WINDMILL){
+			wheel.hits++;
+			if (active[i]->hits == 0){
+				active[i]->build.x = 51;
+				active[i]->build.y = 156;
+				active[i]->build.w = 46;
+				active[i]->build.h = 49;
+				active[i]->hits++;
+				break;
+			}
+			else if (active[i]->hits == 1){
+				active[i]->build.x = 103;
+				active[i]->build.y = 156;
+				active[i]->build.w = 46;
+				active[i]->build.h = 49;
+				active[i]->hits++;
+				break;
+			}
+			else if (active[i]->hits == 2){
+				active[i]->build.x = 155;
+				active[i]->build.y = 156;
+				active[i]->build.w = 46;
+				active[i]->build.h = 49;
+				active[i]->hits++;
+				App->particles->AddParticle(App->particles->housesmoke, active[i]->position.x - 8, active[i]->position.y + 44);
 			}
 		}
 	}

@@ -10,6 +10,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleLevel1.h"
 #include "ModuleLevel2.h"
+#include "ModuleVictory.h"
 #include "ModuleScope.h"
 
 
@@ -182,7 +183,7 @@ bool ModulePlayer::CleanUp()
 	LOG("Unloading player");
 	App->collision->CleanUp(); 
 	App->textures->Unload(graphics);
-	
+	status = NORMAL;
 	return true;
 }
 
@@ -190,7 +191,6 @@ bool ModulePlayer::CleanUp()
 update_status ModulePlayer::Update()
 {
 	float speed = 1.4f;
-
 
 
 	switch (status){
@@ -355,9 +355,10 @@ update_status ModulePlayer::Update()
 	case WIN:
 	{
 		position.y = 100;
-		current_animation = &dance;
 		player->type = COLLIDER_NONE;
 		if (current_animation->Finished() == true){
+			status = NORMAL;
+			App->fade->FadeToBlack(App->level2, App->victoryscreen, 2);
 			break;
 		}
 	}

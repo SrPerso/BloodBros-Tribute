@@ -51,6 +51,7 @@ bool ModuleLevel2::Start()
 	App->collision->Enable();
 	App->extra->Enable();
 	App->collision->AddCollider({ 0, 200, 256, 46 }, COLLIDER_WALL, this);
+	App->enemies->hits = 0;
 	return ret;
 }
 
@@ -78,6 +79,8 @@ update_status ModuleLevel2::Update()
 	if(buildings==true){
 		App->building->AddBuilding(App->building->yellow, 160, 30);
 		App->building->AddBuilding(App->building->purple, 0, 55);
+		App->building->AddBuilding(App->building->mill, 30, 100);
+		App->building->AddBuilding(App->building->wheel, 30, 53);
 		buildings = false;
 	}
 	if (SDL_GetTicks() >= timestart+10000 && extra == true){
@@ -112,9 +115,10 @@ update_status ModuleLevel2::Update()
 		App->fade->FadeToBlack(App->level2, App->victoryscreen, 2);
 	}
 	if (App->enemies->hits >= 10){
+		App->player->current_animation = &(App->player->dance);
 		App->player->status = WIN;
 		App->audio->Load("Music/victory.ogg");
-		App->fade->FadeToBlack(App->level2, App->victoryscreen, 2);
+		
 	}
 	
 
