@@ -13,6 +13,7 @@ enum ENEMY_TYPES
 	PURPLEPLANE,
 	GREENCOWBOY,
 	CHARRIOT,
+	BLUECOWBOY,
 };
 
 class Enemy;
@@ -49,6 +50,7 @@ private:
 	EnemyInfo queue[MAX_ENEMIES];
 	Enemy* enemies[MAX_ENEMIES];
 	SDL_Texture* sprites;
+	SDL_Texture* sprites2;
 };
 
 #endif // __ModuleEnemies_H__

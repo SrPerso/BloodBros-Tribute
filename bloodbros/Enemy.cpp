@@ -23,7 +23,9 @@ void Enemy::Draw(SDL_Texture* sprites)
 		collider->SetPos(position.x, position.y);
 	if (this != nullptr){
 		App->render->Blit(sprites, position.x, position.y, &(animation->GetCurrentFrame()));
+		
 	}
+	
 }
 void Enemy::OnCollision(Collider* c1, Collider* c2){
 

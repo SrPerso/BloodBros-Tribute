@@ -8,6 +8,7 @@
 #include "Charriot.h"
 #include "GreenCowBoy.h"
 #include "PurplePlane.h"
+#include "BlueCowBoy.h"
 /*#include "Enemy_RedBird.h"
 #include "Enemy_Cookie.h"
 #include "Enemy_Mech.h"*/
@@ -28,6 +29,7 @@ ModuleEnemies::~ModuleEnemies()
 bool ModuleEnemies::Start()
 {
 	sprites = App->textures->Load("Images/Enemies.png");
+	
 
 	
 
@@ -99,6 +101,7 @@ bool ModuleEnemies::CleanUp()
 	LOG("Freeing all enemies");
 
 	App->textures->Unload(sprites);
+	
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
@@ -149,6 +152,9 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			break;
 		case ENEMY_TYPES::PURPLEPLANE:
 			enemies[i] = new PurplePlane(info.x, info.y);
+			break;
+		case ENEMY_TYPES::BLUECOWBOY:
+			enemies[i] = new BlueCowboy(info.x, info.y);
 			break;
 		}
 	}

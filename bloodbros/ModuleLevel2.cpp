@@ -37,6 +37,7 @@ bool ModuleLevel2::Start()
 	bool ret = true;
 	extra = true;
 	greencowboy = true;
+	bluecowboy = true;
 	buildings = true;
 	plane = true;
 	graphics = App->textures->Load("Images/level2.png");
@@ -78,9 +79,9 @@ update_status ModuleLevel2::Update()
 	App->render->Blit(graphics, 0, 0, &background, 0); // level 2
 	if(buildings==true){
 		App->building->AddBuilding(App->building->yellow, 160, 30);
-		App->building->AddBuilding(App->building->purple, 0, 55);
-		App->building->AddBuilding(App->building->mill, 30, 100);
-		App->building->AddBuilding(App->building->wheel, 30, 53);
+		App->building->AddBuilding(App->building->purple, 0, 53);
+		App->building->AddBuilding(App->building->mill, 30, 71);
+		App->building->AddBuilding(App->building->wheel, 30, 24);
 		buildings = false;
 	}
 	if (SDL_GetTicks() >= timestart+10000 && extra == true){
@@ -91,12 +92,19 @@ update_status ModuleLevel2::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 87,-20);
 		plane = false;
 	}
-	if (SDL_GetTicks() >=  timestart+6000 && greencowboy == true){
+	if (SDL_GetTicks() >=  timestart + 6000 && greencowboy == true){
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 0, 80);
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 20, 80);
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 40, 80);
-		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 80);
 		greencowboy = false;
+	}
+	if (SDL_GetTicks() >= timestart + 9000 && bluecowboy == true){
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 30, 60);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 40, 60);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 40, 60);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 50, 60);
+		bluecowboy = false;
 	}
 
 	if (SDL_GetTicks() >= timestart + 15000 && plane2 == true){
@@ -107,7 +115,7 @@ update_status ModuleLevel2::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 0, 80);
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 20, 80);
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 40, 80);
-		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 80);
 		green2 = false;
 	}
 
