@@ -58,7 +58,6 @@ public:
 	Building purple;
 	Building yellow2;
 	Building purple2;
-	Building wheel;
 	Building mill;
 
 };

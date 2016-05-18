@@ -83,35 +83,34 @@ bool ModuleBuilding::Start()
 	purple.destroy.loop = false;
 	purple.destroy.speed = 0.12f;
 	
-	wheel.build.x = 0;
+	/*wheel.build.x = 0;
 	wheel.build.y = 107;
 	wheel.build.w = 46;
-	wheel.build.h = 49;
+	wheel.build.h = 49;*/
 
-
-	wheel.movement.PushBack({ 0, 106, 46, 49 });
-	wheel.movement.PushBack({ 51, 106, 46, 49 });
-	wheel.movement.PushBack({ 103, 106, 46, 49 });
-	wheel.movement.PushBack({ 155, 106, 46, 49 });
-	wheel.movement.speed = 0.12f;
-	wheel.movement.loop = true;
-	wheel.mytype = WHEEL;
-
-	mill.build.x = 0;
+	mill.build.x = 1;
 	mill.build.y = 156;
-	mill.build.w = 46;
+	mill.build.w = 43;
 	mill.build.h = 49;
 
-	mill.destroy.PushBack({ 155, 156, 46, 49 });
-	mill.destroy.PushBack({ 155, 156, 46, 44 });
-	mill.destroy.PushBack({ 155, 156, 46, 39 });
-	mill.destroy.PushBack({ 155, 156, 46, 34 });
-	mill.destroy.PushBack({ 155, 156, 46, 29 });
-	mill.destroy.PushBack({ 155, 156, 46, 24 });
-	mill.destroy.PushBack({ 155, 156, 46, 19 });
-	mill.destroy.PushBack({ 155, 156, 46, 14 });
-	mill.destroy.PushBack({ 155, 156, 46, 9 });
-	mill.destroy.PushBack({ 155, 156, 46, 4 });
+	mill.movement.PushBack({ 1, 106, 43, 49 });
+	mill.movement.PushBack({ 53, 106, 43, 49 });
+	mill.movement.PushBack({ 105, 106, 43, 49 });
+	mill.movement.PushBack({ 157, 106, 43, 49 });
+	mill.movement.loop = true;
+	mill.movement.speed = 0.12f;
+
+
+	mill.destroy.PushBack({ 157, 156, 43, 49 });
+	mill.destroy.PushBack({ 157, 156, 43, 44 });
+	mill.destroy.PushBack({ 157, 156, 43, 39 });
+	mill.destroy.PushBack({ 157, 156, 43, 34 });
+	mill.destroy.PushBack({ 157, 156, 43, 29 });
+	mill.destroy.PushBack({ 157, 156, 43, 24 });
+	mill.destroy.PushBack({ 157, 156, 43, 19 });
+	mill.destroy.PushBack({ 157, 156, 43, 14 });
+	mill.destroy.PushBack({ 157, 156, 43, 9 });
+	mill.destroy.PushBack({ 157, 156, 43, 4 });
 	mill.destroy.loop = false;
 	mill.destroy.speed = 0.12f;
 	mill.mytype = WINDMILL;
@@ -156,8 +155,11 @@ update_status ModuleBuilding::Update()
 			active[i] = nullptr;
 
 		}
-		else if ((p->hits <= 1 && p->mytype!=WINDMILL) || (p->mytype==WINDMILL && p->hits<=2))
+		else if ((p->hits <= 1 && p->mytype != WINDMILL || (p->mytype == WINDMILL && p->hits <= 2)))
 		{
+			if (p->mytype == WINDMILL){
+				App->render->Blit(graphics, p->position.x, p->position.y - 48, &p->movement.GetCurrentFrame());
+			}
 			App->render->Blit(graphics, p->position.x, p->position.y, &p->build, 0);
 			if (p->fx_played == false)
 			{
@@ -166,23 +168,24 @@ update_status ModuleBuilding::Update()
 			}
 		}
 		/*else if (p->mytype == WHEEL && p->hits<=2){
-			App->render->Blit(graphics, p->position.x, p->position.y, &p->movement.GetCurrentFrame());
+		App->render->Blit(graphics, p->position.x, p->position.y, &p->movement.GetCurrentFrame());
 		}*/
 		else if (p->hits > 1 && p->mytype != WINDMILL){
-		
-			App->render->Blit(graphics, p->position.x, p->position.y+=0.6f, &p->destroy.GetCurrentFrame());
-			
+
+			App->render->Blit(graphics, p->position.x, p->position.y += 0.6f, &p->destroy.GetCurrentFrame());
+
 			/*p->collider->to_delete = true;
 			delete p;*/
 			if (p->destroy.Finished()){
-				delete active[i];
+				delete p;
 				active[i] = nullptr;
 			}
 		}
 		else if (p->hits > 2 && p->mytype == WINDMILL){
-			App->render->Blit(graphics, p->position.x, p->position.y += 0.6f, &p->destroy.GetCurrentFrame());
+			App->render->Blit(graphics, p->position.x, (p->position.y += 0.4f) - 48, &p->movement.GetCurrentFrame());
+			App->render->Blit(graphics, p->position.x, p->position.y += 0.4f, &p->destroy.GetCurrentFrame());
 			if (p->destroy.Finished()){
-				delete active[i];
+				delete p;
 				active[i] = nullptr;
 			}
 		}
@@ -220,7 +223,7 @@ Building::Building()
 
 Building::Building(const Building& p) :
 build(p.build), position(p.position),
-fx(p.fx), mytype(p.mytype), destroy(p.destroy)
+fx(p.fx), mytype(p.mytype), destroy(p.destroy), movement(p.movement)
 {}
 
 Building::~Building(){
@@ -277,27 +280,26 @@ void ModuleBuilding::OnCollision(Collider* c1, Collider* c2)
 			}
 		}
 		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->mytype == WINDMILL){
-			wheel.hits++;
 			if (active[i]->hits == 0){
-				active[i]->build.x = 51;
+				active[i]->build.x = 53;
 				active[i]->build.y = 156;
-				active[i]->build.w = 46;
+				active[i]->build.w = 43;
 				active[i]->build.h = 49;
 				active[i]->hits++;
 				break;
 			}
 			else if (active[i]->hits == 1){
-				active[i]->build.x = 103;
+				active[i]->build.x = 105;
 				active[i]->build.y = 156;
-				active[i]->build.w = 46;
+				active[i]->build.w = 43;
 				active[i]->build.h = 49;
 				active[i]->hits++;
 				break;
 			}
 			else if (active[i]->hits == 2){
-				active[i]->build.x = 155;
+				active[i]->build.x = 157;
 				active[i]->build.y = 156;
-				active[i]->build.w = 46;
+				active[i]->build.w = 43;
 				active[i]->build.h = 49;
 				active[i]->hits++;
 				App->particles->AddParticle(App->particles->housesmoke, active[i]->position.x - 8, active[i]->position.y + 44);

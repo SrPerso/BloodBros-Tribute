@@ -80,8 +80,7 @@ update_status ModuleLevel2::Update()
 	if(buildings==true){
 		App->building->AddBuilding(App->building->yellow, 160, 30);
 		App->building->AddBuilding(App->building->purple, 0, 53);
-		App->building->AddBuilding(App->building->mill, 30, 71);
-		App->building->AddBuilding(App->building->wheel, 30, 24);
+		App->building->AddBuilding(App->building->mill, 30, 74);
 		buildings = false;
 	}
 	if (SDL_GetTicks() >= timestart+10000 && extra == true){
