@@ -59,6 +59,9 @@ public:
 	Building yellow2;
 	Building purple2;
 	Building mill;
+	bool purplealive = true;
+	bool yellowalive = true;
+	bool windmillalive = true;
 
 };
 

@@ -53,6 +53,9 @@ bool ModuleLevel2::Start()
 	App->extra->Enable();
 	App->collision->AddCollider({ 0, 200, 256, 46 }, COLLIDER_WALL, this);
 	App->enemies->hits = 0;
+	App->building->AddBuilding(App->building->yellow, 160, 30);
+	App->building->AddBuilding(App->building->purple, 0, 53);
+	App->building->AddBuilding(App->building->mill, 30, 74);
 	return ret;
 }
 
@@ -77,12 +80,12 @@ update_status ModuleLevel2::Update()
 	// Draw everything --------------------------------------	
 
 	App->render->Blit(graphics, 0, 0, &background, 0); // level 2
-	if(buildings==true){
+	/*if(buildings==true){
 		App->building->AddBuilding(App->building->yellow, 160, 30);
 		App->building->AddBuilding(App->building->purple, 0, 53);
 		App->building->AddBuilding(App->building->mill, 30, 74);
 		buildings = false;
-	}
+	}*/
 	if (SDL_GetTicks() >= timestart+10000 && extra == true){
 		App->extra->AddExtra(App->extra->pig, 224, 140);
 		extra = false;
@@ -91,13 +94,21 @@ update_status ModuleLevel2::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 87,-20);
 		plane = false;
 	}
-	if (SDL_GetTicks() >=  timestart + 6000 && greencowboy == true){
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 0, 80);
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 20, 80);
+	if (SDL_GetTicks() >=  timestart + 6000 && greencowboy == true && App->building->purplealive==true){
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 40, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 50, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 60, 80);
 		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 80);
 		greencowboy = false;
 	}
+	else if (SDL_GetTicks() >= timestart + 6000 && greencowboy == true && App->building->purplealive == false){
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 0, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 10, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 20, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 80);
+		greencowboy = false;
+	}
+
 	if (SDL_GetTicks() >= timestart + 9000 && bluecowboy == true){
 		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 30, 60);
 		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 40, 60);
@@ -110,10 +121,17 @@ update_status ModuleLevel2::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 87, -20);
 		plane2 = false;
 	}
-	if (SDL_GetTicks() >= timestart + 20000 && green2 == true){
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 0, 80);
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 20, 80);
+	if (SDL_GetTicks() >= timestart + 20000 && green2 == true && App->building->purplealive == true){
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 40, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 50, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 60, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 80);
+		green2 = false;
+	}
+	else if (SDL_GetTicks() >= timestart + 20000 && green2 == true && App->building->purplealive == false){
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 0, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 10, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 20, 80);
 		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 80);
 		green2 = false;
 	}

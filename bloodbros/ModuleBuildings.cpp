@@ -177,6 +177,8 @@ update_status ModuleBuilding::Update()
 			/*p->collider->to_delete = true;
 			delete p;*/
 			if (p->destroy.Finished()){
+				if (p->mytype == PURPLE){ purplealive = false; }
+				if (p->mytype == YELLOW){ yellowalive = false; }
 				delete p;
 				active[i] = nullptr;
 			}
@@ -185,6 +187,7 @@ update_status ModuleBuilding::Update()
 			App->render->Blit(graphics, p->position.x, (p->position.y += 0.4f) - 48, &p->movement.GetCurrentFrame());
 			App->render->Blit(graphics, p->position.x, p->position.y += 0.4f, &p->destroy.GetCurrentFrame());
 			if (p->destroy.Finished()){
+				if (p->mytype == WINDMILL){ windmillalive = false; }
 				delete p;
 				active[i] = nullptr;
 			}
@@ -199,6 +202,9 @@ void ModuleBuilding::AddBuilding(const Building& particle, int x, int y)
 	Building* p = new Building(particle);
 	p->position.x = x;
 	p->position.y = y;
+	if (p->mytype == PURPLE){ purplealive = true; }
+	if (p->mytype == YELLOW){ yellowalive = true; }
+	if (p->mytype == WINDMILL){ windmillalive = true; }
 	if (p->mytype == WHEEL){
 		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, particle.build.w, particle.build.h }, COLLIDER_NONE, this);
 	}
