@@ -43,9 +43,9 @@ void PurplePlane::Move()
 	if (path.GetFrame() == 75 ){
 		App->particles->AddParticle(App->particles->gunflare, position.x, position.y);
 		//if (App->particles->gunflare.anim.Finished()){
-		App->particles->AddParticle(App->particles->Planebomb, position.x+56, position.y+46, 0.0f, +1.0f, COLLIDER_ENEMY, 0);
-		App->particles->AddParticle(App->particles->Planebomb, position.x+1, position.y+46, 0.0f, +1.0f, COLLIDER_ENEMY, 0);
-		App->particles->AddParticle(App->particles->Planebomb, position.x+112, position.y+46, 0.5f, +1.0f, COLLIDER_ENEMY, 0);
+		App->particles->AddParticle(App->particles->Planebomb, position.x+56, position.y+46, 0.0f, +1.0f, COLLIDER_BOMB, 0);
+		App->particles->AddParticle(App->particles->Planebomb, position.x + 1, position.y + 46, 0.0f, +1.0f, COLLIDER_BOMB, 0);
+		App->particles->AddParticle(App->particles->Planebomb, position.x + 112, position.y + 46, 0.5f, +1.0f, COLLIDER_BOMB, 0);
 
 		//}
 	}

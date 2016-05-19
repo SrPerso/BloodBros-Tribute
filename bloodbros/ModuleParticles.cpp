@@ -51,13 +51,23 @@ ModuleParticles::ModuleParticles()
 	Planebomb.anim.PushBack({ 320, 6, 16, 16 });
 	Planebomb.anim.PushBack({ 337, 6, 16, 16 });
 	Planebomb.anim.PushBack({ 354, 6, 16, 16 });
+	Planebomb.anim.speed = 0.15f;
+	Planebomb.anim.loop = false;
 	Planebomb.life = 3000;
 	Planebomb.type = planebomb;
 
-	Hitbomb.anim.PushBack({ 374, 5, 34, 18 });
-	Hitbomb.anim.PushBack({ 407, 5, 34, 18 });
-	Hitbomb.life = 3000;
-	Hitbomb.type = bomb;
+	Hitbomb.anim.PushBack({ 5, 29, 33, 58 });
+	Hitbomb.anim.PushBack({ 39, 29, 33, 58 });
+	Hitbomb.anim.PushBack({ 73, 29, 33, 58 });
+	Hitbomb.anim.PushBack({ 107, 29, 33, 58 });
+	Hitbomb.anim.PushBack({ 141, 29, 33, 58 });
+	Hitbomb.anim.PushBack({ 175, 29, 33, 58 });
+	Hitbomb.anim.PushBack({ 209, 29, 33, 58 });
+	Hitbomb.anim.PushBack({ 243, 29, 33, 58 });
+	Hitbomb.anim.speed = 0.15f;
+	Hitbomb.anim.loop = true;
+	Hitbomb.life = 800;
+	
 
 }
 
@@ -160,8 +170,9 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2){
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
 
-		if (active[i] != nullptr && active[i]->type==planebomb){
-			App->particles->AddParticle(App->particles->Hitbomb, active[i]->position.x, active[i]->position.y, 0.0f, +0.0f, COLLIDER_ENEMY, 0);
+		if (active[i] != nullptr && active[i]->collider->type==COLLIDER_BOMB){
+			active[i]->anim.Reset();
+			App->particles->AddParticle(App->particles->Hitbomb, active[i]->position.x, active[i]->position.y-45, 0.0f, +0.0f, COLLIDER_NONE, 0);
 			delete active[i];
 			active[i] = nullptr;
 			break;
@@ -212,6 +223,8 @@ bool Particle::Update()
 
 	position.x += speed.x;
 	position.y += speed.y;
+
+	
 
 	if (collider != nullptr)
 		collider->SetPos(position.x, position.y);

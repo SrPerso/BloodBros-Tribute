@@ -32,6 +32,7 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_EXTRA] = true;
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_PLAYER] = true;
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_ENEMY] = true;
+	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_BOMB] = true;
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_PLAYER_SHOT] = false;
 	matrix[COLLIDER_PLAYER_SHOT][COLLIDER_ENEMY_SHOT] = false;
 
@@ -48,6 +49,15 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_WALL][COLLIDER_PLAYER_SHOT] = true;
 	matrix[COLLIDER_WALL][COLLIDER_ENEMY_SHOT] = true;
 	matrix[COLLIDER_WALL][COLLIDER_NONE] = false;
+
+	matrix[COLLIDER_BOMB][COLLIDER_EXTRA] = false;
+	matrix[COLLIDER_BOMB][COLLIDER_PLAYER] = true;
+	matrix[COLLIDER_BOMB][COLLIDER_ENEMY] = false;
+	matrix[COLLIDER_BOMB][COLLIDER_PLAYER_SHOT] = true;
+	matrix[COLLIDER_BOMB][COLLIDER_ENEMY_SHOT] = false;
+	matrix[COLLIDER_BOMB][COLLIDER_WALL] = true;
+	matrix[COLLIDER_BOMB][COLLIDER_NONE] = false;
+
 }
 
 // Destructor
@@ -144,6 +154,9 @@ void ModuleCollision::DebugDraw()
 			break;
 		case COLLIDER_WALL: // white
 			App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
+			break;
+		case COLLIDER_BOMB: // ?
+			App->render->DrawQuad(colliders[i]->rect, 255, 255, 0, alpha);
 			break;
 		}
 	}
