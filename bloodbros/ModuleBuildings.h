@@ -9,7 +9,7 @@
 
 #define MAX_BUILDINGS 50
 
-enum buildingtype{ YELLOW, PURPLE, WINDMILL, WHEEL};
+enum buildingtype{ YELLOW, PURPLE, WINDMILL, WHEEL, TREES};
 
 struct SDL_Texture;
 
@@ -59,6 +59,7 @@ public:
 	Building yellow2;
 	Building purple2;
 	Building mill;
+	Building trees;
 	bool purplealive = true;
 	bool yellowalive = true;
 	bool windmillalive = true;

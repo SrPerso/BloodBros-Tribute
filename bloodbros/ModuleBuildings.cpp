@@ -116,6 +116,21 @@ bool ModuleBuilding::Start()
 	mill.mytype = WINDMILL;
 
 
+	trees.build.x = 1;
+	trees.build.y = 280;
+	trees.build.w = 49;
+	trees.build.h = 49;
+
+	trees.movement.PushBack({ 1, 280, 49, 49 });
+	trees.movement.PushBack({ 50, 280, 49, 49 });
+	trees.movement.PushBack({ 1, 280, 49, 49 });
+	trees.movement.PushBack({ 50, 280, 49, 49 });
+	trees.movement.PushBack({ 1, 280, 49, 49 });
+	trees.movement.PushBack({ 50, 280, 49, 49 });
+	trees.movement.loop = true;
+	trees.movement.speed = 0.1f;
+	trees.mytype = TREES;
+
 	return true;
 }
 
@@ -147,7 +162,6 @@ update_status ModuleBuilding::Update()
 
 		if (p == nullptr)
 			continue;
-
 		if (p->Update() == false)
 		{
 			p->collider->to_delete = true;
@@ -155,7 +169,7 @@ update_status ModuleBuilding::Update()
 			active[i] = nullptr;
 
 		}
-		else if ((p->hits <= 1 && p->mytype != WINDMILL || (p->mytype == WINDMILL && p->hits <= 2)))
+		else if ((p->hits <= 1 && p->mytype != WINDMILL || (p->mytype == WINDMILL && p->hits <= 2)) || (p->mytype == TREES && p->hits==0))
 		{
 			if (p->mytype == WINDMILL){
 				App->render->Blit(graphics, p->position.x, p->position.y - 48, &p->movement.GetCurrentFrame());
@@ -167,10 +181,16 @@ update_status ModuleBuilding::Update()
 				// Play particle fx here
 			}
 		}
-		/*else if (p->mytype == WHEEL && p->hits<=2){
-		App->render->Blit(graphics, p->position.x, p->position.y, &p->movement.GetCurrentFrame());
-		}*/
-		else if (p->hits > 1 && p->mytype != WINDMILL){
+		else if (p->mytype == TREES && p->hits >= 1){
+			App->render->Blit(graphics, p->position.x, p->position.y, &p->movement.GetCurrentFrame());
+			if (p->movement.Finished() == true){
+				LOG("NOW 0");
+				p->hits = 0;
+				p->movement.Reset();
+				p->movement.loops = 0;
+			}
+		}
+		else if (p->hits > 1 && p->mytype != WINDMILL && p->mytype!=TREES){
 
 			App->render->Blit(graphics, p->position.x, p->position.y += 0.6f, &p->destroy.GetCurrentFrame());
 
@@ -247,6 +267,10 @@ bool Building::Update()
 void ModuleBuilding::OnCollision(Collider* c1, Collider* c2)
 {
 	for (uint i = 0; i < MAX_BUILDINGS; ++i){
+		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->mytype == TREES){
+			active[i]->hits+=1;
+			break;
+		}
 		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->mytype==YELLOW){
 			if (active[i]->hits == 0){
 				active[i]->build.x = yellow2.build.x;

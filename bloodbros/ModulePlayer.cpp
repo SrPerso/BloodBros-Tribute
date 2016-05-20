@@ -58,7 +58,7 @@ ModulePlayer::ModulePlayer()
 	jump_left.PushBack({ 363, 264, 33, 63 });
 
 	jump_left.loop = true;
-	jump_left.speed = 0.1f;
+	jump_left.speed = 0.15f;
 
 	//cowboy animation
 
@@ -71,7 +71,7 @@ ModulePlayer::ModulePlayer()
 	jump_right.PushBack({ 665, 197, 47, 63 });
 	jump_right.PushBack({ 713, 197, 33, 63 });
 	jump_right.loop = true;
-	jump_right.speed = 0.1f;
+	jump_right.speed = 0.15f;
 
 	dead.PushBack({ 353, 709, 29, 53 });
 	dead.PushBack({ 391, 709, 34, 53 });

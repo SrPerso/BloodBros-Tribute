@@ -53,9 +53,17 @@ bool ModuleLevel2::Start()
 	App->extra->Enable();
 	App->collision->AddCollider({ 0, 200, 256, 46 }, COLLIDER_WALL, this);
 	App->enemies->hits = 0;
+	App->building->AddBuilding(App->building->trees, -20, 35);
+	App->building->AddBuilding(App->building->trees, 20, 35);
+	App->building->AddBuilding(App->building->trees, 60, 35);
+	App->building->AddBuilding(App->building->trees, 220, 35);
+	App->building->AddBuilding(App->building->trees, 180, 35);
+	App->building->AddBuilding(App->building->trees, 140, 35);
 	App->building->AddBuilding(App->building->yellow, 160, 30);
 	App->building->AddBuilding(App->building->purple, 0, 53);
 	App->building->AddBuilding(App->building->mill, 30, 74);
+
+
 	return ret;
 }
 

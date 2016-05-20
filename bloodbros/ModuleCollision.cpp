@@ -18,9 +18,11 @@ ModuleCollision::ModuleCollision()
 
 	matrix[COLLIDER_PLAYER][COLLIDER_EXTRA] = false;
 	matrix[COLLIDER_PLAYER][COLLIDER_PLAYER] = false;
+	matrix[COLLIDER_PLAYER][COLLIDER_BOMB] = true;
 	matrix[COLLIDER_PLAYER][COLLIDER_ENEMY] = true;
 	matrix[COLLIDER_PLAYER][COLLIDER_PLAYER_SHOT] = false;
 	matrix[COLLIDER_PLAYER][COLLIDER_ENEMY_SHOT] = true;
+	matrix[COLLIDER_PLAYER][COLLIDER_BOMB] = true;
 	matrix[COLLIDER_PLAYER][COLLIDER_NONE] = false;
 
 	matrix[COLLIDER_ENEMY][COLLIDER_EXTRA] = false;
