@@ -67,6 +67,17 @@ ModuleParticles::ModuleParticles()
 	Hitbomb.anim.speed = 0.15f;
 	Hitbomb.anim.loop = true;
 	Hitbomb.life = 800;
+
+	orangebomb.anim.PushBack({ 374, 229, 15, 15 });
+	orangebomb.anim.PushBack({ 391, 229, 15, 15 });
+	orangebomb.anim.PushBack({ 408, 229, 15, 15 });
+	orangebomb.anim.PushBack({ 425, 229, 15, 15 });
+	orangebomb.anim.PushBack({ 442, 229, 15, 15 });
+	orangebomb.anim.PushBack({ 459, 229, 15, 15 });
+	orangebomb.anim.PushBack({ 476, 229, 15, 15 });
+	orangebomb.anim.PushBack({ 493, 229, 15, 15 });
+	orangebomb.anim.speed = 0.09f;
+	orangebomb.anim.loop = false;
 	
 
 }
@@ -222,7 +233,7 @@ bool Particle::Update()
 		ret = false;
 
 	position.x += speed.x;
-	position.y += speed.y;
+	position.y += speed.y+gravity;
 
 	
 

@@ -24,7 +24,7 @@ struct Particle
 	Uint32 born = 0;
 	Uint32 life = 0;
 	bool fx_played = false;
-
+	uint gravity = 0;
 	Particle();
 	~Particle();
 	Particle(const Particle& p);
@@ -60,6 +60,7 @@ public:
 	Particle gunflare;
 	Particle Planebomb;
 	Particle Hitbomb;
+	Particle orangebomb;
 };
 
 #endif // __MODULEPARTICLES_H__

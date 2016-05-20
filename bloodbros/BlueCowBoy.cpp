@@ -60,7 +60,7 @@ void BlueCowboy::Move()
 	if (path.GetFrame() == 200 && isdead == false){
 		App->particles->AddParticle(App->particles->gunflare, position.x, position.y);
 		//if (App->particles->gunflare.anim.Finished()){
-		App->particles->AddParticle(App->particles->Cowboyshot, position.x, position.y, COLLIDER_ENEMY, 0);
+		App->particles->AddParticle(App->particles->orangebomb, position.x, position.y, 2, 1, COLLIDER_ENEMY, 0);
 		//}
 	}
 	if (isdead == true && dead.Finished() == true) {

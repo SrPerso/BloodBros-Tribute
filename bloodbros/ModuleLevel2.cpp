@@ -47,8 +47,9 @@ bool ModuleLevel2::Start()
 	App->audio->Load("Music/level.ogg");
 	App->particles->Enable();
 	App->scope->Enable();
-	App->enemies->Enable();
+	
 	App->building->Enable();
+	App->enemies->Enable();
 	App->collision->Enable();
 	App->extra->Enable();
 	App->collision->AddCollider({ 0, 200, 256, 46 }, COLLIDER_WALL, this);
@@ -118,10 +119,10 @@ update_status ModuleLevel2::Update()
 	}
 
 	if (SDL_GetTicks() >= timestart + 9000 && bluecowboy == true){
-		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 30, 60);
-		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 40, 60);
-		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 40, 60);
 		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 50, 60);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 60, 60);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 70, 60);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 80, 60);
 		bluecowboy = false;
 	}
 
