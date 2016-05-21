@@ -10,7 +10,7 @@
 
 struct SDL_Texture;
 enum COLLIDER_TYPE;
-enum PARTICLE_TYPE{bomb,planebomb, ORANGE};
+enum PARTICLE_TYPE{bomb,planebomb, ORANGE, TNT};
 
 struct Particle
 {
@@ -19,6 +19,7 @@ struct Particle
 	bool collides = false;
 	uint fx = 0;
 	fPoint position;
+	fPoint originalpos;
 	fPoint speed;
 	PARTICLE_TYPE type;
 	Uint32 born = 0;
@@ -62,6 +63,7 @@ public:
 	Particle Planebomb;
 	Particle Hitbomb;
 	Particle orangebomb;
+	Particle tnt;
 };
 
 #endif // __MODULEPARTICLES_H__

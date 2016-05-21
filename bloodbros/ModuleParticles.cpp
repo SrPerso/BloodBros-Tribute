@@ -118,7 +118,19 @@ ModuleParticles::ModuleParticles()
 	orangebomb.type = ORANGE;
 	orangebomb.anim.loop = false;
 	orangebomb.life = 5000;
-	
+
+	tnt.anim.PushBack({ 374, 212, 15, 15 });
+	tnt.anim.PushBack({ 391, 212, 15, 15 });
+	tnt.anim.PushBack({ 408, 212, 15, 15 });
+	tnt.anim.PushBack({ 425, 212, 15, 15 });
+	tnt.anim.PushBack({ 442, 212, 15, 15 });
+	tnt.anim.PushBack({ 459, 212, 15, 15 });
+	tnt.anim.PushBack({ 476, 212, 15, 15 });
+	tnt.anim.PushBack({ 493, 212, 15, 15 });
+	tnt.anim.speed = 0.06f;
+	tnt.anim.loop = false;
+	tnt.type = TNT;
+	tnt.life = 3000;
 
 }
 
@@ -196,7 +208,8 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLID
 	p->born = SDL_GetTicks() + delay;
 	p->position.x = x;
 	p->position.y = y;
-
+	p->originalpos.x = x;
+	p->originalpos.y = y;
 	if (collider_type != COLLIDER_NONE)
 		p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), collider_type, this);
 	active[last_particle++] = p;
@@ -208,6 +221,8 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, float 
 			p->born = SDL_GetTicks() + delay;
 			p->position.x = x;
 			p->position.y = y;
+			p->originalpos.x = x;
+			p->originalpos.y = y;
 			p->speed.x = speedx;
 			p->speed.y = speedy;
 			if (collider_type != COLLIDER_NONE)
@@ -279,7 +294,10 @@ bool Particle::Update()
 		speed.y = 1;
 		speed.x = 0.5;
 	}
-
+	if (type == TNT && position.y+50 == originalpos.y){
+		speed.y = 1;
+		speed.x = 0.5;
+	}
 	if (collider != nullptr)
 		collider->SetPos(position.x, position.y);
 

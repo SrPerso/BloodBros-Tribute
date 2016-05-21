@@ -19,6 +19,7 @@ ModuleEnemies::ModuleEnemies()
 {
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		enemies[i] = nullptr;
+	
 }
 
 // Destructor
@@ -28,8 +29,8 @@ ModuleEnemies::~ModuleEnemies()
 
 bool ModuleEnemies::Start()
 {
+
 	sprites = App->textures->Load("Images/Enemies.png");
-	
 
 	
 

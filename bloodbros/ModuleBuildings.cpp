@@ -148,7 +148,7 @@ bool ModuleBuilding::CleanUp()
 			active[i] = nullptr;
 		}
 	}
-
+	last_building = 0;
 	return true;
 }
 

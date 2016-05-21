@@ -79,6 +79,10 @@ update_status ModuleScope::Update()
 		shot->type = COLLIDER_NONE;
 		didsound = false;
 	}
+	if (App->input->keyboard[SDL_SCANCODE_P] == KEY_STATE::KEY_DOWN){
+
+		App->particles->AddParticle(App->particles->tnt, App->player->position.x+3, App->player->position.y+3, 1, -2, COLLIDER_BOMB, 0);
+	}
 	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT){
 		if (position.y <= 0){
 			speed = 0;
