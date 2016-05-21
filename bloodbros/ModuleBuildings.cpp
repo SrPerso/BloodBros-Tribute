@@ -286,7 +286,7 @@ void ModuleBuilding::OnCollision(Collider* c1, Collider* c2)
 				active[i]->build.w = 0;
 				active[i]->build.h = 0;
 				active[i]->hits++;
-				App->particles->AddParticle(App->particles->housesmoke, active[i]->position.x, active[i]->position.y + 85);
+				App->particles->AddParticle(App->particles->bigsmoke, active[i]->position.x, active[i]->position.y + 85);
 				/*delete[] active[i]->collider;
 				active[i]->collider = nullptr;//PROBLEM*/
 			}
@@ -306,7 +306,7 @@ void ModuleBuilding::OnCollision(Collider* c1, Collider* c2)
 				active[i]->build.w = 0;
 				active[i]->build.h = 0;
 				active[i]->hits++;
-				App->particles->AddParticle(App->particles->housesmoke, active[i]->position.x-8, active[i]->position.y + 44);
+				App->particles->AddParticle(App->particles->housesmoke, active[i]->position.x, active[i]->position.y + 44);
 			}
 		}
 		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->mytype == WINDMILL){
@@ -332,7 +332,7 @@ void ModuleBuilding::OnCollision(Collider* c1, Collider* c2)
 				active[i]->build.w = 43;
 				active[i]->build.h = 49;
 				active[i]->hits++;
-				App->particles->AddParticle(App->particles->housesmoke, active[i]->position.x - 8, active[i]->position.y + 44);
+				App->particles->AddParticle(App->particles->housesmoke, active[i]->position.x-5, active[i]->position.y + 44);
 			}
 		}
 	}

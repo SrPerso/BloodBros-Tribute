@@ -56,6 +56,7 @@ public:
 
 	Particle Scope;
 	Particle housesmoke;
+	Particle bigsmoke;
 	Particle Cowboyshot;
 	Particle gunflare;
 	Particle Planebomb;
