@@ -89,18 +89,15 @@ update_status ModuleLevel2::Update()
 	// Draw everything --------------------------------------	
 
 	App->render->Blit(graphics, 0, 0, &background, 0); // level 2
-	/*if(buildings==true){
-		App->building->AddBuilding(App->building->yellow, 160, 30);
-		App->building->AddBuilding(App->building->purple, 0, 53);
-		App->building->AddBuilding(App->building->mill, 30, 74);
-		buildings = false;
-	}*/
+
 	if (SDL_GetTicks() >= timestart+10000 && extra == true){
 		App->extra->AddExtra(App->extra->pig, 224, 140);
+		App->extra->AddExtra(App->extra->zepe, 224, 35);
 		extra = false;
 	}
 	if (SDL_GetTicks() >= timestart + 5000 && plane == true){
 		App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 87,-20);
+		
 		plane = false;
 	}
 	if (SDL_GetTicks() >=  timestart + 6000 && greencowboy == true && App->building->purplealive==true){
@@ -152,7 +149,7 @@ update_status ModuleLevel2::Update()
 		App->player->current_animation = &(App->player->dance);
 		App->player->status = WIN;
 		App->audio->Load("Music/victory.ogg");
-		
+		App->enemies->hits = 0;
 	}
 	
 

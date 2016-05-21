@@ -23,27 +23,37 @@ ModuleExtra::ModuleExtra()
 
 ModuleExtra::~ModuleExtra()
 {
-	if (pig.collider != nullptr){
-		App->collision->EraseCollider(pig.collider);
-	}
 }
 
 // Load assets
 bool ModuleExtra::Start()
 {
-	LOG("Loading particles");
-	graphics = App->textures->Load("Images/level12.png");
+	LOG("Loading extras");
+	graphics = App->textures->Load("Images/Extra1.png");
 
 
 
-	pig.anim.PushBack({ 258, 149, 34, 22 });
-	pig.anim.PushBack({ 293, 149, 34, 22 });
+	pig.anim.PushBack({ 0, 9, 32, 23 });
+	pig.anim.PushBack({ 35, 9, 32, 23 });
 	pig.anim.loop = true;
 	pig.anim.speed = 0.2f;
 	pig.speed.x = -1;
+	pig.type = PIG;
 	pig.life = 4000;
 
-	
+	zepe.anim.PushBack({ 235, 20, 97, 49 });
+	zepe.anim.loop = true;
+	zepe.nothit.x = 235;
+	zepe.nothit.y = 20;
+	zepe.nothit.w = 97;
+	zepe.nothit.h = 49;
+	zepe.hit.x = 340;
+	zepe.hit.y = 17;
+	zepe.hit.w = 96;
+	zepe.hit.h = 48;
+	zepe.speed.x = -1;
+	zepe.life = 4000;
+	zepe.type = ZEPE;
 
 	
 
@@ -91,11 +101,17 @@ update_status ModuleExtra::Update()
 		}
 		else if (SDL_GetTicks() >= p->born)
 		{
-			App->render->Blit(graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+			if (p->type == PIG)
+				App->render->Blit(graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+			else if (p->type == ZEPE)
+				App->render->Blit(graphics, p->position.x, p->position.y, &p->anim.GetCurrentFrame());
 			if (p->fx_played == false)
 			{
 				p->fx_played = true;
 				// Play particle fx here
+			}
+			if (active[i]->type == ZEPE){
+				App->render->Blit(graphics, p->position.x, p->position.y, &p->anim.GetCurrentFrame());
 			}
 		}
 	}
@@ -109,7 +125,12 @@ void ModuleExtra::AddExtra(const Extra& particle, int x, int y, Uint32 delay)
 	p->born = SDL_GetTicks() + delay;
 	p->position.x = x;
 	p->position.y = y;
-	p->collider =App->collision->AddCollider({ p->position.x, p->position.y+1, 30, 19 }, COLLIDER_EXTRA, this);
+	if (p->type == PIG){
+		p->collider = App->collision->AddCollider({ p->position.x, p->position.y + 1, 30, 19 }, COLLIDER_EXTRA, this);
+	}
+	if (p->type == ZEPE){
+		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, 97, 49}, COLLIDER_EXTRA, this);
+	}
 	active[last_particle++] = p;
 }
 
@@ -129,7 +150,7 @@ Extra::Extra()
 
 Extra::Extra(const Extra& p) :
 anim(p.anim), position(p.position), speed(p.speed),
-fx(p.fx), born(p.born), life(p.life)
+fx(p.fx), born(p.born), life(p.life), type(p.type)
 {}
 
 Extra::~Extra(){
@@ -155,6 +176,11 @@ bool Extra::Update()
 
 	position.x += speed.x;
 	position.y += speed.y;
+
+	if (position.x == 100 && type == ZEPE){
+		speed.x = 0;
+		speed.y = -1;
+	}
 	if (collider != nullptr){
 		collider->rect.x += speed.x;
 		collider->rect.y += speed.y;
@@ -165,10 +191,13 @@ bool Extra::Update()
 void ModuleExtra::OnCollision(Collider* c1, Collider* c2)
 {
 	for (uint i = 0; i < MAX_EXTRAS; ++i){
-		if (active[i] != nullptr && active[i]->get_collider() == c1){
+		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->type==PIG){
 				App->audio->Loadfx("Music/pig.ogg");
 				active[i]->speed.x--;
 				break;
+		}
+		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->type == ZEPE){
+			App->render->Blit(graphics, active[i]->position.x, active[i]->position.y, &active[i]->hit);
 		}
 	}
 }

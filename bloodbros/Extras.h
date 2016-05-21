@@ -8,14 +8,18 @@
 
 #define MAX_EXTRAS 20
 
+enum extratype{PIG, ZEPE};
 struct SDL_Texture;
 
 struct Extra
 {
+	SDL_Rect nothit;
+	SDL_Rect hit;
 	Animation anim;
 	uint fx = 0;
 	iPoint position;
 	iPoint speed;
+	extratype type;
 	Uint32 born = 0;
 	Uint32 life = 0;
 	bool fx_played = false;
@@ -52,6 +56,7 @@ public:
 
 
 	Extra pig;
+	Extra zepe;
 
 };
 

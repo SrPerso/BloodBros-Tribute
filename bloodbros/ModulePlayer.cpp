@@ -157,7 +157,7 @@ ModulePlayer::ModulePlayer()
 	dance.PushBack({ 745, 548, 7, 10 });
 
 	dance.loop = false;
-	dance.speed = 0.1f;
+	dance.speed = 0.05f;
 	
 }
 
