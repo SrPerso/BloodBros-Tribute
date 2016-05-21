@@ -10,7 +10,7 @@
 
 struct SDL_Texture;
 enum COLLIDER_TYPE;
-enum PARTICLE_TYPE{bomb,planebomb,};
+enum PARTICLE_TYPE{bomb,planebomb, ORANGE};
 
 struct Particle
 {
@@ -18,7 +18,7 @@ struct Particle
 	Collider* collider=nullptr;
 	bool collides = false;
 	uint fx = 0;
-	iPoint position;
+	fPoint position;
 	fPoint speed;
 	PARTICLE_TYPE type;
 	Uint32 born = 0;

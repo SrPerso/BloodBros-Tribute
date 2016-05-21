@@ -68,6 +68,9 @@ ModuleParticles::ModuleParticles()
 	Hitbomb.anim.loop = true;
 	Hitbomb.life = 800;
 
+	orangebomb.anim.PushBack({ 493, 229, 15, 15 });
+	orangebomb.anim.PushBack({ 476, 229, 15, 15 });
+	orangebomb.anim.PushBack({ 459, 229, 15, 15 });
 	orangebomb.anim.PushBack({ 374, 229, 15, 15 });
 	orangebomb.anim.PushBack({ 391, 229, 15, 15 });
 	orangebomb.anim.PushBack({ 408, 229, 15, 15 });
@@ -76,8 +79,10 @@ ModuleParticles::ModuleParticles()
 	orangebomb.anim.PushBack({ 459, 229, 15, 15 });
 	orangebomb.anim.PushBack({ 476, 229, 15, 15 });
 	orangebomb.anim.PushBack({ 493, 229, 15, 15 });
-	orangebomb.anim.speed = 0.09f;
+	orangebomb.anim.speed = 0.06f;
+	orangebomb.type = ORANGE;
 	orangebomb.anim.loop = false;
+	orangebomb.life = 5000;
 	
 
 }
@@ -180,11 +185,11 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, float 
 void ModuleParticles::OnCollision(Collider* c1, Collider* c2){
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
-
-		if (active[i] != nullptr && active[i]->collider->type==COLLIDER_BOMB && c2->type==COLLIDER_WALL){
+		Particle* p = active[i];
+		if (active[i] != nullptr && active[i]->collider->type==COLLIDER_BOMB){
 			active[i]->anim.Reset();
 			App->particles->AddParticle(App->particles->Hitbomb, active[i]->position.x, active[i]->position.y-45, 0.0f, +0.0f, COLLIDER_ENEMY, 0);
-			delete active[i];
+			delete p;
 			active[i] = nullptr;
 			break;
 		}
@@ -192,7 +197,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2){
 		else if (active[i] != nullptr && active[i]->collider == c1 && active[i]->type!=planebomb)
 		{
 			//AddParticle(explosion, active[i]->position.x, active[i]->position.y);
-			delete active[i];
+			delete p;
 			active[i] = nullptr;
 			break;
 		}
@@ -210,7 +215,7 @@ Particle::Particle()
 
 Particle::Particle(const Particle& p) :
 anim(p.anim), position(p.position), speed(p.speed),
-fx(p.fx), born(p.born), life(p.life)
+fx(p.fx), born(p.born), life(p.life), type(p.type)
 {}
 
 Particle::~Particle()
@@ -233,9 +238,12 @@ bool Particle::Update()
 		ret = false;
 
 	position.x += speed.x;
-	position.y += speed.y+gravity;
+	position.y += speed.y;
 
-	
+	if (type == ORANGE && position.y==25){
+		speed.y = 1;
+		speed.x = 0.5;
+	}
 
 	if (collider != nullptr)
 		collider->SetPos(position.x, position.y);

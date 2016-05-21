@@ -43,16 +43,10 @@ bool ModuleExtra::Start()
 
 	zepe.anim.PushBack({ 235, 20, 97, 49 });
 	zepe.anim.loop = true;
-	zepe.nothit.x = 235;
-	zepe.nothit.y = 20;
-	zepe.nothit.w = 97;
-	zepe.nothit.h = 49;
-	zepe.hit.x = 340;
-	zepe.hit.y = 17;
-	zepe.hit.w = 96;
-	zepe.hit.h = 48;
-	zepe.speed.x = -1;
-	zepe.life = 4000;
+	zepe.hit.PushBack({ 340, 20, 97, 49 });
+	zepe.hit.loop = true;
+	zepe.speed.x = -0.5;
+	zepe.life = 10000;
 	zepe.type = ZEPE;
 
 	
@@ -109,9 +103,6 @@ update_status ModuleExtra::Update()
 			{
 				p->fx_played = true;
 				// Play particle fx here
-			}
-			if (active[i]->type == ZEPE){
-				App->render->Blit(graphics, p->position.x, p->position.y, &p->anim.GetCurrentFrame());
 			}
 		}
 	}
@@ -177,13 +168,15 @@ bool Extra::Update()
 	position.x += speed.x;
 	position.y += speed.y;
 
-	if (position.x == 100 && type == ZEPE){
-		speed.x = 0;
-		speed.y = -1;
-	}
+
 	if (collider != nullptr){
-		collider->rect.x += speed.x;
-		collider->rect.y += speed.y;
+		collider->rect.x = position.x;
+		collider->rect.y = position.y;
+	}
+
+	if (position.x == 90 && type == ZEPE){
+		speed.x = 0;
+		speed.y = -0.5;
 	}
 	
 	return ret;
@@ -197,7 +190,7 @@ void ModuleExtra::OnCollision(Collider* c1, Collider* c2)
 				break;
 		}
 		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->type == ZEPE){
-			App->render->Blit(graphics, active[i]->position.x, active[i]->position.y, &active[i]->hit);
+			App->render->Blit(graphics, active[i]->position.x, active[i]->position.y, &active[i]->hit.frames[0]);
 		}
 	}
 }

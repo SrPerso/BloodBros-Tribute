@@ -354,7 +354,8 @@ update_status ModulePlayer::Update()
 
 	case WIN:
 	{
-		position.y = 100;
+		position.y -= 0.3;
+		position.x = 100;
 		player->type = COLLIDER_NONE;
 		if (current_animation->Finished() == true){
 			status = NORMAL;

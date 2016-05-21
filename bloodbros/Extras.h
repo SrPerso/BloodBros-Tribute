@@ -13,12 +13,12 @@ struct SDL_Texture;
 
 struct Extra
 {
-	SDL_Rect nothit;
-	SDL_Rect hit;
+
 	Animation anim;
+	Animation hit;
 	uint fx = 0;
-	iPoint position;
-	iPoint speed;
+	fPoint position;
+	fPoint speed;
 	extratype type;
 	Uint32 born = 0;
 	Uint32 life = 0;
