@@ -120,6 +120,10 @@ update_status ModuleLevel2::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 60, 60);
 		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 70, 60);
 		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 80, 60);
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENRIGHTCOWBOY, 220, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENRIGHTCOWBOY, 210, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENRIGHTCOWBOY, 200, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENRIGHTCOWBOY, 190, 80);
 		bluecowboy = false;
 	}
 

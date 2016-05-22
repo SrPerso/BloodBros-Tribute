@@ -236,7 +236,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2){
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
 		Particle* p = active[i];
-		if (active[i] != nullptr && active[i]->collider->type==COLLIDER_BOMB){
+		if (active[i] != nullptr && active[i]->collider== c1 && active[i]->collider->type==COLLIDER_BOMB && c2->type==COLLIDER_WALL){
 			active[i]->anim.Reset();
 			App->particles->AddParticle(App->particles->Hitbomb, active[i]->position.x, active[i]->position.y-45, 0.0f, +0.0f, COLLIDER_ENEMY, 0);
 			delete p;
