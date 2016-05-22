@@ -26,135 +26,148 @@ ModulePlayer::ModulePlayer()
 
 	position.x = 105;
 	position.y = 155;
-	idle.PushBack({ 160, 0, 46, 70 });
+	idle.PushBack({ 150, 12, 46, 72 });
 	//cowboy animation
-	right.PushBack({ 7, 195, 35, 64 });
-	right.PushBack({ 48, 195, 33, 64 });
-	right.PushBack({ 88, 195, 41, 64 });
-	right.PushBack({ 139, 195, 32, 64 });
-	right.PushBack({ 175, 195, 32, 64 });
-	right.PushBack({ 218, 195, 40, 64 });
+
+	right.PushBack({ 12, 444, 46, 72 });
+	right.PushBack({ 58, 444, 46, 72 });
+	right.PushBack({ 104, 444, 46, 72 });
+	right.PushBack({ 150, 444, 46, 72 });
+	right.PushBack({ 196, 444, 46, 72 });
+	right.PushBack({ 242, 444, 46, 72 });
 	right.loop = true;
 	right.speed = 0.1f;
 
 	//cowboy animation
-	left.PushBack({ 3, 266, 40, 64 });
-	left.PushBack({ 54, 266, 32, 64 });
-	left.PushBack({ 90, 266, 32, 64 });
-	left.PushBack({ 132, 266, 43, 64 });
-	left.PushBack({ 180, 266, 33, 64 });
-	left.PushBack({ 219, 266, 35, 64 });
+
+	left.PushBack({ 242, 516, 46, 72 });
+	left.PushBack({ 196, 516, 46, 72 });
+	left.PushBack({ 150, 516, 46, 72 });
+	left.PushBack({ 104, 516, 46, 72 });
+	left.PushBack({ 58, 516, 46, 72 });
+	left.PushBack({ 12, 516, 46, 72 });
 	left.loop = true;
 	left.speed = 0.1f;
 
 	//cowboy animation
-	jump_left.PushBack({ 707, 264, 33, 63 });
-	jump_left.PushBack({ 628, 264, 65, 63 });
-	jump_left.PushBack({ 585, 264, 39, 63 });
-	jump_left.PushBack({ 533, 264, 44, 63 });
-	jump_left.PushBack({ 499, 264, 33, 63 });
-	jump_left.PushBack({ 445, 264, 49, 63 });
-	jump_left.PushBack({ 397, 264, 46, 63 });
-	jump_left.PushBack({ 363, 264, 33, 63 });
 
+	jump_left.PushBack({ 334, 156, 92, 72 });
+	jump_left.PushBack({ 426, 156, 92, 72 });
+	jump_left.PushBack({ 518, 156, 92, 72 });
+	jump_left.PushBack({ 610, 156, 92, 72 }); 
+	jump_left.PushBack({ 334, 228, 92, 72 });
+	jump_left.PushBack({ 426, 228, 92, 72 });
+	jump_left.PushBack({ 518, 228, 92, 72 });
+	jump_left.PushBack({ 610, 228, 92, 72 });
+	
 	jump_left.loop = true;
 	jump_left.speed = 0.15f;
 
 	//cowboy animation
 
-	jump_right.PushBack({ 369, 197, 33, 63 });
-	jump_right.PushBack({ 416, 197, 65, 63 });
-	jump_right.PushBack({ 485, 197, 39, 63 });
-	jump_right.PushBack({ 532, 197, 44, 63 });
-	jump_right.PushBack({ 577, 197, 33, 63 });
-	jump_right.PushBack({ 615, 197, 49, 63 });
-	jump_right.PushBack({ 665, 197, 47, 63 });
-	jump_right.PushBack({ 713, 197, 33, 63 });
+
+	jump_right.PushBack({ 334, 12, 92, 72 });
+	jump_right.PushBack({ 426, 12, 92, 72 });
+	jump_right.PushBack({ 518, 12, 92, 72 });
+	jump_right.PushBack({ 610, 12, 92, 72 });
+	jump_right.PushBack({ 334, 84, 92, 72 });
+	jump_right.PushBack({ 426, 84, 92, 72 });
+	jump_right.PushBack({ 518, 84, 92, 72 });
+	jump_right.PushBack({ 610, 84, 92, 72 });
+
 	jump_right.loop = true;
 	jump_right.speed = 0.15f;
 
-	dead.PushBack({ 353, 709, 29, 53 });
-	dead.PushBack({ 391, 709, 34, 53 });
-	dead.PushBack({ 431, 709, 42, 53 });
-	dead.PushBack({ 475, 709, 44, 53 });
-	dead.PushBack({ 522, 709, 52, 53 });
-	dead.PushBack({ 579, 709, 53, 53 });
+	dead.PushBack({ 334, 444, 92, 72 });
+	dead.PushBack({ 426, 444, 92, 72 });
+	dead.PushBack({ 518, 444, 92, 72 });
+	dead.PushBack({ 610, 444, 92, 72 });
+	dead.PushBack({ 334, 516, 92, 72 });
+	dead.PushBack({ 426, 516, 92, 72 });
 	dead.loop = true;
 	dead.speed = 0.1f;
 	
 	//shot idle
-	shotidle.PushBack({ 15, 0, 46, 70 });//izquierda total
-	shotidle.PushBack({ 63, 0, 46, 70 });//medio izc
-	shotidle.PushBack({ 113, 0, 46, 70 });//casi centr
-	shotidle.PushBack({ 201, 0, 46, 70 });//casi centr
-	shotidle.PushBack({ 246, 0, 46, 70 });//medio derech
-	shotidle.PushBack({ 287, 0, 46, 70 });//derech total
+
+	shotidle.PushBack({ 12, 12, 46, 72 }); //cowboy de pie apuntando extremo izquierda  <<<-
+	shotidle.PushBack({ 58, 12, 46, 72 }); //cowboy de pie apuntando izquierda  <<-
+	shotidle.PushBack({ 104, 12, 46, 72 }); //cowboy de pie apuntando un poco a la izquierda  <-
+	shotidle.PushBack({ 196, 12, 46, 72 }); //cowboy de pie apuntando un poco derecha ->
+	shotidle.PushBack({ 242, 12, 46, 72 }); //cowboy de pie apuntando derecha ->>
+	shotidle.PushBack({ 288, 12, 46, 72 }); //cowboy de pie apuntando extremo derecha ->>>
+
 	shotidle.speed = 0.1f;
 	//aiming left
 
-	shotleft.PushBack({ 9, 71, 46, 71 });
-	shotleft.PushBack({ 15, 0, 46, 70 });
-	shotleft.PushBack({ 2, 340, 46, 71 });
-	shotleft.PushBack({ 15, 0, 46, 70 });
+	shotleft.PushBack({ 12, 84, 46, 72 });
+	shotleft.PushBack({ 12, 12, 46, 72 });
+	shotleft.PushBack({ 12, 156, 46, 72 });
+	shotleft.PushBack({ 12, 12, 46, 72 });
 	shotleft.speed = 0.1f;
 
 	//aiming left top
 
-	shotleftop.PushBack({ 63, 71, 46, 71 });
-	shotleftop.PushBack({ 63, 0, 46, 70 });
-	shotleftop.PushBack({ 55, 340, 46, 71 });
-	shotleftop.PushBack({ 63, 0, 46, 70 });
+	shotleftop.PushBack({ 58, 84, 46, 72 });
+	shotleftop.PushBack({ 58, 12, 46, 72 });
+	shotleftop.PushBack({ 58, 156, 46, 72 });
+	shotleftop.PushBack({ 58, 12, 46, 72 });
 	shotleftop.speed = 0.1f;
 	//aiming top left
 
-	shotopleft.PushBack({ 110, 71, 46, 71 });
-	shotopleft.PushBack({ 113, 0, 46, 70 });
-	shotopleft.PushBack({ 107, 340, 46, 71 });
-	shotopleft.PushBack({ 113, 0, 46, 70 });
+	shotopleft.PushBack({ 104, 84, 46, 72 });
+	shotopleft.PushBack({ 104, 12, 46, 72 });
+	shotopleft.PushBack({ 104, 156, 46, 72 });
+	shotopleft.PushBack({ 104, 12, 46, 72 });
 	shotopleft.speed = 0.1f;
 	//aiming top
 
-	shotop.PushBack({ 162, 71, 46, 71 });
-	shotop.PushBack({ 160, 0, 46, 70 });
-	shotop.PushBack({ 159, 340, 46, 71 });
-	shotop.PushBack({ 160, 0, 46, 70 });
+	shotop.PushBack({ 150, 84, 46, 72 });
+	shotop.PushBack({ 150, 12, 46, 72 });
+	shotop.PushBack({ 150, 156, 46, 72 });
+	shotop.PushBack({ 150, 12, 46, 72 });
 	shotop.speed = 0.1f;
 	//aiming right
 
-	shotright.PushBack({ 295, 71, 46, 71 });
-	shotright.PushBack({ 287, 0, 46, 70 });
-	shotright.PushBack({ 292, 340, 46, 71 });
-	shotright.PushBack({ 287, 0, 46, 70 });
+	shotright.PushBack({ 288, 84, 46, 72 });
+	shotright.PushBack({ 288, 12, 46, 72 });
+	shotright.PushBack({ 288, 156, 46, 72 });
+	shotright.PushBack({ 288, 12, 46, 72 });
 	shotright.speed = 0.1f;
+
+
 	//aiming right top
 	
-	shotrighttop.PushBack({ 249, 71, 46, 71 });
-	shotrighttop.PushBack({ 246, 0, 46, 70 });
-	shotrighttop.PushBack({ 246, 340, 46, 71 });
-	shotrighttop.PushBack({ 246, 0, 46, 70 });
+	shotrighttop.PushBack({ 242, 84, 46, 72 });
+	shotrighttop.PushBack({ 242, 12, 46, 72 });
+	shotrighttop.PushBack({ 242, 156, 46, 72 });
+	shotrighttop.PushBack({ 242, 12, 46, 72 });
 	shotrighttop.speed = 0.1f;
 	
 	//aiming top right
 
-	shotopright.PushBack({ 202, 71, 46, 71 });
-	shotopright.PushBack({ 201, 0, 46, 70 });
-	shotopright.PushBack({ 198, 340, 46, 71 });
-	shotopright.PushBack({ 201, 0, 46, 70 });
+	shotopright.PushBack({ 196, 84, 46, 72 });
+	shotopright.PushBack({ 196, 12, 46, 72 });
+	shotopright.PushBack({ 196, 156, 46, 72 });
+	shotopright.PushBack({ 196, 12, 46, 72 });
 	shotopright.speed = 0.1f;
-	
-	dance.PushBack({ 348, 500, 40, 75 });
-	dance.PushBack({ 396, 500, 40, 75 });
-	dance.PushBack({ 437, 500, 40, 75 });
-	dance.PushBack({ 481, 511, 38, 64 });
-	dance.PushBack({ 519, 511, 38, 64 });
-	dance.PushBack({ 566, 529, 25, 43 });
-	dance.PushBack({ 598, 529, 25, 43 });
-	dance.PushBack({ 628, 533, 19, 30 });
-	dance.PushBack({ 651, 533, 25, 43 });
-	dance.PushBack({ 682, 538, 13, 19 }); 
-	dance.PushBack({ 703, 538, 13, 19 });
-	dance.PushBack({ 727, 548, 7, 10 });
-	dance.PushBack({ 745, 548, 7, 10 });
+
+	//dancing
+
+
+
+	dance.PushBack({ 334, 300, 46, 72 }); //cowboy cuando gana y esta parado // la inicial
+	dance.PushBack({ 406, 300, 46, 72 }); //cowboy apunto de levantar la mano
+	dance.PushBack({ 478, 300, 46, 72 }); //cowboy levanta la mano
+	dance.PushBack({ 550, 300, 46, 72 }); // cowboy baila levantando pierna izquierda
+	dance.PushBack({ 622, 300, 46, 72 }); //cowboy baila levantando pierna derecha
+	dance.PushBack({ 694, 300, 46, 72 }); //cowboy baila levantando pierna izquierda un pcoo alejado
+	dance.PushBack({ 766, 300, 46, 72 }); //cowboy baila levantando las dos manos y una pierna un poco alejado
+	dance.PushBack({ 838, 300, 46, 72 }); //cowboy baila un pcoo mas alejado 1
+	dance.PushBack({ 334, 372, 46, 72 }); //cowboy baila un pcoo mas alejado 2
+	dance.PushBack({ 406, 372, 46, 72 }); // cowboy casi no se ve 1 saltando como una rana
+	dance.PushBack({ 478, 372, 46, 72 }); //cowboy casi no se ve 2 saltando sin tocar el suelo
+	dance.PushBack({ 550, 372, 46, 72 }); //cowboy esta tan lejos que casi no se ve 1
+	dance.PushBack({ 622, 372, 46, 72 }); //cowboy esta tan lejos que casi no se ve 2
 
 	dance.loop = false;
 	dance.speed = 0.05f;
@@ -169,7 +182,7 @@ bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
 	bool ret = true;
-	graphics = App->textures->Load("Images/Main_Characters.png"); // arcade version
+	graphics = App->textures->Load("Images/Main_character_CowBoy.png"); // arcade version
 
 	position.x = 105;
 	position.y = 153;
