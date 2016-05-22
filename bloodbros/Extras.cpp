@@ -50,38 +50,54 @@ bool ModuleExtra::Start()
 	zepe.life = 10000;
 	zepe.type = ZEPE;
 
+	//WOMAN ANIM
 	shower.type = WOMEN;
 	shower.anim.PushBack({ 3, 226, 31, 29 });//1
 	shower.anim.PushBack({ 35, 226, 31, 29 });//2
 	shower.anim.PushBack({ 67, 226, 31, 29 });//3
 	shower.anim.PushBack({ 99, 226, 31, 29 });//4
-	shower2.type = WOMEN;
-	shower2.anim.PushBack({ 131, 226, 31, 29 });//5
-	shower2.anim.PushBack({ 163, 226, 31, 29 });//6
-	shower3.type = WOMEN;
-	shower3.anim.PushBack({ 195, 226, 31, 29 });//7
-	shower3.anim.PushBack({ 227, 226, 31, 29 });//8
-	shower3.anim.PushBack({ 259, 226, 31, 29 });//9
+	shower.anim.PushBack({ 3, 226, 31, 29 });//1
+	shower.anim.PushBack({ 35, 226, 31, 29 });//2
+	shower.anim.PushBack({ 67, 226, 31, 29 });//3
+	shower.anim.PushBack({ 99, 226, 31, 29 });//4
+	shower.anim.PushBack({ 3, 226, 31, 29 });//1
+	shower.anim.PushBack({ 35, 226, 31, 29 });//2
+	shower.anim.PushBack({ 67, 226, 31, 29 });//3
+	shower.anim.PushBack({ 99, 226, 31, 29 });//4
+	shower.anim.PushBack({ 131, 226, 31, 29 });//5
+	shower.anim.PushBack({ 163, 226, 31, 29 });//6
+	shower.anim.PushBack({ 195, 226, 31, 29 });//7
+	shower.anim.PushBack({ 227, 226, 31, 29 });//8
+	shower.anim.PushBack({ 259, 226, 31, 29 });//9
+	shower.anim.PushBack({ 195, 226, 31, 29 });//7
+	shower.anim.PushBack({ 227, 226, 31, 29 });//8
+	shower.anim.PushBack({ 259, 226, 31, 29 });//9
+	shower.anim.loop = false;
+	shower.anim.speed = 0.08f;
+	shower.life = 4000;
+	shower.type = WOMEN;
 
-	path.PushBack({ 0.0f, 0.0f }, 75, &shower.anim);
-	path.PushBack({ 0.0f, 0.0f }, 75, &shower.anim);
-	path.PushBack({ 0.0f, 0.0f }, 32, &shower2.anim);
-	path.PushBack({ 0.0f, 0.0f }, 45, &shower3.anim);
-	path.PushBack({ 0.0f, 0.0f }, 45, &shower3.anim);
-
+	//GUITAR ANIM
 	guitar.anim.PushBack({ 298, 224, 32, 32 });//1
 	guitar.anim.PushBack({ 331, 224, 32, 32 });//2
-	guitar3.anim.PushBack({ 364, 224, 32, 32 });//3
-	guitar4.anim.PushBack({ 397, 224, 32, 32 });//4
-
-	path.PushBack({ 0.0f, 0.0f }, 30, &guitar.anim);
-	path.PushBack({ 0.0f, 0.0f }, 30, &guitar.anim);
-	path.PushBack({ 0.0f, 0.0f }, 15, &guitar3.anim);
-	path.PushBack({ 0.0f, 0.0f }, 15, &guitar2.anim);
-	path.PushBack({ 0.0f, 0.0f }, 15, &guitar3.anim);
-	path.PushBack({ 0.0f, 0.0f }, 15, &guitar2.anim);
-	path.PushBack({ 0.0f, 0.0f }, 15, &guitar3.anim);
-	path.PushBack({ 0.0f, 0.0f }, 15, &guitar4.anim);
+	guitar.anim.PushBack({ 298, 224, 32, 32 });//1
+	guitar.anim.PushBack({ 331, 224, 32, 32 });//2
+	guitar.anim.PushBack({ 298, 224, 32, 32 });//1
+	guitar.anim.PushBack({ 331, 224, 32, 32 });//2
+	guitar.anim.PushBack({ 298, 224, 32, 32 });//1
+	guitar.anim.PushBack({ 331, 224, 32, 32 });//2
+	guitar.anim.PushBack({ 298, 224, 32, 32 });//1
+	guitar.anim.PushBack({ 331, 224, 32, 32 });//2
+	guitar.anim.PushBack({ 364, 224, 32, 32 });//3
+	guitar.anim.PushBack({ 331, 224, 32, 32 });//2
+	guitar.anim.PushBack({ 364, 224, 32, 32 });//3
+	guitar.anim.PushBack({ 331, 224, 32, 32 });//2
+	guitar.anim.PushBack({ 364, 224, 32, 32 });//3
+	guitar.anim.PushBack({ 397, 224, 32, 32 });//4
+	guitar.anim.loop = false;
+	guitar.anim.speed = 0.08f;
+	guitar.life = 4000;
+	guitar.type = GUITAR;
 
 
 	return true;
@@ -130,6 +146,9 @@ update_status ModuleExtra::Update()
 				App->render->Blit(graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
 			else if (p->type == ZEPE)
 				App->render->Blit(graphics, p->position.x, p->position.y, &p->anim.GetCurrentFrame());
+			else if (p->type == GUITAR){
+				App->render->Blit(graphics, p->position.x, p->position.y, &p->anim.GetCurrentFrame());
+			}
 			else if (p->type == WOMEN){
 				App->render->Blit(graphics, p->position.x, p->position.y, &p->anim.GetCurrentFrame());
 			}
@@ -156,8 +175,11 @@ void ModuleExtra::AddExtra(const Extra& particle, int x, int y, Uint32 delay)
 	if (p->type == ZEPE){
 		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, 97, 49}, COLLIDER_EXTRA, this);
 	}
-	if (p->type == ZEPE){
-		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, 31, 25 }, COLLIDER_EXTRA, this);
+	if (p->type == GUITAR){
+		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, 31, 25 }, COLLIDER_NONE, this);
+	}
+	if (p->type == WOMEN){
+		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, 31, 25 }, COLLIDER_NONE, this);
 	}
 	active[last_particle++] = p;
 }
