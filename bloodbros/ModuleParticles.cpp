@@ -127,7 +127,7 @@ ModuleParticles::ModuleParticles()
 	tnt.anim.PushBack({ 459, 212, 15, 15 });
 	tnt.anim.PushBack({ 476, 212, 15, 15 });
 	tnt.anim.PushBack({ 493, 212, 15, 15 });
-	tnt.anim.speed = 0.06f;
+	tnt.anim.speed = 0.08f;
 	tnt.anim.loop = false;
 	tnt.type = TNT;
 	tnt.life = 3000;

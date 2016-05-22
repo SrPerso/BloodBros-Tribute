@@ -5,10 +5,11 @@
 #include "Animation.h"
 #include "Globals.h"
 #include "p2Point.h"
+#include "Enemy.h"
 
 #define MAX_EXTRAS 20
 
-enum extratype{PIG, ZEPE};
+enum extratype{PIG, ZEPE, WOMEN,GUITAR};
 struct SDL_Texture;
 
 struct Extra
@@ -24,6 +25,7 @@ struct Extra
 	Uint32 life = 0;
 	bool fx_played = false;
 	Collider* collider=nullptr;
+	
 
 	Extra();
 	Extra(const Extra& p);
@@ -57,6 +59,16 @@ public:
 
 	Extra pig;
 	Extra zepe;
+	Extra shower;
+	Extra shower2;
+	Extra shower3;
+	Extra guitar;
+	Extra guitar2;
+	Extra guitar3;
+	Extra guitar4;
+
+	Path path;
+
 
 };
 
