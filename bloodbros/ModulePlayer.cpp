@@ -383,6 +383,7 @@ update_status ModulePlayer::Update()
 	player->rect.y = position.y + 20;
 	player->rect.h = 8;
 	player->rect.w = 12;
+	hit = true;
 
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
 

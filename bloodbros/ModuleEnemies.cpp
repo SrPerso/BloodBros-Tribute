@@ -10,6 +10,7 @@
 #include "PurplePlane.h"
 #include "BlueCowBoy.h"
 #include "GreenRight.h"
+#include "ModulePlayer.h"
 /*#include "Enemy_RedBird.h"
 #include "Enemy_Cookie.h"
 #include "Enemy_Mech.h"*/
@@ -167,15 +168,18 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 
 void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 {
-	for (uint i = 0; i < MAX_ENEMIES; ++i)
-	{
-		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
+	if (App->player->hit == true){
+		App->player->hit = false;
+		for (uint i = 0; i < MAX_ENEMIES; ++i)
 		{
-			hits++;
-			enemies[i]->OnCollision(c1, c2);
-			//delete enemies[i];
-			//enemies[i] = nullptr;
-			break;
+			if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
+			{
+				hits++;
+				enemies[i]->OnCollision(c1, c2);
+				//delete enemies[i];
+				//enemies[i] = nullptr;
+				break;
+			}
 		}
 	}
 }

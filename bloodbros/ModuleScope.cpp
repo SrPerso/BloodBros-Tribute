@@ -81,7 +81,7 @@ update_status ModuleScope::Update()
 	}
 	if (App->input->keyboard[SDL_SCANCODE_P] == KEY_STATE::KEY_DOWN){
 
-		App->particles->AddParticle(App->particles->tnt, App->player->position.x+3, App->player->position.y+3, 1, -2, COLLIDER_BOMB, 0);
+		App->particles->AddParticle(App->particles->tnt, App->player->position.x + 3, App->player->position.y + 3, COLLIDER_BOMB, 0);
 		
 		
 		

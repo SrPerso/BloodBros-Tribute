@@ -54,6 +54,7 @@ public:
 	Animation shotopright;
 	Animation dance;
 	uint hp;
+	bool hit = true;
 	
 
 };

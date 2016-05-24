@@ -266,75 +266,78 @@ bool Building::Update()
 }
 void ModuleBuilding::OnCollision(Collider* c1, Collider* c2)
 {
-	for (uint i = 0; i < MAX_BUILDINGS; ++i){
-		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->mytype == TREES){
-			active[i]->hits+=1;
-			break;
-		}
-		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->mytype==YELLOW){
-			if (active[i]->hits == 0){
-				active[i]->build.x = yellow2.build.x;
-				active[i]->build.y = yellow2.build.y;
-				active[i]->build.w = yellow2.build.w;
-				active[i]->build.h = yellow2.build.h;
-				active[i]->hits++;
+	if (App->player->hit == true){
+		App->player->hit = false;
+		for (uint i = 0; i < MAX_BUILDINGS; ++i){
+			if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->mytype == TREES){
+				active[i]->hits += 1;
 				break;
 			}
-			else if (active[i]->hits == 1){
-				active[i]->build.x = 0;
-				active[i]->build.y = 0;
-				active[i]->build.w = 0;
-				active[i]->build.h = 0;
-				active[i]->hits++;
-				App->particles->AddParticle(App->particles->bigsmoke, active[i]->position.x, active[i]->position.y + 85);
-				App->extra->AddExtra(App->extra->guitar, active[i]->position.x+24, active[i]->position.y+50);
-				/*delete[] active[i]->collider;
-				active[i]->collider = nullptr;//PROBLEM*/
+			if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->mytype == YELLOW){
+				if (active[i]->hits == 0){
+					active[i]->build.x = yellow2.build.x;
+					active[i]->build.y = yellow2.build.y;
+					active[i]->build.w = yellow2.build.w;
+					active[i]->build.h = yellow2.build.h;
+					active[i]->hits++;
+					break;
+				}
+				else if (active[i]->hits == 1){
+					active[i]->build.x = 0;
+					active[i]->build.y = 0;
+					active[i]->build.w = 0;
+					active[i]->build.h = 0;
+					active[i]->hits++;
+					App->particles->AddParticle(App->particles->bigsmoke, active[i]->position.x, active[i]->position.y + 85);
+					App->extra->AddExtra(App->extra->guitar, active[i]->position.x + 24, active[i]->position.y + 50);
+					/*delete[] active[i]->collider;
+					active[i]->collider = nullptr;//PROBLEM*/
+				}
 			}
-		}
-		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->mytype == PURPLE){
-			if (active[i]->hits == 0){
-				active[i]->build.x = purple2.build.x;
-				active[i]->build.y = purple2.build.y;
-				active[i]->build.w = purple2.build.w;
-				active[i]->build.h = purple2.build.h;
-				active[i]->hits++;
-				break;
+			if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->mytype == PURPLE){
+				if (active[i]->hits == 0){
+					active[i]->build.x = purple2.build.x;
+					active[i]->build.y = purple2.build.y;
+					active[i]->build.w = purple2.build.w;
+					active[i]->build.h = purple2.build.h;
+					active[i]->hits++;
+					break;
+				}
+				else if (active[i]->hits == 1){
+					active[i]->build.x = 0;
+					active[i]->build.y = 0;
+					active[i]->build.w = 0;
+					active[i]->build.h = 0;
+					active[i]->hits++;
+					App->particles->AddParticle(App->particles->housesmoke, active[i]->position.x, active[i]->position.y + 44);
+					App->extra->AddExtra(App->extra->shower, active[i]->position.x + 15, active[i]->position.y + 14);
+				}
 			}
-			else if (active[i]->hits == 1){
-				active[i]->build.x = 0;
-				active[i]->build.y = 0;
-				active[i]->build.w = 0;
-				active[i]->build.h = 0;
-				active[i]->hits++;
-				App->particles->AddParticle(App->particles->housesmoke, active[i]->position.x, active[i]->position.y + 44);
-				App->extra->AddExtra(App->extra->shower, active[i]->position.x + 15, active[i]->position.y + 14);
-			}
-		}
-		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->mytype == WINDMILL){
-			if (active[i]->hits == 0){
-				active[i]->build.x = 53;
-				active[i]->build.y = 156;
-				active[i]->build.w = 43;
-				active[i]->build.h = 49;
-				active[i]->hits++;
-				break;
-			}
-			else if (active[i]->hits == 1){
-				active[i]->build.x = 105;
-				active[i]->build.y = 156;
-				active[i]->build.w = 43;
-				active[i]->build.h = 49;
-				active[i]->hits++;
-				break;
-			}
-			else if (active[i]->hits == 2){
-				active[i]->build.x = 157;
-				active[i]->build.y = 156;
-				active[i]->build.w = 43;
-				active[i]->build.h = 49;
-				active[i]->hits++;
-				App->particles->AddParticle(App->particles->housesmoke, active[i]->position.x-5, active[i]->position.y + 44);
+			if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->mytype == WINDMILL){
+				if (active[i]->hits == 0){
+					active[i]->build.x = 53;
+					active[i]->build.y = 156;
+					active[i]->build.w = 43;
+					active[i]->build.h = 49;
+					active[i]->hits++;
+					break;
+				}
+				else if (active[i]->hits == 1){
+					active[i]->build.x = 105;
+					active[i]->build.y = 156;
+					active[i]->build.w = 43;
+					active[i]->build.h = 49;
+					active[i]->hits++;
+					break;
+				}
+				else if (active[i]->hits == 2){
+					active[i]->build.x = 157;
+					active[i]->build.y = 156;
+					active[i]->build.w = 43;
+					active[i]->build.h = 49;
+					active[i]->hits++;
+					App->particles->AddParticle(App->particles->housesmoke, active[i]->position.x - 5, active[i]->position.y + 44);
+				}
 			}
 		}
 	}

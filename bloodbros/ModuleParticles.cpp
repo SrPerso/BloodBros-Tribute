@@ -6,6 +6,7 @@
 #include "ModuleParticles.h"
 #include "Application.h"
 #include "ModulePlayer.h"
+#include "ModuleScope.h"
 
 #include "SDL/include/SDL_timer.h"
 
@@ -127,10 +128,9 @@ ModuleParticles::ModuleParticles()
 	tnt.anim.PushBack({ 459, 212, 15, 15 });
 	tnt.anim.PushBack({ 476, 212, 15, 15 });
 	tnt.anim.PushBack({ 493, 212, 15, 15 });
-	tnt.anim.speed = 0.08f;
+	tnt.anim.speed = 0.1f;
 	tnt.anim.loop = false;
 	tnt.type = TNT;
-	tnt.life = 3000;
 
 }
 
@@ -210,6 +210,9 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLID
 	p->position.y = y;
 	p->originalpos.x = x;
 	p->originalpos.y = y;
+	if (p->type == TNT){
+		p->speed = p->position.GetSpeed(App->scope->position);
+	}
 	if (collider_type != COLLIDER_NONE)
 		p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), collider_type, this);
 	active[last_particle++] = p;
@@ -294,10 +297,7 @@ bool Particle::Update()
 		speed.y = 1;
 		speed.x = 0.5;
 	}
-	if (type == TNT && position.y+50 == originalpos.y){
-		speed.y = 1;
-		speed.x = 0.5;
-	}
+
 	if (collider != nullptr)
 		collider->SetPos(position.x, position.y);
 
