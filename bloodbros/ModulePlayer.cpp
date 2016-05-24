@@ -12,6 +12,8 @@
 #include "ModuleLevel2.h"
 #include "ModuleVictory.h"
 #include "ModuleScope.h"
+#include "ModuleFonts.h"
+#include <stdio.h>
 
 
 #include "SDL/include/SDL_timer.h"
@@ -183,12 +185,14 @@ bool ModulePlayer::Start()
 	LOG("Loading player textures");
 	bool ret = true;
 	graphics = App->textures->Load("Images/Main_character_CowBoy.png"); // arcade version
+	score = 0;
 
 	position.x = 105;
 	position.y = 153;
 	status = NORMAL;
 	hp = 3;
 	player = App->collision->AddCollider({ position.x+10, position.y+20, 12, 8}, COLLIDER_PLAYER, this);
+	font_score = App->font->Load("Images/fonts2.png", "0123456789abcdefghijklmnopqrstuvwxyz", 1);
 	return ret;
 }
 bool ModulePlayer::CleanUp()
@@ -196,6 +200,7 @@ bool ModulePlayer::CleanUp()
 	LOG("Unloading player");
 	App->collision->CleanUp(); 
 	App->textures->Unload(graphics);
+	App->font->UnLoad(font_score);
 	status = NORMAL;
 	return true;
 }
@@ -231,7 +236,8 @@ update_status ModulePlayer::Update()
 					   }
 
 					   else if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT)
-					   {
+					   {  
+						   score += 10;
 						   position.x -= speed;
 						   if ((App->scope->position.x - position.x)> 0  && (App->scope->position.x-position.x)<=38.6f){
 							   current_animation = &shotopright;
@@ -245,6 +251,7 @@ update_status ModulePlayer::Update()
 							   current_animation = &shotright;
 							   
 						   }
+						   
 
 						   
 					   }
@@ -271,6 +278,7 @@ update_status ModulePlayer::Update()
 					  
 					   else if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT)
 					   {
+						   score += 10;
 						   position.x += speed;
 						   if ((position.x - App->scope->position.x)> 0 && (position.x - App->scope->position.x) <= 38.6f){
 							   current_animation = &shotopleft;
@@ -282,6 +290,7 @@ update_status ModulePlayer::Update()
 							   current_animation = &shotleft;
 
 						   }
+						  
 
 
 					   }
@@ -289,6 +298,7 @@ update_status ModulePlayer::Update()
 
 				   else if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT || App->input->keyboard[SDL_SCANCODE_LCTRL] != KEY_STATE::KEY_DOWN && App->input->keyboard[SDL_SCANCODE_RIGHT] != KEY_STATE::KEY_REPEAT  && App->input->keyboard[SDL_SCANCODE_LEFT] != KEY_STATE::KEY_REPEAT ){
 
+					  
 					   if ((position.x - App->scope->position.x)> 0 && (position.x - App->scope->position.x) <= 38.6f){
 						   current_animation = &shotopleft;
 					   }
@@ -312,6 +322,7 @@ update_status ModulePlayer::Update()
 						   current_animation = &shotright;
 
 					   }
+					   
 				   }
 
 				 
@@ -387,11 +398,14 @@ update_status ModulePlayer::Update()
 
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
 
+	sprintf_s(score_text, 10, "%7d", score);
+	App->font->Blit(20, 5, font_score, score_text);
 
 	return UPDATE_CONTINUE;
 }
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
+	
 	hp--;
 	dead.loops = 0;
 	current_animation->Reset();

@@ -34,6 +34,7 @@ public:
 	ModuleEnemies* boy;
 	bool didsound=false;
 	uint time;
+	unsigned int score = 0;
 
 };
 

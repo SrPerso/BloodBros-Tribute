@@ -15,6 +15,8 @@
 #include "Extras.h"
 #include "ModuleEnemies.h"
 #include "ModuleBuildings.h"
+#include "ModuleFonts.h"
+#include "ModuleUi.h"
 
 Application::Application()
 {
@@ -22,19 +24,22 @@ Application::Application()
 	modules[1] = render = new ModuleRender();
 	modules[2] = input = new ModuleInput();
 	modules[3] = textures = new ModuleTextures();
-	modules[4] = audio = new ModuleAudio();
-	modules[5] = level1 = new ModuleLevel1();
-	modules[6] = level2 = new ModuleLevel2();
-	modules[7] = victoryscreen = new ModuleVictory();
-	modules[8] = titlescreen = new ModuleTitleScreen();
-	modules[9] = extra = new ModuleExtra();
-	modules[10] = enemies = new ModuleEnemies();
-	modules[11] = building = new ModuleBuilding();
-	modules[12] = player = new ModulePlayer();
-	modules[13] = fade = new ModuleFadeToBlack();
-	modules[14] = particles = new ModuleParticles();
-	modules[15] = collision = new ModuleCollision();
-	modules[16] = scope = new ModuleScope();
+	modules[4] = font = new ModuleFonts();
+	modules[5] = ui = new ModuleUI();
+	modules[6] = audio = new ModuleAudio();
+	modules[7] = level1 = new ModuleLevel1();
+	modules[8] = level2 = new ModuleLevel2();
+	modules[9] = victoryscreen = new ModuleVictory();
+	modules[10] = titlescreen = new ModuleTitleScreen();
+	modules[11] = extra = new ModuleExtra();
+	modules[12] = enemies = new ModuleEnemies();
+	modules[13] = building = new ModuleBuilding();
+	modules[14] = player = new ModulePlayer();
+	modules[15] = fade = new ModuleFadeToBlack();
+	modules[16] = particles = new ModuleParticles();
+	modules[17] = collision = new ModuleCollision();
+	modules[18] = scope = new ModuleScope();
+	
 
 
 	
@@ -54,6 +59,7 @@ bool Application::Init()
 	level2->Disable();
 	victoryscreen->Disable();
 	scope->Disable();
+	ui->Disable();
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Init();

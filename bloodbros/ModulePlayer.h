@@ -55,6 +55,11 @@ public:
 	Animation dance;
 	uint hp;
 	bool hit = true;
+	//fonts
+
+	int font_score = 2;
+	char score_text[10];
+	uint score = 0;
 	
 
 };

@@ -14,6 +14,7 @@
 #include "SDL/include/SDL_timer.h"
 #include "Extras.h"
 #include "ModuleBuildings.h"
+#include "ModuleUi.h"
 
 // Reference at https://youtu.be/6OlenbCC4WI?t=382
 
@@ -47,6 +48,7 @@ bool ModuleLevel2::Start()
 	App->audio->Load("Music/level.ogg");
 	App->particles->Enable();
 	App->scope->Enable();
+	App->ui->Enable();
 	
 	App->building->Enable();
 	App->enemies->Enable();
