@@ -55,6 +55,7 @@ public:
 	Animation dance;
 	uint hp;
 	bool hit = true;
+	bool god = false;
 	//fonts
 
 	int font_score = 2;

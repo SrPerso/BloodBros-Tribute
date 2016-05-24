@@ -24,21 +24,21 @@ Application::Application()
 	modules[1] = render = new ModuleRender();
 	modules[2] = input = new ModuleInput();
 	modules[3] = textures = new ModuleTextures();
-	modules[4] = font = new ModuleFonts();
-	modules[5] = ui = new ModuleUI();
-	modules[6] = audio = new ModuleAudio();
-	modules[7] = level1 = new ModuleLevel1();
-	modules[8] = level2 = new ModuleLevel2();
-	modules[9] = victoryscreen = new ModuleVictory();
-	modules[10] = titlescreen = new ModuleTitleScreen();
-	modules[11] = extra = new ModuleExtra();
-	modules[12] = enemies = new ModuleEnemies();
-	modules[13] = building = new ModuleBuilding();
-	modules[14] = player = new ModulePlayer();
-	modules[15] = fade = new ModuleFadeToBlack();
-	modules[16] = particles = new ModuleParticles();
-	modules[17] = collision = new ModuleCollision();
-	modules[18] = scope = new ModuleScope();
+	modules[4] = font = new ModuleFonts(); 
+	modules[5] = audio = new ModuleAudio();
+	modules[6] = level1 = new ModuleLevel1();
+	modules[7] = level2 = new ModuleLevel2();
+	modules[8] = victoryscreen = new ModuleVictory();
+	modules[9] = titlescreen = new ModuleTitleScreen();
+	modules[10] = extra = new ModuleExtra();
+	modules[11] = enemies = new ModuleEnemies();
+	modules[12] = building = new ModuleBuilding();
+	modules[13] = player = new ModulePlayer();
+	modules[14] = fade = new ModuleFadeToBlack();
+	modules[15] = particles = new ModuleParticles();
+	modules[16] = collision = new ModuleCollision();
+	modules[17] = scope = new ModuleScope();
+	modules[18] = ui = new ModuleUI();
 	
 
 

@@ -48,7 +48,7 @@ bool ModuleLevel2::Start()
 	App->audio->Load("Music/level.ogg");
 	App->particles->Enable();
 	App->scope->Enable();
-	App->ui->Enable();
+	
 	
 	App->building->Enable();
 	App->enemies->Enable();
@@ -65,7 +65,7 @@ bool ModuleLevel2::Start()
 	App->building->AddBuilding(App->building->yellow, 160, 30);
 	App->building->AddBuilding(App->building->purple, 0, 53);
 	App->building->AddBuilding(App->building->mill, 30, 74);
-
+	App->ui->Enable();
 
 	return ret;
 }
@@ -91,7 +91,7 @@ update_status ModuleLevel2::Update()
 	// Draw everything --------------------------------------	
 
 	App->render->Blit(graphics, 0, 0, &background, 0); // level 2
-	
+	App->ui->Update();
 	if (SDL_GetTicks() >= timestart+10000 && extra == true){
 		App->extra->AddExtra(App->extra->pig, 224, 140);
 		App->extra->AddExtra(App->extra->zepe, 224, 35);

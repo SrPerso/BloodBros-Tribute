@@ -57,6 +57,10 @@ bool ModuleUI::CleanUp()
 }
 update_status ModuleUI::Update()
 {
-	
+	App->render->Blit(UserInterface, 90, 15, &(stage.GetCurrentFrame()), 0.0);
+	App->render->Blit(UserInterface, 100,200, &(Credit.GetCurrentFrame()), 0.0);
+	App->render->Blit(UserInterface, 90, 15, &(stage.GetCurrentFrame()), 0.0);
+
+	App->render->Blit(UserInterface, 35, 203, &(foe.GetCurrentFrame()), 0.0);
 	return UPDATE_CONTINUE;
 }

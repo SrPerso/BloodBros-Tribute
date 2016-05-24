@@ -214,7 +214,12 @@ update_status ModulePlayer::Update()
 	switch (status){
 	case NORMAL:
 	{
-				   player->type = COLLIDER_PLAYER;
+		if (god == false){
+			player->type = COLLIDER_PLAYER;
+		}
+		else if (god == true){
+			player->type = COLLIDER_NONE;
+		}
 				   if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
 				   {
 					   if (position.x >= 220){
@@ -390,11 +395,28 @@ update_status ModulePlayer::Update()
 
 	
 	}
+	if (App->input->keyboard[SDL_SCANCODE_F2] == KEY_STATE::KEY_DOWN){
+		if (god == false){
+			player->type = COLLIDER_NONE;
+			App->textures->Unload(graphics);
+			graphics = App->textures->Load("Images/Main_character_CowBoy_GodMode.png");
+			god = true;
+
+		}
+		else if (god == true){
+			App->textures->Unload(graphics);
+			graphics = App->textures->Load("Images/Main_character_CowBoy.png");
+			god = false;
+			player->type = COLLIDER_PLAYER;
+		}
+	}
 	player->rect.x = position.x + 10;
 	player->rect.y = position.y + 20;
 	player->rect.h = 8;
 	player->rect.w = 12;
 	hit = true;
+
+	
 
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
 

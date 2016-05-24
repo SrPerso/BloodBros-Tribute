@@ -5,7 +5,7 @@
 #include "Animation.h"
 #include "Path.h"
 
-#define MAX_ENEMIES 20
+#define MAX_ENEMIES 100
 
 struct SDL_Texture;
 struct Collider;

@@ -82,7 +82,7 @@ update_status ModuleEnemies::Update()
 update_status ModuleEnemies::PostUpdate()
 {
 	// check camera position to decide what to spawn
-	for (uint i = 0; i < MAX_ENEMIES; ++i)
+	/*for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
 		if (enemies[i] != nullptr)
 		{
@@ -93,7 +93,7 @@ update_status ModuleEnemies::PostUpdate()
 				enemies[i] = nullptr;
 			}
 		}
-	}
+	}*/
 
 	return UPDATE_CONTINUE;
 }
