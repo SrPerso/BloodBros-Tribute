@@ -1,21 +1,23 @@
-﻿Build started 25/05/2016 11:55:46.
+﻿Build started 25/05/2016 12:50:23.
      1>Project "C:\Users\esteban\Documents\GitHub\VictoriousSecret\bloodbros\SDL Game.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ModuleParticles.cpp
-         ModuleParticles.cpp
-     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\moduleparticles.cpp(184): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\moduleparticles.cpp(200): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\moduleparticles.cpp(201): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\moduleparticles.cpp(209): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\moduleparticles.cpp(210): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\moduleparticles.cpp(211): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\moduleparticles.cpp(212): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\moduleparticles.cpp(225): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\moduleparticles.cpp(226): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\moduleparticles.cpp(227): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\moduleparticles.cpp(228): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\moduleparticles.cpp(244): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\moduleparticles.cpp(302): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ModuleBuildings.cpp
+         ModuleBuildings.cpp
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(246): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(248): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(256): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(266): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(278): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(279): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(294): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(295): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(300): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(303): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(362): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(363): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(383): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(384): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(410): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\esteban\Documents\GitHub\VictoriousSecret\bloodbros\Debug\SDL4 Handout.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\esteban\Documents\GitHub\VictoriousSecret\bloodbros\Debug\SDL4 Handout.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\esteban\Documents\GitHub\VictoriousSecret\bloodbros\Debug\SDL4 Handout.lib" /MACHINE:X86 Debug\Application.obj
          Debug\Audio.obj
@@ -50,4 +52,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.41
+Time Elapsed 00:00:00.38

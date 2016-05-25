@@ -58,10 +58,28 @@ ModuleParticles::ModuleParticles()
 	bigsmoke.anim.PushBack({ 290, 299, 92, 40 });//4
 	bigsmoke.anim.PushBack({ 386, 299, 92, 40 });//5
 	bigsmoke.anim.PushBack({ 482, 299, 92, 40 });//6
+	bigsmoke.anim.PushBack({ 290, 299, 92, 40 });//4
+	bigsmoke.anim.PushBack({ 386, 299, 92, 40 });//5
+	bigsmoke.anim.PushBack({ 482, 299, 92, 40 });//6
+	bigsmoke.anim.PushBack({ 290, 299, 92, 40 });//4
+	bigsmoke.anim.PushBack({ 386, 299, 92, 40 });//5
+	bigsmoke.anim.PushBack({ 482, 299, 92, 40 });//6
+	bigsmoke.anim.PushBack({ 290, 299, 92, 40 });//4
+	bigsmoke.anim.PushBack({ 386, 299, 92, 40 });//5
+	bigsmoke.anim.PushBack({ 482, 299, 92, 40 });//6
+	bigsmoke.anim.PushBack({ 290, 299, 92, 40 });//4
+	bigsmoke.anim.PushBack({ 386, 299, 92, 40 });//5
+	bigsmoke.anim.PushBack({ 482, 299, 92, 40 });//6
+	bigsmoke.anim.PushBack({ 290, 299, 92, 40 });//4
+	bigsmoke.anim.PushBack({ 386, 299, 92, 40 });//5
+	bigsmoke.anim.PushBack({ 482, 299, 92, 40 });//6
+	bigsmoke.anim.PushBack({ 290, 299, 92, 40 });//4
+	bigsmoke.anim.PushBack({ 386, 299, 92, 40 });//5
+	bigsmoke.anim.PushBack({ 482, 299, 92, 40 });//6
 	bigsmoke.anim.PushBack({ 194, 299, 92, 40 });//3
 	bigsmoke.anim.PushBack({ 98, 299, 92, 40 });//2
 	bigsmoke.anim.PushBack({ 2, 299, 92, 40 });//1
-	bigsmoke.anim.speed = 0.1f;
+	bigsmoke.anim.speed = 0.2f;
 	bigsmoke.anim.loop = false;
 	bigsmoke.life = 3000;
 

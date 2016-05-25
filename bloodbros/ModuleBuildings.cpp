@@ -48,15 +48,88 @@ bool ModuleBuilding::Start()
 	yellow2.build.h = 95;
 
 	yellow.destroy.PushBack({ 105, 2, 94, 96 });
-	yellow.destroy.PushBack({ 104, 2, 94, 82 });
-	yellow.destroy.PushBack({ 105, 2, 94, 70 });
-	yellow.destroy.PushBack({ 104, 2, 94, 56 });
+	yellow.destroy.PushBack({ 103, 2, 94, 95 });
+	yellow.destroy.PushBack({ 105, 2, 94, 94 });
+	yellow.destroy.PushBack({ 105, 2, 94, 93 });
+	yellow.destroy.PushBack({ 103, 2, 94, 92 });
+	yellow.destroy.PushBack({ 105, 2, 94, 91 });
+	yellow.destroy.PushBack({ 105, 2, 94, 90 });
+	yellow.destroy.PushBack({ 103, 2, 94, 89 });
+	yellow.destroy.PushBack({ 105, 2, 94, 88 });
+	yellow.destroy.PushBack({ 103, 2, 94, 87 });
+	yellow.destroy.PushBack({ 105, 2, 94, 86 });
+	yellow.destroy.PushBack({ 103, 2, 94, 85 });
+	yellow.destroy.PushBack({ 105, 2, 94, 84 });
+	yellow.destroy.PushBack({ 103, 2, 94, 83 });
+	yellow.destroy.PushBack({ 105, 2, 94, 82 });
+	yellow.destroy.PushBack({ 105, 2, 94, 81 });
+	yellow.destroy.PushBack({ 103, 2, 94, 80 });
+	yellow.destroy.PushBack({ 105, 2, 94, 79 });
+	yellow.destroy.PushBack({ 105, 2, 94, 78 });
+	yellow.destroy.PushBack({ 103, 2, 94, 77 });
+	yellow.destroy.PushBack({ 105, 2, 94, 76 });
+	yellow.destroy.PushBack({ 105, 2, 94, 75 });
+	yellow.destroy.PushBack({ 103, 2, 94, 74 });
+	yellow.destroy.PushBack({ 105, 2, 94, 73 });
+	yellow.destroy.PushBack({ 103, 2, 94, 72 });
+	yellow.destroy.PushBack({ 105, 2, 94, 71 });
+	yellow.destroy.PushBack({ 103, 2, 94, 70 });
+	yellow.destroy.PushBack({ 105, 2, 94, 69 });
+	yellow.destroy.PushBack({ 103, 2, 94, 68 });
+	yellow.destroy.PushBack({ 105, 2, 94, 67 });
+	yellow.destroy.PushBack({ 105, 2, 94, 66 });
+	yellow.destroy.PushBack({ 103, 2, 94, 65 });
+	yellow.destroy.PushBack({ 105, 2, 94, 64 });
+	yellow.destroy.PushBack({ 105, 2, 94, 63 });
+	yellow.destroy.PushBack({ 103, 2, 94, 62 });
+	yellow.destroy.PushBack({ 105, 2, 94, 61 });
+	yellow.destroy.PushBack({ 105, 2, 94, 60 });
+	yellow.destroy.PushBack({ 103, 2, 94, 59 });
+	yellow.destroy.PushBack({ 105, 2, 94, 58 });
+	yellow.destroy.PushBack({ 103, 2, 94, 57 });
+	yellow.destroy.PushBack({ 105, 2, 94, 56 });
+	yellow.destroy.PushBack({ 103, 2, 94, 55 });
+	yellow.destroy.PushBack({ 105, 2, 94, 54 });
+	yellow.destroy.PushBack({ 103, 2, 94, 53 });
+	yellow.destroy.PushBack({ 105, 2, 94, 52 });
+	yellow.destroy.PushBack({ 105, 2, 94, 51 });
+	yellow.destroy.PushBack({ 103, 2, 94, 50 });
+	yellow.destroy.PushBack({ 105, 2, 94, 49 });
+	yellow.destroy.PushBack({ 103, 2, 94, 48 });
+	yellow.destroy.PushBack({ 105, 2, 94, 47 });
+	yellow.destroy.PushBack({ 105, 2, 94, 46 });
+	yellow.destroy.PushBack({ 103, 2, 94, 45 });
 	yellow.destroy.PushBack({ 105, 2, 94, 44 });
-	yellow.destroy.PushBack({ 104, 2, 94, 30 });
-	yellow.destroy.PushBack({ 105, 2, 94, 18 });
-	yellow.destroy.PushBack({ 104, 2, 94, 4 });
+	yellow.destroy.PushBack({ 105, 2, 94, 43 });
+	yellow.destroy.PushBack({ 103, 2, 94, 42 });
+	yellow.destroy.PushBack({ 105, 2, 94, 41 });
+	yellow.destroy.PushBack({ 105, 2, 94, 40 });
+	yellow.destroy.PushBack({ 103, 2, 94, 39 });
+	yellow.destroy.PushBack({ 105, 2, 94, 38 });
+	yellow.destroy.PushBack({ 103, 2, 94, 37 });
+	yellow.destroy.PushBack({ 105, 2, 94, 36 });
+	yellow.destroy.PushBack({ 103, 2, 94, 35 });
+	yellow.destroy.PushBack({ 105, 2, 94, 34 });
+	yellow.destroy.PushBack({ 103, 2, 94, 33 });
+	yellow.destroy.PushBack({ 105, 2, 94, 32 });
+	yellow.destroy.PushBack({ 105, 2, 94, 31 });
+	yellow.destroy.PushBack({ 103, 2, 94, 30 });
+	yellow.destroy.PushBack({ 105, 2, 94, 29 });
+	yellow.destroy.PushBack({ 103, 2, 94, 28 });
+	yellow.destroy.PushBack({ 105, 2, 94, 27 });
+	yellow.destroy.PushBack({ 105, 2, 94, 26 });
+	yellow.destroy.PushBack({ 103, 2, 94, 25 });
+	yellow.destroy.PushBack({ 105, 2, 94, 24 });
+	yellow.destroy.PushBack({ 105, 2, 94, 23 });
+	yellow.destroy.PushBack({ 103, 2, 94, 22 });
+	yellow.destroy.PushBack({ 105, 2, 94, 21 });
+	yellow.destroy.PushBack({ 105, 2, 94, 20 });
+
+
+	
+
 	yellow.destroy.loop = false;
-	yellow.destroy.speed = 0.05f;
+	yellow.destroy.speed = 0.6f;
 
 	purple.build.x = 1;
 	purple.build.y = 217;
@@ -286,7 +359,7 @@ void ModuleBuilding::OnCollision(Collider* c1, Collider* c2)
 					active[i]->build.w = 0;
 					active[i]->build.h = 0;
 					active[i]->hits++;
-					App->particles->AddParticle(App->particles->bigsmoke, active[i]->position.x, active[i]->position.y + 85);
+					App->particles->AddParticle(App->particles->bigsmoke, active[i]->position.x, active[i]->position.y + 68);
 					App->extra->AddExtra(App->extra->guitar, active[i]->position.x + 24, active[i]->position.y + 50);
 					/*delete[] active[i]->collider;
 					active[i]->collider = nullptr;//PROBLEM*/
@@ -307,7 +380,7 @@ void ModuleBuilding::OnCollision(Collider* c1, Collider* c2)
 					active[i]->build.w = 0;
 					active[i]->build.h = 0;
 					active[i]->hits++;
-					App->particles->AddParticle(App->particles->housesmoke, active[i]->position.x, active[i]->position.y + 44);
+					App->particles->AddParticle(App->particles->housesmoke, active[i]->position.x, active[i]->position.y + 25);
 					App->extra->AddExtra(App->extra->shower, active[i]->position.x + 15, active[i]->position.y + 14);
 				}
 			}
