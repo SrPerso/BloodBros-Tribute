@@ -14,7 +14,7 @@ BlueCowboy::BlueCowboy(int x, int y) : Enemy(x, y)
 	left.PushBack({ 552, 0, 16, 16 });
 	left.PushBack({ 569, 0, 16, 16 });
 
-	left.speed = 0.2f;
+	left.speed = 0.24f;
 
 	shot.PushBack({ 620, 0, 16, 16 });
 	shot.PushBack({ 637, 0, 16, 16 });

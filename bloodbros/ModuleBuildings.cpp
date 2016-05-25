@@ -124,12 +124,17 @@ bool ModuleBuilding::Start()
 	yellow.destroy.PushBack({ 103, 2, 94, 22 });
 	yellow.destroy.PushBack({ 105, 2, 94, 21 });
 	yellow.destroy.PushBack({ 105, 2, 94, 20 });
+	yellow.destroy.PushBack({ 105, 2, 94, 19 });
+	yellow.destroy.PushBack({ 103, 2, 94, 18 });
+	yellow.destroy.PushBack({ 105, 2, 94, 17 });
+	yellow.destroy.PushBack({ 105, 2, 94, 16 });
+	yellow.destroy.PushBack({ 103, 2, 94, 15 });
 
 
 	
 
 	yellow.destroy.loop = false;
-	yellow.destroy.speed = 0.6f;
+	yellow.destroy.speed = 0.3f;
 
 	purple.build.x = 1;
 	purple.build.y = 217;
@@ -263,7 +268,7 @@ update_status ModuleBuilding::Update()
 		}
 		else if (p->hits > 1 && p->mytype != WINDMILL && p->mytype!=TREES){
 
-			App->render->Blit(graphics, p->position.x, p->position.y += 0.6f, &p->destroy.GetCurrentFrame());
+			App->render->Blit(graphics, p->position.x, p->position.y += 0.25f, &p->destroy.GetCurrentFrame());    ///////////////////////////////////////
 
 			/*p->collider->to_delete = true;
 			delete p;*/
