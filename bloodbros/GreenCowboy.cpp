@@ -12,25 +12,24 @@ GreenCowboy::GreenCowboy(int x, int y) : Enemy(x, y)
 	fly.PushBack({ 285, 24, 16, 20 });
 	fly.PushBack({ 302, 24, 16, 20 });
 	fly.PushBack({ 319, 24, 16, 20 });
-	fly.PushBack({ 336, 24, 16, 20 });
-	fly.PushBack({ 353, 24, 16, 20 });//moviendose a la derecha
-	fly.speed = 0.09f;
+	fly.PushBack({ 336, 24, 16, 20 });//moviendose a la derecha
+	fly.speed = 0.2f;
 
-	idle.PushBack({ 370, 3, 16, 20 });
-	fly2.PushBack({ 353, 3, 16, 20 });
+	idle.PushBack({ 353, 3, 16, 20 });//idle
+
 	fly2.PushBack({ 336, 3, 16, 20 });
 	fly2.PushBack({ 319, 3, 16, 20 });
 	fly2.PushBack({ 302, 3, 16, 20 });
 	fly2.PushBack({ 285, 3, 16, 20 });
 	fly2.PushBack({ 268, 3, 16, 20 });
 	fly2.PushBack({ 251, 3, 16, 20 });//moviendose izquierda
-	fly2.speed = 0.09f;
+	fly2.speed = 0.2f;
 
 	dead.PushBack({ 387, 3, 16, 20 });
 	dead.PushBack({ 404, 3, 16, 20 });
 	dead.PushBack({ 421, 3, 16, 20 });
 	dead.PushBack({ 438, 3, 16, 20 });
-	dead.speed = 0.09f;
+	dead.speed = 0.12f;
 	dead.loop = false;
 	
 
@@ -38,9 +37,9 @@ GreenCowboy::GreenCowboy(int x, int y) : Enemy(x, y)
 
 	original_pos.x = x;
 	original_pos.y = y;
-	path.PushBack({ 0.3f, 0.0f }, 150, &fly);
-	path.PushBack({ 0.0f, 0.0f }, 75, &idle);
-	path.PushBack({ -0.3f, 0.0f }, 150, &fly2);
+	path.PushBack({ 0.8f, 0.0f }, 50, &fly);
+	path.PushBack({ 0.0f, 0.0f }, 20, &idle);
+	path.PushBack({ -0.8f, 0.0f }, 50, &fly2);
 	
 }
 

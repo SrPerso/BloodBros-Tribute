@@ -1,0 +1,42 @@
+﻿Build started 25/05/2016 11:18:18.
+     1>Project "C:\Users\esteban\Documents\GitHub\VictoriousSecret\bloodbros\SDL Game.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GreenRight.cpp
+         GreenRight.cpp
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\greenright.cpp(46): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\greenright.cpp(55): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\esteban\Documents\GitHub\VictoriousSecret\bloodbros\Debug\SDL4 Handout.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\esteban\Documents\GitHub\VictoriousSecret\bloodbros\Debug\SDL4 Handout.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\esteban\Documents\GitHub\VictoriousSecret\bloodbros\Debug\SDL4 Handout.lib" /MACHINE:X86 Debug\Application.obj
+         Debug\Audio.obj
+         Debug\BlueCowBoy.obj
+         Debug\Charriot.obj
+         Debug\Enemy.obj
+         Debug\Extras.obj
+         Debug\Globals.obj
+         Debug\GreenCowboy.obj
+         Debug\GreenRight.obj
+         Debug\Main.obj
+         Debug\ModuleBuildings.obj
+         Debug\ModuleCollision.obj
+         Debug\ModuleEnemies.obj
+         Debug\ModuleFadeToBlack.obj
+         Debug\ModuleFonts.obj
+         Debug\ModuleInput.obj
+         Debug\ModuleLevel1.obj
+         Debug\ModuleLevel2.obj
+         Debug\ModuleParticles.obj
+         Debug\ModulePlayer.obj
+         Debug\ModuleRender.obj
+         Debug\ModuleScope.obj
+         Debug\ModuleTextures.obj
+         Debug\ModuleTitleScreen.obj
+         Debug\ModuleUi.obj
+         Debug\ModuleVictory.obj
+         Debug\ModuleWindow.obj
+         Debug\PurplePlane.obj
+         SDL Game.vcxproj -> C:\Users\esteban\Documents\GitHub\VictoriousSecret\bloodbros\Debug\SDL4 Handout.exe
+     1>Done Building Project "C:\Users\esteban\Documents\GitHub\VictoriousSecret\bloodbros\SDL Game.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.44
