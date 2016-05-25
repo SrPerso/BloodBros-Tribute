@@ -12,13 +12,13 @@ PurplePlane::PurplePlane(int x, int y) : Enemy(x, y)
 	fly.PushBack({ 118, 310, 113, 47 });
 	fly.PushBack({ 118, 259, 113, 47 });
 	fly.PushBack({ 118, 208, 113, 47 });
-	fly.speed = 0.05f;
+	fly.speed = 0.03f;
 	fly.loop = false;
 	fly2.PushBack({ 118, 157, 113, 47 });
 	fly2.PushBack({ 118, 106, 113, 47 });
 	fly2.PushBack({ 118, 55, 113, 47 });
 	fly2.PushBack({ 118, 3, 113, 47 });
-	fly2.speed = 0.05f;
+	fly2.speed = 0.1f;
 	fly2.loop = false;
 	
 	
@@ -28,8 +28,8 @@ PurplePlane::PurplePlane(int x, int y) : Enemy(x, y)
 	original_pos.x = x;
 	original_pos.y = y;
 
-	path.PushBack({ 0.0f, 0.3f }, 50, &fly);	
-	path.PushBack({ 0.0f, -0.5f }, 50, &fly2);
+	path.PushBack({ 0.0f, 0.2f }, 100, &fly);	
+	path.PushBack({ 0.0f, -0.8f }, 120, &fly2);
 	path.loop = false;
 	
 	
@@ -37,15 +37,15 @@ PurplePlane::PurplePlane(int x, int y) : Enemy(x, y)
 
 void PurplePlane::Move()
 {
-	if (path.GetFrame() == 130){
+	if (path.GetFrame() == 180){
 		to_delete = true;
 	}
-	if (path.GetFrame() == 75 ){
+	if (path.GetFrame() == 110 ){
 		App->particles->AddParticle(App->particles->gunflare, position.x, position.y);
 		//if (App->particles->gunflare.anim.Finished()){
-		App->particles->AddParticle(App->particles->Planebomb, position.x+56, position.y+46, 0.0f, +1.3f, COLLIDER_BOMB, 0);
-		App->particles->AddParticle(App->particles->Planebomb, position.x + 20, position.y + 46, -0.15f, +1.3f, COLLIDER_BOMB, 0);
-		App->particles->AddParticle(App->particles->Planebomb, position.x + 93, position.y + 46, 0.15f, +1.3f, COLLIDER_BOMB, 0);
+		App->particles->AddParticle(App->particles->Planebomb, position.x+50, position.y+46, 0.0f, +1.3f, COLLIDER_BOMB, 0);
+		App->particles->AddParticle(App->particles->Planebomb, position.x + 12, position.y + 46, -0.15f, +1.3f, COLLIDER_BOMB, 0);
+		App->particles->AddParticle(App->particles->Planebomb, position.x + 88, position.y + 46, 0.15f, +1.3f, COLLIDER_BOMB, 0);
 
 		//}
 	}

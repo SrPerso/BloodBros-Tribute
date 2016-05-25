@@ -98,7 +98,7 @@ update_status ModuleLevel2::Update()
 		extra = false;
 	}
 	if (SDL_GetTicks() >= timestart + 5000 && plane == true){
-		App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 87,-20);
+		App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 70,-20);
 		
 		plane = false;
 	}
