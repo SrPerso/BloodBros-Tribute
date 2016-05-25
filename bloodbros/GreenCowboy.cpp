@@ -37,9 +37,16 @@ GreenCowboy::GreenCowboy(int x, int y) : Enemy(x, y)
 
 	original_pos.x = x;
 	original_pos.y = y;
-	path.PushBack({ 0.8f, 0.0f }, 50, &fly);
+	path.PushBack({ 0.8f, 0.0f }, 30, &fly);
 	path.PushBack({ 0.0f, 0.0f }, 20, &idle);
-	path.PushBack({ -0.8f, 0.0f }, 50, &fly2);
+	path.PushBack({ -0.8f, 0.0f }, 30, &fly2);
+	path.PushBack({ 0.8f, 0.0f }, 30, &fly);
+	path.PushBack({ 0.0f, 0.0f }, 20, &idle);
+	path.PushBack({ 0.8f, 0.0f }, 30, &fly);
+	path.PushBack({ 0.0f, 0.0f }, 20, &idle);
+	path.PushBack({ -0.8f, 0.0f }, 30, &fly2);
+	path.PushBack({ 0.0f, 0.0f }, 20, &idle);
+	path.PushBack({ -0.8f, 0.0f }, 30, &fly2);
 	
 }
 

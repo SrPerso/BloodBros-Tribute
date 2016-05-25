@@ -103,9 +103,7 @@ update_status ModuleLevel2::Update()
 		plane = false;
 	}
 	if (SDL_GetTicks() >=  timestart + 6000 && greencowboy == true && App->building->purplealive==true){
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 40, 80);
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 50, 80);
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 60, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 58, 80);
 		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 67);
 		greencowboy = false;
 	}
@@ -122,10 +120,7 @@ update_status ModuleLevel2::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 60, 62);
 		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 70, 62);
 		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 80, 62);
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENRIGHTCOWBOY, 220, 80);
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENRIGHTCOWBOY, 210, 80);
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENRIGHTCOWBOY, 200, 80);
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENRIGHTCOWBOY, 190, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENRIGHTCOWBOY, 168, 80);
 		bluecowboy = false;
 	}
 
@@ -134,9 +129,7 @@ update_status ModuleLevel2::Update()
 		plane2 = false;
 	}
 	if (SDL_GetTicks() >= timestart + 20000 && green2 == true && App->building->purplealive == true){
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 40, 80);
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 50, 80);
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 60, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 58, 80);
 		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 80);
 		green2 = false;
 	}
