@@ -100,9 +100,9 @@ ModuleParticles::ModuleParticles()
 	Hitbomb.anim.PushBack({ 175, 29, 33, 58 });
 	Hitbomb.anim.PushBack({ 209, 29, 33, 58 });
 	Hitbomb.anim.PushBack({ 243, 29, 33, 58 });
-	Hitbomb.anim.speed = 0.15f;
-	Hitbomb.anim.loop = true;
-	Hitbomb.life = 800;
+	Hitbomb.anim.speed = 0.25f;
+	Hitbomb.anim.loop = false;
+	Hitbomb.life = 400;
 
 	orangebomb.anim.PushBack({ 493, 229, 15, 15 });
 	orangebomb.anim.PushBack({ 476, 229, 15, 15 });
