@@ -56,12 +56,12 @@ bool ModuleLevel2::Start()
 	App->extra->Enable();
 	App->collision->AddCollider({ 0, 200, 256, 46 }, COLLIDER_WALL, this);
 	App->enemies->hits = 0;
-	App->building->AddBuilding(App->building->trees, -20, 35);
-	App->building->AddBuilding(App->building->trees, 20, 35);
-	App->building->AddBuilding(App->building->trees, 60, 35);
-	App->building->AddBuilding(App->building->trees, 220, 35);
-	App->building->AddBuilding(App->building->trees, 180, 35);
-	App->building->AddBuilding(App->building->trees, 140, 35);
+	App->building->AddBuilding(App->building->trees, -25, 30);
+	App->building->AddBuilding(App->building->trees, 15, 30);
+	App->building->AddBuilding(App->building->trees, 55, 30);
+	App->building->AddBuilding(App->building->trees, 196, 30);
+	App->building->AddBuilding(App->building->trees, 162, 30);
+	App->building->AddBuilding(App->building->trees, 230, 30);
 	App->building->AddBuilding(App->building->yellow, 160, 30);
 	App->building->AddBuilding(App->building->purple, 0, 53);
 	App->building->AddBuilding(App->building->mill, 30, 74);
@@ -118,10 +118,10 @@ update_status ModuleLevel2::Update()
 	}
 
 	if (SDL_GetTicks() >= timestart + 9000 && bluecowboy == true){
-		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 50, 60);
-		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 60, 60);
-		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 70, 60);
-		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 80, 60);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 50, 62);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 60, 62);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 70, 62);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 80, 62);
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENRIGHTCOWBOY, 220, 80);
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENRIGHTCOWBOY, 210, 80);
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENRIGHTCOWBOY, 200, 80);
