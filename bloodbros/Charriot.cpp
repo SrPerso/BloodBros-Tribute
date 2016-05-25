@@ -8,7 +8,7 @@ Enemy_Charriot::Enemy_Charriot(int x, int y) : Enemy(x, y)
 {
 	//Chariot - facing left
 	
-	left.PushBack({ 235, 52, 35, 33 });
+	left.PushBack({ 234, 52, 35, 33 });
 	left.PushBack({ 270, 52, 35, 33 });
 	left.PushBack({ 306, 52, 35, 33 });
 	left.PushBack({ 342, 52, 35, 33 });
@@ -50,9 +50,9 @@ Enemy_Charriot::Enemy_Charriot(int x, int y) : Enemy(x, y)
 	right.loop = true;
 
 	collider = App->collision->AddCollider({ 0, 0, 35, 33 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
-	path.PushBack({ -0.3f, 0.0f }, 300, &left);
+	path.PushBack({ -0.4f, 0.0f }, 300, &left);
 	path.PushBack({ 0.0f, 0.0f }, 150, &shot);
-	path.PushBack({ 0.3f, 0.0f }, 300, &right);
+	path.PushBack({ 0.4f, 0.0f }, 300, &right);
 	
 	original_pos.y = y;
 	original_pos.x = x;
