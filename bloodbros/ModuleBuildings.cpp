@@ -125,10 +125,8 @@ bool ModuleBuilding::Start()
 	trees.movement.PushBack({ 50, 280, 49, 49 });
 	trees.movement.PushBack({ 1, 280, 49, 49 });
 	trees.movement.PushBack({ 50, 280, 49, 49 });
-	trees.movement.PushBack({ 1, 280, 49, 49 });
-	trees.movement.PushBack({ 50, 280, 49, 49 });
 	trees.movement.loop = true;
-	trees.movement.speed = 0.1f;
+	trees.movement.speed = 0.2f;
 	trees.mytype = TREES;
 
 	return true;
