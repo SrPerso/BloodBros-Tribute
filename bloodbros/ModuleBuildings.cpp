@@ -134,7 +134,7 @@ bool ModuleBuilding::Start()
 	
 
 	yellow.destroy.loop = false;
-	yellow.destroy.speed = 0.3f;
+	yellow.destroy.speed = 0.27f;
 
 	purple.build.x = 1;
 	purple.build.y = 217;
@@ -148,18 +148,52 @@ bool ModuleBuilding::Start()
 	purple2.build.h = 54;
 
 	purple.destroy.PushBack({ 104, 217, 80, 54 });
-	purple.destroy.PushBack({ 104, 217, 80, 49 });
-	purple.destroy.PushBack({ 104, 217, 80, 44 });
-	purple.destroy.PushBack({ 104, 217, 80, 39 });
-	purple.destroy.PushBack({ 104, 217, 80, 34 });
-	purple.destroy.PushBack({ 104, 217, 80, 29 });
-	purple.destroy.PushBack({ 104, 217, 80, 24 });
-	purple.destroy.PushBack({ 104, 217, 80, 19 });
-	purple.destroy.PushBack({ 104, 217, 80, 14 });
-	purple.destroy.PushBack({ 104, 217, 80, 9 });
-	purple.destroy.PushBack({ 104, 217, 80, 4 });
+	purple.destroy.PushBack({ 102, 217, 80, 53 });
+	purple.destroy.PushBack({ 104, 217, 80, 52 });
+	purple.destroy.PushBack({ 102, 217, 80, 51 });
+	purple.destroy.PushBack({ 104, 217, 80, 50 });
+	purple.destroy.PushBack({ 102, 217, 80, 49 });
+	purple.destroy.PushBack({ 104, 217, 80, 48 });
+	purple.destroy.PushBack({ 102, 217, 80, 47 });
+	purple.destroy.PushBack({ 104, 217, 80, 46 });
+	purple.destroy.PushBack({ 104, 217, 80, 45 });
+	purple.destroy.PushBack({ 102, 217, 80, 44 });
+	purple.destroy.PushBack({ 104, 217, 80, 43 });
+	purple.destroy.PushBack({ 102, 217, 80, 42 });
+	purple.destroy.PushBack({ 104, 217, 80, 41 });
+	purple.destroy.PushBack({ 102, 217, 80, 40 });
+	purple.destroy.PushBack({ 102, 217, 80, 39 });
+	purple.destroy.PushBack({ 104, 217, 80, 38 });
+	purple.destroy.PushBack({ 102, 217, 80, 37 });
+	purple.destroy.PushBack({ 104, 217, 80, 36 });
+	purple.destroy.PushBack({ 104, 217, 80, 35 });
+	purple.destroy.PushBack({ 102, 217, 80, 34 });
+	purple.destroy.PushBack({ 104, 217, 80, 33 });
+	purple.destroy.PushBack({ 102, 217, 80, 32 });
+	purple.destroy.PushBack({ 104, 217, 80, 31 });
+	purple.destroy.PushBack({ 102, 217, 80, 30 });
+	purple.destroy.PushBack({ 102, 217, 80, 29 });
+	purple.destroy.PushBack({ 104, 217, 80, 28 });
+	purple.destroy.PushBack({ 102, 217, 80, 27 });
+	purple.destroy.PushBack({ 104, 217, 80, 26 });
+	purple.destroy.PushBack({ 104, 217, 80, 25 });
+	purple.destroy.PushBack({ 102, 217, 80, 24 });
+	purple.destroy.PushBack({ 104, 217, 80, 23 });
+	purple.destroy.PushBack({ 102, 217, 80, 22 });
+	purple.destroy.PushBack({ 104, 217, 80, 21 });
+	purple.destroy.PushBack({ 102, 217, 80, 20 });
+	purple.destroy.PushBack({ 102, 217, 80, 19 });
+	purple.destroy.PushBack({ 104, 217, 80, 18 });
+	purple.destroy.PushBack({ 102, 217, 80, 17 });
+	purple.destroy.PushBack({ 104, 217, 80, 16 });
+	purple.destroy.PushBack({ 104, 217, 80, 15 });
+	purple.destroy.PushBack({ 102, 217, 80, 14 });
+	purple.destroy.PushBack({ 104, 217, 80, 13 });
+	purple.destroy.PushBack({ 102, 217, 80, 12 });
+	purple.destroy.PushBack({ 104, 217, 80, 11 });
+	purple.destroy.PushBack({ 102, 217, 80, 10 });
 	purple.destroy.loop = false;
-	purple.destroy.speed = 0.12f;
+	purple.destroy.speed = 0.3f;
 	
 	/*wheel.build.x = 0;
 	wheel.build.y = 107;
@@ -203,7 +237,7 @@ bool ModuleBuilding::Start()
 	trees.movement.PushBack({ 50, 280, 49, 49 });
 	trees.movement.PushBack({ 1, 280, 49, 49 });
 	trees.movement.PushBack({ 50, 280, 49, 49 });
-	trees.movement.loop = true;
+	trees.movement.loop = false;
 	trees.movement.speed = 0.2f;
 	trees.mytype = TREES;
 
@@ -364,7 +398,7 @@ void ModuleBuilding::OnCollision(Collider* c1, Collider* c2)
 					active[i]->build.w = 0;
 					active[i]->build.h = 0;
 					active[i]->hits++;
-					App->particles->AddParticle(App->particles->bigsmoke, active[i]->position.x, active[i]->position.y + 68);
+					App->particles->AddParticle(App->particles->bigsmoke, active[i]->position.x + 1, active[i]->position.y + 68);
 					App->extra->AddExtra(App->extra->guitar, active[i]->position.x + 24, active[i]->position.y + 50);
 					/*delete[] active[i]->collider;
 					active[i]->collider = nullptr;//PROBLEM*/
@@ -385,7 +419,7 @@ void ModuleBuilding::OnCollision(Collider* c1, Collider* c2)
 					active[i]->build.w = 0;
 					active[i]->build.h = 0;
 					active[i]->hits++;
-					App->particles->AddParticle(App->particles->housesmoke, active[i]->position.x, active[i]->position.y + 25);
+					App->particles->AddParticle(App->particles->housesmoke, active[i]->position.x + 3, active[i]->position.y + 25);
 					App->extra->AddExtra(App->extra->shower, active[i]->position.x + 15, active[i]->position.y + 14);
 				}
 			}
