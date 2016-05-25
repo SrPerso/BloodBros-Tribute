@@ -214,17 +214,57 @@ bool ModuleBuilding::Start()
 
 
 	mill.destroy.PushBack({ 157, 156, 43, 49 });
+	mill.destroy.PushBack({ 155, 156, 43, 48 });
+	mill.destroy.PushBack({ 157, 156, 43, 47 });
+	mill.destroy.PushBack({ 155, 156, 43, 46 });
+	mill.destroy.PushBack({ 157, 156, 43, 45 });
 	mill.destroy.PushBack({ 157, 156, 43, 44 });
+	mill.destroy.PushBack({ 155, 156, 43, 43 });
+	mill.destroy.PushBack({ 157, 156, 43, 42 });
+	mill.destroy.PushBack({ 155, 156, 43, 41 });
+	mill.destroy.PushBack({ 157, 156, 43, 40 });
 	mill.destroy.PushBack({ 157, 156, 43, 39 });
+	mill.destroy.PushBack({ 155, 156, 43, 38 });
+	mill.destroy.PushBack({ 157, 156, 43, 37 });
+	mill.destroy.PushBack({ 155, 156, 43, 36 });
+	mill.destroy.PushBack({ 157, 156, 43, 35 });
 	mill.destroy.PushBack({ 157, 156, 43, 34 });
+	mill.destroy.PushBack({ 155, 156, 43, 33 });
+	mill.destroy.PushBack({ 157, 156, 43, 32 });
+	mill.destroy.PushBack({ 155, 156, 43, 31 });
+	mill.destroy.PushBack({ 157, 156, 43, 30 });
 	mill.destroy.PushBack({ 157, 156, 43, 29 });
+	mill.destroy.PushBack({ 155, 156, 43, 28 });
+	mill.destroy.PushBack({ 157, 156, 43, 27 });
+	mill.destroy.PushBack({ 155, 156, 43, 26 });
+	mill.destroy.PushBack({ 157, 156, 43, 25 });
 	mill.destroy.PushBack({ 157, 156, 43, 24 });
+	mill.destroy.PushBack({ 155, 156, 43, 23 });
+	mill.destroy.PushBack({ 157, 156, 43, 22 });
+	mill.destroy.PushBack({ 155, 156, 43, 21 });
+	mill.destroy.PushBack({ 157, 156, 43, 20 });
 	mill.destroy.PushBack({ 157, 156, 43, 19 });
+	mill.destroy.PushBack({ 155, 156, 43, 18 });
+	mill.destroy.PushBack({ 157, 156, 43, 17 });
+	mill.destroy.PushBack({ 155, 156, 43, 16 });
+	mill.destroy.PushBack({ 157, 156, 43, 15 });
 	mill.destroy.PushBack({ 157, 156, 43, 14 });
-	mill.destroy.PushBack({ 157, 156, 43, 9 });
-	mill.destroy.PushBack({ 157, 156, 43, 4 });
+	mill.destroy.PushBack({ 155, 156, 43, 13 });
+	mill.destroy.PushBack({ 157, 156, 43, 12 });
+	mill.destroy.PushBack({ 155, 156, 43, 11 });
+	mill.destroy.PushBack({ 157, 156, 43, 10 });
+	mill.destroy.PushBack({ 157, 156, 43,  9 });
+	mill.destroy.PushBack({ 155, 156, 43,  8 });
+	mill.destroy.PushBack({ 157, 156, 43,  7 });
+	mill.destroy.PushBack({ 155, 156, 43,  6 });
+	mill.destroy.PushBack({ 157, 156, 43,  5 });
+	mill.destroy.PushBack({ 157, 156, 43,  4 });
+	mill.destroy.PushBack({ 155, 156, 43,  3 });
+	mill.destroy.PushBack({ 157, 156, 43,  2 });
+	mill.destroy.PushBack({ 155, 156, 43,  1 });
+
 	mill.destroy.loop = false;
-	mill.destroy.speed = 0.12f;
+	mill.destroy.speed = 0.3f;
 	mill.mytype = WINDMILL;
 
 
@@ -314,8 +354,8 @@ update_status ModuleBuilding::Update()
 			}
 		}
 		else if (p->hits > 2 && p->mytype == WINDMILL){
-			App->render->Blit(graphics, p->position.x, (p->position.y += 0.4f) - 48, &p->movement.GetCurrentFrame());
-			App->render->Blit(graphics, p->position.x, p->position.y += 0.4f, &p->destroy.GetCurrentFrame());
+			App->render->Blit(graphics, p->position.x, (p->position.y += 0.15f) - 48, &p->movement.GetCurrentFrame());
+			App->render->Blit(graphics, p->position.x, p->position.y += 0.15f, &p->destroy.GetCurrentFrame());
 			if (p->destroy.Finished()){
 				if (p->mytype == WINDMILL){ windmillalive = false; }
 				delete p;
@@ -446,7 +486,7 @@ void ModuleBuilding::OnCollision(Collider* c1, Collider* c2)
 					active[i]->build.w = 43;
 					active[i]->build.h = 49;
 					active[i]->hits++;
-					App->particles->AddParticle(App->particles->housesmoke, active[i]->position.x - 5, active[i]->position.y + 44);
+					
 				}
 			}
 		}
