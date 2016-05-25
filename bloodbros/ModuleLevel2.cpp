@@ -41,6 +41,7 @@ bool ModuleLevel2::Start()
 	bluecowboy = true;
 	buildings = true;
 	plane = true;
+	jumper = true;
 	graphics = App->textures->Load("Images/level2.png");
 	timestart = SDL_GetTicks();
 	App->player->Enable();
@@ -82,6 +83,7 @@ bool ModuleLevel2::CleanUp()
 	App->collision->Disable();
 	App->particles->Disable();
 	App->extra->Disable();
+	App->ui->Disable();
 	return true;
 }
 
@@ -113,6 +115,11 @@ update_status ModuleLevel2::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 20, 80);
 		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 80);
 		greencowboy = false;
+	}
+	else if (SDL_GetTicks() >= timestart + 6000 && jumper == true && App->building->windmillalive == true){
+		App->enemies->AddEnemy(ENEMY_TYPES::JUMPER, 30, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::JUMPER, 50, 100);
+		jumper = false;
 	}
 
 	if (SDL_GetTicks() >= timestart + 9000 && bluecowboy == true){

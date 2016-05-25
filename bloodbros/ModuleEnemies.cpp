@@ -11,6 +11,7 @@
 #include "BlueCowBoy.h"
 #include "GreenRight.h"
 #include "ModulePlayer.h"
+#include "Jumper.h"
 /*#include "Enemy_RedBird.h"
 #include "Enemy_Cookie.h"
 #include "Enemy_Mech.h"*/
@@ -141,7 +142,7 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 {
 
 	uint i = 0;
-	for (; enemies[i] != nullptr && i < MAX_ENEMIES; ++i);
+	for (; enemies[i] != nullptr && i < MAX_ENEMIES; ++i);{
 
 	if (i != MAX_ENEMIES)
 	{
@@ -162,7 +163,12 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::GREENRIGHTCOWBOY:
 			enemies[i] = new GreenRightCowboy(info.x, info.y);
 			break;
+		case ENEMY_TYPES::JUMPER:
+			enemies[i] = new Jumper(info.x, info.y);
+			break;
 		}
+		
+	}
 	}
 }
 

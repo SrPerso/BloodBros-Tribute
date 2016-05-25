@@ -173,7 +173,7 @@ void ModuleExtra::AddExtra(const Extra& particle, int x, int y, Uint32 delay)
 		p->collider = App->collision->AddCollider({ p->position.x, p->position.y + 1, 30, 19 }, COLLIDER_EXTRA, this);
 	}
 	if (p->type == ZEPE){
-		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, 97, 49}, COLLIDER_EXTRA, this);
+		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, 97, 40}, COLLIDER_EXTRA, this);
 	}
 	if (p->type == GUITAR){
 		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, 31, 25 }, COLLIDER_NONE, this);

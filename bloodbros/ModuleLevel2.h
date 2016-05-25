@@ -23,6 +23,7 @@ public:
 	bool buildings = true;
 	bool green2 = true;
 	bool plane2 = true;
+	bool jumper = true;
 
 public:
 
