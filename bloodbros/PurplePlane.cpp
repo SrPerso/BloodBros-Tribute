@@ -56,5 +56,6 @@ void PurplePlane::Move()
 }
 void PurplePlane::OnCollision(Collider* c1, Collider* c2)
 {
+	App->particles->AddParticle(App->particles->points5000, position.x, position.y, 0.0f, +1.3f, COLLIDER_POINT, 0);
 	to_delete = true;
 }

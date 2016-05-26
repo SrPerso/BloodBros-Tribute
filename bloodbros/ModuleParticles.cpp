@@ -204,6 +204,62 @@ ModuleParticles::ModuleParticles()
 	tnt.anim.loop = false;
 	tnt.type = TNT;
 
+	points1000.anim.PushBack({ 283, 35, 20, 12 });
+	points1000.anim.PushBack({ 305, 35, 20, 12 });
+	points1000.anim.loop = true;
+	points1000.anim.speed = 0.3f;
+	points1000.type = POINTS;
+	points1000.life = 5000;
+	points1000.points = 1000;
+
+	points5000.anim.PushBack({ 327, 34, 26, 14 });
+	points5000.anim.PushBack({ 355, 34, 26, 14 });
+	points5000.anim.loop = true;
+	points5000.anim.speed = 0.3f;
+	points5000.type = POINTS;
+	points5000.points = 5000;
+	points5000.life = 5000;
+
+	points7000.anim.PushBack({ 383, 34, 26, 14 });
+	points7000.anim.PushBack({ 411, 34, 26, 14 });
+	points7000.anim.loop = true;
+	points7000.anim.speed = 0.3f;
+	points7000.type = POINTS;
+	points7000.points = 7000;
+	points7000.life = 5000;
+
+	points10000.anim.PushBack({ 283, 51, 39, 16 });
+	points10000.anim.PushBack({ 323, 51, 39, 16 });
+	points10000.anim.loop = true;
+	points10000.anim.speed = 0.3f;
+	points10000.type = POINTS;
+	points10000.points = 10000;
+	points10000.life = 5000;
+
+	points20000.anim.PushBack({ 364, 51, 40, 16 });
+	points20000.anim.PushBack({ 406, 51, 40, 16 });
+	points20000.anim.loop = true;
+	points20000.anim.speed = 0.3f;
+	points20000.type = POINTS;
+	points20000.points = 20000;
+	points20000.life = 5000;
+
+	points50000.anim.PushBack({ 283, 70, 40, 16 });
+	points50000.anim.PushBack({ 325, 70, 40, 16 });
+	points50000.anim.loop = true;
+	points50000.anim.speed = 0.3f;
+	points50000.type = POINTS;
+	points50000.points = 50000;
+	points50000.life = 5000;
+
+	points70000.anim.PushBack({ 368, 70, 43, 16 });
+	points70000.anim.PushBack({ 413, 70, 43, 16 });
+	points70000.anim.loop = true;
+	points70000.anim.speed = 0.3f;
+	points70000.type = POINTS;
+	points70000.points = 70000;
+	points70000.life = 5000;
+
 }
 
 ModuleParticles::~ModuleParticles()
@@ -318,6 +374,16 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2){
 			active[i] = nullptr;
 			break;
 		}
+		else if (active[i] != nullptr && active[i]->collider == c1 && active[i]->collider->type == COLLIDER_POINT && c2->type == COLLIDER_PLAYER){
+			App->player->score += active[i]->points;
+			delete p;
+			active[i] = nullptr;
+			break;
+		}
+		else if (active[i] != nullptr && active[i]->collider == c1 && active[i]->collider->type == COLLIDER_POINT && c2->type == COLLIDER_WALL){
+			active[i]->speed.y = 0;
+			break;
+		}
 		// Always destroy particles that collide
 		else if (active[i] != nullptr && active[i]->collider == c1 && active[i]->type!=planebomb)
 		{
@@ -340,7 +406,7 @@ Particle::Particle()
 
 Particle::Particle(const Particle& p) :
 anim(p.anim), position(p.position), speed(p.speed),
-fx(p.fx), born(p.born), life(p.life), type(p.type)
+fx(p.fx), born(p.born), life(p.life), type(p.type), points(p.points)
 {}
 
 Particle::~Particle()
