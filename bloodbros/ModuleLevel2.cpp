@@ -42,6 +42,7 @@ bool ModuleLevel2::Start()
 	buildings = true;
 	plane = true;
 	jumper = true;
+	greencowboymedium = true;
 	graphics = App->textures->Load("Images/level2.png");
 	timestart = SDL_GetTicks();
 	App->player->Enable();
@@ -133,20 +134,32 @@ update_status ModuleLevel2::Update()
 
 	if (SDL_GetTicks() >= timestart + 15000 && plane2 == true){
 		App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 87, -20);
+		
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOYMEDIUM, 0, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOYMEDIUM, 15, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOYMEDIUM, 30, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOYMEDIUM, 45, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOYMEDIUM, 60, 100);
+
 		plane2 = false;
 	}
 	if (SDL_GetTicks() >= timestart + 20000 && green2 == true && App->building->purplealive == true){
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 58, 80);
 		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 80);
+		
 		green2 = false;
 	}
 	else if (SDL_GetTicks() >= timestart + 20000 && green2 == true && App->building->purplealive == false){
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 0, 80);
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 10, 80);
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 20, 80);
+
+		//App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOYMEDIUM, 0, 100);
 		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 80);
 		green2 = false;
 	}
+	
+
 
 	if (App->player->hp == 0){
 		App->fade->FadeToBlack(App->level2, App->victoryscreen, 2);

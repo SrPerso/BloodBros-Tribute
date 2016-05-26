@@ -116,6 +116,9 @@
     <ClInclude Include="Jumper.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
+    <ClInclude Include="GreenCawBoyMedium.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -203,6 +206,9 @@
       <Filter>Modules</Filter>
     </ClCompile>
     <ClCompile Include="Jumper.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="GreenCawBoyMedium.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
   </ItemGroup>

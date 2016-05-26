@@ -77,6 +77,7 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Extras.h" />
     <ClInclude Include="Globals.h" />
+    <ClInclude Include="GreenCawBoyMedium.h" />
     <ClInclude Include="GreenCowBoy.h" />
     <ClInclude Include="GreenRight.h" />
     <ClInclude Include="Jumper.h" />
@@ -111,6 +112,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Extras.cpp" />
     <ClCompile Include="Globals.cpp" />
+    <ClCompile Include="GreenCawBoyMedium.cpp" />
     <ClCompile Include="GreenCowboy.cpp" />
     <ClCompile Include="GreenRight.cpp" />
     <ClCompile Include="Jumper.cpp" />

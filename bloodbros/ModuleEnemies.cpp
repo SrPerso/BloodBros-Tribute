@@ -12,6 +12,8 @@
 #include "GreenRight.h"
 #include "ModulePlayer.h"
 #include "Jumper.h"
+#include "GreenCawBoyMedium.h"
+
 /*#include "Enemy_RedBird.h"
 #include "Enemy_Cookie.h"
 #include "Enemy_Mech.h"*/
@@ -166,8 +168,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::JUMPER:
 			enemies[i] = new Jumper(info.x, info.y);
 			break;
-		}
-		
+		case ENEMY_TYPES::GREENCOWBOYMEDIUM:
+			enemies[i] = new GreenCowboyMedium(info.x, info.y);
+			break;
+		}		
 	}
 	}
 }
