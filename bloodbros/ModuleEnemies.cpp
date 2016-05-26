@@ -13,6 +13,7 @@
 #include "ModulePlayer.h"
 #include "Jumper.h"
 #include "GreenCawBoyMedium.h"
+#include "IndianMedium.h"
 
 /*#include "Enemy_RedBird.h"
 #include "Enemy_Cookie.h"
@@ -144,36 +145,41 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 {
 
 	uint i = 0;
-	for (; enemies[i] != nullptr && i < MAX_ENEMIES; ++i);{
+	for (; enemies[i] != nullptr && i < MAX_ENEMIES; ++i); {
 
-	if (i != MAX_ENEMIES)
-	{
-		switch (info.type)
+		if (i != MAX_ENEMIES)
 		{
-		case ENEMY_TYPES::CHARRIOT:
-			enemies[i] = new Enemy_Charriot(info.x, info.y);
-			break;
-		case ENEMY_TYPES::GREENCOWBOY:
-			enemies[i] = new GreenCowboy(info.x, info.y);
-			break;
-		case ENEMY_TYPES::PURPLEPLANE:
-			enemies[i] = new PurplePlane(info.x, info.y);
-			break;
-		case ENEMY_TYPES::BLUECOWBOY:
-			enemies[i] = new BlueCowboy(info.x, info.y);
-			break;
-		case ENEMY_TYPES::GREENRIGHTCOWBOY:
-			enemies[i] = new GreenRightCowboy(info.x, info.y);
-			break;
-		case ENEMY_TYPES::JUMPER:
-			enemies[i] = new Jumper(info.x, info.y);
-			break;
-		case ENEMY_TYPES::GREENCOWBOYMEDIUM:
-			enemies[i] = new GreenCowboyMedium(info.x, info.y);
-			break;
-		}		
+			switch (info.type)
+			{
+			case ENEMY_TYPES::CHARRIOT:
+				enemies[i] = new Enemy_Charriot(info.x, info.y);
+				break;
+			case ENEMY_TYPES::GREENCOWBOY:
+				enemies[i] = new GreenCowboy(info.x, info.y);
+				break;
+			case ENEMY_TYPES::PURPLEPLANE:
+				enemies[i] = new PurplePlane(info.x, info.y);
+				break;
+			case ENEMY_TYPES::BLUECOWBOY:
+				enemies[i] = new BlueCowboy(info.x, info.y);
+				break;
+			case ENEMY_TYPES::GREENRIGHTCOWBOY:
+				enemies[i] = new GreenRightCowboy(info.x, info.y);
+				break;
+			case ENEMY_TYPES::JUMPER:
+				enemies[i] = new Jumper(info.x, info.y);
+				break;
+			case ENEMY_TYPES::GREENCOWBOYMEDIUM:
+				enemies[i] = new GreenCowboyMedium(info.x, info.y);
+				break;
+			case ENEMY_TYPES::INDIANMEDIUM:
+				enemies[i] = new IndianMedium(info.x, info.y);
+				break;
+			}
+
+		}
 	}
-	}
+	
 }
 
 void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)

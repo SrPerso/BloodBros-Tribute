@@ -80,6 +80,7 @@
     <ClInclude Include="GreenCawBoyMedium.h" />
     <ClInclude Include="GreenCowBoy.h" />
     <ClInclude Include="GreenRight.h" />
+    <ClInclude Include="IndianMedium.h" />
     <ClInclude Include="Jumper.h" />
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="Module.h" />
@@ -115,6 +116,7 @@
     <ClCompile Include="GreenCawBoyMedium.cpp" />
     <ClCompile Include="GreenCowboy.cpp" />
     <ClCompile Include="GreenRight.cpp" />
+    <ClCompile Include="IndianMedium.cpp" />
     <ClCompile Include="Jumper.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ModuleBuildings.cpp" />

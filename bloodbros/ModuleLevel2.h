@@ -25,6 +25,8 @@ public:
 	bool plane2 = true;
 	bool jumper = true;
 	bool greencowboymedium = true;
+	bool IndianMedium = true;
+
 public:
 
 	SDL_Texture* graphics = nullptr;

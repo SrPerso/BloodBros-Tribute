@@ -42,7 +42,7 @@ GreenCowboyMedium::GreenCowboyMedium(int x, int y) : Enemy(x, y)
 	original_pos.y = y;
 	path.PushBack({ 0.8f, 0.0f }, 50, &fly);
 	path.PushBack({ 0.0f, 0.0f }, 40, &idle);
-	path.PushBack({ -0.8f, 0.0f }, 60, &fly2);
+	path.PushBack({ -0.8f, 0.0f }, 150, &fly2);
 
 }
 
@@ -55,7 +55,7 @@ void GreenCowboyMedium::Move()
 		App->particles->AddParticle(App->particles->Cowboyshot, position.x, position.y+10, COLLIDER_ENEMY, 0);
 		//}
 	}
-	if (isdead == true && dead.Finished() == true) {
+	if (path.GetFrame() == 230 || isdead == true && dead.Finished() == true) {
 		to_delete = true;
 	}
 

@@ -146,6 +146,11 @@ update_status ModuleLevel2::Update()
 	if (SDL_GetTicks() >= timestart + 20000 && green2 == true && App->building->purplealive == true){
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 58, 80);
 		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 80);
+
+		App->enemies->AddEnemy(ENEMY_TYPES::INDIANMEDIUM, 00, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::INDIANMEDIUM, 15, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::INDIANMEDIUM, 30, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::INDIANMEDIUM, 45, 100);
 		
 		green2 = false;
 	}
@@ -154,7 +159,12 @@ update_status ModuleLevel2::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 10, 80);
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 20, 80);
 
-		//App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOYMEDIUM, 0, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::INDIANMEDIUM, 00, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::INDIANMEDIUM, 15, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::INDIANMEDIUM, 30, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::INDIANMEDIUM, 45, 100);
+
+
 		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 80);
 		green2 = false;
 	}
