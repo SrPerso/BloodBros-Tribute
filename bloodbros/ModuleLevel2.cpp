@@ -51,7 +51,7 @@ bool ModuleLevel2::Start()
 	App->audio->Load("Music/level.ogg");
 	App->particles->Enable();
 	App->scope->Enable();
-	
+	App->front->Enable();
 	
 	App->building->Enable();
 	App->enemies->Enable();
@@ -81,6 +81,7 @@ bool ModuleLevel2::CleanUp()
 	App->audio->Disable();
 	App->scope->Disable();
 	App->enemies->Disable();
+	App->front->Disable();
 	App->building->Disable();
 	App->collision->Disable();
 	App->particles->Disable();
@@ -176,7 +177,7 @@ update_status ModuleLevel2::Update()
 	
 
 
-	if (App->player->hp == 0){
+	if (App->player->hp <= 0){
 		App->fade->FadeToBlack(App->level2, App->victoryscreen, 2);
 	}
 	if (App->enemies->hits >= 10){

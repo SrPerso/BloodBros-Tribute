@@ -56,6 +56,7 @@ Application::~Application()
 bool Application::Init()
 {
 	bool ret = true;
+	front->Disable();
 	player->Disable();
 	level1->Disable();
 	level2->Disable();
