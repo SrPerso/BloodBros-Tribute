@@ -70,7 +70,7 @@ bool ModuleScope::CleanUp()
 update_status ModuleScope::Update()
 {
 	float speed = 3.5;
-	if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT && App->player->status==NORMAL){
+	if ((App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT && App->player->status == NORMAL) || (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT && App->player->status == CROUCH)){
 		if (SDL_GetTicks() > time){
 			time = SDL_GetTicks() +400;
 			shot->type = COLLIDER_PLAYER_SHOT;
@@ -98,20 +98,38 @@ update_status ModuleScope::Update()
 		}
 		position.y -= speed;
 	}
-	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT){
-		if (position.y >= 200){
+	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_UP] != KEY_STATE::KEY_UP){
+		if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT){
+			if (position.y <= 0){
+				speed = 0;
+			}
+			position.y -= speed;
+		}
+		else if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT){
+			if (position.x <= 0){
+				speed = 0;
+			}
+			position.x -= speed;
+		}
+		else if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT){
+			if (position.x >= 230){
+				speed = 0;
+			}
+			position.x += speed;
+		}
+		if (position.y >= 180){
 			speed = 0;
 		}
 		position.y += speed;
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT){
+	else if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT){
 		if (position.x <= 0){
 			speed = 0;
 		}
 		position.x -= speed;
 	}
-	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT){
+	else if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT){
 		if (position.x >= 230){
 			speed = 0;
 		}

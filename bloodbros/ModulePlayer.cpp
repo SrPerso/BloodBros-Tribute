@@ -174,7 +174,44 @@ ModulePlayer::ModulePlayer()
 
 	dance.loop = false;
 	dance.speed = 0.05f;
-	
+
+	crouch.PushBack({ 150, 228, 46, 72 });
+
+	crouchshotrighttop.PushBack({ 288, 228, 46, 72 });
+	crouchshotrighttop.PushBack({ 288, 300, 46, 72 });
+	crouchshotrighttop.PushBack({ 288, 228, 46, 72 });
+	crouchshotrighttop.PushBack({ 288, 372, 46, 72 });
+	crouchshotrighttop.speed = 0.1f;
+
+	crouchshotopright.PushBack({ 242, 228, 46, 72 });
+	crouchshotopright.PushBack({ 242, 300, 46, 72 });
+	crouchshotopright.PushBack({ 242, 228, 46, 72 });
+	crouchshotopright.PushBack({ 242, 372, 46, 72 });
+	crouchshotopright.speed = 0.1f;
+
+	crouchshotright.PushBack({ 196, 228, 46, 72 });
+	crouchshotright.PushBack({ 196, 300, 46, 72 });
+	crouchshotright.PushBack({ 196, 228, 46, 72 });
+	crouchshotright.PushBack({ 196, 372, 46, 72 });
+	crouchshotright.speed = 0.1f;
+
+	crouchshotlefttop.PushBack({ 12, 228, 46, 72 });
+	crouchshotlefttop.PushBack({ 12, 300, 46, 72 });
+	crouchshotlefttop.PushBack({ 12, 228, 46, 72 });
+	crouchshotlefttop.PushBack({ 12, 372, 46, 72 });
+	crouchshotlefttop.speed = 0.1f;
+
+	crouchshottopleft.PushBack({ 58, 228, 46, 72 });
+	crouchshottopleft.PushBack({ 58, 300, 46, 72 });
+	crouchshottopleft.PushBack({ 58, 228, 46, 72 });
+	crouchshottopleft.PushBack({ 58, 372, 46, 72 });
+	crouchshottopleft.speed = 0.1f;
+
+	crouchshotleft.PushBack({ 104, 228, 46, 72 });
+	crouchshotleft.PushBack({ 104, 300, 46, 72 });
+	crouchshotleft.PushBack({ 104, 228, 46, 72 });
+	crouchshotleft.PushBack({ 104, 372, 46, 72 });
+	crouchshotleft.speed = 0.1f;
 }
 
 ModulePlayer::~ModulePlayer()
@@ -221,164 +258,168 @@ update_status ModulePlayer::Update()
 		else if (god == true){
 			player->type = COLLIDER_NONE;
 		}
-				   if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
-				   {
-					   if (position.x >= 220){
-						   speed = 0;
-					   }
-					   position.x += speed;
-					   if (current_animation!=&right && App->input->keyboard[SDL_SCANCODE_LALT] != KEY_STATE::KEY_DOWN && App->input->keyboard[SDL_SCANCODE_LCTRL] != KEY_STATE::KEY_DOWN && App->input->keyboard[SDL_SCANCODE_LCTRL] != KEY_STATE::KEY_REPEAT)
-					   {
-						   right.Reset();
-						   current_animation = &right;
-					   }
+		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
+		{
+			if (position.x >= 220){
+				speed = 0;
+			}
+			position.x += speed;
+			if (current_animation != &right && App->input->keyboard[SDL_SCANCODE_LALT] != KEY_STATE::KEY_DOWN && App->input->keyboard[SDL_SCANCODE_LCTRL] != KEY_STATE::KEY_DOWN && App->input->keyboard[SDL_SCANCODE_LCTRL] != KEY_STATE::KEY_REPEAT)
+			{
+				right.Reset();
+				current_animation = &right;
+			}
 
-					   else if (App->input->keyboard[SDL_SCANCODE_LALT] == KEY_STATE::KEY_DOWN)
-					   {
-						   jump_right.loops = 0;
-						   jump_right.Reset();
-						   current_animation = &jump_right;
-						   status = ROLL;
-					   }
+			else if (App->input->keyboard[SDL_SCANCODE_LALT] == KEY_STATE::KEY_DOWN)
+			{
+				jump_right.loops = 0;
+				jump_right.Reset();
+				current_animation = &jump_right;
+				status = ROLL;
+			}
 
-					   else if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT)
-					   {  
-						   score += 10;
-						   position.x -= speed;
-						   if ((App->scope->position.x - position.x)> 0  && (App->scope->position.x-position.x)<=38.6f){
-							   current_animation = &shotopright;
+			else if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT)
+			{
+				score += 10;
+				position.x -= speed;
+				if ((App->scope->position.x - position.x) > 0 && (App->scope->position.x - position.x) <= 38.6f){
+					current_animation = &shotopright;
 
-						   }
-						   else if ((App->scope->position.x - position.x)> 38.6f && (App->scope->position.x - position.x) <= 77.3f){
-							   current_animation = &shotrighttop;
-							  
-						   }
-						   else if ((App->scope->position.x - position.x)>77.3f){
-							   current_animation = &shotright;
-							   
-						   }
-						   
+				}
+				else if ((App->scope->position.x - position.x) > 38.6f && (App->scope->position.x - position.x) <= 77.3f){
+					current_animation = &shotrighttop;
 
-						   
-					   }
-				   }
-					   
-				   else if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
-				   {
-					   
-					   if (position.x <= 0){
-						   speed = 0;
-					   }
-					   position.x -= speed;
-					   if (current_animation != &left && App->input->keyboard[SDL_SCANCODE_LALT] != KEY_STATE::KEY_DOWN && App->input->keyboard[SDL_SCANCODE_LCTRL] != KEY_STATE::KEY_DOWN && App->input->keyboard[SDL_SCANCODE_LCTRL] != KEY_STATE::KEY_REPEAT)
-					   {
-						   left.Reset();
-						   current_animation = &left;
-					   }
-					   else if (App->input->keyboard[SDL_SCANCODE_LALT] == KEY_STATE::KEY_DOWN){
-						   jump_left.loops = 0;
-						   jump_left.Reset();
-						   current_animation = &jump_left;
-						   status = ROLL;
-					   }
-					  
-					   else if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT)
-					   {
-						   score += 10;
-						   position.x += speed;
-						   if ((position.x - App->scope->position.x)> 0 && (position.x - App->scope->position.x) <= 38.6f){
-							   current_animation = &shotopleft;
-						   }
-						   else if ((position.x - App->scope->position.x)> 38.6f && (position.x - App->scope->position.x) <= 77.3f){
-							   current_animation = &shotleftop;
-						   }
-						   else if ((position.x - App->scope->position.x)>77.3f){
-							   current_animation = &shotleft;
+				}
+				else if ((App->scope->position.x - position.x) > 77.3f){
+					current_animation = &shotright;
 
-						   }
-						  
+				}
+			}
+		}
+
+		else if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
+		{
+
+			if (position.x <= 0){
+				speed = 0;
+			}
+			position.x -= speed;
+			if (current_animation != &left && App->input->keyboard[SDL_SCANCODE_LALT] != KEY_STATE::KEY_DOWN && App->input->keyboard[SDL_SCANCODE_LCTRL] != KEY_STATE::KEY_DOWN && App->input->keyboard[SDL_SCANCODE_LCTRL] != KEY_STATE::KEY_REPEAT)
+			{
+				left.Reset();
+				current_animation = &left;
+			}
+			else if (App->input->keyboard[SDL_SCANCODE_LALT] == KEY_STATE::KEY_DOWN){
+				jump_left.loops = 0;
+				jump_left.Reset();
+				current_animation = &jump_left;
+				status = ROLL;
+			}
+
+			else if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT)
+			{
+				score += 10;
+				position.x += speed;
+				if ((position.x - App->scope->position.x) > 0 && (position.x - App->scope->position.x) <= 38.6f){
+					current_animation = &shotopleft;
+				}
+				else if ((position.x - App->scope->position.x) > 38.6f && (position.x - App->scope->position.x) <= 77.3f){
+					current_animation = &shotleftop;
+				}
+				else if ((position.x - App->scope->position.x) > 77.3f){
+					current_animation = &shotleft;
+
+				}
 
 
-					   }
-				   }
 
-				   else if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT || App->input->keyboard[SDL_SCANCODE_LCTRL] != KEY_STATE::KEY_DOWN && App->input->keyboard[SDL_SCANCODE_RIGHT] != KEY_STATE::KEY_REPEAT  && App->input->keyboard[SDL_SCANCODE_LEFT] != KEY_STATE::KEY_REPEAT ){
+			}
+		}
 
-					  
-					   if ((position.x - App->scope->position.x)> 0 && (position.x - App->scope->position.x) <= 38.6f){
-						   current_animation = &shotopleft;
-					   }
-					   else if ((position.x - App->scope->position.x)> 38.6f && (position.x - App->scope->position.x) <= 77.3f){
-						   current_animation = &shotleftop;
-					   }
-					   else if ((position.x - App->scope->position.x)>77.3f){
-						   current_animation = &shotleft;
+		else if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT || App->input->keyboard[SDL_SCANCODE_LCTRL] != KEY_STATE::KEY_DOWN && App->input->keyboard[SDL_SCANCODE_RIGHT] != KEY_STATE::KEY_REPEAT  && App->input->keyboard[SDL_SCANCODE_LEFT] != KEY_STATE::KEY_REPEAT){
 
-					   }
 
-					   else if ((App->scope->position.x - position.x)> 0 && (App->scope->position.x - position.x) <= 38.6f){
-						   current_animation = &shotopright;
-					   }
+			if ((position.x - App->scope->position.x) > 0 && (position.x - App->scope->position.x) <= 38.6f){
+				current_animation = &shotopleft;
+			}
+			else if ((position.x - App->scope->position.x) > 38.6f && (position.x - App->scope->position.x) <= 77.3f){
+				current_animation = &shotleftop;
+			}
+			else if ((position.x - App->scope->position.x) > 77.3f){
+				current_animation = &shotleft;
 
-					   else if ((App->scope->position.x - position.x)> 38.6f && (App->scope->position.x - position.x) <= 77.3f){
-						   current_animation = &shotrighttop;
-					   }
+			}
 
-					   else if ((App->scope->position.x - position.x)>77.3f){
-						   current_animation = &shotright;
+			else if ((App->scope->position.x - position.x) > 0 && (App->scope->position.x - position.x) <= 38.6f){
+				current_animation = &shotopright;
+			}
 
-					   }
-					   
-				   }
+			else if ((App->scope->position.x - position.x) > 38.6f && (App->scope->position.x - position.x) <= 77.3f){
+				current_animation = &shotrighttop;
+			}
 
-				 
-				   if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_IDLE
-					   && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_IDLE
-					   && App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_IDLE){
+			else if ((App->scope->position.x - position.x) > 77.3f){
+				current_animation = &shotright;
 
-					   current_animation = &idle;
-				   }
+			}
 
+		}
+
+
+		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_IDLE
+			&& App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_IDLE
+			&& App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_IDLE){
+
+			current_animation = &idle;
+		}
+		if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_DOWN){
+			current_animation = &crouch;
+			status = CROUCH;
+		}
+		player->rect.x = position.x + 10;
+		player->rect.y = position.y + 20;
+		player->rect.h = 8;
+		player->rect.w = 12;
 	} break;
 
 	case ROLL:
 	{
-				 player->type = COLLIDER_NONE;
-				 if (current_animation == &jump_right){
-					 if (position.x >= 220){
-						 speed = 0;
-					 }
-					 else
-					 {
-						 position.x += speed + 1;
-					 }
-					 if (current_animation->Finished() == true){
-						 status = NORMAL;
-						 break;
-					 }
-				 }
-				 if (current_animation == &jump_left){
-					 if (position.x <= 0){
-						 speed = 0;
-					 }
-					 else
-					 {
-						 position.x -= speed + 1;
-					 }
-					 if (current_animation->Finished() == true){
-						 status = NORMAL;
-						 break;
-					 }
-				 }
+		player->type = COLLIDER_NONE;
+		if (current_animation == &jump_right){
+			if (position.x >= 220){
+				speed = 0;
+			}
+			else
+			{
+				position.x += speed + 1;
+			}
+			if (current_animation->Finished() == true){
+				status = NORMAL;
+				break;
+			}
+		}
+		if (current_animation == &jump_left){
+			if (position.x <= 0){
+				speed = 0;
+			}
+			else
+			{
+				position.x -= speed + 1;
+			}
+			if (current_animation->Finished() == true){
+				status = NORMAL;
+				break;
+			}
+		}
 	} break;
 
 	case DEAD:
 	{
-				 player->type = COLLIDER_NONE;
-				 if (current_animation->Finished() ==true){
-					 status = NORMAL;
-					 break;
-				 }
+		player->type = COLLIDER_NONE;
+		if (current_animation->Finished() == true){
+			status = NORMAL;
+			break;
+		}
 
 	} break;
 
@@ -392,9 +433,51 @@ update_status ModulePlayer::Update()
 			App->fade->FadeToBlack(App->level2, App->victoryscreen, 2);
 			break;
 		}
-	}
+	}break;
 
-	
+	case CROUCH:
+	{
+		player->rect.x = position.x + 10;
+		player->rect.y = position.y + 40;
+		player->rect.h = 8;
+		player->rect.w = 12;
+		if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT){
+			if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT){
+
+
+				if ((position.x - App->scope->position.x) > 0 && (position.x - App->scope->position.x) <= 38.6f){
+					current_animation = &crouchshotleft;
+				}
+				else if ((position.x - App->scope->position.x) > 38.6f && (position.x - App->scope->position.x) <= 77.3f){
+					current_animation = &crouchshottopleft;
+				}
+				else if ((position.x - App->scope->position.x) > 77.3f){
+					current_animation = &crouchshotlefttop;
+
+				}
+
+				else if ((App->scope->position.x - position.x) > 0 && (App->scope->position.x - position.x) <= 38.6f){
+					current_animation = &crouchshotright;//
+				}
+
+				else if ((App->scope->position.x - position.x) > 38.6f && (App->scope->position.x - position.x) <= 77.3f){
+					current_animation = &crouchshotopright;
+				}
+
+				else if ((App->scope->position.x - position.x) > 77.3f){
+					current_animation = &crouchshotrighttop;
+
+				}
+
+			}
+			else{
+				current_animation = &crouch;
+			}
+		}
+		else{
+			status = NORMAL;
+		}
+	}break;
 	}
 	if (App->input->keyboard[SDL_SCANCODE_F2] == KEY_STATE::KEY_DOWN){
 		if (god == false){
@@ -411,10 +494,10 @@ update_status ModulePlayer::Update()
 			player->type = COLLIDER_PLAYER;
 		}
 	}
-	player->rect.x = position.x + 10;
+	/*player->rect.x = position.x + 10;
 	player->rect.y = position.y + 20;
 	player->rect.h = 8;
-	player->rect.w = 12;
+	player->rect.w = 12;*/
 	hit = true;
 
 	

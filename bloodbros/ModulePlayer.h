@@ -11,7 +11,8 @@ struct SDL_Texture;
 
 enum type{
 	NORMAL,
-	ROLL, 
+	ROLL,
+	CROUCH,
 	DEAD,
 	WIN,
 };
@@ -54,6 +55,17 @@ public:
 	Animation shotrighttop;
 	Animation shotopright;
 	Animation dance;
+
+	Animation crouch;
+	Animation crouchshotidle;
+	Animation crouchshotleft;
+	Animation crouchshotlefttop;
+	Animation crouchshottopleft;
+	Animation crouchshotop;
+	Animation crouchshotright;
+	Animation crouchshotrighttop;
+	Animation crouchshotopright;
+
 	uint hp;
 	bool hit = true;
 	bool god = false;
