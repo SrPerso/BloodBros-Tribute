@@ -34,13 +34,23 @@ bool ModuleExtra::Start()
 
 
 
-	pig.anim.PushBack({ 0, 9, 32, 23 });
-	pig.anim.PushBack({ 35, 9, 32, 23 });
+	pig.anim.PushBack({ 0, 44, 32, 23 });//1
+	pig.anim.PushBack({ 35, 44, 32, 23 });//2
 	pig.anim.loop = true;
 	pig.anim.speed = 0.2f;
-	pig.speed.x = -1;
+	pig.speed.x = 1;
 	pig.type = PIG;
 	pig.life = 4000;
+
+
+	blackpig.anim.PushBack({ 73, 9, 32, 23 });//1
+	blackpig.anim.PushBack({ 112, 9, 32, 23 });//2
+	blackpig.anim.loop = true;
+	blackpig.anim.speed = 0.2f;
+	blackpig.speed.x = -1;
+	blackpig.type = BLACKPIG;
+	blackpig.life = 4000;
+
 
 	zepe.anim.PushBack({ 235, 20, 97, 49 });
 	zepe.anim.loop = true;
@@ -144,6 +154,9 @@ update_status ModuleExtra::Update()
 		{
 			if (p->type == PIG)
 				App->render->Blit(graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+			else if (p->type == BLACKPIG)
+				App->render->Blit(graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+
 			else if (p->type == ZEPE)
 				App->render->Blit(graphics, p->position.x, p->position.y, &p->anim.GetCurrentFrame());
 			else if (p->type == GUITAR){
@@ -169,6 +182,9 @@ void ModuleExtra::AddExtra(const Extra& particle, int x, int y, Uint32 delay)
 	p->born = SDL_GetTicks() + delay;
 	p->position.x = x;
 	p->position.y = y;
+	if (p->type == BLACKPIG){
+		p->collider = App->collision->AddCollider({ p->position.x, p->position.y + 1, 30, 19 }, COLLIDER_EXTRA, this);
+	}
 	if (p->type == PIG){
 		p->collider = App->collision->AddCollider({ p->position.x, p->position.y + 1, 30, 19 }, COLLIDER_EXTRA, this);
 	}
@@ -219,11 +235,9 @@ bool Extra::Update()
 			ret = false;
 	}
 	else
-	if (anim.Finished())
-		
+	if (anim.Finished())	
 		ret = false;
-
-
+	
 	position.x += speed.x;
 	position.y += speed.y;
 
@@ -245,8 +259,13 @@ void ModuleExtra::OnCollision(Collider* c1, Collider* c2)
 	for (uint i = 0; i < MAX_EXTRAS; ++i){
 		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->type==PIG){
 				App->audio->Loadfx("Music/pig.ogg");
-				active[i]->speed.x--;
+				active[i]->speed.x++;
 				break;
+		}
+		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->type == BLACKPIG){
+			App->audio->Loadfx("Music/pig.ogg");
+			active[i]->speed.x--;
+			break;
 		}
 		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->type == ZEPE){
 			App->render->Blit(graphics, active[i]->position.x, active[i]->position.y, &active[i]->hit.frames[0]);

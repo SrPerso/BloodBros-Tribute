@@ -38,6 +38,7 @@ public:
 	Animation left;
 	Animation right;
 	Animation pig;
+	Animation blackpig;
 	Animation shot;
 	Collider* player;
 	Animation jump_left;

@@ -96,7 +96,8 @@ update_status ModuleLevel2::Update()
 	App->render->Blit(graphics, 0, 0, &background, 0); // level 2
 	App->ui->Update();
 	if (SDL_GetTicks() >= timestart+10000 && extra == true){
-		App->extra->AddExtra(App->extra->pig, 224, 140);
+		App->extra->AddExtra(App->extra->pig, 0, 140);
+		App->extra->AddExtra(App->extra->blackpig, 224, 140);
 		App->extra->AddExtra(App->extra->zepe, 224, 35);
 		extra = false;
 	}

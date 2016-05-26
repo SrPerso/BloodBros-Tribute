@@ -9,7 +9,7 @@
 
 #define MAX_EXTRAS 20
 
-enum extratype{PIG, ZEPE, WOMEN,GUITAR};
+enum extratype{BLACKPIG,PIG, ZEPE, WOMEN,GUITAR};
 struct SDL_Texture;
 
 struct Extra
@@ -56,8 +56,8 @@ private:
 
 public:
 
-
 	Extra pig;
+	Extra blackpig;
 	Extra zepe;
 	Extra shower;
 	Extra shower2;
