@@ -104,6 +104,7 @@ update_status ModuleLevel2::Update()
 	if (SDL_GetTicks() >= timestart + 5000 && plane == true){
 		App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 70,-20);
 		
+		App->extra->AddExtra(App->extra->cask, 0, 160);
 		plane = false;
 	}
 	if (SDL_GetTicks() >=  timestart + 6000 && greencowboy == true && App->building->purplealive==true){
