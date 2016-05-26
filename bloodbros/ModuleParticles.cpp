@@ -260,6 +260,13 @@ ModuleParticles::ModuleParticles()
 	points70000.points = 70000;
 	points70000.life = 5000;
 
+	shotgun.anim.PushBack({ 407, 93, 32, 16 });
+	shotgun.anim.PushBack({ 441, 93, 32, 16 });
+	shotgun.anim.loop = true;
+	shotgun.anim.speed = 0.3f;
+	shotgun.life = 5000;
+	shotgun.type = SHOTGUN;
+
 }
 
 ModuleParticles::~ModuleParticles()
@@ -381,6 +388,16 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2){
 			break;
 		}
 		else if (active[i] != nullptr && active[i]->collider == c1 && active[i]->collider->type == COLLIDER_POINT && c2->type == COLLIDER_WALL){
+			active[i]->speed.y = 0;
+			break;
+		}
+		else if (active[i] != nullptr && active[i]->collider == c1 && active[i]->collider->type == COLLIDER_POWERUP && c2->type == COLLIDER_PLAYER){
+			App->scope->shotgun = true;
+			delete p;
+			active[i] = nullptr;
+			break;
+		}
+		else if (active[i] != nullptr && active[i]->collider == c1 && active[i]->type==SHOTGUN && c2->type == COLLIDER_WALL){
 			active[i]->speed.y = 0;
 			break;
 		}

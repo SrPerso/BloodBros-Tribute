@@ -33,6 +33,12 @@ ModuleScope::ModuleScope()
 	shoots.PushBack({ 120, 2, 22, 22 });
 	shoots.loop = true;
 	shoots.speed = 0.1f;
+
+	shotgunscope.PushBack({ 450, 38, 31, 29 });
+	shotgunscope.PushBack({ 486, 38, 31, 29 });
+	shotgunscope.loop = true;
+	shotgunscope.speed = 0.1f;
+
 }
 
 ModuleScope::~ModuleScope()
@@ -66,7 +72,7 @@ update_status ModuleScope::Update()
 	float speed = 3.5;
 	if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT && App->player->status==NORMAL){
 		if (SDL_GetTicks() > time){
-			time = SDL_GetTicks() + 600;
+			time = SDL_GetTicks() +400;
 			shot->type = COLLIDER_PLAYER_SHOT;
 			App->audio->Loadfx("Music/shot.ogg");
 		}
@@ -112,10 +118,28 @@ update_status ModuleScope::Update()
 		position.x += speed;
 	}
 
-
+	if (shotgun == true || App->input->keyboard[SDL_SCANCODE_F3] == KEY_STATE::KEY_DOWN){
+		current_animation = &shotgunscope;
+		shot->rect.w = 31;
+		shot->rect.h = 29;
+		if (firstime == true){
+			poweruptime = SDL_GetTicks() + 6000;//shotgun scope duration=6s
+			firstime = false;
+		}
+		if (SDL_GetTicks() > poweruptime){
+			shotgun = false;
+		}
+	}
+	if (shotgun==false){
+		shotgun = false;
+		current_animation = &scope;
+		shot->rect.w = 22;
+		shot->rect.h = 20;
+		firstime = true;
+	}
 	shot->rect.x = position.x+1;
 	shot->rect.y = position.y+1;
-	current_animation = &scope;
+	
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
 
 
