@@ -155,21 +155,22 @@ ModulePlayer::ModulePlayer()
 
 	//dancing
 
+	dance.PushBack({ 334, 300, 46, 72 });
+	dance.PushBack({ 380, 300, 46, 72 });
+	dance.PushBack({ 426, 300, 46, 72 });
+	dance.PushBack({ 472, 300, 46, 72 });
+
+	dance.PushBack({ 518, 300, 46, 72 });
+	dance.PushBack({ 564, 300, 46, 72 });
+	dance.PushBack({ 610, 300, 46, 72 });
+	dance.PushBack({ 656, 300, 46, 72 });
 
 
-	dance.PushBack({ 334, 300, 46, 72 }); //cowboy cuando gana y esta parado // la inicial
-	dance.PushBack({ 406, 300, 46, 72 }); //cowboy apunto de levantar la mano
-	dance.PushBack({ 478, 300, 46, 72 }); //cowboy levanta la mano
-	dance.PushBack({ 550, 300, 46, 72 }); // cowboy baila levantando pierna izquierda
-	dance.PushBack({ 622, 300, 46, 72 }); //cowboy baila levantando pierna derecha
-	dance.PushBack({ 694, 300, 46, 72 }); //cowboy baila levantando pierna izquierda un pcoo alejado
-	dance.PushBack({ 766, 300, 46, 72 }); //cowboy baila levantando las dos manos y una pierna un poco alejado
-	dance.PushBack({ 838, 300, 46, 72 }); //cowboy baila un pcoo mas alejado 1
-	dance.PushBack({ 334, 372, 46, 72 }); //cowboy baila un pcoo mas alejado 2
-	dance.PushBack({ 406, 372, 46, 72 }); // cowboy casi no se ve 1 saltando como una rana
-	dance.PushBack({ 478, 372, 46, 72 }); //cowboy casi no se ve 2 saltando sin tocar el suelo
-	dance.PushBack({ 550, 372, 46, 72 }); //cowboy esta tan lejos que casi no se ve 1
-	dance.PushBack({ 622, 372, 46, 72 }); //cowboy esta tan lejos que casi no se ve 2
+	dance.PushBack({ 334, 300, 46, 72 });
+	dance.PushBack({ 380, 372, 46, 72 });
+	dance.PushBack({ 426, 372, 46, 72 });
+	dance.PushBack({ 472, 372, 46, 72 });
+	dance.PushBack({ 518, 372, 46, 72 }); 
 
 	dance.loop = false;
 	dance.speed = 0.05f;
