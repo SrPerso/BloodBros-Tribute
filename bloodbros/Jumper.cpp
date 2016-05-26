@@ -42,7 +42,7 @@ Jumper::Jumper(int x, int y) : Enemy(x, y)
 
 
 
-	collider = App->collision->AddCollider({5, 15, 30, 40 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({5, 15, 30, 40 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->front);
 
 	original_pos.x = x;
 	original_pos.y = y;
@@ -52,7 +52,7 @@ Jumper::Jumper(int x, int y) : Enemy(x, y)
 	path.PushBack({ 0.0f, 0.0f }, 25, &shotidle);
 	path.PushBack({ 0.0f, 0.0f }, 20, &shot);
 	path.PushBack({ 0.0f, 0.0f }, 20, &shotidle);
-	path.PushBack({ -0.6f, 0.0f }, 90, &left);
+	path.PushBack({ -0.6f, 0.0f }, 150, &left);
 
 	/*path2.PushBack({ 0.0f, -0.5f }, 45, &jump);
 	path2.PushBack({ 0.0f, 0.6f }, 45, &jump);

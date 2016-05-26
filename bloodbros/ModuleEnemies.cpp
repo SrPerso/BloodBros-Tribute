@@ -166,16 +166,8 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			case ENEMY_TYPES::GREENRIGHTCOWBOY:
 				enemies[i] = new GreenRightCowboy(info.x, info.y);
 				break;
-			case ENEMY_TYPES::JUMPER:
-				enemies[i] = new Jumper(info.x, info.y);
-				break;
-			case ENEMY_TYPES::GREENCOWBOYMEDIUM:
-				enemies[i] = new GreenCowboyMedium(info.x, info.y);
-				break;
-			case ENEMY_TYPES::INDIANMEDIUM:
-				enemies[i] = new IndianMedium(info.x, info.y);
-				break;
 			}
+			
 
 		}
 	}

@@ -15,6 +15,7 @@
 #include "Extras.h"
 #include "ModuleBuildings.h"
 #include "ModuleUi.h"
+#include "ModuleEnemiesFront.h"
 
 // Reference at https://youtu.be/6OlenbCC4WI?t=382
 
@@ -120,8 +121,10 @@ update_status ModuleLevel2::Update()
 		greencowboy = false;
 	}
 	else if (SDL_GetTicks() >= timestart + 6000 && jumper == true && App->building->windmillalive == true){
-		App->enemies->AddEnemy(ENEMY_TYPES::JUMPER, 30, 100);
-		App->enemies->AddEnemy(ENEMY_TYPES::JUMPER, 50, 100);
+		App->front->AddEnemy(ENEMY_TYPES2::JUMPER, 20, 100);
+		App->front->AddEnemy(ENEMY_TYPES2::JUMPER, 35, 100);
+		App->front->AddEnemy(ENEMY_TYPES2::JUMPER, 50, 100);
+		App->front->AddEnemy(ENEMY_TYPES2::JUMPER, 65, 100);
 		jumper = false;
 	}
 
@@ -137,11 +140,11 @@ update_status ModuleLevel2::Update()
 	if (SDL_GetTicks() >= timestart + 15000 && plane2 == true){
 		App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 87, -20);
 		
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOYMEDIUM, 0, 100);
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOYMEDIUM, 15, 100);
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOYMEDIUM, 30, 100);
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOYMEDIUM, 45, 100);
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOYMEDIUM, 60, 100);
+		App->front->AddEnemy(ENEMY_TYPES2::GREENCOWBOYMEDIUM, 0, 100);
+		App->front->AddEnemy(ENEMY_TYPES2::GREENCOWBOYMEDIUM, 15, 100);
+		App->front->AddEnemy(ENEMY_TYPES2::GREENCOWBOYMEDIUM, 30, 100);
+		App->front->AddEnemy(ENEMY_TYPES2::GREENCOWBOYMEDIUM, 45, 100);
+		App->front->AddEnemy(ENEMY_TYPES2::GREENCOWBOYMEDIUM, 60, 100);
 
 		plane2 = false;
 	}
@@ -149,10 +152,10 @@ update_status ModuleLevel2::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 58, 80);
 		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 80);
 
-		App->enemies->AddEnemy(ENEMY_TYPES::INDIANMEDIUM, 00, 100);
-		App->enemies->AddEnemy(ENEMY_TYPES::INDIANMEDIUM, 15, 100);
-		App->enemies->AddEnemy(ENEMY_TYPES::INDIANMEDIUM, 30, 100);
-		App->enemies->AddEnemy(ENEMY_TYPES::INDIANMEDIUM, 45, 100);
+		App->front->AddEnemy(ENEMY_TYPES2::INDIANMEDIUM, 00, 100);
+		App->front->AddEnemy(ENEMY_TYPES2::INDIANMEDIUM, 15, 100);
+		App->front->AddEnemy(ENEMY_TYPES2::INDIANMEDIUM, 30, 100);
+		App->front->AddEnemy(ENEMY_TYPES2::INDIANMEDIUM, 45, 100);
 		
 		green2 = false;
 	}
@@ -161,10 +164,10 @@ update_status ModuleLevel2::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 10, 80);
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 20, 80);
 
-		App->enemies->AddEnemy(ENEMY_TYPES::INDIANMEDIUM, 00, 100);
-		App->enemies->AddEnemy(ENEMY_TYPES::INDIANMEDIUM, 15, 100);
-		App->enemies->AddEnemy(ENEMY_TYPES::INDIANMEDIUM, 30, 100);
-		App->enemies->AddEnemy(ENEMY_TYPES::INDIANMEDIUM, 45, 100);
+		App->front->AddEnemy(ENEMY_TYPES2::INDIANMEDIUM, 00, 100);
+		App->front->AddEnemy(ENEMY_TYPES2::INDIANMEDIUM, 15, 100);
+		App->front->AddEnemy(ENEMY_TYPES2::INDIANMEDIUM, 30, 100);
+		App->front->AddEnemy(ENEMY_TYPES2::INDIANMEDIUM, 45, 100);
 
 
 		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 80);

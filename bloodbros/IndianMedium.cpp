@@ -37,7 +37,7 @@ IndianMedium::IndianMedium(int x, int y) : Enemy(x, y)
 	dead.loop = false;
 
 
-	collider = App->collision->AddCollider({ 0, 0, 16, 21 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 16, 21 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->front);
 
 	original_pos.x = x;
 	original_pos.y = y;

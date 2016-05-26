@@ -166,7 +166,7 @@ ModulePlayer::ModulePlayer()
 	dance.PushBack({ 656, 300, 46, 72 });
 
 
-	dance.PushBack({ 334, 300, 46, 72 });
+	dance.PushBack({ 334, 372, 46, 72 });
 	dance.PushBack({ 380, 372, 46, 72 });
 	dance.PushBack({ 426, 372, 46, 72 });
 	dance.PushBack({ 472, 372, 46, 72 });
