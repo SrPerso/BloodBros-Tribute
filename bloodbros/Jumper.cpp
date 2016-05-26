@@ -14,7 +14,7 @@ Jumper::Jumper(int x, int y) : Enemy(x, y)
 	left.PushBack({ 627, 347, 32, 48 });//4
 	left.PushBack({ 660, 347, 32, 48 });//5
 	left.PushBack({ 693, 347, 32, 48 });//6
-	left.speed = 0.24f;	
+	left.speed = 0.2f;
 
 	right.PushBack({ 528, 395, 32, 48 });// 1
 	right.PushBack({ 561, 395, 32, 48 });//2
@@ -28,31 +28,32 @@ Jumper::Jumper(int x, int y) : Enemy(x, y)
 	shot.PushBack({ 759, 347, 32, 48 });//disparando
 	shot.speed = 0.14f;
 
+	jump.PushBack({ 830, 357, 32, 26 });//crouch
 	jump.PushBack({ 792, 347, 32, 48 });//en vuelo
 	jump.loop = false;
-	jump.speed = 0.24f;
+	jump.speed = 0.1f;
 
 	dead.PushBack({ 841, 127, 32, 48 });//1
 	dead.PushBack({ 841, 186, 32, 48 });//2
 	dead.PushBack({ 841, 235, 32, 48 });//3
 	dead.PushBack({ 841, 284, 32, 48 });//4	
-	dead.speed = 0.14f;
+	dead.speed = 0.16f;
 	dead.loop = false;
 
 
 
 
-	collider = App->collision->AddCollider({5, 15, 30, 40 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->front);
+	collider = App->collision->AddCollider({ 5, 15, 30, 40 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 	original_pos.x = x;
 	original_pos.y = y;
 
-	path.PushBack({ 0.0f, -0.5f }, 90, &jump);
-	path.PushBack({ 0.0f, 0.6f }, 90, &jump);
+	path.PushBack({ 0.0f, -1.5f }, 70, &jump);
+	path.PushBack({ 0.0f, 1.5f }, 78, &jump);
 	path.PushBack({ 0.0f, 0.0f }, 25, &shotidle);
 	path.PushBack({ 0.0f, 0.0f }, 20, &shot);
 	path.PushBack({ 0.0f, 0.0f }, 20, &shotidle);
-	path.PushBack({ -0.6f, 0.0f }, 150, &left);
+	path.PushBack({ -1.0f, 0.0f }, 90, &left);
 
 	/*path2.PushBack({ 0.0f, -0.5f }, 45, &jump);
 	path2.PushBack({ 0.0f, 0.6f }, 45, &jump);
@@ -69,7 +70,6 @@ Jumper::Jumper(int x, int y) : Enemy(x, y)
 	path2.PushBack({ 0.0f, 0.0f }, 20, &shotidle);
 	path2.PushBack({ -0.7f, 0.0f }, 30, &left);*/
 
-	
 
 
 	

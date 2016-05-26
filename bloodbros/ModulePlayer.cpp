@@ -38,7 +38,7 @@ ModulePlayer::ModulePlayer()
 	right.PushBack({ 196, 444, 46, 72 });
 	right.PushBack({ 242, 444, 46, 72 });
 	right.loop = true;
-	right.speed = 0.1f;
+	right.speed = 0.25f;
 
 	//cowboy animation
 
@@ -49,43 +49,75 @@ ModulePlayer::ModulePlayer()
 	left.PushBack({ 58, 516, 46, 72 });
 	left.PushBack({ 12, 516, 46, 72 });
 	left.loop = true;
-	left.speed = 0.1f;
+	left.speed = 0.25f;
 
 	//cowboy animation
 
-	jump_left.PushBack({ 334, 156, 92, 72 });
-	jump_left.PushBack({ 426, 156, 92, 72 });
+	jump_left.PushBack({ 352, 156, 84, 72 });
+	jump_left.PushBack({ 352, 156, 84, 72 });
+	jump_left.PushBack({ 352, 156, 84, 72 });
+
+	jump_left.PushBack({ 436, 156, 92, 72 });
+	jump_left.PushBack({ 436, 156, 92, 72 });
+	jump_left.PushBack({ 436, 156, 92, 72 });
+	
 	jump_left.PushBack({ 518, 156, 92, 72 });
-	jump_left.PushBack({ 610, 156, 92, 72 }); 
+	jump_left.PushBack({ 518, 156, 92, 72 });
+	jump_left.PushBack({ 518, 156, 92, 72 });
+
 	jump_left.PushBack({ 334, 228, 92, 72 });
+	jump_left.PushBack({ 334, 228, 92, 72 });
+	jump_left.PushBack({ 334, 228, 92, 72 });
+
+	
 	jump_left.PushBack({ 426, 228, 92, 72 });
-	jump_left.PushBack({ 518, 228, 92, 72 });
+	jump_left.PushBack({ 426, 228, 92, 72 });
+
+	
 	jump_left.PushBack({ 610, 228, 92, 72 });
 	
-	jump_left.loop = true;
-	jump_left.speed = 0.15f;
+	jump_left.loop = false;
+	jump_left.speed = 0.30f;
 
 	//cowboy animation
 
 
-	jump_right.PushBack({ 334, 12, 92, 72 });
-	jump_right.PushBack({ 426, 12, 92, 72 });
+	jump_right.PushBack({ 352, 12, 84, 72 });
+	jump_right.PushBack({ 352, 12, 84, 72 });
+	jump_right.PushBack({ 352, 12, 84, 72 });
+
+	jump_right.PushBack({ 436, 12, 92, 72 });
+	jump_right.PushBack({ 436, 12, 92, 72 });
+	jump_right.PushBack({ 436, 12, 92, 72 });
+
 	jump_right.PushBack({ 518, 12, 92, 72 });
-	jump_right.PushBack({ 610, 12, 92, 72 });
+	jump_right.PushBack({ 518, 12, 92, 72 });
+	jump_right.PushBack({ 518, 12, 92, 72 });
+
 	jump_right.PushBack({ 334, 84, 92, 72 });
+	jump_right.PushBack({ 334, 84, 92, 72 });
+	jump_right.PushBack({ 334, 84, 92, 72 });
+
+
 	jump_right.PushBack({ 426, 84, 92, 72 });
-	jump_right.PushBack({ 518, 84, 92, 72 });
+	jump_right.PushBack({ 426, 84, 92, 72 });
+
+
 	jump_right.PushBack({ 610, 84, 92, 72 });
 
-	jump_right.loop = true;
-	jump_right.speed = 0.15f;
+	jump_right.loop = false;
+	jump_right.speed = 0.30f;
 
-	dead.PushBack({ 334, 444, 92, 72 });
-	dead.PushBack({ 426, 444, 92, 72 });
-	dead.PushBack({ 518, 444, 92, 72 });
-	dead.PushBack({ 610, 444, 92, 72 });
-	dead.PushBack({ 334, 516, 92, 72 });
-	dead.PushBack({ 426, 516, 92, 72 });
+	dead.PushBack({ 314, 444, 80, 72 });
+	dead.PushBack({ 406, 444, 80, 72 });
+	dead.PushBack({ 498, 444, 80, 72 });
+	dead.PushBack({ 590, 444, 80, 72 });
+	dead.PushBack({ 314, 516, 80, 72 });
+	dead.PushBack({ 406, 516, 80, 72 });
+	dead.PushBack({ 406, 516, 80, 72 });
+	dead.PushBack({ 314, 516, 80, 72 });
+	dead.PushBack({ 314, 516, 80, 72 });
+	dead.PushBack({ 406, 516, 80, 72 });
 	dead.loop = true;
 	dead.speed = 0.1f;
 	
@@ -226,7 +258,7 @@ bool ModulePlayer::Start()
 	score = 0;
 
 	position.x = 105;
-	position.y = 153;
+	position.y = 140;
 	status = NORMAL;
 	hp = 3;
 	player = App->collision->AddCollider({ position.x+10, position.y+20, 12, 8}, COLLIDER_PLAYER, this);
@@ -246,7 +278,7 @@ bool ModulePlayer::CleanUp()
 // Update: draw background
 update_status ModulePlayer::Update()
 {
-	float speed = 1.4f;
+	float speed = 1.6f;
 
 
 	switch (status){

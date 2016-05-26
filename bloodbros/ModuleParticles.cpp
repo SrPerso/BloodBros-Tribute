@@ -179,18 +179,18 @@ ModuleParticles::ModuleParticles()
 	orangebomb.anim.PushBack({ 493, 229, 15, 15 });
 	orangebomb.anim.PushBack({ 476, 229, 15, 15 });
 	orangebomb.anim.PushBack({ 459, 229, 15, 15 });
-	orangebomb.anim.PushBack({ 374, 229, 15, 15 });
-	orangebomb.anim.PushBack({ 391, 229, 15, 15 });
-	orangebomb.anim.PushBack({ 408, 229, 15, 15 });
-	orangebomb.anim.PushBack({ 425, 229, 15, 15 });
 	orangebomb.anim.PushBack({ 442, 229, 15, 15 });
-	orangebomb.anim.PushBack({ 459, 229, 15, 15 });
-	orangebomb.anim.PushBack({ 476, 229, 15, 15 });
-	orangebomb.anim.PushBack({ 493, 229, 15, 15 });
-	orangebomb.anim.speed = 0.06f;
+	orangebomb.anim.PushBack({ 425, 229, 15, 15 });
+	orangebomb.anim.PushBack({ 408, 229, 15, 15 });
+	orangebomb.anim.PushBack({ 391, 229, 15, 15 });
+	orangebomb.anim.PushBack({ 374, 229, 15, 16 });
+
+
+	orangebomb.anim.speed = 0.1f;
 	orangebomb.type = ORANGE;
 	orangebomb.anim.loop = false;
 	orangebomb.life = 5000;
+
 
 	tnt.anim.PushBack({ 374, 212, 15, 15 });
 	tnt.anim.PushBack({ 391, 212, 15, 15 });
