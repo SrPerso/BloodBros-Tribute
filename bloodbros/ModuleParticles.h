@@ -6,7 +6,7 @@
 #include "Globals.h"
 #include "p2Point.h"
 
-#define MAX_ACTIVE_PARTICLES 500
+#define MAX_ACTIVE_PARTICLES 1000
 
 struct SDL_Texture;
 enum COLLIDER_TYPE;

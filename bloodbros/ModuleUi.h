@@ -17,6 +17,7 @@ public:
 	~ModuleUI();
 
 	bool Start();
+	void UpdateScore();
 	update_status Update();
 	bool CleanUp();
 
@@ -50,7 +51,30 @@ public:
 	uint top_score = 20000;
 	char score_text[10];
 	char coins_text[10];
+	char scorelist_tex[10];
 	int font_score = 2;
+	/*uint score2;
+	uint score3;
+	uint score4;
+	uint score5;
+	uint score6;
+	uint score7;
+	uint score8;
+	uint score9;
+	uint score10;
+	uint score11;
+	uint score12;
+	uint score13;
+	uint score14;
+	uint score15;
+	uint score16;
+	uint score17;
+	uint score18;
+	uint score19;
+	uint score20;*/
+	uint scorelist[20];
+
+
 };
 
 

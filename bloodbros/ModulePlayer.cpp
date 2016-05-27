@@ -520,6 +520,8 @@ update_status ModulePlayer::Update()
 		position.x = 100;
 		player->type = COLLIDER_NONE;
 		if (current_animation->Finished() == true){
+			current_animation->Reset();
+			current_animation->loops = 0;
 			status = NORMAL;
 			App->fade->FadeToBlack(App->level2, App->victoryscreen, 2);
 			break;

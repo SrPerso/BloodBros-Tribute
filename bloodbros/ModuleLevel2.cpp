@@ -79,6 +79,7 @@ bool ModuleLevel2::Start()
 bool ModuleLevel2::CleanUp()
 {
 	LOG("Unloading level 2");
+	App->ui->UpdateScore();
 	App->player->Disable();
 	App->audio->Disable();
 	App->scope->Disable();

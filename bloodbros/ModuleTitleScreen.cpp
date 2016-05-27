@@ -45,7 +45,7 @@ bool ModuleTitleScreen::CleanUp()
 	App->player->Disable();
 	App->audio->Disable();
 	App->input->Disable();
-	App->ui->Disable();
+	//App->ui->Disable();
 	return true;
 }
 

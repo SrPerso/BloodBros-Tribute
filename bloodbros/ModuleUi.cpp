@@ -9,6 +9,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleUI.h"
 #include "ModulePlayer.h"
+#include "ModuleVictory.h"
 #include "ModuleText.h"
 #include <stdio.h>
 
@@ -41,7 +42,9 @@ bool ModuleUI::Start()
 	foe_bar_white.PushBack({ 234, 8, 5, 8 });
 	ball.PushBack({ 240, 8, 9, 9 });
 	
-	
+	for (uint i = 0; i < 19; i++){
+		scorelist[i] = 0;
+	}
 
 	return true;
 }
@@ -89,5 +92,25 @@ update_status ModuleUI::Update()
 			App->render->Blit(UserInterface, 0, 209, &(ball.GetCurrentFrame()), 0.0);
 		}
 	}
+	if (App->victoryscreen->IsEnabled() == true){
+		uint j = 0;
+		for (uint i = 0; i < 19; i++){
+			sprintf_s(scorelist_tex, 10, "%7d", scorelist[i]);
+			App->font->Blit(120, 31+j, font_score, scorelist_tex);
+			j += 9;
+		}
+	}
 	return UPDATE_CONTINUE;
+}
+
+void ModuleUI::UpdateScore(){
+	for (uint i = 0; i < 19; i++){
+		if (App->player->score>scorelist[i]){
+			for (uint j = 19; j > i; j--){
+				scorelist[j] = scorelist[j-1];
+			}
+			scorelist[i] = App->player->score;
+			return;
+		}
+	}
 }
