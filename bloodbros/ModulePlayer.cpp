@@ -123,12 +123,12 @@ ModulePlayer::ModulePlayer()
 	
 	//shot idle
 
-	shotidle.PushBack({ 12, 12, 46, 72 }); //cowboy de pie apuntando extremo izquierda  <<<-
-	shotidle.PushBack({ 58, 12, 46, 72 }); //cowboy de pie apuntando izquierda  <<-
-	shotidle.PushBack({ 104, 12, 46, 72 }); //cowboy de pie apuntando un poco a la izquierda  <-
-	shotidle.PushBack({ 196, 12, 46, 72 }); //cowboy de pie apuntando un poco derecha ->
-	shotidle.PushBack({ 242, 12, 46, 72 }); //cowboy de pie apuntando derecha ->>
-	shotidle.PushBack({ 288, 12, 46, 72 }); //cowboy de pie apuntando extremo derecha ->>>
+	shotidle.PushBack({ 150, 12, 46, 72 }); 
+	shotidle.PushBack({ 150, 84, 46, 72 }); 
+	shotidle.PushBack({ 150, 12, 46, 72 });
+	shotidle.PushBack({ 150, 156, 46, 72 }); 
+	shotidle.speed = 0.1f;
+
 
 	shotidle.speed = 0.1f;
 	//aiming left
@@ -185,6 +185,17 @@ ModulePlayer::ModulePlayer()
 	shotopright.PushBack({ 196, 12, 46, 72 });
 	shotopright.speed = 0.1f;
 
+	//looking left
+	lookingleft.PushBack({ 104, 12, 46, 72 });
+	lookingfarleft.PushBack({ 58, 12, 46, 72 });
+	lookingveryfarleft.PushBack({ 12, 12, 46, 72 });
+
+	//looking right
+
+	lookingright.PushBack({ 196, 12, 46, 72 });
+	lookingfarright.PushBack({ 242, 12, 46, 72 });
+	lookingveryfarright.PushBack({ 288, 12, 46, 72 });
+
 	//dancing
 
 	dance.PushBack({ 334, 300, 46, 72 });
@@ -208,6 +219,12 @@ ModulePlayer::ModulePlayer()
 	dance.speed = 0.05f;
 
 	crouch.PushBack({ 150, 228, 46, 72 });
+
+	crouchshotidle.PushBack({ 150, 228, 46, 72 });
+	crouchshotidle.PushBack({ 150, 300, 46, 72 });
+	crouchshotidle.PushBack({ 150, 228, 46, 72 });
+	crouchshotidle.PushBack({ 150, 372, 46, 72 });
+	crouchshotidle.speed = 0.1f;
 
 	crouchshotrighttop.PushBack({ 288, 228, 46, 72 });
 	crouchshotrighttop.PushBack({ 288, 300, 46, 72 });
@@ -244,6 +261,14 @@ ModulePlayer::ModulePlayer()
 	crouchshotleft.PushBack({ 104, 228, 46, 72 });
 	crouchshotleft.PushBack({ 104, 372, 46, 72 });
 	crouchshotleft.speed = 0.1f;
+
+	//looking while crouching
+	crouchlookingleft.PushBack({ 104, 228, 46, 72 });
+	crouchlookingfarleft.PushBack({ 58, 228, 46, 72 });
+	crouchlookingveryfarleft.PushBack({ 12, 228, 46, 72 });
+	crouchlookingright.PushBack({ 196, 228, 46, 72 });
+	crouchlookingfarright.PushBack({ 242, 228, 46, 72 });
+	crouchlookingveryfarright.PushBack({ 288, 228, 46, 72 });
 }
 
 ModulePlayer::~ModulePlayer()
@@ -314,7 +339,10 @@ update_status ModulePlayer::Update()
 			{
 				score += 10;
 				position.x -= speed;
-				if ((App->scope->position.x - position.x) > 0 && (App->scope->position.x - position.x) <= 38.6f){
+				if (((position.x - App->scope->position.x) > 0 && (position.x - App->scope->position.x) <= 10.0f) || ((App->scope->position.x - position.x) > 0 && (App->scope->position.x - position.x) <= 10.0f)){
+					current_animation = &shotidle;
+				}
+				else if ((App->scope->position.x - position.x) > 10 && (App->scope->position.x - position.x) <= 38.6f){
 					current_animation = &shotopright;
 
 				}
@@ -352,7 +380,10 @@ update_status ModulePlayer::Update()
 			{
 				score += 10;
 				position.x += speed;
-				if ((position.x - App->scope->position.x) > 0 && (position.x - App->scope->position.x) <= 38.6f){
+				if (((position.x - App->scope->position.x) > 0 && (position.x - App->scope->position.x) <= 10.0f) || ((App->scope->position.x - position.x) > 0 && (App->scope->position.x - position.x) <= 10.0f)){
+					current_animation = &shotidle;
+				}
+				else if ((position.x - App->scope->position.x) > 10 && (position.x - App->scope->position.x) <= 38.6f){
 					current_animation = &shotopleft;
 				}
 				else if ((position.x - App->scope->position.x) > 38.6f && (position.x - App->scope->position.x) <= 77.3f){
@@ -368,10 +399,12 @@ update_status ModulePlayer::Update()
 			}
 		}
 
-		else if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT || App->input->keyboard[SDL_SCANCODE_LCTRL] != KEY_STATE::KEY_DOWN && App->input->keyboard[SDL_SCANCODE_RIGHT] != KEY_STATE::KEY_REPEAT  && App->input->keyboard[SDL_SCANCODE_LEFT] != KEY_STATE::KEY_REPEAT){
+		else if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT || (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_DOWN && App->input->keyboard[SDL_SCANCODE_RIGHT] != KEY_STATE::KEY_REPEAT  && App->input->keyboard[SDL_SCANCODE_LEFT] != KEY_STATE::KEY_REPEAT)){
+			if (((position.x - App->scope->position.x) > 0 && (position.x - App->scope->position.x) <= 10.0f) || ((App->scope->position.x - position.x) > 0 && (App->scope->position.x - position.x) <= 10.0f)){
+				current_animation = &shotidle;
+			}
 
-
-			if ((position.x - App->scope->position.x) > 0 && (position.x - App->scope->position.x) <= 38.6f){
+			else if ((position.x - App->scope->position.x) > 10 && (position.x - App->scope->position.x) <= 38.6f){
 				current_animation = &shotopleft;
 			}
 			else if ((position.x - App->scope->position.x) > 38.6f && (position.x - App->scope->position.x) <= 77.3f){
@@ -382,7 +415,7 @@ update_status ModulePlayer::Update()
 
 			}
 
-			else if ((App->scope->position.x - position.x) > 0 && (App->scope->position.x - position.x) <= 38.6f){
+			else if ((App->scope->position.x - position.x) > 10 && (App->scope->position.x - position.x) <= 38.6f){
 				current_animation = &shotopright;
 			}
 
@@ -401,8 +434,34 @@ update_status ModulePlayer::Update()
 		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_IDLE
 			&& App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_IDLE
 			&& App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_IDLE){
+				if (((position.x - App->scope->position.x) > 0 && (position.x - App->scope->position.x) <= 10.0f) || ((App->scope->position.x - position.x) > 0 && (App->scope->position.x - position.x) <= 10.0f)){
+					current_animation = &idle;
+				}
+				else if ((position.x - App->scope->position.x) > 10 && (position.x - App->scope->position.x) <= 38.6f){
+					current_animation = &lookingleft;
+				}
+				else if ((position.x - App->scope->position.x) > 38.6f && (position.x - App->scope->position.x) <= 77.3f){
+					current_animation = &lookingfarleft;
+				}
+				else if ((position.x - App->scope->position.x) > 77.3f){
+					current_animation = &lookingveryfarleft;
 
-			current_animation = &idle;
+				}
+
+				else if ((App->scope->position.x - position.x) > 10 && (App->scope->position.x - position.x) <= 38.6f){
+					current_animation = &lookingright;//
+				}
+
+				else if ((App->scope->position.x - position.x) > 38.6f && (App->scope->position.x - position.x) <= 77.3f){
+					current_animation = &lookingfarright;
+				}
+
+				else if ((App->scope->position.x - position.x) > 77.3f){
+					current_animation = &lookingveryfarright;
+				}
+				else{
+					current_animation = &idle;
+				}
 		}
 		if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_DOWN){
 			current_animation = &crouch;
@@ -475,9 +534,11 @@ update_status ModulePlayer::Update()
 		player->rect.w = 12;
 		if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT){
 			if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT){
+				if (((position.x - App->scope->position.x) > 0 && (position.x - App->scope->position.x) <= 10.0f) || ((App->scope->position.x - position.x) > 0 && (App->scope->position.x - position.x) <= 10.0f)){
+					current_animation = &crouchshotidle;
+				}
 
-
-				if ((position.x - App->scope->position.x) > 0 && (position.x - App->scope->position.x) <= 38.6f){
+				else if ((position.x - App->scope->position.x) > 10 && (position.x - App->scope->position.x) <= 38.6f){
 					current_animation = &crouchshotleft;
 				}
 				else if ((position.x - App->scope->position.x) > 38.6f && (position.x - App->scope->position.x) <= 77.3f){
@@ -488,7 +549,7 @@ update_status ModulePlayer::Update()
 
 				}
 
-				else if ((App->scope->position.x - position.x) > 0 && (App->scope->position.x - position.x) <= 38.6f){
+				else if ((App->scope->position.x - position.x) > 10 && (App->scope->position.x - position.x) <= 38.6f){
 					current_animation = &crouchshotright;//
 				}
 
@@ -503,7 +564,31 @@ update_status ModulePlayer::Update()
 
 			}
 			else{
-				current_animation = &crouch;
+				if (((position.x - App->scope->position.x) > 0 && (position.x - App->scope->position.x) <= 10.0f) || ((App->scope->position.x - position.x) > 0 && (App->scope->position.x - position.x) <= 10.0f)){
+					current_animation = &crouch;
+				}
+				else if ((position.x - App->scope->position.x) > 10 && (position.x - App->scope->position.x) <= 38.6f){
+					current_animation = &crouchlookingleft;
+				}
+				else if ((position.x - App->scope->position.x) > 38.6f && (position.x - App->scope->position.x) <= 77.3f){
+					current_animation = &crouchlookingfarleft;
+				}
+				else if ((position.x - App->scope->position.x) > 77.3f){
+					current_animation = &crouchlookingveryfarleft;
+
+				}
+
+				else if ((App->scope->position.x - position.x) > 10 && (App->scope->position.x - position.x) <= 38.6f){
+					current_animation = &crouchlookingright;//
+				}
+
+				else if ((App->scope->position.x - position.x) > 38.6f && (App->scope->position.x - position.x) <= 77.3f){
+					current_animation = &crouchlookingfarright;
+				}
+
+				else if ((App->scope->position.x - position.x) > 77.3f){
+					current_animation = &crouchlookingveryfarright;
+				}
 			}
 		}
 		else{

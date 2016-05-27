@@ -65,7 +65,19 @@ public:
 	Animation crouchshotright;
 	Animation crouchshotrighttop;
 	Animation crouchshotopright;
+	Animation crouchlookingleft;
+	Animation crouchlookingfarleft;
+	Animation crouchlookingveryfarleft;
+	Animation crouchlookingright;
+	Animation crouchlookingfarright;
+	Animation crouchlookingveryfarright;
 
+	Animation lookingleft;
+	Animation lookingfarleft;
+	Animation lookingveryfarleft;
+	Animation lookingright;
+	Animation lookingfarright;
+	Animation lookingveryfarright;
 	uint hp;
 	bool hit = true;
 	bool god = false;
