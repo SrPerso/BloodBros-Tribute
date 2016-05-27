@@ -3,6 +3,9 @@
 #include "ModuleWindow.h"
 #include "SDL/include/SDL.h"
 
+#include "SDL_image/include/SDL_image.h"
+#pragma comment( lib, "SDL_image/libx86/SDL2_image.lib" )
+
 ModuleWindow::ModuleWindow() : Module()
 {
 }
@@ -44,6 +47,10 @@ bool ModuleWindow::Init()
 			flags |= SDL_WINDOW_FULLSCREEN_DESKTOP;
 
 		window = SDL_CreateWindow("", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, flags);
+		SDL_SetWindowTitle(window, "BloodBros_1.0 By Victorius Secret");
+		SDL_Surface* surface = IMG_Load("Images/Widow.png");
+		SDL_SetWindowIcon(window, surface);
+		SDL_FreeSurface;
 
 		if(window == NULL)
 		{
@@ -64,7 +71,7 @@ bool ModuleWindow::Init()
 bool ModuleWindow::CleanUp()
 {
 	LOG("Destroying SDL window and quitting all SDL systems");
-
+	
 	//Destroy window
 	if(window != NULL)
 		SDL_DestroyWindow(window);

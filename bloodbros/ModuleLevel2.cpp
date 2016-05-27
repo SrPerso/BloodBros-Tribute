@@ -87,7 +87,6 @@ bool ModuleLevel2::CleanUp()
 	App->collision->Disable();
 	App->particles->Disable();
 	App->extra->Disable();
-	App->ui->Disable();
 	return true;
 }
 

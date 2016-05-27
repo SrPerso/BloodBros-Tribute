@@ -39,6 +39,7 @@ public:
 	Uint32 hitpoints;
 	Uint32 credit;
 	Uint32 score;
+	uint coins = 0;
 	Uint32 dynamite = 10;
 	Uint32 killcount;
 	Text* credit_text;
@@ -46,7 +47,10 @@ public:
 	Text* score_counter;
 	Text* dynamite_counter;
 	uint timestart;
-
+	uint top_score = 20000;
+	char score_text[10];
+	char coins_text[10];
+	int font_score = 2;
 };
 
 
