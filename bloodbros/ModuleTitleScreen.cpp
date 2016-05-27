@@ -43,6 +43,7 @@ bool ModuleTitleScreen::CleanUp()
 	LOG("Unloading title screen");
 	App->player->Disable();
 	App->audio->Disable();
+	App->input->Disable();
 	return true;
 }
 

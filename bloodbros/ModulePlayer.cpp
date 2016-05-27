@@ -538,7 +538,7 @@ update_status ModulePlayer::Update()
 
 	sprintf_s(score_text, 10, "%7d", score);
 	sprintf_s(tnt_text, 10, "%7d", tntammo);
-	App->font->Blit(20, 5, font_score, score_text);
+	App->font->Blit(18, 1, font_score, score_text);
 	App->font->Blit(0, 201, font_score, tnt_text);
 
 	return UPDATE_CONTINUE;

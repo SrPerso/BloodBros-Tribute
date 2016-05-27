@@ -30,12 +30,12 @@ bool ModuleUI::Start()
 	stage.PushBack({ 254, 9, 5, 5 });
 	dynamite_image.PushBack({322,0, 16, 16});
 	
-	oneup.PushBack({ 163, 8, 17, 8 });
+	oneup.PushBack({ 163, 8, 17, 9 });
 	top.PushBack({ 180, 8, 17, 8 });
 	foe.PushBack({ 197, 8, 31, 8 });
 	foe_bar.PushBack({ 229, 8,5, 8 });
 	foe_bar_white.PushBack({ 234, 8, 5, 8 });
-	ball.PushBack({ 240, 8, 9, 8 });
+	ball.PushBack({ 240, 8, 9, 9 });
 	
 	
 
@@ -56,5 +56,12 @@ update_status ModuleUI::Update()
 	App->render->Blit(UserInterface, 90, 15, &(stage.GetCurrentFrame()), 0.0);
 	App->render->Blit(UserInterface, 0, 185, &(dynamite_image.GetCurrentFrame()), 0.0);
 	App->render->Blit(UserInterface, 30, 207, &(foe.GetCurrentFrame()), 0.0);
+	App->render->Blit(UserInterface, 0, 0, &(oneup.GetCurrentFrame()), 0.0);
+	if (App->player->hp == 3){
+		App->render->Blit(UserInterface, 9, 209, &(ball.GetCurrentFrame()), 0.0);
+	}
+	if (App->player->hp >=2){
+		App->render->Blit(UserInterface, 0, 209, &(ball.GetCurrentFrame()), 0.0);
+	}
 	return UPDATE_CONTINUE;
 }

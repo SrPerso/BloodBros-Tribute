@@ -36,6 +36,7 @@ ModuleLevel2::~ModuleLevel2()
 bool ModuleLevel2::Start()
 {
 	LOG("Loading background assets");
+	App->player->Enable();
 	bool ret = true;
 	extra = true;
 	greencowboy = true;
@@ -46,7 +47,7 @@ bool ModuleLevel2::Start()
 	greencowboymedium = true;
 	graphics = App->textures->Load("Images/level2.png");
 	timestart = SDL_GetTicks();
-	App->player->Enable();
+	App->input->Enable();
 	App->audio->Enable();
 	App->audio->Load("Music/level.ogg");
 	App->particles->Enable();
