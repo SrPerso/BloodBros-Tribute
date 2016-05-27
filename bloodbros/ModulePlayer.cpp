@@ -423,7 +423,7 @@ update_status ModulePlayer::Update()
 			}
 			else
 			{
-				position.x += speed + 1;
+				position.x += speed;
 			}
 			if (current_animation->Finished() == true){
 				status = NORMAL;
@@ -436,7 +436,7 @@ update_status ModulePlayer::Update()
 			}
 			else
 			{
-				position.x -= speed + 1;
+				position.x -= speed;
 			}
 			if (current_animation->Finished() == true){
 				status = NORMAL;
@@ -537,7 +537,9 @@ update_status ModulePlayer::Update()
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
 
 	sprintf_s(score_text, 10, "%7d", score);
+	sprintf_s(tnt_text, 10, "%7d", tntammo);
 	App->font->Blit(20, 5, font_score, score_text);
+	App->font->Blit(0, 201, font_score, tnt_text);
 
 	return UPDATE_CONTINUE;
 }

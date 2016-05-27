@@ -10,7 +10,7 @@
 
 struct SDL_Texture;
 enum COLLIDER_TYPE;
-enum PARTICLE_TYPE{bomb,planebomb, ORANGE, TNT, POINTS, SHOTGUN};
+enum PARTICLE_TYPE{bomb,planebomb, ORANGE, TNT, POINTS, SHOTGUN, TNTAMMO};
 
 struct Particle
 {
@@ -64,6 +64,7 @@ public:
 	Particle Hitbomb;
 	Particle orangebomb;
 	Particle tnt;
+	Particle tntammo;
 	Particle points1000;
 	Particle points2000;
 	Particle points5000;

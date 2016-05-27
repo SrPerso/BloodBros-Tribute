@@ -267,6 +267,12 @@ ModuleParticles::ModuleParticles()
 	shotgun.life = 5000;
 	shotgun.type = SHOTGUN;
 
+	tntammo.anim.PushBack({ 460, 70, 16, 16 });
+	tntammo.anim.PushBack({ 480, 70, 16, 16 });
+	tntammo.anim.loop = true;
+	tntammo.anim.speed = 0.3f;
+	tntammo.life = 5000;
+	tntammo.type = TNTAMMO;
 }
 
 ModuleParticles::~ModuleParticles()
@@ -392,7 +398,12 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2){
 			break;
 		}
 		else if (active[i] != nullptr && active[i]->collider == c1 && active[i]->collider->type == COLLIDER_POWERUP && c2->type == COLLIDER_PLAYER){
-			App->scope->shotgun = true;
+			if (active[i]->type == SHOTGUN){
+				App->scope->shotgun = true;
+			}
+			if (active[i]->type == TNTAMMO){
+				App->player->tntammo++;
+			}
 			delete p;
 			active[i] = nullptr;
 			break;

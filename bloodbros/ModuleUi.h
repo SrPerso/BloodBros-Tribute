@@ -23,6 +23,7 @@ public:
 public:
 
 	SDL_Texture* UserInterface = nullptr;
+	
 	Animation insert_coins;//
 	Animation life_ball;
 	Animation stage;

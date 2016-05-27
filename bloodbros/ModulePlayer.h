@@ -74,6 +74,8 @@ public:
 	int font_score = 2;
 	char score_text[10];
 	uint score = 0;
+	uint tntammo = 10;
+	char tnt_text[10];
 	
 
 };
