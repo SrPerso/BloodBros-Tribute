@@ -115,10 +115,12 @@ update_status ModuleScope::Update()
 			}
 			position.x += speed;
 		}
-		if (position.y >= 180){
-			speed = 0;
+		else{
+			if (position.y >= 180){
+				speed = 0;
+			}
+			position.y += speed;
 		}
-		position.y += speed;
 	}
 
 	else if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT){

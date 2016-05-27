@@ -371,6 +371,9 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, float 
 			p->speed.y = speedy;
 			if (collider_type != COLLIDER_NONE)
 				p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), collider_type, this);
+			if ((p->collider != nullptr && p->collider->type == COLLIDER_POWERUP) || (p->collider != nullptr && p->collider->type == COLLIDER_POINT)){
+				p->collider->SetCol(p->position.x, p->position.y - 30, p->collider->rect.w, p->collider->rect.h + 20);
+			}
 			active[last_particle++] = p;
 	
 }
@@ -408,7 +411,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2){
 			active[i] = nullptr;
 			break;
 		}
-		else if (active[i] != nullptr && active[i]->collider == c1 && active[i]->type==SHOTGUN && c2->type == COLLIDER_WALL){
+		else if (active[i] != nullptr && active[i]->collider == c1 && active[i]->collider->type==COLLIDER_POWERUP && c2->type == COLLIDER_WALL){
 			active[i]->speed.y = 0;
 			break;
 		}
@@ -464,9 +467,11 @@ bool Particle::Update()
 		speed.x = 0.5;
 	}
 
-	if (collider != nullptr)
+	if ((collider != nullptr && collider->type==COLLIDER_POWERUP) || (collider!=nullptr && collider->type==COLLIDER_POINT))
+		collider->SetPos(position.x, position.y-20);
+	else if (collider != nullptr){
 		collider->SetPos(position.x, position.y);
-
+	}
 	return ret;
 }
 

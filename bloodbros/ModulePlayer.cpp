@@ -286,7 +286,7 @@ bool ModulePlayer::Start()
 	position.y = 140;
 	status = NORMAL;
 	hp = 3;
-	player = App->collision->AddCollider({ position.x+10, position.y+20, 12, 8}, COLLIDER_PLAYER, this);
+	player = App->collision->AddCollider({ position.x+14, position.y+20, 12, 8}, COLLIDER_PLAYER, this);
 	font_score = App->font->Load("Images/fonts2.png", "0123456789abcdefghijklmnopqrstuvwxyz", 1);
 	return ret;
 }
@@ -467,9 +467,9 @@ update_status ModulePlayer::Update()
 			current_animation = &crouch;
 			status = CROUCH;
 		}
-		player->rect.x = position.x + 10;
+		player->rect.x = position.x + 14;
 		player->rect.y = position.y + 20;
-		player->rect.h = 8;
+		player->rect.h = 16;
 		player->rect.w = 12;
 	} break;
 

@@ -281,6 +281,11 @@ bool ModuleBuilding::Start()
 	trees.movement.speed = 0.2f;
 	trees.mytype = TREES;
 
+	rock.build.x = 1;
+	rock.build.y = 335;
+	rock.build.w = 65;
+	rock.build.h = 44;
+	rock.mytype = ROCK;
 	return true;
 }
 
@@ -319,7 +324,7 @@ update_status ModuleBuilding::Update()
 			active[i] = nullptr;
 
 		}
-		else if ((p->hits <= 1 && p->mytype != WINDMILL || (p->mytype == WINDMILL && p->hits <= 2)) || (p->mytype == TREES && p->hits==0))
+		else if ((p->hits <= 1 && p->mytype != WINDMILL|| (p->mytype == WINDMILL && p->hits <= 2)) || (p->mytype == TREES && p->hits==0) || (p->mytype==ROCK && p->hits<=2))
 		{
 			if (p->mytype == WINDMILL){
 				App->render->Blit(graphics, p->position.x, p->position.y - 48, &p->movement.GetCurrentFrame());
@@ -340,7 +345,7 @@ update_status ModuleBuilding::Update()
 				p->movement.loops = 0;
 			}
 		}
-		else if (p->hits > 1 && p->mytype != WINDMILL && p->mytype!=TREES){
+		else if (p->hits > 1 && p->mytype != WINDMILL && p->mytype!=TREES && p->mytype!=ROCK){
 
 			App->render->Blit(graphics, p->position.x, p->position.y += 0.25f, &p->destroy.GetCurrentFrame());    ///////////////////////////////////////
 
@@ -362,6 +367,10 @@ update_status ModuleBuilding::Update()
 				active[i] = nullptr;
 			}
 		}
+		else if (p->hits > 2 && p->mytype == ROCK){
+			delete p;
+			active[i] = nullptr;
+		}
 	}
 
 	return UPDATE_CONTINUE;
@@ -377,6 +386,9 @@ void ModuleBuilding::AddBuilding(const Building& particle, int x, int y)
 	if (p->mytype == WINDMILL){ windmillalive = true; }
 	if (p->mytype == WHEEL){
 		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, particle.build.w, particle.build.h }, COLLIDER_NONE, this);
+	}
+	else if (p->mytype==TREES){
+		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, 49, 40 }, COLLIDER_EXTRA, this);
 	}
 	else{
 		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, particle.build.w, particle.build.h }, COLLIDER_EXTRA, this);
@@ -487,6 +499,27 @@ void ModuleBuilding::OnCollision(Collider* c1, Collider* c2)
 					active[i]->build.y = 156;
 					active[i]->build.w = 43;
 					active[i]->build.h = 49;
+					active[i]->hits++;
+					App->particles->AddParticle(App->particles->points7000, active[i]->position.x + 5, active[i]->position.y, 0.0f, 1.3f, COLLIDER_POINT, 0);
+				}
+			}
+			if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->mytype == ROCK){
+				if (active[i]->hits == 0){
+					active[i]->build.x = 66;
+					active[i]->build.y = 335;
+					active[i]->build.w = 60;
+					active[i]->hits++;
+					break;
+				}
+				else if (active[i]->hits == 1){
+					active[i]->build.x = 127;
+					active[i]->build.y = 335;
+					active[i]->hits++;
+					break;
+				}
+				else if (active[i]->hits == 2){
+					active[i]->build.x = 157;
+					active[i]->build.y = 156;
 					active[i]->hits++;
 					App->particles->AddParticle(App->particles->points7000, active[i]->position.x + 5, active[i]->position.y, 0.0f, 1.3f, COLLIDER_POINT, 0);
 				}

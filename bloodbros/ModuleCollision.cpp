@@ -107,6 +107,8 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_POINT][COLLIDER_NONE] = false;
 	matrix[COLLIDER_POINT][COLLIDER_BOMB] = false;
 	matrix[COLLIDER_POINT][COLLIDER_POWERUP] = false;
+	matrix[COLLIDER_POINT][COLLIDER_POINT] = false;
+	matrix[COLLIDER_POINT][COLLIDER_CASK] = false;
 
 	matrix[COLLIDER_POWERUP][COLLIDER_BOMB] = false;
 	matrix[COLLIDER_POWERUP][COLLIDER_EXTRA] = false;
@@ -117,6 +119,8 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_POWERUP][COLLIDER_WALL] = true;
 	matrix[COLLIDER_POWERUP][COLLIDER_NONE] = false;
 	matrix[COLLIDER_POWERUP][COLLIDER_BOMB] = false;
+	matrix[COLLIDER_POWERUP][COLLIDER_POWERUP] = false;
+	matrix[COLLIDER_POWERUP][COLLIDER_CASK] = false;
 }
 
 // Destructor
@@ -219,6 +223,12 @@ void ModuleCollision::DebugDraw()
 			break;
 		case COLLIDER_CASK: // white
 			App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
+			break;
+		case COLLIDER_POWERUP: // magenta
+			App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha);
+			break;
+		case COLLIDER_POINT: // magenta
+			App->render->DrawQuad(colliders[i]->rect, 125, 255, 255, alpha);
 			break;
 
 		}

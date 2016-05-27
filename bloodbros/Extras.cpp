@@ -288,9 +288,6 @@ void ModuleExtra::OnCollision(Collider* c1, Collider* c2)
 		}
 		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->type == CASK){
 			App->render->Blit(graphics, active[i]->position.x, active[i]->position.y, &active[i]->hit.frames[0]);
-
 		}
-
-		
 	}
 }

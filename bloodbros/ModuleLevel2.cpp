@@ -69,6 +69,7 @@ bool ModuleLevel2::Start()
 	App->building->AddBuilding(App->building->yellow, 160, 30);
 	App->building->AddBuilding(App->building->purple, 0, 53);
 	App->building->AddBuilding(App->building->mill, 30, 74);
+	App->building->AddBuilding(App->building->rock, 154, 150);
 	App->ui->Enable();
 
 	return ret;

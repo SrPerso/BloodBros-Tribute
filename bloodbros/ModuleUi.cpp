@@ -67,10 +67,10 @@ update_status ModuleUI::Update()
 	
 	
 	App->render->Blit(UserInterface, -1, -1, &(oneup.GetCurrentFrame()), 0.0);
-	App->render->Blit(UserInterface, 90, -1, &(top.GetCurrentFrame()), 0.0);
+	App->render->Blit(UserInterface, 88, -1, &(top.GetCurrentFrame()), 0.0);
 
 	sprintf_s(score_text, 10, "%7d", top_score);
-	App->font->Blit(112, 0, font_score, score_text);
+	App->font->Blit(108, 0, font_score, score_text);
 
 	sprintf_s(coins_text, 10, "%7d", coins);
 	App->font->Blit(136, 216, font_score, coins_text);
