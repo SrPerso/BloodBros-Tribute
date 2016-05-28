@@ -60,6 +60,7 @@ update_status ModuleUI::Update()
 {
 
 	if (App->input->keyboard[SDL_SCANCODE_5] == KEY_STATE::KEY_DOWN){
+		App->audio->Loadfx("Music/insertcoin.ogg");
 		coins++;
 	}
 	if (App->player->score > top_score){

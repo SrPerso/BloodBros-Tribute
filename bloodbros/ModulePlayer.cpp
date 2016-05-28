@@ -522,8 +522,8 @@ update_status ModulePlayer::Update()
 		if (current_animation->Finished() == true){
 			current_animation->Reset();
 			current_animation->loops = 0;
-			status = NORMAL;
 			App->fade->FadeToBlack(App->level2, App->victoryscreen, 2);
+			status = NORMAL;
 			break;
 		}
 	}break;
@@ -632,7 +632,7 @@ update_status ModulePlayer::Update()
 }
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	
+	App->audio->Loadfx("Music/playerhit.ogg");
 	hp--;
 	dead.loops = 0;
 	current_animation->Reset();

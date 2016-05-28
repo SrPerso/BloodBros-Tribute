@@ -7,6 +7,7 @@
 #include "Application.h"
 #include "ModulePlayer.h"
 #include "ModuleScope.h"
+#include "Audio.h"
 
 #include "SDL/include/SDL_timer.h"
 
@@ -383,6 +384,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2){
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
 		Particle* p = active[i];
+		uint j = 0;
 		if (active[i] != nullptr && active[i]->collider== c1 && active[i]->collider->type==COLLIDER_BOMB && c2->type==COLLIDER_WALL){
 			active[i]->anim.Reset();
 			App->particles->AddParticle(App->particles->Hitbomb, active[i]->position.x, active[i]->position.y-45, 0.0f, +0.0f, COLLIDER_ENEMY, 0);
@@ -391,6 +393,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2){
 			break;
 		}
 		else if (active[i] != nullptr && active[i]->collider == c1 && active[i]->collider->type == COLLIDER_POINT && c2->type == COLLIDER_PLAYER){
+			App->audio->Loadfx("Music/powerup.ogg");
 			App->player->score += active[i]->points;
 			delete p;
 			active[i] = nullptr;
@@ -401,6 +404,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2){
 			break;
 		}
 		else if (active[i] != nullptr && active[i]->collider == c1 && active[i]->collider->type == COLLIDER_POWERUP && c2->type == COLLIDER_PLAYER){
+			App->audio->Loadfx("Music/powerup.ogg");
 			if (active[i]->type == SHOTGUN){
 				App->scope->shotgun = true;
 			}

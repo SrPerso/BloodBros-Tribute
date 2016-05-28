@@ -47,7 +47,7 @@ bool ModuleLevel2::Start()
 	greencowboymedium = true;
 	graphics = App->textures->Load("Images/level2.png");
 	timestart = SDL_GetTicks();
-	App->input->Enable();
+	
 	App->audio->Enable();
 	App->audio->Load("Music/level.ogg");
 	App->particles->Enable();
@@ -71,7 +71,7 @@ bool ModuleLevel2::Start()
 	App->building->AddBuilding(App->building->mill, 30, 74);
 	App->building->AddBuilding(App->building->rock, 154, 150);
 	App->ui->Enable();
-
+	App->input->Enable();
 	return ret;
 }
 

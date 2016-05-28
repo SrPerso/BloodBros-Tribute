@@ -202,10 +202,10 @@ void ModuleExtra::AddExtra(const Extra& particle, int x, int y, Uint32 delay)
 		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, 97, 40}, COLLIDER_EXTRA, this);
 	}
 	if (p->type == GUITAR){
-		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, 31, 25 }, COLLIDER_NONE, this);
+		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, 31, 25 }, COLLIDER_EXTRA, this);
 	}
 	if (p->type == WOMEN){
-		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, 31, 25 }, COLLIDER_NONE, this);
+		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, 31, 25 }, COLLIDER_EXTRA, this);
 	}
 	if (p->type == CASK){
 		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, 48, 48 }, COLLIDER_CASK, this);
@@ -279,6 +279,11 @@ void ModuleExtra::OnCollision(Collider* c1, Collider* c2)
 		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->type == BLACKPIG){
 			App->audio->Loadfx("Music/pig.ogg");
 			active[i]->speed.x--;
+			App->particles->AddParticle(App->particles->shotgun, active[i]->position.x, active[i]->position.y, 0.0f, 1.3f, COLLIDER_POWERUP, 0);
+			break;
+		}
+		if ((active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->type == WOMEN) || (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->type == GUITAR)){
+			App->audio->Loadfx("Music/civilsound.ogg");
 			App->particles->AddParticle(App->particles->shotgun, active[i]->position.x, active[i]->position.y, 0.0f, 1.3f, COLLIDER_POWERUP, 0);
 			break;
 		}
