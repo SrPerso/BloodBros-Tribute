@@ -391,6 +391,13 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2){
 			delete p;
 			active[i] = nullptr;
 			break;
+			if ((active[i] != nullptr && active[i]->collider == c1 && active[i]->type==TNT && c2->type == COLLIDER_ENEMY) || (active[i] != nullptr && active[i]->collider == c1 && active[i]->type == TNT && c2->type == COLLIDER_EXTRA)){
+				active[i]->anim.Reset();
+				App->particles->AddParticle(App->particles->Hitbomb, active[i]->position.x, active[i]->position.y - 45, 0.0f, +0.0f, COLLIDER_TNT, 0);
+				delete p;
+				active[i] = nullptr;
+				break;
+			}
 		}
 		else if (active[i] != nullptr && active[i]->collider == c1 && active[i]->collider->type == COLLIDER_POINT && c2->type == COLLIDER_PLAYER){
 			App->audio->Loadfx("Music/powerup.ogg");
@@ -420,7 +427,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2){
 			break;
 		}
 		// Always destroy particles that collide
-		else if (active[i] != nullptr && active[i]->collider == c1 && active[i]->type!=planebomb)
+		else if ((active[i] != nullptr && active[i]->collider == c1 && active[i]->type != planebomb) || (active[i] != nullptr && active[i]->collider == c1 && active[i]->type != TNT))
 		{
 			//AddParticle(explosion, active[i]->position.x, active[i]->position.y);
 			delete p;
@@ -466,9 +473,15 @@ bool Particle::Update()
 	position.x += speed.x;
 	position.y += speed.y;
 
-	if (type == ORANGE && position.y==25){
-		speed.y = 1;
-		speed.x = 0.5;
+	if (type == ORANGE ){
+		speed.y += 0.1;
+	}
+	if (type == TNT){
+		speed.y += 0.1;
+	}
+
+	if (type == TNT && anim.Finished() == true){
+		App->particles->AddParticle(App->particles->Hitbomb, position.x, position.y-58, COLLIDER_TNT, 0);
 	}
 
 	if ((collider != nullptr && collider->type==COLLIDER_POWERUP) || (collider!=nullptr && collider->type==COLLIDER_POINT))

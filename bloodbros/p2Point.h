@@ -130,7 +130,7 @@ public:
 	p2Point<float> GetSpeed(const p2Point& dst)const{
 		p2Point<float>  speed;
 		speed.x = (+dst.x - x) / 100;
-		speed.y = (-100 + dst.y - y) / 100;
+		speed.y = (-400 + dst.y - y) / 100;
 		return speed;
 	}
 };

@@ -428,7 +428,7 @@ bool Building::Update()
 }
 void ModuleBuilding::OnCollision(Collider* c1, Collider* c2)
 {
-	if (App->player->hit == true){
+	if (App->player->hit == true ){
 		App->player->hit = false;
 		for (uint i = 0; i < MAX_BUILDINGS; ++i){
 			if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->mytype == TREES){
