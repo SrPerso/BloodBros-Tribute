@@ -45,9 +45,9 @@ void PurplePlane::Move()
 		App->particles->AddParticle(App->particles->gunflare, position.x, position.y);
 		//if (App->particles->gunflare.anim.Finished()){
 		App->audio->Loadfx("Music/planebomb.ogg");
-		App->particles->AddParticle(App->particles->Planebomb, position.x+50, position.y+46, 0.0f, +1.3f, COLLIDER_BOMB, 0);
-		App->particles->AddParticle(App->particles->Planebomb, position.x + 12, position.y + 46, -0.15f, +1.3f, COLLIDER_BOMB, 0);
-		App->particles->AddParticle(App->particles->Planebomb, position.x + 88, position.y + 46, 0.15f, +1.3f, COLLIDER_BOMB, 0);
+		App->particles->AddParticle(App->particles->Planebomb, position.x+50, position.y+46, 0.0f, +1.7f, COLLIDER_BOMB, 0);
+		App->particles->AddParticle(App->particles->Planebomb, position.x + 12, position.y + 46, -0.15f, +1.7f, COLLIDER_BOMB, 0);
+		App->particles->AddParticle(App->particles->Planebomb, position.x + 88, position.y + 46, 0.15f, +1.7f, COLLIDER_BOMB, 0);
 
 		//}
 	}

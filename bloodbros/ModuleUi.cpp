@@ -11,6 +11,7 @@
 #include "ModulePlayer.h"
 #include "ModuleVictory.h"
 #include "ModuleText.h"
+#include "ModuleLevel2.h"
 #include <stdio.h>
 
 ModuleUI::ModuleUI()
@@ -82,9 +83,16 @@ update_status ModuleUI::Update()
 	if (coins == 0){
 		App->render->Blit(UserInterface, 165, 214, &(insert_coins.GetCurrentFrame()), 0.0);
 	}
+	if (App->level2->IsEnabled() == true && stagedisplay==false){
+		timestart = SDL_GetTicks() + 4000;
+		stagedisplay = true;
+		
+	}
+	if (timestart > SDL_GetTicks()){
+		App->render->Blit(UserInterface, 90, 15, &(stage.GetCurrentFrame()), 0.0);
+	}
 	if (App->player->IsEnabled() == true){
 		App->render->Blit(UserInterface, 30, 207, &(foe.GetCurrentFrame()), 0.0);
-		App->render->Blit(UserInterface, 90, 15, &(stage.GetCurrentFrame()), 0.0);
 		App->render->Blit(UserInterface, 0, 185, &(dynamite_image.GetCurrentFrame()), 0.0);
 		if (App->player->hp == 3){
 			App->render->Blit(UserInterface, 9, 209, &(ball.GetCurrentFrame()), 0.0);
@@ -111,6 +119,7 @@ void ModuleUI::UpdateScore(){
 				scorelist[j] = scorelist[j-1];
 			}
 			scorelist[i] = App->player->score;
+			stagedisplay = false;
 			return;
 		}
 	}

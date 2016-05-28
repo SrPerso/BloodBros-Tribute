@@ -25,6 +25,8 @@ public:
 
 	SDL_Texture* UserInterface = nullptr;
 	
+	uint stagestart=0;
+	bool stagedisplay = false;
 	Animation insert_coins;//
 	Animation life_ball;
 	Animation stage;

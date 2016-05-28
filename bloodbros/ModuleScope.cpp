@@ -72,7 +72,7 @@ update_status ModuleScope::Update()
 	float speed = 3.5;
 	if ((App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT && App->player->status == NORMAL) || (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT && App->player->status == CROUCH)){
 		if (SDL_GetTicks() > time){
-			time = SDL_GetTicks() +400;
+			time = SDL_GetTicks() +300;
 			shot->type = COLLIDER_PLAYER_SHOT;
 			App->audio->Loadfx("Music/shot.ogg");
 		}

@@ -13,6 +13,7 @@ enum type{
 	NORMAL,
 	ROLL,
 	CROUCH,
+	CROUCHROLL,
 	DEAD,
 	WIN,
 };
@@ -71,6 +72,8 @@ public:
 	Animation crouchlookingright;
 	Animation crouchlookingfarright;
 	Animation crouchlookingveryfarright;
+	Animation crouchjumpleft;
+	Animation crouchjumpright;
 
 	Animation lookingleft;
 	Animation lookingfarleft;

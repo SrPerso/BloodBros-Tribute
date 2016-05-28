@@ -127,17 +127,17 @@ ModulePlayer::ModulePlayer()
 	shotidle.PushBack({ 150, 84, 46, 72 }); 
 	shotidle.PushBack({ 150, 12, 46, 72 });
 	shotidle.PushBack({ 150, 156, 46, 72 }); 
-	shotidle.speed = 0.1f;
+	shotidle.speed = 0.12f;
 
 
-	shotidle.speed = 0.1f;
+	shotidle.speed = 0.12f;
 	//aiming left
 
 	shotleft.PushBack({ 12, 84, 46, 72 });
 	shotleft.PushBack({ 12, 12, 46, 72 });
 	shotleft.PushBack({ 12, 156, 46, 72 });
 	shotleft.PushBack({ 12, 12, 46, 72 });
-	shotleft.speed = 0.1f;
+	shotleft.speed = 0.12f;
 
 	//aiming left top
 
@@ -145,28 +145,28 @@ ModulePlayer::ModulePlayer()
 	shotleftop.PushBack({ 58, 12, 46, 72 });
 	shotleftop.PushBack({ 58, 156, 46, 72 });
 	shotleftop.PushBack({ 58, 12, 46, 72 });
-	shotleftop.speed = 0.1f;
+	shotleftop.speed = 0.12f;
 	//aiming top left
 
 	shotopleft.PushBack({ 104, 84, 46, 72 });
 	shotopleft.PushBack({ 104, 12, 46, 72 });
 	shotopleft.PushBack({ 104, 156, 46, 72 });
 	shotopleft.PushBack({ 104, 12, 46, 72 });
-	shotopleft.speed = 0.1f;
+	shotopleft.speed = 0.12f;
 	//aiming top
 
 	shotop.PushBack({ 150, 84, 46, 72 });
 	shotop.PushBack({ 150, 12, 46, 72 });
 	shotop.PushBack({ 150, 156, 46, 72 });
 	shotop.PushBack({ 150, 12, 46, 72 });
-	shotop.speed = 0.1f;
+	shotop.speed = 0.12f;
 	//aiming right
 
 	shotright.PushBack({ 288, 84, 46, 72 });
 	shotright.PushBack({ 288, 12, 46, 72 });
 	shotright.PushBack({ 288, 156, 46, 72 });
 	shotright.PushBack({ 288, 12, 46, 72 });
-	shotright.speed = 0.1f;
+	shotright.speed = 0.12f;
 
 
 	//aiming right top
@@ -175,7 +175,7 @@ ModulePlayer::ModulePlayer()
 	shotrighttop.PushBack({ 242, 12, 46, 72 });
 	shotrighttop.PushBack({ 242, 156, 46, 72 });
 	shotrighttop.PushBack({ 242, 12, 46, 72 });
-	shotrighttop.speed = 0.1f;
+	shotrighttop.speed = 0.12f;
 	
 	//aiming top right
 
@@ -183,7 +183,7 @@ ModulePlayer::ModulePlayer()
 	shotopright.PushBack({ 196, 12, 46, 72 });
 	shotopright.PushBack({ 196, 156, 46, 72 });
 	shotopright.PushBack({ 196, 12, 46, 72 });
-	shotopright.speed = 0.1f;
+	shotopright.speed = 0.12f;
 
 	//looking left
 	lookingleft.PushBack({ 104, 12, 46, 72 });
@@ -224,43 +224,61 @@ ModulePlayer::ModulePlayer()
 	crouchshotidle.PushBack({ 150, 300, 46, 72 });
 	crouchshotidle.PushBack({ 150, 228, 46, 72 });
 	crouchshotidle.PushBack({ 150, 372, 46, 72 });
-	crouchshotidle.speed = 0.1f;
+	crouchshotidle.speed = 0.12f;
 
 	crouchshotrighttop.PushBack({ 288, 228, 46, 72 });
 	crouchshotrighttop.PushBack({ 288, 300, 46, 72 });
 	crouchshotrighttop.PushBack({ 288, 228, 46, 72 });
 	crouchshotrighttop.PushBack({ 288, 372, 46, 72 });
-	crouchshotrighttop.speed = 0.1f;
+	crouchshotrighttop.speed = 0.12f;
 
 	crouchshotopright.PushBack({ 242, 228, 46, 72 });
 	crouchshotopright.PushBack({ 242, 300, 46, 72 });
 	crouchshotopright.PushBack({ 242, 228, 46, 72 });
 	crouchshotopright.PushBack({ 242, 372, 46, 72 });
-	crouchshotopright.speed = 0.1f;
+	crouchshotopright.speed = 0.12f;
 
 	crouchshotright.PushBack({ 196, 228, 46, 72 });
 	crouchshotright.PushBack({ 196, 300, 46, 72 });
 	crouchshotright.PushBack({ 196, 228, 46, 72 });
 	crouchshotright.PushBack({ 196, 372, 46, 72 });
-	crouchshotright.speed = 0.1f;
+	crouchshotright.speed = 0.12f;
 
 	crouchshotlefttop.PushBack({ 12, 228, 46, 72 });
 	crouchshotlefttop.PushBack({ 12, 300, 46, 72 });
 	crouchshotlefttop.PushBack({ 12, 228, 46, 72 });
 	crouchshotlefttop.PushBack({ 12, 372, 46, 72 });
-	crouchshotlefttop.speed = 0.1f;
+	crouchshotlefttop.speed = 0.12f;
 
 	crouchshottopleft.PushBack({ 58, 228, 46, 72 });
 	crouchshottopleft.PushBack({ 58, 300, 46, 72 });
 	crouchshottopleft.PushBack({ 58, 228, 46, 72 });
 	crouchshottopleft.PushBack({ 58, 372, 46, 72 });
-	crouchshottopleft.speed = 0.1f;
+	crouchshottopleft.speed = 0.12f;
 
 	crouchshotleft.PushBack({ 104, 228, 46, 72 });
 	crouchshotleft.PushBack({ 104, 300, 46, 72 });
 	crouchshotleft.PushBack({ 104, 228, 46, 72 });
 	crouchshotleft.PushBack({ 104, 372, 46, 72 });
-	crouchshotleft.speed = 0.1f;
+	crouchshotleft.speed = 0.12f;
+
+	crouchjumpleft.PushBack({ 334, 228, 92, 72 });
+	crouchjumpleft.PushBack({ 334, 228, 92, 72 });
+	crouchjumpleft.PushBack({ 334, 228, 92, 72 });
+	crouchjumpleft.PushBack({ 426, 228, 92, 72 });
+	crouchjumpleft.PushBack({ 426, 228, 92, 72 });
+	crouchjumpleft.PushBack({ 610, 228, 92, 72 });
+	crouchjumpleft.loop = false;
+	crouchjumpleft.speed = 0.20f;
+
+	crouchjumpright.PushBack({ 334, 84, 92, 72 });
+	crouchjumpright.PushBack({ 334, 84, 92, 72 });
+	crouchjumpright.PushBack({ 334, 84, 92, 72 });
+	crouchjumpright.PushBack({ 426, 84, 92, 72 });
+	crouchjumpright.PushBack({ 426, 84, 92, 72 });
+	crouchjumpright.PushBack({ 610, 84, 92, 72 });
+	crouchjumpright.loop = false;
+	crouchjumpright.speed = 0.20f;
 
 	//looking while crouching
 	crouchlookingleft.PushBack({ 104, 228, 46, 72 });
@@ -317,7 +335,7 @@ update_status ModulePlayer::Update()
 		}
 		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
 		{
-			if (position.x >= 220){
+			if (position.x >= 200){
 				speed = 0;
 			}
 			position.x += speed;
@@ -477,7 +495,7 @@ update_status ModulePlayer::Update()
 	{
 		player->type = COLLIDER_NONE;
 		if (current_animation == &jump_right){
-			if (position.x >= 220){
+			if (position.x >= 180){
 				speed = 0;
 			}
 			else
@@ -485,7 +503,13 @@ update_status ModulePlayer::Update()
 				position.x += speed;
 			}
 			if (current_animation->Finished() == true){
-				status = NORMAL;
+				if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT){
+					current_animation = &crouch;
+					status = CROUCH;
+				}
+				else{
+					status = NORMAL;
+				}
 				break;
 			}
 		}
@@ -498,12 +522,59 @@ update_status ModulePlayer::Update()
 				position.x -= speed;
 			}
 			if (current_animation->Finished() == true){
-				status = NORMAL;
+				if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT){
+					current_animation = &crouch;
+					status = CROUCH;
+				}
+				else{
+					status = NORMAL;
+				}
 				break;
 			}
 		}
 	} break;
-
+	case CROUCHROLL:
+	{
+		player->type = COLLIDER_NONE;
+		if (current_animation == &crouchjumpright){
+			if (position.x >= 180){
+				speed = 0;
+			}
+			else
+			{
+				position.x += speed;
+			}
+			if (current_animation->Finished() == true){
+				if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT){
+					current_animation = &crouch;
+					status = CROUCH;
+				}
+				else{
+					status = NORMAL;
+				}
+				break;
+			}
+		}
+		if (current_animation == &crouchjumpleft){
+			if (position.x <= 0){
+				speed = 0;
+			}
+			else
+			{
+				position.x -= speed;
+			}
+			if (current_animation->Finished() == true){
+				if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT){
+					current_animation = &crouch;
+					status = CROUCH;
+				}
+				else{
+					status = NORMAL;
+				}
+				break;
+			}
+		}
+	} break;
 	case DEAD:
 	{
 		player->type = COLLIDER_NONE;
@@ -571,27 +642,64 @@ update_status ModulePlayer::Update()
 				}
 				else if ((position.x - App->scope->position.x) > 10 && (position.x - App->scope->position.x) <= 38.6f){
 					current_animation = &crouchlookingleft;
+					if (App->input->keyboard[SDL_SCANCODE_LALT] == KEY_STATE::KEY_DOWN){
+						crouchjumpleft.loops = 0;
+						crouchjumpleft.Reset();
+						current_animation = &crouchjumpleft;
+						status = CROUCHROLL;
+					}
 				}
 				else if ((position.x - App->scope->position.x) > 38.6f && (position.x - App->scope->position.x) <= 77.3f){
 					current_animation = &crouchlookingfarleft;
+					if (App->input->keyboard[SDL_SCANCODE_LALT] == KEY_STATE::KEY_DOWN){
+						crouchjumpleft.loops = 0;
+						crouchjumpleft.Reset();
+						current_animation = &crouchjumpleft;
+						status = CROUCHROLL;
+					}
 				}
 				else if ((position.x - App->scope->position.x) > 77.3f){
 					current_animation = &crouchlookingveryfarleft;
+					if (App->input->keyboard[SDL_SCANCODE_LALT] == KEY_STATE::KEY_DOWN){
+						crouchjumpleft.loops = 0;
+						crouchjumpleft.Reset();
+						current_animation = &crouchjumpleft;
+						status = CROUCHROLL;
+					}
 
 				}
 
 				else if ((App->scope->position.x - position.x) > 10 && (App->scope->position.x - position.x) <= 38.6f){
 					current_animation = &crouchlookingright;//
+					if (App->input->keyboard[SDL_SCANCODE_LALT] == KEY_STATE::KEY_DOWN){
+						crouchjumpright.loops = 0;
+						crouchjumpright.Reset();
+						current_animation = &crouchjumpright;
+						status = CROUCHROLL;
+					}
 				}
 
 				else if ((App->scope->position.x - position.x) > 38.6f && (App->scope->position.x - position.x) <= 77.3f){
 					current_animation = &crouchlookingfarright;
+					if (App->input->keyboard[SDL_SCANCODE_LALT] == KEY_STATE::KEY_DOWN){
+						crouchjumpright.loops = 0;
+						crouchjumpright.Reset();
+						current_animation = &crouchjumpright;
+						status = CROUCHROLL;
+					}
 				}
 
 				else if ((App->scope->position.x - position.x) > 77.3f){
 					current_animation = &crouchlookingveryfarright;
+					if (App->input->keyboard[SDL_SCANCODE_LALT] == KEY_STATE::KEY_DOWN){
+						crouchjumpright.loops = 0;
+						crouchjumpright.Reset();
+						current_animation = &crouchjumpright;
+						status = CROUCHROLL;
+					}
 				}
 			}
+			
 		}
 		else{
 			status = NORMAL;

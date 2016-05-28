@@ -7,7 +7,7 @@
 #include "p2Point.h"
 #include "Enemy.h"
 
-#define MAX_EXTRAS 20
+#define MAX_EXTRAS 200
 
 enum extratype{BLACKPIG,PIG, ZEPE, WOMEN,GUITAR,CASK};
 struct SDL_Texture;
