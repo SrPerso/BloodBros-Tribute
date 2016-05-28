@@ -15,6 +15,7 @@
 #include "GreenCowBoyMedium.h"
 #include "IndianMedium.h"
 #include "GreenCowBoyLeavingTheHouse.h"
+#include "IndianLeavingTheHouse.h"
 /*#include "Enemy_RedBird.h"
 #include "Enemy_Cookie.h"
 #include "Enemy_Mech.h"*/
@@ -163,6 +164,10 @@ void ModuleEnemiesFront::SpawnEnemy(const EnemyInfo2& info)
 			case ENEMY_TYPES2::GREENLEAVINGCOWBOY:
 				enemies[i] = new GreenCowBoyLeavingTheHouse(info.x, info.y);
 				break;
+			case ENEMY_TYPES2::INDIANLEAVING:
+				enemies[i] = new IndianLeavingTheHouse(info.x, info.y);
+				break;
+
 			}
 
 		}

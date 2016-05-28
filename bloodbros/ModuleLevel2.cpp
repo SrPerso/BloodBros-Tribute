@@ -205,8 +205,8 @@ update_status ModuleLevel2::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_F4] == 1)
 	{
-		App->front->AddEnemy(ENEMY_TYPES2::GREENLEAVINGCOWBOY, 215, 90);
-		App->front->AddEnemy(ENEMY_TYPES2::GREENLEAVINGCOWBOY, 225, 90);
+		App->front->AddEnemy(ENEMY_TYPES2::INDIANLEAVING, 215, 90);
+		App->front->AddEnemy(ENEMY_TYPES2::INDIANLEAVING, 225, 90);
 	}
 
 

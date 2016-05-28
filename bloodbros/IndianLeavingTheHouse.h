@@ -1,9 +1,9 @@
-#ifndef __GREENCOWBOY_MEDIUM_H__
-#define __GREENCOWBOY_MEDIUM_H__
+#ifndef __INDIAN_LEAVING_H__
+#define __INDIAN_LEAVING_H__
 
 #include "Enemy.h"
 
-class GreenCowboyMedium : public Enemy
+class IndianLeavingTheHouse : public Enemy
 {
 private:
 	float wave = -1.0f;
@@ -14,16 +14,18 @@ private:
 	Animation fly2;
 	Animation dead;
 	Animation idle;
+	Animation appear;
+	Animation jump;
 	bool isdead = false;
 
 
 public:
 
 
-	GreenCowboyMedium(int x, int y);
+	IndianLeavingTheHouse(int x, int y);
 
 	void Move();
 	void OnCollision(Collider* c1, Collider* c2);
 };
 
-#endif // __GREENCOWBOY_MEDIUM_H__
+#endif // __INDIAN_LEAVING_H__
