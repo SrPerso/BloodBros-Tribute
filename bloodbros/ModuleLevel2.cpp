@@ -16,6 +16,8 @@
 #include "ModuleBuildings.h"
 #include "ModuleUi.h"
 #include "ModuleEnemiesFront.h"
+#include "ModuleBuildings2.h"
+#include "ModuleEnemiesMid.h"
 
 // Reference at https://youtu.be/6OlenbCC4WI?t=382
 
@@ -55,6 +57,8 @@ bool ModuleLevel2::Start()
 	App->front->Enable();
 	
 	App->building->Enable();
+	App->building2->Enable();
+
 	App->enemies->Enable();
 	App->collision->Enable();
 	App->extra->Enable();
@@ -68,8 +72,11 @@ bool ModuleLevel2::Start()
 	App->building->AddBuilding(App->building->trees, 230, 30);
 	App->building->AddBuilding(App->building->yellow, 160, 30);
 	App->building->AddBuilding(App->building->purple, 0, 53);
-	App->building->AddBuilding(App->building->mill, 30, 74);
+
+	App->building2->AddBuilding2(App->building2->mill, 30, 74);
+
 	App->building->AddBuilding(App->building->rock, 154, 150);
+
 	App->ui->Enable();
 	App->input->Enable();
 	return ret;
@@ -86,6 +93,7 @@ bool ModuleLevel2::CleanUp()
 	App->enemies->Disable();
 	App->front->Disable();
 	App->building->Disable();
+	App->building2->Disable();
 	App->collision->Disable();
 	App->particles->Disable();
 	App->extra->Disable();
@@ -99,6 +107,27 @@ update_status ModuleLevel2::Update()
 
 	App->render->Blit(graphics, 0, 0, &background, 0); // level 2
 	App->ui->Update();
+
+
+	if (SDL_GetTicks() >= timestart + 3000 && ole1 == true){
+
+		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, 0, 80);
+		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, -15, 80);
+		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, -30, 80);
+		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, -45, 80);
+		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, -60, 80);
+
+		ole1 = false;
+	}
+	if (SDL_GetTicks() >= timestart + 3300 && ole2 == true){
+	
+	App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 58, 80);		
+
+		ole2 = false;
+	}
+
+	/*
+
 	if (SDL_GetTicks() >= timestart+10000 && extra == true){
 		App->extra->AddExtra(App->extra->pig, 0, 140);
 		App->extra->AddExtra(App->extra->blackpig, 224, 140);
@@ -108,7 +137,7 @@ update_status ModuleLevel2::Update()
 	if (SDL_GetTicks() >= timestart + 5000 && plane == true){
 		App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 70,-20);
 		
-		App->extra->AddExtra(App->extra->cask, 0, 160);
+		App->extra->AddExtra(App->extra->cask, 0, 130);
 		plane = false;
 	}
 	if (SDL_GetTicks() >=  timestart + 6000 && greencowboy == true && App->building->purplealive==true){
@@ -130,9 +159,9 @@ update_status ModuleLevel2::Update()
 
 	else if (SDL_GetTicks() >= timestart + 6000 && jumper == true && App->building->windmillalive == true){
 		App->front->AddEnemy(ENEMY_TYPES2::JUMPER, 20, 100);
-		App->front->AddEnemy(ENEMY_TYPES2::JUMPER, 35, 100);
+		App->front->AddEnemy(ENEMY_TYPES2::JUMPERSHOOT, 35, 100);
 		App->front->AddEnemy(ENEMY_TYPES2::JUMPER, 50, 100);
-		App->front->AddEnemy(ENEMY_TYPES2::JUMPER, 65, 100);
+		App->front->AddEnemy(ENEMY_TYPES2::JUMPERSHOOT, 65, 100);
 		jumper = false;
 	}
 
@@ -182,7 +211,7 @@ update_status ModuleLevel2::Update()
 		green2 = false;
 	}
 	
-
+	*/
 
 	if (App->player->hp <= 0){
 		App->fade->FadeToBlack(App->level2, App->victoryscreen, 2);
@@ -192,6 +221,7 @@ update_status ModuleLevel2::Update()
 		App->player->status = WIN;
 		App->audio->Load("Music/victory.ogg");
 		App->enemies->hits = 0;
+	
 	}
 
 

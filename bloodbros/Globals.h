@@ -31,4 +31,5 @@ typedef unsigned int uint;
 #define REN_VSYNC 1
 #define TILE 9
 
+#define MAX_BUILDINGS 50
 #endif // __GLOBALS_H__

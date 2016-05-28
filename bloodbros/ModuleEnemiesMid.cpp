@@ -1,29 +1,23 @@
 #include "Application.h"
 #include "ModuleInput.h"
 #include "ModuleRender.h"
-#include "ModuleEnemiesFront.h"
+#include "ModuleEnemiesMid.h"
 #include "ModuleParticles.h"
 #include "ModuleTextures.h"
 #include "Enemy.h"
-#include "Charriot.h"
-#include "GreenCowBoy.h"
-#include "PurplePlane.h"
-#include "BlueCowBoy.h"
-#include "GreenRight.h"
+
 #include "ModulePlayer.h"
-#include "Jumper.h"
+
 #include "GreenCowBoyMedium.h"
 #include "IndianMedium.h"
-#include "GreenCowBoyLeavingTheHouse.h"
-#include "IndianLeavingTheHouse.h"
-#include "Jumpershoot.h"
+
 /*#include "Enemy_RedBird.h"
 #include "Enemy_Cookie.h"
 #include "Enemy_Mech.h"*/
 
 #define SPAWN_MARGIN 50
 
-ModuleEnemiesFront::ModuleEnemiesFront()
+ModuleEnemiesMid::ModuleEnemiesMid()
 {
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		enemies[i] = nullptr;
@@ -31,11 +25,11 @@ ModuleEnemiesFront::ModuleEnemiesFront()
 }
 
 // Destructor
-ModuleEnemiesFront::~ModuleEnemiesFront()
+ModuleEnemiesMid::~ModuleEnemiesMid()
 {
 }
 
-bool ModuleEnemiesFront::Start()
+bool ModuleEnemiesMid::Start()
 {
 
 	sprites = App->textures->Load("Images/Enemies.png");
@@ -45,17 +39,17 @@ bool ModuleEnemiesFront::Start()
 	return true;
 }
 
-update_status ModuleEnemiesFront::PreUpdate()
+update_status ModuleEnemiesMid::PreUpdate()
 {
 	// check camera position to decide what to spawn
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
-		if (queue[i].type != ENEMY_TYPES2::NO_TYPE2)
+		if (queue[i].type != ENEMY_TYPES3::NO_TYPE3)
 		{
 			if (queue[i].x * SCREEN_SIZE < App->render->camera.x + (App->render->camera.w * SCREEN_SIZE) + SPAWN_MARGIN)
 			{
 				SpawnEnemy(queue[i]);
-				queue[i].type = ENEMY_TYPES2::NO_TYPE2;
+				queue[i].type = ENEMY_TYPES3::NO_TYPE3;
 				LOG("Spawning enemy at %d", queue[i].x * SCREEN_SIZE);
 			}
 		}
@@ -74,7 +68,7 @@ update_status ModuleEnemiesFront::PreUpdate()
 }
 
 // Called before render is available
-update_status ModuleEnemiesFront::Update()
+update_status ModuleEnemiesMid::Update()
 {
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		if (enemies[i] != nullptr) enemies[i]->Move();
@@ -85,27 +79,15 @@ update_status ModuleEnemiesFront::Update()
 	return UPDATE_CONTINUE;
 }
 
-update_status ModuleEnemiesFront::PostUpdate()
+update_status ModuleEnemiesMid::PostUpdate()
 {
-	// check camera position to decide what to spawn
-	/*for (uint i = 0; i < MAX_ENEMIES; ++i)
-	{
-	if (enemies[i] != nullptr)
-	{
-	if (enemies[i]->position.x * SCREEN_SIZE < (App->render->camera.x) - SPAWN_MARGIN)
-	{
-	LOG("DeSpawning enemy at %d", enemies[i]->position.x * SCREEN_SIZE);
-	delete enemies[i];
-	enemies[i] = nullptr;
-	}
-	}
-	}*/
+
 
 	return UPDATE_CONTINUE;
 }
 
 // Called before quitting
-bool ModuleEnemiesFront::CleanUp()
+bool ModuleEnemiesMid::CleanUp()
 {
 	LOG("Freeing all enemies");
 
@@ -124,13 +106,13 @@ bool ModuleEnemiesFront::CleanUp()
 	return true;
 }
 
-bool ModuleEnemiesFront::AddEnemy(ENEMY_TYPES2 type, int x, int y)
+bool ModuleEnemiesMid::AddEnemy(ENEMY_TYPES3 type, int x, int y)
 {
 	bool ret = false;
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
-		if (queue[i].type == ENEMY_TYPES2::NO_TYPE2)
+		if (queue[i].type == ENEMY_TYPES3::NO_TYPE3)
 		{
 			queue[i].type = type;
 			queue[i].x = x;
@@ -143,7 +125,7 @@ bool ModuleEnemiesFront::AddEnemy(ENEMY_TYPES2 type, int x, int y)
 	return ret;
 }
 
-void ModuleEnemiesFront::SpawnEnemy(const EnemyInfo2& info)
+void ModuleEnemiesMid::SpawnEnemy(const EnemyInfo3& info)
 {
 
 	uint i = 0;
@@ -153,19 +135,14 @@ void ModuleEnemiesFront::SpawnEnemy(const EnemyInfo2& info)
 		{
 			switch (info.type)
 			{
-			case ENEMY_TYPES2::JUMPER:
-				enemies[i] = new Jumper(info.x, info.y);
-				break;
-			case ENEMY_TYPES2::JUMPERSHOOT:
-				enemies[i] = new Jumpershoot(info.x, info.y);
-				break;
-			case ENEMY_TYPES2::GREENLEAVINGCOWBOY:
-				enemies[i] = new GreenCowBoyLeavingTheHouse(info.x, info.y);
-				break;
-			case ENEMY_TYPES2::INDIANLEAVING:
-				enemies[i] = new IndianLeavingTheHouse(info.x, info.y);
-				break;
 
+			case ENEMY_TYPES3::GREENCOWBOYMEDIUM:
+				enemies[i] = new GreenCowboyMedium(info.x, info.y);
+				break;
+			case ENEMY_TYPES3::INDIANMEDIUM:
+				enemies[i] = new IndianMedium(info.x, info.y);
+				break;
+		
 			}
 
 		}
@@ -175,7 +152,7 @@ void ModuleEnemiesFront::SpawnEnemy(const EnemyInfo2& info)
 
 
 
-void ModuleEnemiesFront::OnCollision(Collider* c1, Collider* c2)
+void ModuleEnemiesMid::OnCollision(Collider* c1, Collider* c2)
 {
 	if (App->player->hit == true){
 		App->player->hit = false;

@@ -16,6 +16,13 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp();
+
+
+	bool ole1 = true;
+	bool ole2 = true;
+	bool ole3 = true;
+	bool ole4 = true;
+
 	bool extra = true;
 	bool plane = true;
 	bool greencowboy = true;
@@ -24,6 +31,8 @@ public:
 	bool green2 = true;
 	bool plane2 = true;
 	bool jumper = true;
+	
+
 	bool greencowboymedium = true;
 	bool IndianMedium = true;
 	bool GreenCowBoyLeavingTheHouse = true;

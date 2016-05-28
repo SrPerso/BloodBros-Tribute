@@ -1,16 +1,16 @@
-#ifndef __MODULEBUILDING_H__
-#define __MODULEBUILDING_H__
+#ifndef __MODULEBUILDING2_H__
+#define __MODULEBUILDING2_H__
 
 #include "Module.h"
 #include "Animation.h"
 #include "Globals.h"
 #include "p2Point.h"
 
-enum buildingtype{ YELLOW, PURPLE, WINDMILL, WHEEL, TREES, ROCK};
+enum buildingtype2{ YELLOW2, PURPLE2, WINDMILL2, WHEEL2, TREES2, ROCK2 };
 
 struct SDL_Texture;
 
-struct Building
+struct Building2
 {
 	SDL_Rect build;
 	Animation movement;
@@ -19,49 +19,50 @@ struct Building
 	fPoint position;
 	bool fx_played = false;
 	Collider* collider = nullptr;
-	buildingtype mytype;
+	buildingtype2 mytype;
 	uint hits = 0;
-	Building();
-	Building(const Building& p);
-	~Building();
+	Building2();
+	Building2(const Building2& p);
+	~Building2();
 	bool Update();
 	const Collider* get_collider()const;
 };
 
 
-class ModuleBuilding: public Module
+class ModuleBuilding2 : public Module
 {
 public:
-	ModuleBuilding();
-	~ModuleBuilding();
+	ModuleBuilding2();
+	~ModuleBuilding2();
 
 	bool Start();
 	update_status Update();
 	bool CleanUp();
 	void OnCollision(Collider* c1, Collider* c2);
-	void AddBuilding(const Building& particle, int x, int y);
+	void AddBuilding2(const Building2& particle, int x, int y);
 
 
 private:
 
 	SDL_Texture* graphics = nullptr;
-	Building* active[MAX_BUILDINGS];
+	Building2* active[MAX_BUILDINGS];
 	uint last_building = 0;
 
 public:
 
 
-	Building yellow;
-	Building purple;
-	Building yellow2;
-	Building purple2;
-	Building mill;
-	Building trees;
-	Building rock;
+	Building2 yellow;
+	Building2 purple;
+	Building2 yellow2;
+	Building2 purple2;
+	Building2 mill;
+	Building2 trees;
+	Building2 rock;
+
 	bool purplealive = true;
 	bool yellowalive = true;
 	bool windmillalive = true;
 
 };
 
-#endif // __MODULEBUILDING_H__
+#endif // __MODULEBUILDING2_H__

@@ -1,12 +1,12 @@
 #include "Application.h"
-#include "Jumper.h"
+#include "Jumpershoot.h"
 #include "ModuleCollision.h"
 #include "Enemy.h"
 #include "ModuleParticles.h"
 #include <time.h>
 #include <stdlib.h>
 
-Jumper::Jumper(int x, int y) : Enemy(x, y)
+Jumpershoot::Jumpershoot(int x, int y) : Enemy(x, y)
 {
 	left.PushBack({ 528, 347, 32, 48 });// 1
 	left.PushBack({ 561, 347, 32, 48 });//2
@@ -53,18 +53,20 @@ Jumper::Jumper(int x, int y) : Enemy(x, y)
 	path.PushBack({ -1.0f, 0.0f }, 90, &left);
 
 
-	
+
 	srand(time(NULL));
 }
 
-void Jumper::Move()
+void Jumpershoot::Move()
 {
-	
+
 
 	position = original_pos + path.GetCurrentSpeed(&animation);
 	if (path.GetFrame() == 200 && isdead == false){
 
-		
+		App->particles->AddParticle(App->particles->gunflare, position.x, position.y + 10);
+		App->particles->AddParticle(App->particles->Cowboyshot, position.x, position.y + 10, COLLIDER_ENEMY, 0);
+
 		//if (App->particles->gunflare.anim.Finished()){
 		//App->particles->AddParticle(App->particles->orangebomb, position.x, position.y, -(rand() % 3), rand() % 3 + 1, COLLIDER_BOMB, 0);
 		//}
@@ -75,7 +77,7 @@ void Jumper::Move()
 	}
 
 }
-void Jumper::OnCollision(Collider* c1, Collider* c2)
+void Jumpershoot::OnCollision(Collider* c1, Collider* c2)
 {
 	path.Erase();
 	path.PushBack({ 0.0f, 0.0f }, 80, &dead);

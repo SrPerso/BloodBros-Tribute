@@ -18,6 +18,8 @@
 #include "ModuleFonts.h"
 #include "ModuleUi.h"
 #include "ModuleEnemiesFront.h"
+#include "ModuleBuildings2.h"
+#include "ModuleEnemiesMid.h"
 
 Application::Application()
 {
@@ -34,13 +36,15 @@ Application::Application()
 	modules[10] = extra = new ModuleExtra();
 	modules[11] = enemies = new ModuleEnemies();
 	modules[12] = building = new ModuleBuilding();
-	modules[13] = front = new ModuleEnemiesFront();
-	modules[14] = player = new ModulePlayer();
-	modules[15] = fade = new ModuleFadeToBlack();
-	modules[16] = particles = new ModuleParticles();
-	modules[17] = collision = new ModuleCollision();
-	modules[18] = scope = new ModuleScope();
-	modules[19] = ui = new ModuleUI();
+	modules[13] = mid = new ModuleEnemiesMid();
+	modules[14] = building2 = new ModuleBuilding2();
+	modules[15] = front = new ModuleEnemiesFront();
+	modules[16] = player = new ModulePlayer();
+	modules[17] = fade = new ModuleFadeToBlack();
+	modules[18] = particles = new ModuleParticles();
+	modules[19] = collision = new ModuleCollision();
+	modules[20] = scope = new ModuleScope();
+	modules[21] = ui = new ModuleUI();
 	
 
 
