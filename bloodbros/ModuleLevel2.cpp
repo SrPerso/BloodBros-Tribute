@@ -123,6 +123,11 @@ update_status ModuleLevel2::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 80);
 		greencowboy = false;
 	}
+
+
+
+
+
 	else if (SDL_GetTicks() >= timestart + 6000 && jumper == true && App->building->windmillalive == true){
 		App->front->AddEnemy(ENEMY_TYPES2::JUMPER, 20, 100);
 		App->front->AddEnemy(ENEMY_TYPES2::JUMPER, 35, 100);
@@ -158,9 +163,9 @@ update_status ModuleLevel2::Update()
 		App->front->AddEnemy(ENEMY_TYPES2::INDIANMEDIUM, 00, 100);
 		App->front->AddEnemy(ENEMY_TYPES2::INDIANMEDIUM, 15, 100);
 		App->front->AddEnemy(ENEMY_TYPES2::INDIANMEDIUM, 30, 100);
-		App->front->AddEnemy(ENEMY_TYPES2::INDIANMEDIUM, 45, 100);
-		
+		App->front->AddEnemy(ENEMY_TYPES2::INDIANMEDIUM, 45, 100);		
 		green2 = false;
+
 	}
 	else if (SDL_GetTicks() >= timestart + 20000 && green2 == true && App->building->purplealive == false){
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 0, 80);
@@ -188,7 +193,27 @@ update_status ModuleLevel2::Update()
 		App->audio->Load("Music/victory.ogg");
 		App->enemies->hits = 0;
 	}
-	
+
+
+
+	if (App->input->keyboard[SDL_SCANCODE_F3] == 1)
+	{
+		App->front->AddEnemy(ENEMY_TYPES2::GREENLEAVINGCOWBOY, 215, 90);
+		App->front->AddEnemy(ENEMY_TYPES2::GREENLEAVINGCOWBOY, 225, 90);
+	}
+
+
+	if (App->input->keyboard[SDL_SCANCODE_F4] == 1)
+	{
+		App->front->AddEnemy(ENEMY_TYPES2::GREENLEAVINGCOWBOY, 215, 90);
+		App->front->AddEnemy(ENEMY_TYPES2::GREENLEAVINGCOWBOY, 225, 90);
+	}
+
+
+
+
+
+
 
 	// TODO 3: make so pressing SPACE the KEN stage is loaded
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)

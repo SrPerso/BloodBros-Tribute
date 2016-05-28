@@ -12,9 +12,9 @@
 #include "GreenRight.h"
 #include "ModulePlayer.h"
 #include "Jumper.h"
-#include "GreenCawBoyMedium.h"
+#include "GreenCowBoyMedium.h"
 #include "IndianMedium.h"
-
+#include "GreenCowBoyLeavingTheHouse.h"
 /*#include "Enemy_RedBird.h"
 #include "Enemy_Cookie.h"
 #include "Enemy_Mech.h"*/
@@ -159,6 +159,9 @@ void ModuleEnemiesFront::SpawnEnemy(const EnemyInfo2& info)
 				break;
 			case ENEMY_TYPES2::INDIANMEDIUM:
 				enemies[i] = new IndianMedium(info.x, info.y);
+				break;
+			case ENEMY_TYPES2::GREENLEAVINGCOWBOY:
+				enemies[i] = new GreenCowBoyLeavingTheHouse(info.x, info.y);
 				break;
 			}
 

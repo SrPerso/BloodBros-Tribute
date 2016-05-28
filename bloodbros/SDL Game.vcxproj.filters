@@ -116,14 +116,17 @@
     <ClInclude Include="Jumper.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="GreenCawBoyMedium.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
     <ClInclude Include="IndianMedium.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="ModuleEnemiesFront.h">
       <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GreenCowBoyMedium.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="GreenCowBoyLeavingTheHouse.h">
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -214,14 +217,17 @@
     <ClCompile Include="Jumper.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="GreenCawBoyMedium.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
     <ClCompile Include="IndianMedium.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="ModuleEnemiesFront.cpp">
       <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GreenCowBoyMedium.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="GreenCowBoyLeavingTheHouse.cpp">
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
