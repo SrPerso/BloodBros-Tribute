@@ -274,6 +274,28 @@ ModuleParticles::ModuleParticles()
 	tntammo.anim.speed = 0.3f;
 	tntammo.life = 5000;
 	tntammo.type = TNTAMMO;
+
+
+	rockpieces.anim.PushBack({ 1, 343, 64, 64 });
+	rockpieces.anim.PushBack({ 66, 343, 64, 64 });
+	rockpieces.anim.PushBack({ 131, 343, 64, 64 });
+	rockpieces.anim.loop = false;
+	rockpieces.anim.speed = 0.2f;
+	rockpieces.life = 300;
+	rockpieces.type = ROCKPIECES;
+
+	bigexplosion.anim.PushBack({ 9, 207, 50, 50 });
+	bigexplosion.anim.PushBack({ 60, 207, 50, 50 });
+	bigexplosion.anim.PushBack({ 111, 207, 50, 50 });
+	bigexplosion.anim.PushBack({ 161, 207, 50, 50 });
+	bigexplosion.anim.PushBack({ 212, 207, 50, 50 });
+	bigexplosion.anim.PushBack({ 263, 207, 50, 50 });
+	bigexplosion.anim.PushBack({ 315, 207, 50, 50 });
+
+	bigexplosion.anim.loop = false;
+	bigexplosion.anim.speed = 0.1f;
+	bigexplosion.life = 400;
+	bigexplosion.type = BIGEXPLOSION;
 }
 
 ModuleParticles::~ModuleParticles()
@@ -335,14 +357,18 @@ update_status ModuleParticles::Update()
 	return UPDATE_CONTINUE;
 }
 
-void ModuleParticles::AddParticle(const Particle& particle, int x, int y, Uint32 delay)
-{
-	Particle* p = new Particle(particle);
-	p->born = SDL_GetTicks() + delay;
-	p->position.x = x;
-	p->position.y = y;
+void ModuleParticles::AddParticle(const Particle& particle, int x, int y, Uint32 delay){
 
-	active[last_particle++] = p;
+			Particle* p = new Particle(particle);
+			p->born = SDL_GetTicks() + delay;
+			p->position.x = x;
+			p->position.y = y;
+			
+			active[last_particle++] = p;
+
+
+
+	
 }
 void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay)
 {
@@ -362,6 +388,8 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLID
 }
 void ModuleParticles::AddParticle(const Particle& particle, int x, int y, float speedx, float speedy, COLLIDER_TYPE collider_type, Uint32 delay)
 {
+
+
 			Particle* p = new Particle(particle);
 			p->born = SDL_GetTicks() + delay;
 			p->position.x = x;
@@ -375,7 +403,15 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, float 
 			if ((p->collider != nullptr && p->collider->type == COLLIDER_POWERUP) || (p->collider != nullptr && p->collider->type == COLLIDER_POINT)){
 				p->collider->SetCol(p->position.x, p->position.y - 30, p->collider->rect.w, p->collider->rect.h + 20);
 			}
+
+			if ((p->collider != nullptr && p->collider->type == COLLIDER_ROCK)){
+				p->collider->SetCol(p->position.x, p->position.y, p->collider->rect.w, p->collider->rect.h);
+			}
+			if ((p->collider != nullptr && p->collider->type == COLLIDER_ENEMY)){
+				p->collider->SetCol(p->position.x, p->position.y, p->collider->rect.w, p->collider->rect.h);
+			}
 			active[last_particle++] = p;
+		
 	
 }
 
@@ -430,6 +466,15 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2){
 		else if ((active[i] != nullptr && active[i]->collider == c1 && active[i]->type != planebomb) || (active[i] != nullptr && active[i]->collider == c1 && active[i]->type != TNT))
 		{
 			//AddParticle(explosion, active[i]->position.x, active[i]->position.y);
+			delete p;
+			active[i] = nullptr;
+			break;
+		}
+
+		else if ((active[i] != nullptr && active[i]->collider == c1 && active[i]->type == COLLIDER_ROCK))
+		{
+			AddParticle(rockpieces, active[i]->position.x, active[i]->position.y);
+			App->audio->Loadfx("Music/explosion.ogg");
 			delete p;
 			active[i] = nullptr;
 			break;

@@ -70,10 +70,10 @@ void Enemy_Charriot::Move()
 	if (isdead == true) {
 
 
-		App->particles->AddParticle(App->particles->bigexplosion,position.x,position.y+10);
-		App->particles->AddParticle(App->particles->bigexplosion, position.x, position.y);
-		App->particles->AddParticle(App->particles->bigexplosion, position.x, position.y - 10);
-		App->particles->AddParticle(App->particles->bigexplosion, position.x, position.y - 20);
+		App->particles->AddParticle(App->particles->bigexplosion, position.x, position.y + 10, 0);
+		
+		App->particles->AddParticle(App->particles->bigexplosion, position.x, position.y - 5, 0);
+	
 		to_delete = true;
 
 	}

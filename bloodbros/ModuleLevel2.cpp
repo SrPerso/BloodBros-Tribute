@@ -116,6 +116,7 @@ update_status ModuleLevel2::Update()
 		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, -30, 80);
 		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, -45, 80);
 		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, -60, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 120, 80);
 
 		ole1 = false;
 	}
@@ -138,6 +139,7 @@ update_status ModuleLevel2::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 70,-20);
 		
 		App->extra->AddExtra(App->extra->cask, 0, 130);
+		App->extra->AddExtra(App->extra->cask2, 230, 130);
 		plane = false;
 	}
 	if (SDL_GetTicks() >=  timestart + 6000 && greencowboy == true && App->building->purplealive==true){

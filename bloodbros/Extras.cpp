@@ -41,6 +41,15 @@ bool ModuleExtra::Start()
 	cask.type = CASK;//barril
 	cask.life = 500000;
 
+	cask2.anim.PushBack({ 455, 17, 48, 48 });//1
+	cask2.anim.PushBack({ 504, 17, 48, 48 });//2
+	cask2.anim.PushBack({ 553, 17, 48, 48 });//3
+	cask2.anim.loop = true;
+	cask2.anim.speed = 0.2f;
+	cask2.speed.x = -1;
+	cask2.type = CASK;//barril
+	cask2.life = 500000;
+
 	pig.anim.PushBack({ 0, 44, 32, 23 });//1
 	pig.anim.PushBack({ 35, 44, 32, 23 });//2
 	pig.anim.loop = true;
@@ -167,6 +176,9 @@ update_status ModuleExtra::Update()
 			else if (p->type == CASK){
 				App->render->Blit(graphics, p->position.x, p->position.y, &p->anim.GetCurrentFrame());
 			}
+			else if (p->type == CASK2){
+				App->render->Blit(graphics, p->position.x, p->position.y, &p->anim.GetCurrentFrame());
+			}
 			else if (p->type == ZEPE)
 				App->render->Blit(graphics, p->position.x, p->position.y, &p->anim.GetCurrentFrame());
 			else if (p->type == GUITAR){
@@ -208,6 +220,9 @@ void ModuleExtra::AddExtra(const Extra& particle, int x, int y, Uint32 delay)
 		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, 31, 25 }, COLLIDER_EXTRA, this);
 	}
 	if (p->type == CASK){
+		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, 48, 48 }, COLLIDER_CASK, this);
+	}
+	if (p->type == CASK2){
 		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, 48, 48 }, COLLIDER_CASK, this);
 	}
 	active[last_particle++] = p;
@@ -292,6 +307,9 @@ void ModuleExtra::OnCollision(Collider* c1, Collider* c2)
 			
 		}
 		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->type == CASK){
+			App->render->Blit(graphics, active[i]->position.x, active[i]->position.y, &active[i]->hit.frames[0]);
+		}
+		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->type == CASK2){
 			App->render->Blit(graphics, active[i]->position.x, active[i]->position.y, &active[i]->hit.frames[0]);
 		}
 	}
