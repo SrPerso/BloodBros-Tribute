@@ -108,192 +108,302 @@ update_status ModuleLevel2::Update()
 	App->render->Blit(graphics, 0, 0, &background, 0); // level 2
 	App->ui->Update();
 
+	//////////////// 5 cowboys from left dist 2 first wave
 
-	if (SDL_GetTicks() >= timestart + 3000 && ole1 == true){
-
-		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, 0, 80);
+	if (SDL_GetTicks() >= timestart + 6000 && ole1 == true){
 		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, -15, 80);
 		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, -30, 80);
-		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, -45, 80);
-		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, -60, 80);
-		
-
 		ole1 = false;
 	}
-	if (SDL_GetTicks() >= timestart + 5000 && ole2 == true){
-	
-	App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 58, 80);		
 
+	if (SDL_GetTicks() >= timestart + 6090 && ole1b == true){
+		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, -45, 80);
+		ole1b = false;
+	}
+	if (SDL_GetTicks() >= timestart + 6120 && ole1c == true){
+		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, 0, 80);
+		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, -60, 80);
+		ole1c = false;
+	}
+	//////////////// cowboy from left house dist 3 
+
+	if (SDL_GetTicks() >= timestart + 10000 && ole2 == true){
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 58, 80);		
 		ole2 = false;
 	}
-	
-	if (SDL_GetTicks() >= timestart + 7000 && ole3 == true && App->building->yellowalive == true){
+	//////////////// cowboys from right house dist 2 
 
-		App->front->AddEnemy(ENEMY_TYPES2::GREENLEAVINGCOWBOY, 215, 90);
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENRIGHTCOWBOY, 200, 75);
+	if (SDL_GetTicks() >= timestart + 13750 && ole3 == true && App->building->yellowalive == true){
+		App->front->AddEnemy(ENEMY_TYPES2::GREENLEAVINGCOWBOY, 215, 90);	
 		ole3 = false;
 	}
 
-	if (SDL_GetTicks() >= timestart + 8000 && ole4 == true && App->building->yellowalive == true){
-
+	if (SDL_GetTicks() >= timestart + 14000 && ole4 == true && App->building->yellowalive == true){
 		App->front->AddEnemy(ENEMY_TYPES2::GREENLEAVINGCOWBOY, 225, 90);
 		ole4 = false;
 	}
 
-	if (SDL_GetTicks() >= timestart + 10000 && ole5 == true){
+	//////////////// cowboy from right house dist 3 
 
+	if (SDL_GetTicks() >= timestart + 16000 && ole4b == true && App->building->yellowalive == true){
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENRIGHTCOWBOY, 164, 80);
+		ole4b = false;
+	}
+
+	//////////////// JUMPing cowboys from windmill dist 2 and both pigs (and charriot)
+
+	if (SDL_GetTicks() >= timestart + 18000 && ole5 == true){
 		App->extra->AddExtra(App->extra->pig, -30, 140);
 		App->extra->AddExtra(App->extra->blackpig, 270, 140);
 		App->front->AddEnemy(ENEMY_TYPES2::JUMPER, 20, 100);
 
 		ole5 = false;
 	}
-	if (SDL_GetTicks() >= timestart + 10500 && ole6 == true){
+	if (SDL_GetTicks() >= timestart + 18500 && ole6 == true){
 
 		App->front->AddEnemy(ENEMY_TYPES2::JUMPERSHOOT, 35, 100);
 
 		ole6 = false;
 	}
-	if (SDL_GetTicks() >= timestart +11000 && ole7== true){
-
+	if (SDL_GetTicks() >= timestart +19000 && ole7== true){
+		App->extra->AddExtra(App->extra->cask, -80, 130);
 		App->front->AddEnemy(ENEMY_TYPES2::JUMPER, 50, 100);
 		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 67);
 
 		ole7 = false;
 	}
-	if (SDL_GetTicks() >= timestart + 11500 && ole8 == true){
+	if (SDL_GetTicks() >= timestart + 19500 && ole8 == true){
 
 		App->front->AddEnemy(ENEMY_TYPES2::JUMPERSHOOT, 65, 100);
+		App->extra->AddExtra(App->extra->zepe, 315, 28);
 
 		ole8 = false;
 	}
 
-	if (SDL_GetTicks() >= timestart + 20000 && ole9 == true){
 
-		App->mid->AddEnemy(ENEMY_TYPES3::INDIANMEDIUM, 0, 80);
+	//////////////// ROLLING BARREL FROM RIGHT TO LEFT
+	if (SDL_GetTicks() >= timestart + 24500 && ole8b == true){
+
+		App->extra->AddExtra(App->extra->cask2, 240, 130);
+
+		ole8b = false;
+	}
+
+	
+	//////////////// 5 indians from left dist 2 first wave
+
+	if (SDL_GetTicks() >= timestart + 28000 && ole9 == true){
 		App->mid->AddEnemy(ENEMY_TYPES3::INDIANMEDIUM, -15, 80);
 		App->mid->AddEnemy(ENEMY_TYPES3::INDIANMEDIUM, -30, 80);
-		App->mid->AddEnemy(ENEMY_TYPES3::INDIANMEDIUM, -45, 80);
 		App->mid->AddEnemy(ENEMY_TYPES3::INDIANMEDIUM, -60, 80);
-
 		ole9 = false;
 	}
-	if (SDL_GetTicks() >= timestart + 22000 && ole10 == true){
+	if (SDL_GetTicks() >= timestart + 28090 && ole9b == true){
+		App->mid->AddEnemy(ENEMY_TYPES3::INDIANMEDIUM, -45, 80);
+		ole9b = false;
+	}
+	if (SDL_GetTicks() >= timestart + 28130 && ole9c == true){
+		App->mid->AddEnemy(ENEMY_TYPES3::INDIANMEDIUM, 0, 80);
+		ole9c = false;
+	}
 
-		App->enemies->AddEnemy(ENEMY_TYPES::INDIANLAST, 0, 70);
+	//////////////// indian from left house dist 3 
+
+	if (SDL_GetTicks() >= timestart + 30070 && ole10 == true){
+
+		App->enemies->AddEnemy(ENEMY_TYPES::INDIANLAST, 58, 68);
 
 		ole10 = false;
 	}
-	if (SDL_GetTicks() >= timestart + 23000 && plane == true){
+
+	//////////////// PLANE
+	if (SDL_GetTicks() >= timestart + 31040 && plane == true){
 		App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 70, -20);
 		plane = false;
 	}
 		
-	if (SDL_GetTicks() >= timestart + 26000 && bluecowboy == true){
+	//////////////// BLUE INDIANS dist 4(and right indian dist 3)
+	if (SDL_GetTicks() >= timestart + 34000 && bluecowboy == true){
 		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 50, 62);
-		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 60, 62);
-		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 70, 62);
-		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 80, 62);
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENRIGHTCOWBOY, 168, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::INDIANLAST2, 164, 68);
 		bluecowboy = false;
 	}
 
-	if (SDL_GetTicks() >= timestart + 30000 && greencowboy == true && App->building->purplealive == true){
+	if (SDL_GetTicks() >= timestart + 34100 && bluecowboyb == true){		
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 60, 62);
+		bluecowboyb = false;
+	}
+	if (SDL_GetTicks() >= timestart + 34200 && bluecowboyc == true){
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 70, 62);
+		bluecowboyc = false;
+	}
+	if (SDL_GetTicks() >= timestart + 34300 && bluecowboyd == true){
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 80, 62);
+		bluecowboyd = false;
+	}
+
+
+
+	if (SDL_GetTicks() >= timestart + 38400 && greencowboy == true && App->building->purplealive == true){
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 58, 80);
 		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 67);
-		greencowboy = false;
-	}
-
-
-
-	if (SDL_GetTicks() >= timestart + 32000 && plane == true){
 		App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 70, -20);
-
-		App->extra->AddExtra(App->extra->cask, 0, 130);
-		
-		plane = false;
-
-	}
-
-	
-
-	if (SDL_GetTicks() >= timestart+ 36000 && extra == true){
-		App->extra->AddExtra(App->extra->pig, 0, 140);
-		App->extra->AddExtra(App->extra->zepe, 224, 35);
-		App->extra->AddExtra(App->extra->cask2, 240, 130);
-		extra = false;
-	}
-	else if (SDL_GetTicks() >= timestart + 38000 && jumper == true && App->building->windmillalive == true){
-		App->front->AddEnemy(ENEMY_TYPES2::JUMPER, 20, 100);
-		App->front->AddEnemy(ENEMY_TYPES2::JUMPERSHOOT, 35, 100);
-		App->front->AddEnemy(ENEMY_TYPES2::JUMPER, 50, 100);
-		App->front->AddEnemy(ENEMY_TYPES2::JUMPERSHOOT, 65, 100);
-		jumper = false;
-	}
-
-	else if (SDL_GetTicks() >= timestart + 39000 && jumper == true && App->building->windmillalive == true){
-		App->front->AddEnemy(ENEMY_TYPES2::JUMPERSHOOT, 50, 100);
-		App->front->AddEnemy(ENEMY_TYPES2::JUMPER, 65, 100);
-		
-		jumper = false;
-	}
-	/*
-	
-	else if (SDL_GetTicks() >= timestart + 6000 && greencowboy == true && App->building->purplealive == false){
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 0, 80);
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 10, 80);
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 20, 80);
-		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 80);
 		greencowboy = false;
 	}
 
-	if (SDL_GetTicks() >= timestart + 9000 && bluecowboy == true){
-		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 50, 62);
-		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 60, 62);
-		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 70, 62);
-		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 80, 62);
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENRIGHTCOWBOY, 168, 80);
-		bluecowboy = false;
+	if (SDL_GetTicks() >= timestart + 42400 && greencowboyb == true && App->building->purplealive == true){
+		App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 70, -20);
+		greencowboyb = false;
 	}
 
-	if (SDL_GetTicks() >= timestart + 15000 && plane2 == true){
-		App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 87, -20);
-		
-		App->front->AddEnemy(ENEMY_TYPES2::GREENCOWBOYMEDIUM, 0, 100);
-		App->front->AddEnemy(ENEMY_TYPES2::GREENCOWBOYMEDIUM, 15, 100);
-		App->front->AddEnemy(ENEMY_TYPES2::GREENCOWBOYMEDIUM, 30, 100);
-		App->front->AddEnemy(ENEMY_TYPES2::GREENCOWBOYMEDIUM, 45, 100);
-		App->front->AddEnemy(ENEMY_TYPES2::GREENCOWBOYMEDIUM, 60, 100);
+	////////////// 2nd WAVE, ALL
 
-		plane2 = false;
+	//////////////// 5 cowboys from left dist 2 first wave
+
+	if (SDL_GetTicks() >= timestart + 46000 && secole1 == true){
+		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, -15, 80);
+		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, -30, 80);
+		secole1 = false;
 	}
-	if (SDL_GetTicks() >= timestart + 20000 && green2 == true && App->building->purplealive == true){
+
+	if (SDL_GetTicks() >= timestart + 46090 && secole1b == true){
+		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, -45, 80);
+		secole1b = false;
+	}
+	if (SDL_GetTicks() >= timestart + 46120 && secole1c == true){
+		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, 0, 80);
+		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, -60, 80);
+		secole1c = false;
+	}
+	//////////////// cowboy from left house dist 3 
+
+	if (SDL_GetTicks() >= timestart + 50000 && secole2 == true){
 		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 58, 80);
-		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 80);
-
-		App->front->AddEnemy(ENEMY_TYPES2::INDIANMEDIUM, 00, 100);
-		App->front->AddEnemy(ENEMY_TYPES2::INDIANMEDIUM, 15, 100);
-		App->front->AddEnemy(ENEMY_TYPES2::INDIANMEDIUM, 30, 100);
-		App->front->AddEnemy(ENEMY_TYPES2::INDIANMEDIUM, 45, 100);		
-		green2 = false;
-
+		secole2 = false;
 	}
-	else if (SDL_GetTicks() >= timestart + 20000 && green2 == true && App->building->purplealive == false){
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 0, 80);
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 10, 80);
-		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 20, 80);
+	//////////////// cowboys from right house dist 2 
 
-		App->front->AddEnemy(ENEMY_TYPES2::INDIANMEDIUM, 00, 100);
-		App->front->AddEnemy(ENEMY_TYPES2::INDIANMEDIUM, 15, 100);
-		App->front->AddEnemy(ENEMY_TYPES2::INDIANMEDIUM, 30, 100);
-		App->front->AddEnemy(ENEMY_TYPES2::INDIANMEDIUM, 45, 100);
-
-
-		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 80);
-		green2 = false;
+	if (SDL_GetTicks() >= timestart + 53750 && secole3 == true && App->building->yellowalive == true){
+		App->front->AddEnemy(ENEMY_TYPES2::GREENLEAVINGCOWBOY, 215, 90);
+		secole3 = false;
 	}
+
+	if (SDL_GetTicks() >= timestart + 54000 && secole4 == true && App->building->yellowalive == true){
+		App->front->AddEnemy(ENEMY_TYPES2::GREENLEAVINGCOWBOY, 225, 90);
+		secole4 = false;
+	}
+
+	//////////////// cowboy from right house dist 3 
+
+	if (SDL_GetTicks() >= timestart + 56000 && secole4b == true && App->building->yellowalive == true){
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENRIGHTCOWBOY, 164, 80);
+		secole4b = false;
+	}
+
+	//////////////// JUMPing cowboys from windmill dist 2 and both pigs (and charriot)
+
+	if (SDL_GetTicks() >= timestart + 58000 && secole5 == true){
+		App->extra->AddExtra(App->extra->pig, -30, 140);
+		App->extra->AddExtra(App->extra->blackpig, 270, 140);
+		App->front->AddEnemy(ENEMY_TYPES2::JUMPER, 20, 100);
+
+		secole5 = false;
+	}
+	if (SDL_GetTicks() >= timestart + 58500 && secole6 == true){
+
+		App->front->AddEnemy(ENEMY_TYPES2::JUMPERSHOOT, 35, 100);
+
+		secole6 = false;
+	}
+	if (SDL_GetTicks() >= timestart + 59000 && secole7 == true){
+		App->extra->AddExtra(App->extra->cask, -80, 130);
+		App->front->AddEnemy(ENEMY_TYPES2::JUMPER, 50, 100);
+		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 67);
+
+		secole7 = false;
+	}
+	if (SDL_GetTicks() >= timestart + 59500 && secole8 == true){
+
+		App->front->AddEnemy(ENEMY_TYPES2::JUMPERSHOOT, 65, 100);
+		App->extra->AddExtra(App->extra->zepe, 315, 28);
+
+		secole8 = false;
+	}
+
+
+	//////////////// ROLLING BARREL FROM RIGHT TO LEFT
+	if (SDL_GetTicks() >= timestart + 64500 && secole8b == true){
+
+		App->extra->AddExtra(App->extra->cask2, 240, 130);
+
+		secole8b = false;
+	}
+
+
+	//////////////// 5 indians from left dist 2 first wave
+
+	if (SDL_GetTicks() >= timestart + 68000 && secole9 == true){
+		App->mid->AddEnemy(ENEMY_TYPES3::INDIANMEDIUM, -15, 80);
+		App->mid->AddEnemy(ENEMY_TYPES3::INDIANMEDIUM, -30, 80);
+		App->mid->AddEnemy(ENEMY_TYPES3::INDIANMEDIUM, -60, 80);
+		secole9 = false;
+	}
+	if (SDL_GetTicks() >= timestart + 68090 && secole9b == true){
+		App->mid->AddEnemy(ENEMY_TYPES3::INDIANMEDIUM, -45, 80);
+		secole9b = false;
+	}
+	if (SDL_GetTicks() >= timestart + 68130 && secole9c == true){
+		App->mid->AddEnemy(ENEMY_TYPES3::INDIANMEDIUM, 0, 80);
+		secole9c = false;
+	}
+
+	//////////////// indian from left house dist 3 
+
+	if (SDL_GetTicks() >= timestart + 70070 && secole10 == true){
+
+		App->enemies->AddEnemy(ENEMY_TYPES::INDIANLAST, 58, 68);
+
+		secole10 = false;
+	}
+
+	//////////////// PLANE
+	if (SDL_GetTicks() >= timestart + 71040 && secplane == true){
+		App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 70, -20);
+		secplane = false;
+	}
+
+	//////////////// BLUE INDIANS dist 4(and right indian dist 3)
+	if (SDL_GetTicks() >= timestart + 74000 && secbluecowboy == true){
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 50, 62);
+		App->enemies->AddEnemy(ENEMY_TYPES::INDIANLAST2, 164, 68);
+		secbluecowboy = false;
+	}
+
+	if (SDL_GetTicks() >= timestart + 74100 && secbluecowboyb == true){
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 60, 62);
+		secbluecowboyb = false;
+	}
+	if (SDL_GetTicks() >= timestart + 74200 && secbluecowboyc == true){
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 70, 62);
+		secbluecowboyc = false;
+	}
+	if (SDL_GetTicks() >= timestart + 74300 && secbluecowboyd == true){
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUECOWBOY, 80, 62);
+		secbluecowboyd = false;
+	}
+
+
+
+	if (SDL_GetTicks() >= timestart + 78400 && secgreencowboy == true && App->building->purplealive == true){
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 58, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 67);
+		App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 70, -20);
+		secgreencowboy = false;
+	}
+
 	
-	*/
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////
 
 	if (App->player->hp <= 0){
 		App->fade->FadeToBlack(App->level2, App->victoryscreen, 2);

@@ -1,7 +1,12 @@
-﻿Build started 29/05/2016 19:09:01.
+﻿Build started 29/05/2016 20:56:50.
      1>Project "C:\Users\esteban\Documents\GitHub\VictoriousSecret\bloodbros\SDL Game.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ModulePlayer.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Application.cpp Extras.cpp ModuleBuildings.cpp ModuleBuildings2.cpp ModuleLevel1.cpp ModuleLevel2.cpp ModulePlayer.cpp ModuleTitleScreen.cpp ModuleUi.cpp ModuleVictory.cpp
+         ModuleVictory.cpp
+         ModuleUi.cpp
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\moduletext.h(66): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\moduletext.h(79): warning C4018: '<' : signed/unsigned mismatch
+         ModuleTitleScreen.cpp
          ModulePlayer.cpp
      1>c:\users\esteban\documents\github\victorioussecret\bloodbros\moduleplayer.cpp(382): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
      1>c:\users\esteban\documents\github\victorioussecret\bloodbros\moduleplayer.cpp(563): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
@@ -10,6 +15,84 @@
      1>c:\users\esteban\documents\github\victorioussecret\bloodbros\moduleplayer.cpp(679): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
      1>c:\users\esteban\documents\github\victorioussecret\bloodbros\moduleplayer.cpp(680): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
      1>c:\users\esteban\documents\github\victorioussecret\bloodbros\moduleplayer.cpp(807): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+         ModuleLevel2.cpp
+         ModuleLevel1.cpp
+         ModuleBuildings2.cpp
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings2.cpp(330): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings2.cpp(332): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings2.cpp(340): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings2.cpp(350): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings2.cpp(357): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings2.cpp(361): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings2.cpp(368): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings2.cpp(369): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings2.cpp(388): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings2.cpp(389): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings2.cpp(394): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings2.cpp(397): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings2.cpp(400): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings2.cpp(459): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings2.cpp(461): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings2.cpp(481): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings2.cpp(483): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings2.cpp(509): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings2.cpp(530): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+         ModuleBuildings.cpp
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(334): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(336): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(344): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(354): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(360): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(363): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(370): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(371): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(390): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(391): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(396): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(399): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(402): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(406): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(465): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(467): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(487): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(489): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(515): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(525): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(526): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(534): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(535): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(544): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\modulebuildings.cpp(545): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+         Extras.cpp
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(173): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(175): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(177): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(180): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(183): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(185): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(188): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(205): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(206): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(208): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(211): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(214): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(217): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(220): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(223): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(226): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(274): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(275): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(280): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(291): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(297): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(302): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(306): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(310): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\esteban\documents\github\victorioussecret\bloodbros\extras.cpp(313): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+         Generating Code...
+         Compiling...
+         Application.cpp
+         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\esteban\Documents\GitHub\VictoriousSecret\bloodbros\Debug\SDL4 Handout.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\esteban\Documents\GitHub\VictoriousSecret\bloodbros\Debug\SDL4 Handout.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\esteban\Documents\GitHub\VictoriousSecret\bloodbros\Debug\SDL4 Handout.lib" /MACHINE:X86 Debug\Application.obj
          Debug\Audio.obj
@@ -61,4 +144,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.37
+Time Elapsed 00:00:01.04

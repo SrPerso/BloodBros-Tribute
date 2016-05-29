@@ -43,14 +43,14 @@ IndianLast::IndianLast(int x, int y) : Enemy(x, y)
 	original_pos.y = y;
 	path.PushBack({ 0.8f, 0.0f }, 30, &fly);
 	path.PushBack({ 0.0f, 0.0f }, 20, &idle);
-	path.PushBack({ 0.8f, 0.0f }, 30, &fly);
-	path.PushBack({ 0.8f, 0.0f }, 30, &fly);
-	path.PushBack({ 0.0f, 0.0f }, 20, &idle);
+	path.PushBack({ -0.8f, 0.0f }, 30, &fly2);
 	path.PushBack({ 0.8f, 0.0f }, 30, &fly);
 	path.PushBack({ 0.0f, 0.0f }, 20, &idle);
 	path.PushBack({ 0.8f, 0.0f }, 30, &fly);
 	path.PushBack({ 0.0f, 0.0f }, 20, &idle);
-	path.PushBack({ 0.8f, 0.0f }, 30, &fly);
+	path.PushBack({ -0.8f, 0.0f }, 30, &fly2);
+	path.PushBack({ 0.0f, 0.0f }, 20, &idle);
+	path.PushBack({ -0.8f, 0.0f }, 30, &fly2);
 	srand(time(NULL));
 }
 

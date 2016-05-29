@@ -360,7 +360,7 @@ update_status ModuleBuilding::Update()
 				App->extra->AddExtra(App->extra->shower, active[i]->position.x+14, active[i]->position.y-18);
 				}
 				if (p->mytype == YELLOW){ yellowalive = false;
-				App->extra->AddExtra(App->extra->guitar, active[i]->position.x + 24, active[i]->position.y - 25);
+				App->extra->AddExtra(App->extra->guitar, active[i]->position.x + 52, active[i]->position.y - 22);
 				}
 				delete p;
 				active[i] = nullptr;

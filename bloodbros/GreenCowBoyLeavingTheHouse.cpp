@@ -13,7 +13,7 @@ GreenCowBoyLeavingTheHouse::GreenCowBoyLeavingTheHouse(int x, int y) : Enemy(x, 
 	appear.PushBack({ 804, 203, 32, 32 });//3
 	appear.PushBack({ 804, 170, 32, 32 });//4
 	appear.loop = false;
-	appear.speed = 0.2f;
+	appear.speed = 0.1f;
 
 
 	fly.PushBack({ 771, 38, 32, 32 });//1

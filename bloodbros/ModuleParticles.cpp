@@ -142,7 +142,7 @@ ModuleParticles::ModuleParticles()
 	Cowboyshot.anim.PushBack({ 213, 9, 7, 7 });
 	Cowboyshot.anim.PushBack({ 230, 9, 7, 7 });
 	Cowboyshot.anim.loop = true;
-	Cowboyshot.anim.speed = 0.1f;
+	Cowboyshot.anim.speed = 0.4f;
 	Cowboyshot.speed.x = 1;
 	Cowboyshot.speed.y = 1;
 	Cowboyshot.collides = true;

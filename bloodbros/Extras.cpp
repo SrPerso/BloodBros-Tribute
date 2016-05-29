@@ -277,7 +277,7 @@ bool Extra::Update()
 
 	if (position.x == 90 && type == ZEPE){
 		speed.x = 0;
-		speed.y = -0.5;
+		speed.y = -0.8;
 	}
 	
 	return ret;
