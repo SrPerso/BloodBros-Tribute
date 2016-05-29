@@ -262,21 +262,21 @@ ModulePlayer::ModulePlayer()
 	crouchshotleft.PushBack({ 104, 372, 46, 72 });
 	crouchshotleft.speed = 0.12f;
 
+	crouchjumpleft.PushBack({ 610, 156, 92, 72 });
+	crouchjumpleft.PushBack({ 610, 156, 92, 72 });
 	crouchjumpleft.PushBack({ 334, 228, 92, 72 });
 	crouchjumpleft.PushBack({ 334, 228, 92, 72 });
-	crouchjumpleft.PushBack({ 334, 228, 92, 72 });
-	crouchjumpleft.PushBack({ 426, 228, 92, 72 });
 	crouchjumpleft.PushBack({ 426, 228, 92, 72 });
 	crouchjumpleft.PushBack({ 610, 228, 92, 72 });
 	crouchjumpleft.loop = false;
 	crouchjumpleft.speed = 0.20f;
 
-	crouchjumpright.PushBack({ 334, 84, 92, 72 });
-	crouchjumpright.PushBack({ 334, 84, 92, 72 });
-	crouchjumpright.PushBack({ 334, 84, 92, 72 });
-	crouchjumpright.PushBack({ 426, 84, 92, 72 });
-	crouchjumpright.PushBack({ 426, 84, 92, 72 });
-	crouchjumpright.PushBack({ 610, 84, 92, 72 });
+	crouchjumpright.PushBack({ 635, 12, 92, 72 });
+	crouchjumpright.PushBack({ 635, 12, 92, 72 });
+	crouchjumpright.PushBack({ 335, 84, 92, 72 });
+	crouchjumpright.PushBack({ 335, 84, 92, 72 });
+	crouchjumpright.PushBack({ 427, 84, 92, 72 });
+	crouchjumpright.PushBack({ 611, 84, 92, 72 });
 	crouchjumpright.loop = false;
 	crouchjumpright.speed = 0.20f;
 
@@ -542,7 +542,7 @@ update_status ModulePlayer::Update()
 			}
 			else
 			{
-				position.x += speed;
+				position.x += (speed*2)/3;
 			}
 			if (current_animation->Finished() == true){
 				if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT){
@@ -561,7 +561,7 @@ update_status ModulePlayer::Update()
 			}
 			else
 			{
-				position.x -= speed;
+				position.x -= (speed * 2) / 3;
 			}
 			if (current_animation->Finished() == true){
 				if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT){
