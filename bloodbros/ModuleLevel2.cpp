@@ -116,18 +116,18 @@ update_status ModuleLevel2::Update()
 		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, -30, 80);
 		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, -45, 80);
 		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, -60, 80);
-		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 120, 80);
+		
 
 		ole1 = false;
 	}
-	if (SDL_GetTicks() >= timestart + 3300 && ole2 == true){
+	/*if (SDL_GetTicks() >= timestart + 3300 && ole2 == true){
 	
 	App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 58, 80);		
 
 		ole2 = false;
 	}
 
-	/*
+	
 
 	if (SDL_GetTicks() >= timestart+10000 && extra == true){
 		App->extra->AddExtra(App->extra->pig, 0, 140);
@@ -252,6 +252,12 @@ update_status ModuleLevel2::Update()
 	if (App->input->keyboard[SDL_SCANCODE_F6] == 1)
 	{
 		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 80);
+	}
+
+	if (App->input->keyboard[SDL_SCANCODE_F7] == 1)
+	{
+		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN, 230, 70);
+		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN2, 0, 70);
 	}
 
 

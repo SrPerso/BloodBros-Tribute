@@ -12,10 +12,9 @@
 #include "IndianMedium.h"
 #include "Jumper2.h"
 #include "jumper2left.h"
+#include"FarIndian.h"
+#include"FarIndian2.h"
 
-/*#include "Enemy_RedBird.h"
-#include "Enemy_Cookie.h"
-#include "Enemy_Mech.h"*/
 
 #define SPAWN_MARGIN 50
 
@@ -150,7 +149,13 @@ void ModuleEnemiesMid::SpawnEnemy(const EnemyInfo3& info)
 			case ENEMY_TYPES3::GREENCOWBOYJUMPERLEFT:
 				enemies[i] = new Jumper2left(info.x, info.y);
 				break;
-			}
+			case ENEMY_TYPES3::FARINDIAN:
+				enemies[i] = new FarIndian(info.x, info.y);
+				break;
+			case ENEMY_TYPES3::FARINDIAN2:
+				enemies[i] = new FarIndian2(info.x, info.y);
+				break;
+		}
 
 		}
 
