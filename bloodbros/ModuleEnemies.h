@@ -17,6 +17,7 @@ enum ENEMY_TYPES
 	GREENRIGHTCOWBOY,
 	
 	
+	
 };
 
 class Enemy;

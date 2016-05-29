@@ -5,10 +5,9 @@
 #include "ModuleParticles.h"
 #include "ModuleTextures.h"
 #include "Enemy.h"
-#include "Charriot.h"
+
 #include "GreenCowBoy.h"
-#include "PurplePlane.h"
-#include "BlueCowBoy.h"
+
 #include "GreenRight.h"
 #include "ModulePlayer.h"
 #include "Jumper.h"
@@ -17,6 +16,8 @@
 #include "GreenCowBoyLeavingTheHouse.h"
 #include "IndianLeavingTheHouse.h"
 #include "Jumpershoot.h"
+
+
 /*#include "Enemy_RedBird.h"
 #include "Enemy_Cookie.h"
 #include "Enemy_Mech.h"*/
@@ -165,6 +166,7 @@ void ModuleEnemiesFront::SpawnEnemy(const EnemyInfo2& info)
 			case ENEMY_TYPES2::INDIANLEAVING:
 				enemies[i] = new IndianLeavingTheHouse(info.x, info.y);
 				break;
+
 
 			}
 

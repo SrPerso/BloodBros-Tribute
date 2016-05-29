@@ -10,6 +10,8 @@
 
 #include "GreenCowBoyMedium.h"
 #include "IndianMedium.h"
+#include "Jumper2.h"
+#include "jumper2left.h"
 
 /*#include "Enemy_RedBird.h"
 #include "Enemy_Cookie.h"
@@ -142,7 +144,12 @@ void ModuleEnemiesMid::SpawnEnemy(const EnemyInfo3& info)
 			case ENEMY_TYPES3::INDIANMEDIUM:
 				enemies[i] = new IndianMedium(info.x, info.y);
 				break;
-		
+			case ENEMY_TYPES3::GREENCOWBOYJUMPERRIGTH:
+				enemies[i] = new Jumper2(info.x, info.y);
+				break;
+			case ENEMY_TYPES3::GREENCOWBOYJUMPERLEFT:
+				enemies[i] = new Jumper2left(info.x, info.y);
+				break;
 			}
 
 		}

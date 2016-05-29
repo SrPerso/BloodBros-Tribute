@@ -168,7 +168,6 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 				enemies[i] = new GreenRightCowboy(info.x, info.y);
 				break;
 			
-			
 			}
 			
 			
