@@ -63,7 +63,7 @@ bool ModuleLevel2::Start()
 	App->collision->Enable();
 	App->extra->Enable();
 	App->collision->AddCollider({ 0, 200, 256, 46 }, COLLIDER_WALL, this);
-	App->enemies->hits = 0;
+	App->enemies->hits = 12;
 	App->building->AddBuilding(App->building->trees, -25, 30);
 	App->building->AddBuilding(App->building->trees, 15, 30);
 	App->building->AddBuilding(App->building->trees, 55, 30);
@@ -408,11 +408,12 @@ update_status ModuleLevel2::Update()
 	if (App->player->hp <= 0){
 		App->fade->FadeToBlack(App->level2, App->victoryscreen, 2);
 	}
-	if (App->enemies->hits >= 10){
+	//WIN CONDITION
+	if (App->enemies->hits == 0){
 		App->player->current_animation = &(App->player->dance);
 		App->player->status = WIN;
 		App->audio->Load("Music/victory.ogg");
-		App->enemies->hits = 0;
+		App->enemies->hits = -1;
 	
 	}
 
