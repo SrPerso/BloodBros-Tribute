@@ -120,14 +120,21 @@ update_status ModuleLevel2::Update()
 
 		ole1 = false;
 	}
-	/*if (SDL_GetTicks() >= timestart + 3300 && ole2 == true){
+	if (SDL_GetTicks() >= timestart + 3300 && ole2 == true){
 	
 	App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 58, 80);		
 
 		ole2 = false;
 	}
 
-	
+	if (SDL_GetTicks() >= timestart + 3500 && ole2 == true){
+
+		App->enemies->AddEnemy(ENEMY_TYPES::GREENCOWBOY, 58, 80);
+
+		ole2 = false;
+	}
+
+	/*
 
 	if (SDL_GetTicks() >= timestart+10000 && extra == true){
 		App->extra->AddExtra(App->extra->pig, 0, 140);
@@ -266,7 +273,11 @@ update_status ModuleLevel2::Update()
 		App->mid->AddEnemy(ENEMY_TYPES3::FARGREEN2, 0, 70);
 	}
 
-
+	if (App->input->keyboard[SDL_SCANCODE_F9] == 1)
+	{
+		App->enemies->AddEnemy(ENEMY_TYPES::INDIANLAST, 0, 80);
+		App->enemies->AddEnemy(ENEMY_TYPES::INDIANLAST2, 170, 80);
+	}
 
 
 	// TODO 3: make so pressing SPACE the KEN stage is loaded
