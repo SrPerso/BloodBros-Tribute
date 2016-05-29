@@ -22,6 +22,12 @@ public:
 	bool ole2 = true;
 	bool ole3 = true;
 	bool ole4 = true;
+	bool ole5 = true;
+	bool ole6 = true;
+	bool ole7 = true;
+	bool ole8 = true;
+	bool ole9 = true;
+	bool ole10 = true;
 
 	bool extra = true;
 	bool plane = true;
