@@ -1,11 +1,11 @@
 #include "Application.h"
-#include "FarGreenCowBoy.h"
+#include "FarGreenCowBoy2.h"
 #include "ModuleCollision.h"
 #include "Enemy.h"
 #include "ModuleParticles.h"
 
 
-FarGreenCowBoy::FarGreenCowBoy(int x, int y) : Enemy(x, y)
+FarGreenCowBoy2::FarGreenCowBoy2(int x, int y) : Enemy(x, y)
 {
 
 	fly.PushBack({ 534, 38, 16, 16 });//1
@@ -41,19 +41,19 @@ FarGreenCowBoy::FarGreenCowBoy(int x, int y) : Enemy(x, y)
 
 	original_pos.x = x;
 	original_pos.y = y;
-	path.PushBack({ -0.6f, 0.0f }, 130, &fly);
+	path.PushBack({ 0.6f, 0.0f }, 130, &fly2);
 	path.PushBack({ 0.0f, 0.0f }, 30, &idle);
-	path.PushBack({ -0.6f, 0.0f }, 40, &fly);
+	path.PushBack({ 0.6f, 0.0f }, 40, &fly2);
 	path.PushBack({ 0.0f, 0.0f }, 30, &idle);
-	path.PushBack({ -0.6f, 0.0f }, 40, &fly);
+	path.PushBack({ 0.6f, 0.0f }, 40, &fly2);
 	path.PushBack({ 0.0f, 0.0f }, 30, &idle);
-	path.PushBack({-0.6f, 0.0f }, 150, &fly);
+	path.PushBack({ 0.6f, 0.0f }, 190, &fly2);
 
 
 
 }
 
-void FarGreenCowBoy::Move()
+void FarGreenCowBoy2::Move()
 {
 	position = original_pos + path.GetCurrentSpeed(&animation);
 	if (path.GetFrame() == 140 && isdead == false){
@@ -67,7 +67,7 @@ void FarGreenCowBoy::Move()
 	}
 
 }
-void FarGreenCowBoy::OnCollision(Collider* c1, Collider* c2)
+void FarGreenCowBoy2::OnCollision(Collider* c1, Collider* c2)
 {
 	path.Erase();
 	path.PushBack({ 0.0f, 0.0f }, 25, &dead);

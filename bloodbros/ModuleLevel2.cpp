@@ -260,6 +260,12 @@ update_status ModuleLevel2::Update()
 		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN2, 0, 70);
 	}
 
+	if (App->input->keyboard[SDL_SCANCODE_F8] == 1)
+	{
+		App->mid->AddEnemy(ENEMY_TYPES3::FARGREEN, 230, 70);
+		App->mid->AddEnemy(ENEMY_TYPES3::FARGREEN2, 0, 70);
+	}
+
 
 
 
