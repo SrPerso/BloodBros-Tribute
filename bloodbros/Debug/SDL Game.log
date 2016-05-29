@@ -1,0 +1,57 @@
+﻿Build started 29/05/2016 18:21:41.
+     1>Project "C:\Users\esteban\Documents\GitHub\VictoriousSecret\bloodbros\SDL Game.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GreenCowBoyLeavingTheHouse.cpp
+         GreenCowBoyLeavingTheHouse.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\esteban\Documents\GitHub\VictoriousSecret\bloodbros\Debug\SDL4 Handout.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\esteban\Documents\GitHub\VictoriousSecret\bloodbros\Debug\SDL4 Handout.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\esteban\Documents\GitHub\VictoriousSecret\bloodbros\Debug\SDL4 Handout.lib" /MACHINE:X86 Debug\Application.obj
+         Debug\Audio.obj
+         Debug\BlueCowBoy.obj
+         Debug\Charriot.obj
+         Debug\Enemy.obj
+         Debug\Extras.obj
+         Debug\FarGreenCowboy.obj
+         Debug\FarGreenCowboy2.obj
+         Debug\FarIndian.obj
+         Debug\FarIndian2.obj
+         Debug\Globals.obj
+         Debug\GreenCowBoyLeavingTheHouse.obj
+         Debug\GreenCowBoyMedium.obj
+         Debug\GreenCowboy.obj
+         Debug\GreenRight.obj
+         Debug\IndianLast.obj
+         Debug\IndianLast2.obj
+         Debug\IndianLeavingTheHouse.obj
+         Debug\IndianMedium.obj
+         Debug\Jumper.obj
+         Debug\jumper2.obj
+         Debug\jumper2left.obj
+         Debug\Jumpershoot.obj
+         Debug\Main.obj
+         Debug\ModuleBuildings.obj
+         Debug\ModuleBuildings2.obj
+         Debug\ModuleCollision.obj
+         Debug\ModuleEnemies.obj
+         Debug\ModuleEnemiesFront.obj
+         Debug\ModuleEnemiesMid.obj
+         Debug\ModuleFadeToBlack.obj
+         Debug\ModuleFonts.obj
+         Debug\ModuleInput.obj
+         Debug\ModuleLevel1.obj
+         Debug\ModuleLevel2.obj
+         Debug\ModuleParticles.obj
+         Debug\ModulePlayer.obj
+         Debug\ModuleRender.obj
+         Debug\ModuleScope.obj
+         Debug\ModuleTextures.obj
+         Debug\ModuleTitleScreen.obj
+         Debug\ModuleUi.obj
+         Debug\ModuleVictory.obj
+         Debug\ModuleWindow.obj
+         Debug\PurplePlane.obj
+         SDL Game.vcxproj -> C:\Users\esteban\Documents\GitHub\VictoriousSecret\bloodbros\Debug\SDL4 Handout.exe
+     1>Done Building Project "C:\Users\esteban\Documents\GitHub\VictoriousSecret\bloodbros\SDL Game.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.40

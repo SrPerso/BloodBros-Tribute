@@ -24,7 +24,7 @@ GreenCowBoyLeavingTheHouse::GreenCowBoyLeavingTheHouse(int x, int y) : Enemy(x, 
 	fly.PushBack({ 771, 203, 32, 32 });//6//moviendose a la derecha
 	fly.speed = 0.2f;
 
-	jump.PushBack({ 804, 38, 32, 32 });//jump
+	jump.PushBack({ 836, 38, 32, 32 });//jump
 
 	idle.PushBack({ 738, 302, 32, 32 }); //idle
 
