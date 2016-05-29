@@ -108,18 +108,93 @@ ModulePlayer::ModulePlayer()
 	jump_right.loop = false;
 	jump_right.speed = 0.30f;
 
+	dead.PushBack({ 314, 444, 0, 0 });
 	dead.PushBack({ 314, 444, 80, 72 });
+	dead.PushBack({ 314, 444, 0, 0 });
+	dead.PushBack({ 314, 444, 80, 72 });
+
+	dead.PushBack({ 406, 444, 0, 0 });
 	dead.PushBack({ 406, 444, 80, 72 });
+	dead.PushBack({ 406, 444, 0, 0 });
+	dead.PushBack({ 406, 444, 80, 72 });
+
+	dead.PushBack({ 498, 444, 0, 0 });
 	dead.PushBack({ 498, 444, 80, 72 });
+	dead.PushBack({ 498, 444, 0, 0 });
+	dead.PushBack({ 498, 444, 80, 72 });
+
+	dead.PushBack({ 590, 444, 0, 0 });
 	dead.PushBack({ 590, 444, 80, 72 });
+	dead.PushBack({ 590, 444, 0, 0 });
+	dead.PushBack({ 590, 444, 80, 72 });
+
+	dead.PushBack({ 314, 516, 0, 0 });
 	dead.PushBack({ 314, 516, 80, 72 });
+	dead.PushBack({ 314, 516, 0, 0 });
+	dead.PushBack({ 314, 516, 80, 72 });
+
 	dead.PushBack({ 406, 516, 80, 72 });
 	dead.PushBack({ 406, 516, 80, 72 });
-	dead.PushBack({ 314, 516, 80, 72 });
-	dead.PushBack({ 314, 516, 80, 72 });
 	dead.PushBack({ 406, 516, 80, 72 });
+	dead.PushBack({ 406, 516, 80, 72 });
+
+	dead.PushBack({ 406, 516, 80, 72 });
+	dead.PushBack({ 406, 516, 80, 72 });
+	dead.PushBack({ 406, 516, 80, 72 });
+	dead.PushBack({ 406, 516, 80, 72 });
+
+	dead.PushBack({ 314, 516, 80, 72 });
+	dead.PushBack({ 314, 516, 80, 72 });
+	dead.PushBack({ 314, 516, 80, 72 });
+	dead.PushBack({ 314, 516, 80, 72 });
+
+	dead.PushBack({ 314, 516, 80, 72 });
+	dead.PushBack({ 314, 516, 80, 72 });
+	dead.PushBack({ 314, 516, 80, 72 });
+	dead.PushBack({ 314, 516, 80, 72 });
+
+	dead.PushBack({ 406, 516, 80, 72 });
+	dead.PushBack({ 406, 516, 80, 72 });
+	dead.PushBack({ 406, 516, 80, 72 });
+	dead.PushBack({ 406, 516, 80, 72 });
+
+	dead.PushBack({ 406, 516, 80, 72 });
+	dead.PushBack({ 406, 516, 80, 72 });
+	dead.PushBack({ 406, 516, 80, 72 });
+	dead.PushBack({ 406, 516, 80, 72 });
+
+	dead.PushBack({ 406, 516, 80, 72 });
+	dead.PushBack({ 406, 516, 80, 72 });
+	dead.PushBack({ 406, 516, 80, 72 });
+	dead.PushBack({ 406, 516, 80, 72 });
+
+	dead.PushBack({ 314, 516, 0, 0 });
+	dead.PushBack({ 314, 516, 80, 72 });
+	dead.PushBack({ 314, 516, 0, 0 });
+	dead.PushBack({ 314, 516, 80, 72 });
+
+	dead.PushBack({ 590, 444, 0, 0 });
+	dead.PushBack({ 590, 444, 80, 72 });
+	dead.PushBack({ 590, 444, 0, 0 });
+	dead.PushBack({ 590, 444, 80, 72 });
+
+	dead.PushBack({ 498, 444, 0, 0 });
+	dead.PushBack({ 498, 444, 80, 72 });
+	dead.PushBack({ 498, 444, 0, 0 });
+	dead.PushBack({ 498, 444, 80, 72 });
+
+	dead.PushBack({ 406, 444, 0, 0 });
+	dead.PushBack({ 406, 444, 80, 72 });
+	dead.PushBack({ 406, 444, 0, 0 });
+	dead.PushBack({ 406, 444, 80, 72 });
+
+	dead.PushBack({ 314, 444, 0, 0 });
+	dead.PushBack({ 314, 444, 80, 72 });
+	dead.PushBack({ 314, 444, 0, 0 });
+	dead.PushBack({ 314, 444, 80, 72 });
+
 	dead.loop = true;
-	dead.speed = 0.1f;
+	dead.speed = 0.44f;
 	
 	//shot idle
 
