@@ -281,11 +281,15 @@ bool ModuleBuilding::Start()
 	trees.movement.speed = 0.2f;
 	trees.mytype = TREES;
 
-	rock.build.x = 1;
-	rock.build.y = 335;
-	rock.build.w = 65;
-	rock.build.h = 44;
+	rock.build.x = 2;
+	rock.build.y = 331;
+	rock.build.w = 64;
+	rock.build.h = 48;
 	rock.mytype = ROCK;
+
+
+
+
 	return true;
 }
 
@@ -394,6 +398,10 @@ void ModuleBuilding::AddBuilding(const Building& particle, int x, int y)
 	else if (p->mytype==TREES){
 		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, 49, 40 }, COLLIDER_EXTRA, this);
 	}
+	else if (p->mytype == ROCK){
+		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, 64, 64 }, COLLIDER_ROCK, this);
+	}
+
 	else{
 		p->collider = App->collision->AddCollider({ p->position.x, p->position.y, particle.build.w, particle.build.h }, COLLIDER_EXTRA, this);
 	}
@@ -509,23 +517,32 @@ void ModuleBuilding::OnCollision(Collider* c1, Collider* c2)
 			}
 			if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->mytype == ROCK){
 				if (active[i]->hits == 0){
-					active[i]->build.x = 66;
-					active[i]->build.y = 335;
-					active[i]->build.w = 60;
+					active[i]->build.x = 65;
+					active[i]->build.y = 332;
+					active[i]->build.w = 64;
 					active[i]->hits++;
+
+					App->particles->AddParticle(App->particles->rockpieces, active[i]->position.x-20 , active[i]->position.y-10);
+					App->particles->AddParticle(App->particles->rockpieces, active[i]->position.x+10, active[i]->position.y );
 					break;
 				}
 				else if (active[i]->hits == 1){
-					active[i]->build.x = 127;
-					active[i]->build.y = 335;
+					active[i]->build.x = 130;
+					active[i]->build.y = 332;
 					active[i]->hits++;
+
+					App->particles->AddParticle(App->particles->rockpieces, active[i]->position.x - 20, active[i]->position.y - 5);
+					App->particles->AddParticle(App->particles->rockpieces, active[i]->position.x + 10, active[i]->position.y+5);
+
 					break;
 				}
 				else if (active[i]->hits == 2){
-					active[i]->build.x = 157;
-					active[i]->build.y = 156;
+					active[i]->build.x = 195;
+					active[i]->build.y = 332;
 					active[i]->hits++;
-					App->particles->AddParticle(App->particles->points7000, active[i]->position.x + 5, active[i]->position.y, 0.0f, 1.3f, COLLIDER_POINT, 0);
+
+					App->particles->AddParticle(App->particles->rockpieces, active[i]->position.x - 20, active[i]->position.y );
+					App->particles->AddParticle(App->particles->rockpieces, active[i]->position.x + 10, active[i]->position.y-10);
 				}
 			}
 		}

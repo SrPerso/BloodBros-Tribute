@@ -42,7 +42,7 @@ Application::Application()
 	modules[16] = player = new ModulePlayer();
 	modules[17] = fade = new ModuleFadeToBlack();
 	modules[18] = particles = new ModuleParticles();
-	modules[19] = collision = new ModuleCollision();
+    modules[19] = collision = new ModuleCollision();
 	modules[20] = scope = new ModuleScope();
 	modules[21] = ui = new ModuleUI();
 	

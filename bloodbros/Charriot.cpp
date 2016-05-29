@@ -69,6 +69,11 @@ void Enemy_Charriot::Move()
 	}*/
 	if (isdead == true) {
 
+
+		App->particles->AddParticle(App->particles->bigexplosion,position.x,position.y+10);
+		App->particles->AddParticle(App->particles->bigexplosion, position.x, position.y);
+		App->particles->AddParticle(App->particles->bigexplosion, position.x, position.y - 10);
+		App->particles->AddParticle(App->particles->bigexplosion, position.x, position.y - 20);
 		to_delete = true;
 
 	}
@@ -76,6 +81,8 @@ void Enemy_Charriot::Move()
 void Enemy_Charriot::OnCollision(Collider* c1, Collider* c2)
 {
 	App->particles->AddParticle(App->particles->tntammo, position.x, position.y, 0.0f, 1.3f, COLLIDER_POWERUP, 0);
+	
+	
 	isdead = true;
 
 }

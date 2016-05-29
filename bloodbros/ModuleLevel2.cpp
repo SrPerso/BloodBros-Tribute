@@ -247,6 +247,11 @@ update_status ModuleLevel2::Update()
 		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYJUMPERRIGTH, 230, 80);
 	}
 
+	if (App->input->keyboard[SDL_SCANCODE_F6] == 1)
+	{
+		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 80);
+	}
+
 
 
 
