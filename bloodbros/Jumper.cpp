@@ -45,8 +45,14 @@ Jumper::Jumper(int x, int y) : Enemy(x, y)
 	original_pos.x = x;
 	original_pos.y = y;
 
-	path.PushBack({ 0.0f, -1.5f }, 70, &jump);
-	path.PushBack({ 0.0f, 1.5f }, 78, &jump);
+	path.PushBack({ 0.0f, -2.0f }, 25, &jump);
+	path.PushBack({ 0.0f, -1.5f }, 15, &jump);
+	path.PushBack({ 0.0f, -1.0f }, 10, &jump);
+	path.PushBack({ 0.0f, -0.5f }, 5, &jump);
+	path.PushBack({ 0.0f, 0.5f }, 5, &jump);
+	path.PushBack({ 0.0f, 1.0f }, 10, &jump);
+	path.PushBack({ 0.0f, 1.5f }, 15, &jump);
+	path.PushBack({ 0.0f, 2.0f }, 30, &jump);
 	path.PushBack({ 0.0f, 0.0f }, 25, &shotidle);
 	path.PushBack({ 0.0f, 0.0f }, 20, &shot);
 	path.PushBack({ 0.0f, 0.0f }, 20, &shotidle);
