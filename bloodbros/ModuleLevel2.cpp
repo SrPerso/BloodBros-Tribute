@@ -148,20 +148,20 @@ update_status ModuleLevel2::Update()
 
 		ole5 = false;
 	}
-	if (SDL_GetTicks() >= timestart + 11000 && ole6 == true){
+	if (SDL_GetTicks() >= timestart + 10500 && ole6 == true){
 
 		App->front->AddEnemy(ENEMY_TYPES2::JUMPERSHOOT, 35, 100);
 
 		ole6 = false;
 	}
-	if (SDL_GetTicks() >= timestart +12000 && ole7== true){
+	if (SDL_GetTicks() >= timestart +11000 && ole7== true){
 
 		App->front->AddEnemy(ENEMY_TYPES2::JUMPER, 50, 100);
 		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 67);
 
 		ole7 = false;
 	}
-	if (SDL_GetTicks() >= timestart + 13000 && ole8 == true){
+	if (SDL_GetTicks() >= timestart + 11500 && ole8 == true){
 
 		App->front->AddEnemy(ENEMY_TYPES2::JUMPERSHOOT, 65, 100);
 
