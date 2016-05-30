@@ -20,22 +20,6 @@ ModuleBuilding::ModuleBuilding()
 {
 	for (uint i = 0; i < MAX_BUILDINGS; ++i)
 		active[i] = nullptr;
-}
-
-ModuleBuilding::~ModuleBuilding()
-{
-	if (yellow.collider != nullptr){
-		App->collision->EraseCollider(yellow.collider);
-	}
-}
-
-// Load assets
-bool ModuleBuilding::Start()
-{
-	LOG("Loading particles");
-	graphics = App->textures->Load("Images/buildings.png");
-
-
 	yellow.build.x = 1;
 	yellow.build.y = 2;
 	yellow.build.w = 94;
@@ -131,7 +115,7 @@ bool ModuleBuilding::Start()
 	yellow.destroy.PushBack({ 103, 2, 94, 15 });
 
 
-	
+
 
 	yellow.destroy.loop = false;
 	yellow.destroy.speed = 0.27f;
@@ -194,7 +178,7 @@ bool ModuleBuilding::Start()
 	purple.destroy.PushBack({ 102, 217, 80, 10 });
 	purple.destroy.loop = false;
 	purple.destroy.speed = 0.3f;
-	
+
 	/*wheel.build.x = 0;
 	wheel.build.y = 107;
 	wheel.build.w = 46;
@@ -253,15 +237,15 @@ bool ModuleBuilding::Start()
 	mill.destroy.PushBack({ 157, 156, 43, 12 });
 	mill.destroy.PushBack({ 155, 156, 43, 11 });
 	mill.destroy.PushBack({ 157, 156, 43, 10 });
-	mill.destroy.PushBack({ 157, 156, 43,  9 });
-	mill.destroy.PushBack({ 155, 156, 43,  8 });
-	mill.destroy.PushBack({ 157, 156, 43,  7 });
-	mill.destroy.PushBack({ 155, 156, 43,  6 });
-	mill.destroy.PushBack({ 157, 156, 43,  5 });
-	mill.destroy.PushBack({ 157, 156, 43,  4 });
-	mill.destroy.PushBack({ 155, 156, 43,  3 });
-	mill.destroy.PushBack({ 157, 156, 43,  2 });
-	mill.destroy.PushBack({ 155, 156, 43,  1 });
+	mill.destroy.PushBack({ 157, 156, 43, 9 });
+	mill.destroy.PushBack({ 155, 156, 43, 8 });
+	mill.destroy.PushBack({ 157, 156, 43, 7 });
+	mill.destroy.PushBack({ 155, 156, 43, 6 });
+	mill.destroy.PushBack({ 157, 156, 43, 5 });
+	mill.destroy.PushBack({ 157, 156, 43, 4 });
+	mill.destroy.PushBack({ 155, 156, 43, 3 });
+	mill.destroy.PushBack({ 157, 156, 43, 2 });
+	mill.destroy.PushBack({ 155, 156, 43, 1 });
 
 	mill.destroy.loop = false;
 	mill.destroy.speed = 0.3f;
@@ -286,6 +270,23 @@ bool ModuleBuilding::Start()
 	rock.build.w = 64;
 	rock.build.h = 48;
 	rock.mytype = ROCK;
+}
+
+ModuleBuilding::~ModuleBuilding()
+{
+	if (yellow.collider != nullptr){
+		App->collision->EraseCollider(yellow.collider);
+	}
+}
+
+// Load assets
+bool ModuleBuilding::Start()
+{
+	LOG("Loading particles");
+	graphics = App->textures->Load("Images/buildings.png");
+
+
+
 
 
 
@@ -307,7 +308,6 @@ bool ModuleBuilding::CleanUp()
 			active[i] = nullptr;
 		}
 	}
-	last_building = 0;
 	return true;
 }
 

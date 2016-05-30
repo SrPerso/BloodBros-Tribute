@@ -20,22 +20,6 @@ ModuleBuilding2::ModuleBuilding2()
 {
 	for (uint i = 0; i < MAX_BUILDINGS; ++i)
 		active[i] = nullptr;
-}
-
-ModuleBuilding2::~ModuleBuilding2()
-{
-	if (yellow.collider != nullptr){
-		App->collision->EraseCollider(yellow.collider);
-	}
-}
-
-// Load assets
-bool ModuleBuilding2::Start()
-{
-	LOG("Loading particles");
-	graphics = App->textures->Load("Images/buildings.png");
-
-
 	yellow.build.x = 1;
 	yellow.build.y = 2;
 	yellow.build.w = 94;
@@ -286,6 +270,23 @@ bool ModuleBuilding2::Start()
 	rock.build.w = 65;
 	rock.build.h = 44;
 	rock.mytype = ROCK2;
+}
+
+ModuleBuilding2::~ModuleBuilding2()
+{
+	if (yellow.collider != nullptr){
+		App->collision->EraseCollider(yellow.collider);
+	}
+}
+
+// Load assets
+bool ModuleBuilding2::Start()
+{
+	LOG("Loading particles");
+	graphics = App->textures->Load("Images/buildings.png");
+
+
+
 	return true;
 }
 
