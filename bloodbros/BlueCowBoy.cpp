@@ -56,7 +56,7 @@ BlueCowboy::BlueCowboy(int x, int y) : Enemy(x, y)
 void BlueCowboy::Move()
 {
 	position = original_pos + path.GetCurrentSpeed(&animation);
-	if (path.GetFrame() == 200 && isdead == false){
+	if (path.GetFrame() == 140 && isdead == false){
 		//if (App->particles->gunflare.anim.Finished()){
 		App->particles->AddParticle(App->particles->orangebomb, position.x, position.y, 1, -1, COLLIDER_BOMB, 0);
 		//}

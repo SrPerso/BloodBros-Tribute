@@ -5,6 +5,7 @@
 #include "Animation.h"
 #include "Globals.h"
 #include "p2Point.h"
+#include "ModuleScope.h"
 
 #define MAX_ACTIVE_PARTICLES 1000
 
@@ -30,6 +31,7 @@ struct Particle
 	~Particle();
 	Particle(const Particle& p);
 	bool Update();
+	ModuleScope* scope;
 };
 
 class ModuleParticles : public Module

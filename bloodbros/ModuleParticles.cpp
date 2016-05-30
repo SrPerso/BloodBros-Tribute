@@ -175,7 +175,7 @@ ModuleParticles::ModuleParticles()
 	Hitbomb.anim.PushBack({ 243, 29, 33, 58 });
 	Hitbomb.anim.speed = 0.25f;
 	Hitbomb.anim.loop = false;
-	Hitbomb.life = 400;
+	Hitbomb.life = 800;
 
 	orangebomb.anim.PushBack({ 493, 229, 15, 15 });
 	orangebomb.anim.PushBack({ 476, 229, 15, 15 });
@@ -423,7 +423,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2){
 		uint j = 0;
 		if (active[i] != nullptr && active[i]->collider== c1 && active[i]->collider->type==COLLIDER_BOMB && c2->type==COLLIDER_WALL){
 			active[i]->anim.Reset();
-			App->particles->AddParticle(App->particles->Hitbomb, active[i]->position.x, active[i]->position.y-45, 0.0f, +0.0f, COLLIDER_ENEMY, 0);
+			App->particles->AddParticle(App->particles->Hitbomb, active[i]->position.x, active[i]->position.y-60, 0.0f, 0.0f, COLLIDER_ENEMY, 0);
 			delete p;
 			active[i] = nullptr;
 			break;
@@ -519,14 +519,14 @@ bool Particle::Update()
 	position.y += speed.y;
 
 	if (type == ORANGE ){
-		speed.y += 0.1;
+		speed.y += 0.05;
 	}
 	if (type == TNT){
 		speed.y += 0.1;
 	}
 
 	if (type == TNT && anim.Finished() == true){
-		App->particles->AddParticle(App->particles->Hitbomb, position.x, position.y-58, COLLIDER_TNT, 0);
+		App->particles->AddParticle(App->particles->Hitbomb, position.x, position.y-70, COLLIDER_TNT, 0);
 	}
 
 	if ((collider != nullptr && collider->type==COLLIDER_POWERUP) || (collider!=nullptr && collider->type==COLLIDER_POINT))

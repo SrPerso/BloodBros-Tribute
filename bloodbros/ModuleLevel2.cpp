@@ -107,7 +107,7 @@ update_status ModuleLevel2::Update()
 
 	App->render->Blit(graphics, 0, 0, &background, 0); // level 2
 	App->ui->Update();
-
+	
 	//////////////// 5 cowboys from left dist 2 first wave
 
 	if (SDL_GetTicks() >= timestart + 6000 && ole1 == true){
