@@ -65,6 +65,7 @@ void GreenCowboyMedium::OnCollision(Collider* c1, Collider* c2)
 	path.Erase();
 	path.PushBack({ 0.0f, 0.0f }, 25, &dead);
 	path.loop = false;
-
+	collider->to_delete = true;
+	collider = nullptr;
 	isdead = true;
 }

@@ -463,7 +463,8 @@ void ModuleBuilding::OnCollision(Collider* c1, Collider* c2)
 					active[i]->build.h = 0;
 					active[i]->hits++;
 					App->particles->AddParticle(App->particles->bigsmoke, active[i]->position.x + 1, active[i]->position.y + 68);
-					
+					active[i]->collider->to_delete = true;
+					active[i]->collider = nullptr;
 					App->particles->AddParticle(App->particles->points10000, active[i]->position.x + 24, active[i]->position.y, 0.0f, 1.3f, COLLIDER_POINT, 0);
 					/*delete[] active[i]->collider;
 					active[i]->collider = nullptr;//PROBLEM*/
@@ -485,7 +486,8 @@ void ModuleBuilding::OnCollision(Collider* c1, Collider* c2)
 					active[i]->build.h = 0;
 					active[i]->hits++;
 					App->particles->AddParticle(App->particles->housesmoke, active[i]->position.x + 3, active[i]->position.y + 25);
-
+					active[i]->collider->to_delete = true;
+					active[i]->collider = nullptr;
 					App->particles->AddParticle(App->particles->points7000, active[i]->position.x + 16, active[i]->position.y, 0.0f, 1.3f, COLLIDER_POINT, 0);
 				}
 			}

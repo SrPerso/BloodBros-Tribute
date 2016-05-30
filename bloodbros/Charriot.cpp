@@ -81,8 +81,8 @@ void Enemy_Charriot::Move()
 void Enemy_Charriot::OnCollision(Collider* c1, Collider* c2)
 {
 	App->particles->AddParticle(App->particles->tntammo, position.x, position.y, 0.0f, 1.3f, COLLIDER_POWERUP, 0);
-	
-	
+	collider->to_delete = true;
+	collider = nullptr;
 	isdead = true;
 
 }

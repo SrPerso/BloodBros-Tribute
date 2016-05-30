@@ -430,7 +430,6 @@ update_status ModulePlayer::Update()
 
 			else if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT)
 			{
-				score += 10;
 				position.x -= speed;
 				if (((position.x - App->scope->position.x) > 0 && (position.x - App->scope->position.x) <= 10.0f) || ((App->scope->position.x - position.x) > 0 && (App->scope->position.x - position.x) <= 10.0f)){
 					current_animation = &shotidle;
@@ -471,7 +470,6 @@ update_status ModulePlayer::Update()
 
 			else if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_REPEAT)
 			{
-				score += 10;
 				position.x += speed;
 				if (((position.x - App->scope->position.x) > 0 && (position.x - App->scope->position.x) <= 10.0f) || ((App->scope->position.x - position.x) > 0 && (App->scope->position.x - position.x) <= 10.0f)){
 					current_animation = &shotidle;

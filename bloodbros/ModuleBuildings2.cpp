@@ -506,6 +506,8 @@ void ModuleBuilding2::OnCollision(Collider* c1, Collider* c2)
 					active[i]->build.w = 43;
 					active[i]->build.h = 49;
 					active[i]->hits++;
+					active[i]->collider->to_delete = true;
+					active[i]->collider = nullptr;
 					App->particles->AddParticle(App->particles->points7000, active[i]->position.x + 5, active[i]->position.y, 0.0f, 1.3f, COLLIDER_POINT, 0);
 				}
 			}
