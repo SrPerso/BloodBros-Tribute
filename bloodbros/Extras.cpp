@@ -187,8 +187,6 @@ update_status ModuleExtra::Update()
 				App->particles->AddParticle(App->particles->bigexplosion, p->position.x+40, p->position.y, 0);
 				App->particles->AddParticle(App->particles->bigexplosion, p->position.x+80, p->position.y, 0);
 				p->hits++;
-				p->collider->to_delete = true;
-				p->collider = nullptr;
 			}
 			else if (p->type == GUITAR){
 				App->render->Blit(graphics, p->position.x, p->position.y, &p->anim.GetCurrentFrame());

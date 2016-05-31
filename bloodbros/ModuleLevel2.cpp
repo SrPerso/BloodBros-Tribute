@@ -262,7 +262,7 @@ update_status ModuleLevel2::Update()
 		greencowboy = false;
 	}
 
-	if (SDL_GetTicks() >= timestart + 42400 && greencowboyb == true && App->building->purplealive == true){
+	if (SDL_GetTicks() >= timestart + 42400 && greencowboyb == true){
 		App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 70, -20);
 		greencowboyb = false;
 	}
@@ -410,6 +410,80 @@ update_status ModuleLevel2::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 67);
 		App->enemies->AddEnemy(ENEMY_TYPES::PURPLEPLANE, 70, -20);
 		secgreencowboy = false;
+	}
+
+	if (SDL_GetTicks() >= timestart + 78400){
+		timestart = SDL_GetTicks();
+		ole1 = true;
+		ole1b = true;
+		ole1c = true;
+		ole2 = true;
+		ole3 = true;
+		ole4 = true;
+		ole4b = true;
+		ole5 = true;
+		ole6 = true;
+		ole7 = true;
+		ole8 = true;
+		ole8b = true;
+		ole9 = true;
+		ole9b = true;
+		ole9c = true;
+		ole10 = true;
+
+		extra = true;
+		plane = true;
+		greencowboy = true;
+		greencowboyb = true;
+		bluecowboy = true;
+		bluecowboyb = true;
+		bluecowboyc = true;
+		bluecowboyd = true;
+		buildings = true;
+		green2 = true;
+		plane2 = true;
+		jumper = true;
+
+
+		greencowboymedium = true;
+		IndianMedium = true;
+		GreenCowBoyLeavingTheHouse = true;
+
+		/////////////////// 2nd Wave
+
+		 secole1 = true;
+		 secole1b = true;
+		 secole1c = true;
+		 secole2 = true;
+		 secole3 = true;
+		 secole4 = true;
+		 secole4b = true;
+		 secole5 = true;
+		 secole6 = true;
+		 secole7 = true;
+		 secole8 = true;
+		 secole8b = true;
+		 secole9 = true;
+		secole9b = true;
+		secole9c = true;
+		secole10 = true;
+
+		secextra = true;
+		secplane = true;
+		secgreencowboy = true;
+		secbluecowboy = true;
+		secbluecowboyb = true;
+		secbluecowboyc = true;
+		secbluecowboyd = true;
+		secbuildings = true;
+		 secgreen2 = true;
+		secplane2 = true;
+		secjumper = true;
+
+
+		secgreencowboymedium = true;
+		secIndianMedium = true;
+		secGreenCowBoyLeavingTheHouse = true;
 	}
 
 	
