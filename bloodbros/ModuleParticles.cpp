@@ -363,7 +363,9 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, Uint32
 			p->born = SDL_GetTicks() + delay;
 			p->position.x = x;
 			p->position.y = y;
-			
+			if (p->type == TNT){
+				p->speed = p->position.GetSpeed(App->scope->position);
+			}
 			active[last_particle++] = p;
 
 
@@ -427,13 +429,16 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2){
 			delete p;
 			active[i] = nullptr;
 			break;
-			if ((active[i] != nullptr && active[i]->collider == c1 && active[i]->type==TNT && c2->type == COLLIDER_ENEMY) || (active[i] != nullptr && active[i]->collider == c1 && active[i]->type == TNT && c2->type == COLLIDER_EXTRA)){
-				active[i]->anim.Reset();
-				App->particles->AddParticle(App->particles->Hitbomb, active[i]->position.x, active[i]->position.y - 45, 0.0f, +0.0f, COLLIDER_TNT, 0);
-				delete p;
-				active[i] = nullptr;
-				break;
-			}
+			
+		}
+		else if ((active[i] != nullptr && active[i]->collider == c1 && active[i]->collider->type == COLLIDER_TNT && c2->type == COLLIDER_ENEMY) || (active[i] != nullptr && active[i]->collider == c1 && active[i]->collider->type == COLLIDER_TNT && c2->type == COLLIDER_EXTRA)){
+			active[i]->anim.Reset();
+			active[i]->collider->to_delete = true;
+			active[i]->collider = nullptr;
+			App->particles->AddParticle(App->particles->Hitbomb, active[i]->position.x, active[i]->position.y - 45, 0.0f, +0.0f, COLLIDER_NONE, 0);
+			delete p;
+			active[i] = nullptr;
+			break;
 		}
 		else if (active[i] != nullptr && active[i]->collider == c1 && active[i]->collider->type == COLLIDER_POINT && c2->type == COLLIDER_PLAYER){
 			App->audio->Loadfx("Music/powerup.ogg");
@@ -526,7 +531,7 @@ bool Particle::Update()
 	}
 
 	if (type == TNT && anim.Finished() == true){
-		App->particles->AddParticle(App->particles->Hitbomb, position.x, position.y-70, COLLIDER_TNT, 0);
+		App->particles->AddParticle(App->particles->Hitbomb, position.x, position.y-70, COLLIDER_NONE, 0);
 	}
 
 	if ((collider != nullptr && collider->type==COLLIDER_POWERUP) || (collider!=nullptr && collider->type==COLLIDER_POINT))

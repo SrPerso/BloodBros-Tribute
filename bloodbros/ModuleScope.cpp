@@ -92,7 +92,7 @@ update_status ModuleScope::Update()
 	}
 	if ((App->input->keyboard[SDL_SCANCODE_P] == KEY_STATE::KEY_DOWN && App->player->tntammo >= 1 && App->player->status == NORMAL) || (App->input->keyboard[SDL_SCANCODE_P] == KEY_STATE::KEY_DOWN && App->player->tntammo >= 1 && App->player->status == CROUCH)){
 
-		App->particles->AddParticle(App->particles->tnt, App->player->position.x + 3, App->player->position.y + 3, COLLIDER_NONE, 0);
+		App->particles->AddParticle(App->particles->tnt, App->player->position.x + 3, App->player->position.y + 3,COLLIDER_TNT, 0);
 		App->player->tntammo--;
 	}
 	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT){

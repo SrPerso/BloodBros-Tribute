@@ -176,9 +176,10 @@ update_status ModuleLevel2::Update()
 		ole6 = false;
 	}
 	if (SDL_GetTicks() >= timestart +19000 && ole7== true){
-		App->extra->AddExtra(App->extra->cask, -80, 130);
+		
 		App->front->AddEnemy(ENEMY_TYPES2::JUMPER, 50, 100);
 		App->enemies->AddEnemy(ENEMY_TYPES::CHARRIOT, 220, 67);
+		App->extra->AddExtra(App->extra->cask, -80, 130);
 
 		ole7 = false;
 	}

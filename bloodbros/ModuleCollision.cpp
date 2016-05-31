@@ -142,10 +142,10 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_POWERUP][COLLIDER_TNT] = false;
 	matrix[COLLIDER_POWERUP][COLLIDER_ROCK] = false;
 	
-	matrix[COLLIDER_TNT][COLLIDER_BOMB] = true;
+	matrix[COLLIDER_TNT][COLLIDER_BOMB] = false;
 	matrix[COLLIDER_TNT][COLLIDER_EXTRA] = true;
 	matrix[COLLIDER_TNT][COLLIDER_PLAYER] = false;
-	matrix[COLLIDER_TNT][COLLIDER_ENEMY] = false;
+	matrix[COLLIDER_TNT][COLLIDER_ENEMY] = true;
 	matrix[COLLIDER_TNT][COLLIDER_PLAYER_SHOT] = false;
 	matrix[COLLIDER_TNT][COLLIDER_ENEMY_SHOT] = false;
 	matrix[COLLIDER_TNT][COLLIDER_WALL] = false;
