@@ -34,6 +34,10 @@ public:
 	bool ole9b = true;
 	bool ole9c = true;
 	bool ole10 = true;
+	bool ole11 = true;
+	bool ole12 = true;
+	bool ole13 = true;
+	bool ole14 = true;
 
 	bool extra = true;
 	bool plane = true;

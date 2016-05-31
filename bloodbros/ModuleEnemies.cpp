@@ -17,6 +17,8 @@
 #include "GreenCowBoyLeavingTheHouse.h"
 #include "IndianLast.h"
 #include "IndianLast2.h"
+#include "FarIndian.h"
+#include "FarIndian2.h"
 
 /*#include "Enemy_RedBird.h"
 #include "Enemy_Cookie.h"
@@ -175,6 +177,7 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			case ENEMY_TYPES::INDIANLAST2:
 				enemies[i] = new IndianLast2(info.x, info.y);
 				break;
+		
 			
 			}
 			
