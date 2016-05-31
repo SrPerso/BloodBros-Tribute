@@ -82,7 +82,9 @@ bool ModuleLevel2::Start()
 	App->building->AddBuilding(App->building->trees, 230, 30);
 	App->building->AddBuilding(App->building->yellow, 160, 30);
 	App->building->AddBuilding(App->building->purple, 0, 53);
-
+	App->enemies->hits = 0;
+	App->front->hits = 0;
+	App->mid->hits = 0;
 	App->building2->AddBuilding2(App->building2->mill, 30, 74);
 
 	App->building->AddBuilding(App->building->rock, 154, 150);
@@ -101,6 +103,7 @@ bool ModuleLevel2::CleanUp()
 	App->audio->Disable();
 	App->scope->Disable();
 	App->enemies->Disable();
+	App->mid->Disable();
 	App->front->Disable();
 	App->building->Disable();
 	App->building2->Disable();
@@ -163,13 +166,23 @@ update_status ModuleLevel2::Update()
 		App->front->AddEnemy(ENEMY_TYPES2::GREENLEAVINGCOWBOY, 215, 90);	
 		ole3 = false;
 	}
-
+	else if (SDL_GetTicks() >= timestart + 13750 && ole3 == true && App->building->yellowalive == false){
+		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYJUMPERLEFT, 215, 80);
+		ole3 = false;
+	}
 	if (SDL_GetTicks() >= timestart + 14000 && ole4 == true && App->building->yellowalive == true){
 		App->front->AddEnemy(ENEMY_TYPES2::GREENLEAVINGCOWBOY, 225, 90);
 		
 		ole4 = false;
 	}
+<<<<<<< HEAD
 	
+=======
+	else if (SDL_GetTicks() >= timestart + 14000 && ole4 == true && App->building->yellowalive == false){
+		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYJUMPERRIGTH, 225, 80);
+		ole4 = false;
+	}
+>>>>>>> origin/master
 
 	//////////////// cowboy from right house dist 3 
 
