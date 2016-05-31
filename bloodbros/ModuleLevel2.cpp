@@ -40,23 +40,95 @@ bool ModuleLevel2::Start()
 	LOG("Loading background assets");
 	App->player->Enable();
 	bool ret = true;
-	extra = true;
-	greencowboy = true;
-	bluecowboy = true;
-	buildings = true;
-	plane = true;
-	jumper = true;
+
 	greencowboymedium = true;
 	ole1 = true;
+	ole1b = true;
+	ole1c = true;
 	ole2 = true;
 	ole3 = true;
 	ole4 = true;
+	ole4b = true;
 	ole5 = true;
 	ole6 = true;
 	ole7 = true;
 	ole8 = true;
 	ole9 = true;
 	ole10 = true;
+	ole1 = true;
+	ole1b = true;
+	ole1c = true;
+	ole2 = true;
+	ole3 = true;
+	ole4 = true;
+	ole4b = true;
+	ole5 = true;
+	ole6 = true;
+	ole7 = true;
+	ole8 = true;
+	ole8b = true;
+	ole9 = true;
+	ole9b = true;
+	ole9c = true;
+	ole10 = true;
+	ole11 = true;
+	ole12 = true;
+	ole13 = true;
+	ole14 = true;
+
+	extra = true;
+	plane = true;
+	greencowboy = true;
+	greencowboyb = true;
+	bluecowboy = true;
+	bluecowboyb = true;
+	bluecowboyc = true;
+	bluecowboyd = true;
+	buildings = true;
+	green2 = true;
+	plane2 = true;
+	jumper = true;
+
+
+	greencowboymedium = true;
+	IndianMedium = true;
+	GreenCowBoyLeavingTheHouse = true;
+
+	/////////////////// 2nd Wave
+
+	secole1 = true;
+	secole1b = true;
+	secole1c = true;
+	secole2 = true;
+	secole3 = true;
+	secole4 = true;
+	secole4b = true;
+	secole5 = true;
+	secole6 = true;
+	secole7 = true;
+	secole8 = true;
+	secole8b = true;
+	secole9 = true;
+	secole9b = true;
+	secole9c = true;
+	secole10 = true;
+
+	secextra = true;
+	secplane = true;
+	secgreencowboy = true;
+	secbluecowboy = true;
+	secbluecowboyb = true;
+	secbluecowboyc = true;
+	secbluecowboyd = true;
+	secbuildings = true;
+	secgreen2 = true;
+	secplane2 = true;
+	secjumper = true;
+
+
+	secgreencowboymedium = true;
+	secIndianMedium = true;
+	secGreenCowBoyLeavingTheHouse = true;
 	win = false;
 	graphics = App->textures->Load("Images/level2.png");
 	timestart = SDL_GetTicks();
@@ -66,7 +138,7 @@ bool ModuleLevel2::Start()
 	App->particles->Enable();
 	App->scope->Enable();
 	App->front->Enable();
-	
+	App->mid->Enable();
 	App->building->Enable();
 	App->building2->Enable();
 
@@ -122,7 +194,7 @@ update_status ModuleLevel2::Update()
 	App->ui->Update();
 	
 	
-	if (App->building->yellowalive == false && App->building->purplealive == false && SDL_GetTicks() >= timestart + 10000 && ole11==true ){
+	if (App->building->yellowalive == false && App->building->purplealive == false && (SDL_GetTicks() >= timestart + 10000) && ole11==true ){
 		App->mid->AddEnemy(ENEMY_TYPES3::FARGREEN, 230, 70);
 		App->mid->AddEnemy(ENEMY_TYPES3::FARGREEN2, 0, 70);
 		ole11 = false;
@@ -166,7 +238,7 @@ update_status ModuleLevel2::Update()
 		App->front->AddEnemy(ENEMY_TYPES2::GREENLEAVINGCOWBOY, 215, 90);	
 		ole3 = false;
 	}
-	else if (SDL_GetTicks() >= timestart + 13750 && ole3 == true && App->building->yellowalive == false){
+	if (SDL_GetTicks() >= timestart + 13750 && ole3 == true && App->building->yellowalive == false){
 		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYJUMPERLEFT, 215, 80);
 		ole3 = false;
 	}
@@ -175,14 +247,14 @@ update_status ModuleLevel2::Update()
 		
 		ole4 = false;
 	}
-<<<<<<< HEAD
+//<<<<<<< HEAD
 	
-=======
+//=======
 	else if (SDL_GetTicks() >= timestart + 14000 && ole4 == true && App->building->yellowalive == false){
 		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYJUMPERRIGTH, 225, 80);
 		ole4 = false;
 	}
->>>>>>> origin/master
+//>>>>>>> origin/master
 
 	//////////////// cowboy from right house dist 3 
 
@@ -462,6 +534,20 @@ update_status ModuleLevel2::Update()
 
 	if (SDL_GetTicks() >= timestart + 78400){
 		timestart = SDL_GetTicks();
+		greencowboymedium = true;
+		ole1 = true;
+		ole1b = true;
+		ole1c = true;
+		ole2 = true;
+		ole3 = true;
+		ole4 = true;
+		ole4b = true;
+		ole5 = true;
+		ole6 = true;
+		ole7 = true;
+		ole8 = true;
+		ole9 = true;
+		ole10 = true;
 		ole1 = true;
 		ole1b = true;
 		ole1c = true;
@@ -478,6 +564,10 @@ update_status ModuleLevel2::Update()
 		ole9b = true;
 		ole9c = true;
 		ole10 = true;
+		ole11 = true;
+		ole12 = true;
+		ole13 = true;
+		ole14 = true;
 
 		extra = true;
 		plane = true;
@@ -499,19 +589,19 @@ update_status ModuleLevel2::Update()
 
 		/////////////////// 2nd Wave
 
-		 secole1 = true;
-		 secole1b = true;
-		 secole1c = true;
-		 secole2 = true;
-		 secole3 = true;
-		 secole4 = true;
-		 secole4b = true;
-		 secole5 = true;
-		 secole6 = true;
-		 secole7 = true;
-		 secole8 = true;
-		 secole8b = true;
-		 secole9 = true;
+		secole1 = true;
+		secole1b = true;
+		secole1c = true;
+		secole2 = true;
+		secole3 = true;
+		secole4 = true;
+		secole4b = true;
+		secole5 = true;
+		secole6 = true;
+		secole7 = true;
+		secole8 = true;
+		secole8b = true;
+		secole9 = true;
 		secole9b = true;
 		secole9c = true;
 		secole10 = true;
@@ -524,7 +614,7 @@ update_status ModuleLevel2::Update()
 		secbluecowboyc = true;
 		secbluecowboyd = true;
 		secbuildings = true;
-		 secgreen2 = true;
+		secgreen2 = true;
 		secplane2 = true;
 		secjumper = true;
 
