@@ -73,6 +73,7 @@ bool ModuleLevel2::Start()
 	ole10 = true;
 	ole11 = true;
 	ole12 = true;
+	ole12b = true;
 	ole13 = true;
 	ole14 = true;
 
@@ -200,16 +201,34 @@ update_status ModuleLevel2::Update()
 		ole11 = false;
 	}
 	if (App->building->yellowalive == false && App->building->purplealive == false && SDL_GetTicks() >= timestart + 14000 && ole12 == true){
-		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN, 230, 70);
-		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN, 222, 70);
-		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN, 214, 70);
+		
 		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN, 206, 70);
-		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN2, 0, 70);
-		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN2, 8, 70);
-		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN2, 16, 70);
 		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN2, 24, 70);
 		ole12 = false;
 	}
+
+		if (App->building->yellowalive == false && App->building->purplealive == false && SDL_GetTicks() >= timestart + 14060 && ole12b == true){
+			App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN, 214, 70);
+			App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN2, 8, 70);
+
+			ole12b = false;
+	}
+
+		if (App->building->yellowalive == false && App->building->purplealive == false && SDL_GetTicks() >= timestart + 14120 && ole12c == true){			
+			App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN, 222, 70);
+			App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN2, 16, 70);
+
+
+			ole12c = false;
+		}
+
+		if (App->building->yellowalive == false && App->building->purplealive == false && SDL_GetTicks() >= timestart + 14180 && ole12d == true){
+			App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN, 230, 70);
+			App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN2, 0, 70);
+
+
+			ole12d = false;
+		}
 	//////////////// 5 cowboys from left dist 2 first wave
 	if (SDL_GetTicks() >= timestart + 6000 && ole1 == true){
 		App->mid->AddEnemy(ENEMY_TYPES3::GREENCOWBOYMEDIUM, -15, 80);
@@ -299,16 +318,34 @@ update_status ModuleLevel2::Update()
 		App->mid->AddEnemy(ENEMY_TYPES3::FARGREEN2, 0, 70);
 		ole13 = false;
 	}
-	if (App->building->yellowalive == false && App->building->purplealive == false && SDL_GetTicks() >= timestart + 34000 && ole14 == true){
-		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN, 230, 70);
-		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN, 222, 70);
-		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN, 214, 70);
+	if (App->building->yellowalive == false && App->building->purplealive == false && SDL_GetTicks() >= timestart + 32000 && ole14 == true){
+
 		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN, 206, 70);
-		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN2, 0, 70);
-		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN2, 8, 70);
-		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN2, 16, 70);
 		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN2, 24, 70);
 		ole14 = false;
+	}
+
+	if (App->building->yellowalive == false && App->building->purplealive == false && SDL_GetTicks() >= timestart + 32060 && ole14b == true){
+		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN, 214, 70);
+		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN2, 8, 70);
+
+		ole14b = false;
+	}
+
+	if (App->building->yellowalive == false && App->building->purplealive == false && SDL_GetTicks() >= timestart + 32120 && ole14c == true){
+		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN, 222, 70);
+		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN2, 16, 70);
+
+
+		ole14c = false;
+	}
+
+	if (App->building->yellowalive == false && App->building->purplealive == false && SDL_GetTicks() >= timestart + 32180 && ole14d == true){
+		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN, 230, 70);
+		App->mid->AddEnemy(ENEMY_TYPES3::FARINDIAN2, 0, 70);
+
+
+		ole14d = false;
 	}
 
 	//////////////// ROLLING BARREL FROM RIGHT TO LEFT
