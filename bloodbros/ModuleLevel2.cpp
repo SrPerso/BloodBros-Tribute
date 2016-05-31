@@ -47,6 +47,16 @@ bool ModuleLevel2::Start()
 	plane = true;
 	jumper = true;
 	greencowboymedium = true;
+	ole1 = true;
+	ole2 = true;
+	ole3 = true;
+	ole4 = true;
+	ole5 = true;
+	ole6 = true;
+	ole7 = true;
+	ole8 = true;
+	ole9 = true;
+	ole10 = true;
 	graphics = App->textures->Load("Images/level2.png");
 	timestart = SDL_GetTicks();
 	

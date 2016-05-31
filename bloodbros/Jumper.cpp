@@ -40,7 +40,7 @@ Jumper::Jumper(int x, int y) : Enemy(x, y)
 	dead.speed = 0.16f;
 	dead.loop = false;
 
-	collider = App->collision->AddCollider({ 5, 15, 30, 40 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 5, 15, 30, 40 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->front);
 
 	original_pos.x = x;
 	original_pos.y = y;
