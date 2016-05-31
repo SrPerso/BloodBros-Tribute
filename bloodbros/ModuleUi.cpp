@@ -13,6 +13,8 @@
 #include "ModuleText.h"
 #include "ModuleLevel2.h"
 #include "ModuleEnemies.h"
+#include "ModuleEnemiesFront.h"
+#include "ModuleEnemiesMid.h"
 #include <stdio.h>
 
 ModuleUI::ModuleUI()
@@ -114,79 +116,79 @@ update_status ModuleUI::Update()
 
 	//FOE BAR
 	if (App->level2->IsEnabled() == true){
-		if (App->enemies->hits > 0){
+		if (App->enemies->hits + App->front->hits + App->mid->hits < 48){
 			App->render->Blit(UserInterface, 62, 206, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
 			App->render->Blit(UserInterface, 62, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
-		if (App->enemies->hits >= 1){
+		if (App->enemies->hits + App->front->hits + App->mid->hits <= 44){
 			App->render->Blit(UserInterface, 66, 206, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
 			App->render->Blit(UserInterface, 66, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
-		if (App->enemies->hits >= 2){
+		if (App->enemies->hits + App->front->hits + App->mid->hits <= 40){
 			App->render->Blit(UserInterface, 70, 206, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
 			App->render->Blit(UserInterface, 70, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
-		if (App->enemies->hits >= 3){
+		if (App->enemies->hits + App->front->hits + App->mid->hits <= 36){
 			App->render->Blit(UserInterface, 74, 206, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
 			App->render->Blit(UserInterface, 74, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
-		if (App->enemies->hits >= 4){
+		if (App->enemies->hits + App->front->hits + App->mid->hits <= 32){
 			App->render->Blit(UserInterface, 78, 206, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
 			App->render->Blit(UserInterface, 78, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
-		if (App->enemies->hits >= 5){
+		if (App->enemies->hits + App->front->hits + App->mid->hits <= 28){
 			App->render->Blit(UserInterface, 82, 206, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
 			App->render->Blit(UserInterface, 82, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
-		if (App->enemies->hits >= 6){
+		if (App->enemies->hits + App->front->hits + App->mid->hits <= 24){
 			App->render->Blit(UserInterface, 86, 206, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
 			App->render->Blit(UserInterface, 86, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
-		if (App->enemies->hits >= 7){
+		if (App->enemies->hits + App->front->hits + App->mid->hits <= 20){
 			App->render->Blit(UserInterface, 90, 206, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
 			App->render->Blit(UserInterface, 90, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
-		if (App->enemies->hits >= 8){
+		if (App->enemies->hits + App->front->hits + App->mid->hits <= 16){
 			App->render->Blit(UserInterface, 94, 206, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
 			App->render->Blit(UserInterface, 94, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
-		if (App->enemies->hits >= 9){
+		if (App->enemies->hits + App->front->hits + App->mid->hits <= 12){
 			App->render->Blit(UserInterface, 98, 206, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
 			App->render->Blit(UserInterface, 98, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
-		if (App->enemies->hits >= 10){
+		if (App->enemies->hits + App->front->hits + App->mid->hits <= 8){
 			App->render->Blit(UserInterface, 102, 206, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
 			App->render->Blit(UserInterface, 102, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
-		if (App->enemies->hits >= 11){
+		if (App->enemies->hits + App->front->hits + App->mid->hits <= 4){
 			App->render->Blit(UserInterface, 106, 206, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
 			App->render->Blit(UserInterface, 106, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
-		if (App->enemies->hits >= 12){
+		if (App->enemies->hits + App->front->hits + App->mid->hits <= 0){
 			App->render->Blit(UserInterface, 110, 206, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{

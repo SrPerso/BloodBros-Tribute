@@ -57,6 +57,7 @@ bool ModuleLevel2::Start()
 	ole8 = true;
 	ole9 = true;
 	ole10 = true;
+	win = false;
 	graphics = App->textures->Load("Images/level2.png");
 	timestart = SDL_GetTicks();
 	
@@ -73,7 +74,6 @@ bool ModuleLevel2::Start()
 	App->collision->Enable();
 	App->extra->Enable();
 	App->collision->AddCollider({ 0, 200, 256, 46 }, COLLIDER_WALL, this);
-	App->enemies->hits = 12;
 	App->building->AddBuilding(App->building->trees, -25, 30);
 	App->building->AddBuilding(App->building->trees, 15, 30);
 	App->building->AddBuilding(App->building->trees, 55, 30);
@@ -494,11 +494,11 @@ update_status ModuleLevel2::Update()
 		App->fade->FadeToBlack(App->level2, App->victoryscreen, 2);
 	}
 	//WIN CONDITION
-	if (App->enemies->hits == 0){
+	if (App->enemies->hits+App->front->hits+App->mid->hits == 48 && win==false){
+		win = true;
 		App->player->current_animation = &(App->player->dance);
 		App->player->status = WIN;
 		App->audio->Load("Music/victory.ogg");
-		App->enemies->hits = -1;
 	
 	}
 

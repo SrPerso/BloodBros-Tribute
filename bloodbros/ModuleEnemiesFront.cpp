@@ -40,7 +40,7 @@ bool ModuleEnemiesFront::Start()
 {
 
 	sprites = App->textures->Load("Images/Enemies.png");
-
+	hits = 0;
 
 
 	return true;
@@ -185,7 +185,7 @@ void ModuleEnemiesFront::OnCollision(Collider* c1, Collider* c2)
 		{
 			if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 			{
-				hits--;
+				hits++;
 				enemies[i]->OnCollision(c1, c2);
 				//delete enemies[i];
 				//enemies[i] = nullptr;

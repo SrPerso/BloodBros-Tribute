@@ -309,7 +309,7 @@ void ModuleExtra::OnCollision(Collider* c1, Collider* c2)
 			App->particles->AddParticle(App->particles->shotgun, active[i]->position.x, active[i]->position.y, 0.0f, 1.3f, COLLIDER_POWERUP, 0);
 			break;
 		}
-		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->type == ZEPE){
+		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->type == ZEPE && active[i]->hits<=3){
 			App->render->Blit(graphics, active[i]->position.x, active[i]->position.y, &active[i]->hit.frames[0]);
 			active[i]->hits++;
 			
