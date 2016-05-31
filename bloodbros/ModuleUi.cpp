@@ -95,7 +95,7 @@ update_status ModuleUI::Update()
 		App->render->Blit(UserInterface, 90, 15, &(stage.GetCurrentFrame()), 0.0);
 	}
 	if (App->player->IsEnabled() == true){
-		App->render->Blit(UserInterface, 30, 207, &(foe.GetCurrentFrame()), 0.0);
+		App->render->Blit(UserInterface, 30, 206, &(foe.GetCurrentFrame()), 0.0);
 		App->render->Blit(UserInterface, 0, 185, &(dynamite_image.GetCurrentFrame()), 0.0);
 		if (App->player->hp == 3){
 			App->render->Blit(UserInterface, 9, 209, &(ball.GetCurrentFrame()), 0.0);
@@ -117,82 +117,82 @@ update_status ModuleUI::Update()
 	//FOE BAR
 	if (App->level2->IsEnabled() == true){
 		if (App->enemies->hits + App->front->hits + App->mid->hits < 48){
-			App->render->Blit(UserInterface, 62, 206, &(foe_bar.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 62, 205, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
-			App->render->Blit(UserInterface, 62, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 62, 205, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
 		if (App->enemies->hits + App->front->hits + App->mid->hits <= 44){
-			App->render->Blit(UserInterface, 66, 206, &(foe_bar.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 66, 205, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
-			App->render->Blit(UserInterface, 66, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 66, 205, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
 		if (App->enemies->hits + App->front->hits + App->mid->hits <= 40){
-			App->render->Blit(UserInterface, 70, 206, &(foe_bar.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 70, 205, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
-			App->render->Blit(UserInterface, 70, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 70, 205, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
 		if (App->enemies->hits + App->front->hits + App->mid->hits <= 36){
-			App->render->Blit(UserInterface, 74, 206, &(foe_bar.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 74, 205, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
-			App->render->Blit(UserInterface, 74, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 74, 205, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
 		if (App->enemies->hits + App->front->hits + App->mid->hits <= 32){
-			App->render->Blit(UserInterface, 78, 206, &(foe_bar.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 78, 205, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
-			App->render->Blit(UserInterface, 78, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 78, 205, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
 		if (App->enemies->hits + App->front->hits + App->mid->hits <= 28){
-			App->render->Blit(UserInterface, 82, 206, &(foe_bar.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 82, 205, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
-			App->render->Blit(UserInterface, 82, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 82, 205, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
 		if (App->enemies->hits + App->front->hits + App->mid->hits <= 24){
-			App->render->Blit(UserInterface, 86, 206, &(foe_bar.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 86, 205, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
-			App->render->Blit(UserInterface, 86, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 86, 205, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
 		if (App->enemies->hits + App->front->hits + App->mid->hits <= 20){
-			App->render->Blit(UserInterface, 90, 206, &(foe_bar.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 90, 205, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
-			App->render->Blit(UserInterface, 90, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 90, 205, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
 		if (App->enemies->hits + App->front->hits + App->mid->hits <= 16){
-			App->render->Blit(UserInterface, 94, 206, &(foe_bar.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 94, 205, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
-			App->render->Blit(UserInterface, 94, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 94, 205, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
 		if (App->enemies->hits + App->front->hits + App->mid->hits <= 12){
-			App->render->Blit(UserInterface, 98, 206, &(foe_bar.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 98, 205, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
-			App->render->Blit(UserInterface, 98, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 98, 205, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
 		if (App->enemies->hits + App->front->hits + App->mid->hits <= 8){
-			App->render->Blit(UserInterface, 102, 206, &(foe_bar.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 102, 205, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
-			App->render->Blit(UserInterface, 102, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 102, 205, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
 		if (App->enemies->hits + App->front->hits + App->mid->hits <= 4){
-			App->render->Blit(UserInterface, 106, 206, &(foe_bar.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 106, 205, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
-			App->render->Blit(UserInterface, 106, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 106, 205, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
 		if (App->enemies->hits + App->front->hits + App->mid->hits <= 0){
-			App->render->Blit(UserInterface, 110, 206, &(foe_bar.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 110, 205, &(foe_bar.GetCurrentFrame()), 0.0);
 		}
 		else{
-			App->render->Blit(UserInterface, 110, 206, &(foe_bar_white.GetCurrentFrame()), 0.0);
+			App->render->Blit(UserInterface, 110, 205, &(foe_bar_white.GetCurrentFrame()), 0.0);
 		}
 	}
 	

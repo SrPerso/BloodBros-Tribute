@@ -74,8 +74,13 @@ bool ModuleLevel2::Start()
 	ole11 = true;
 	ole12 = true;
 	ole12b = true;
+	ole12c = true;
+	ole12d = true;
 	ole13 = true;
 	ole14 = true;
+	ole14b = true;
+	ole14c = true;
+	ole14d = true;
 
 	extra = true;
 	plane = true;
@@ -603,8 +608,14 @@ update_status ModuleLevel2::Update()
 		ole10 = true;
 		ole11 = true;
 		ole12 = true;
+		ole12b = true;
+		ole12c = true;
+		ole12d = true;
 		ole13 = true;
 		ole14 = true;
+		ole14b = true;
+		ole14c = true;
+		ole14d = true;
 
 		extra = true;
 		plane = true;
@@ -721,13 +732,6 @@ update_status ModuleLevel2::Update()
 	{
 		App->enemies->AddEnemy(ENEMY_TYPES::INDIANLAST, 0, 80);
 		App->enemies->AddEnemy(ENEMY_TYPES::INDIANLAST2, 170, 80);
-	}
-
-
-	// TODO 3: make so pressing SPACE the KEN stage is loaded
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
-	{
-		App->fade->FadeToBlack(App->level2, App->victoryscreen, 2);
 	}
 	return UPDATE_CONTINUE;
 }
