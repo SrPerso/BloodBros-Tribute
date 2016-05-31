@@ -179,8 +179,17 @@ update_status ModuleExtra::Update()
 			else if (p->type == CASK2){
 				App->render->Blit(graphics, p->position.x, p->position.y, &p->anim.GetCurrentFrame());
 			}
-			else if (p->type == ZEPE)
+			else if (p->type == ZEPE && p->hits < 3){
 				App->render->Blit(graphics, p->position.x, p->position.y, &p->anim.GetCurrentFrame());
+			}
+			else if (p->type == ZEPE && p->hits == 3){
+				App->particles->AddParticle(App->particles->bigexplosion, p->position.x, p->position.y, 0);
+				App->particles->AddParticle(App->particles->bigexplosion, p->position.x+40, p->position.y, 0);
+				App->particles->AddParticle(App->particles->bigexplosion, p->position.x+80, p->position.y, 0);
+				p->hits++;
+				p->collider->to_delete = true;
+				p->collider = nullptr;
+			}
 			else if (p->type == GUITAR){
 				App->render->Blit(graphics, p->position.x, p->position.y, &p->anim.GetCurrentFrame());
 			}
@@ -244,7 +253,7 @@ Extra::Extra()
 
 Extra::Extra(const Extra& p) :
 anim(p.anim), position(p.position), speed(p.speed),
-fx(p.fx), born(p.born), life(p.life), type(p.type)
+fx(p.fx), born(p.born), life(p.life), type(p.type), hit(p.hit), hits(p.hits)
 {}
 
 Extra::~Extra(){
@@ -304,6 +313,7 @@ void ModuleExtra::OnCollision(Collider* c1, Collider* c2)
 		}
 		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->type == ZEPE){
 			App->render->Blit(graphics, active[i]->position.x, active[i]->position.y, &active[i]->hit.frames[0]);
+			active[i]->hits++;
 			
 		}
 		if (active[i] != nullptr && active[i]->get_collider() == c1 && active[i]->type == CASK){

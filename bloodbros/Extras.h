@@ -25,7 +25,7 @@ struct Extra
 	Uint32 life = 0;
 	bool fx_played = false;
 	Collider* collider=nullptr;
-	
+	uint hits=0;
 
 	Extra();
 	Extra(const Extra& p);
