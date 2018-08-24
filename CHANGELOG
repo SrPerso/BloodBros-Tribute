@@ -1,0 +1,43 @@
+V1.0 Gold Release 
+
+This update adds all final enemies and correct spawning,fixes a lot of bugs with drops, colliders and animations.
+
+https://github.com/SrPerso/VictoriousSecret/releases/tag/v1.0
+
+V1.0 Beta Release 
+
+This update add 10 new enemies, 4 new extras, points drops, shootgun drop and dinamite drop add the new hud with score.This update add good mode and some dev tools with F.. Keys. Sound FX improved. Main Player improved. some polish and bugs fixed
+https://github.com/SrPerso/VictoriousSecret/releases/tag/v1.0b0.1
+
+V0.5 Release Enemuies & extras 
+
+This update add 3 new enemies, 2 new extras pjs and the trees.Added animations to the enemies and the buldings. Fixed some bugs.
+
+https://github.com/SrPerso/VictoriousSecret/releases/tag/v0.6
+
+V0.5 Release Prototype
+
+In this first prototype all the core mechanics of gameplay are included, you can win or lose, shooting and rolling are fully implemented and you have 3 types of enemies.
+
+https://github.com/SrPerso/VictoriousSecret/releases/tag/v0.5
+
+V 0.40 Pre-Release - First collider Update    
+ 
+This update makes that the player can go out of the screen with the PJ,The Scope have a collider and it cant go out of the screen.
+
+https://github.com/SrPerso/VictoriousSecret/releases/tag/v0.4
+
+V 0.30 Pre-Release - First mov Update
+This update allows to the player to move through the stage and shoot (the player only shoots in one way and cant interact with the stage. Spawn manually one or more pigs that will run through the stage is also posible.
+
+https://github.com/SrPerso/VictoriousSecret/releases/tag/v0.3
+
+V 0.20 Pre-Release - Scenes Update.	       
+This update allows change the screen with the SpaceBar, its posible to through the different first levels/screens. Audio is ON.
+					
+https://github.com/SrPerso/VictoriousSecret/releases/tag/v0.2
+
+
+V 0.05 Pre-Release - Window Update. 	       
+This update open the window and print the first lvl background. Game Audio work in progress.
+
