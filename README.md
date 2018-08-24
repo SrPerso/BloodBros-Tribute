@@ -1,6 +1,4 @@
-
-
-	##BLOOD BROS TRIBUTE
+# BLOOD BROS TRIBUTE
 
 Blood Bros. is a 1990 arcade shooting game where the player or players take control of a cowboy (player 1)
 or and Indian (player 2) and have to shoot their way through 20 different levels filled with different
@@ -8,10 +6,9 @@ kinds of enemies, ranging from outlaws to trains to even giant birds who spit fi
 of defeating Big Bad John.
 	
                                                                           
-	##WHO WE ARE..                                                    
+## WHO WE ARE..                                                    
                                                                         
- - Team Victorious Secret                                         
-                                                                             
+ - Team Victorious Secret                                                    
 
 - Esteban Marín
 [![GitHub issues](https://img.shields.io/badge/Github-ArtDesign-yellowgreen.svg)](https://github.com/estebanmi) 
@@ -26,7 +23,8 @@ of defeating Big Bad John.
 [![GitHub issues](https://img.shields.io/badge/Github-CODE-yellowgreen.svg)](https://github.com/marcsamper)
  
 	
-	##CONTROLS
+## CONTROLS
+
 UP    -	 Up the scope
 DOWN  -  Down the scope
 LEFT  -	 Left the scope
@@ -35,8 +33,7 @@ P     -	 Pig spawn
 SPACE -	 Change Screen
 
 
-	 ##WHATS HAPPEN IN VICTORIOUS SECRET..?
-
+## WHATS HAPPEN IN VICTORIOUS SECRET..?
 
 This tribute is in development     
                                                                    
@@ -44,56 +41,55 @@ This tribute is in development
  Current Version in dev: V1.0          
  Web Page: https://github.com/SrPerso/VictoriousSecret/wiki
 
-       ## CHANGELOG
-
+## CHANGELOG
 	
-V 0.05 Pre-Release - Window Update. 	       This update open the window and print the first lvl background. Game
-					       Audio work in progress.
+V 0.05 Pre-Release - Window Update. 	       
+This update open the window and print the first lvl background. Game Audio work in progress.
 
-V 0.20 Pre-Release - Scenes Update.	       This update allows change the screen with the SpaceBar, its posible 
-					       to through the different first levels/screens. Audio is ON.
+V 0.20 Pre-Release - Scenes Update.	       
+This update allows change the screen with the SpaceBar, its posible to through the different first levels/screens. Audio is ON.
 					
-					       https://github.com/SrPerso/VictoriousSecret/releases/tag/v0.2
+https://github.com/SrPerso/VictoriousSecret/releases/tag/v0.2
 
-V 0.30 Pre-Release - First mov Update          This update allows to the player to move through the stage and shoot
-					       (the player only shoots in one way and cant interact with the stage.
-					       Spawn manually one or more pigs that will run through 
-					       the stage is also posible.
+V 0.30 Pre-Release - First mov Update
+This update allows to the player to move through the stage and shoot
+(the player only shoots in one way and cant interact with the stage.
+Spawn manually one or more pigs that will run through the stage is also posible.
 
-					       https://github.com/SrPerso/VictoriousSecret/releases/tag/v0.3
+https://github.com/SrPerso/VictoriousSecret/releases/tag/v0.3
 
-V 0.40 Pre-Release - First collider Update     This update makes that the player can go out of the screen with the PJ,
-                                               The Scope have a collider and it cant go out of the screen.
+V 0.40 Pre-Release - First collider Update    
+ 
+This update makes that the player can go out of the screen with the PJ,
+The Scope have a collider and it cant go out of the screen.
 
-					       https://github.com/SrPerso/VictoriousSecret/releases/tag/v0.4
+https://github.com/SrPerso/VictoriousSecret/releases/tag/v0.4
+		
 
-					
+## GENERAL INFO
 
-       ##GENERAL INFO
+Releases:
+https://github.com/SrPerso/VictoriousSecret/releases
 
+Wiki:
+https://github.com/SrPerso/VictoriousSecret/wiki
 
-	Releases:
-		https://github.com/SrPerso/VictoriousSecret/releases
-
-	Wiki:
-		https://github.com/SrPerso/VictoriousSecret/wiki
-
-	Victorious github:
-		https://github.com/SrPerso/VictoriousSecret
+Victorious github:
+https://github.com/SrPerso/VictoriousSecret
 	
-	Blood Bros Github:
-		https://github.com/SrPerso/VictoriousSecret/tree/master/bloodbros
+Blood Bros Github:
+https://github.com/SrPerso/VictoriousSecret/tree/master/bloodbros
 
-	Trello:
-		https://trello.com/b/gWuYRdyK/victorioussecret
+Trello:
+https://trello.com/b/gWuYRdyK/victorioussecret
 	                                                                                              
-	developers githubs:                                                                               
-			https://github.com/adriancl1                                                
-			https://github.com/estebanmi                                              
-			https://github.com/SrPerso                                                
-			https://github.com/marcsamper                                                                                                       
+developers githubs:                                                                               
+https://github.com/adriancl1                                                
+https://github.com/estebanmi                                              
+https://github.com/SrPerso                                                
+https://github.com/marcsamper                                                                                                       
 
-	##MIT License
+## MIT License
 
 Copyright (c) 2018 TempName0
 
