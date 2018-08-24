@@ -41,31 +41,6 @@ This tribute is in development
  Current Version in dev: V1.0          
  Web Page: https://github.com/SrPerso/VictoriousSecret/wiki
 
-## CHANGELOG
-	
-V 0.05 Pre-Release - Window Update. 	       
-This update open the window and print the first lvl background. Game Audio work in progress.
-
-V 0.20 Pre-Release - Scenes Update.	       
-This update allows change the screen with the SpaceBar, its posible to through the different first levels/screens. Audio is ON.
-					
-https://github.com/SrPerso/VictoriousSecret/releases/tag/v0.2
-
-V 0.30 Pre-Release - First mov Update
-This update allows to the player to move through the stage and shoot
-(the player only shoots in one way and cant interact with the stage.
-Spawn manually one or more pigs that will run through the stage is also posible.
-
-https://github.com/SrPerso/VictoriousSecret/releases/tag/v0.3
-
-V 0.40 Pre-Release - First collider Update    
- 
-This update makes that the player can go out of the screen with the PJ,
-The Scope have a collider and it cant go out of the screen.
-
-https://github.com/SrPerso/VictoriousSecret/releases/tag/v0.4
-		
-
 ## GENERAL INFO
 
 Releases:
